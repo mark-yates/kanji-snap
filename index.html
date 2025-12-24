@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kanji Quiz (Grade 1) – Random MCQ</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0b1220">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2e;
+      --muted:#a8b3cf;
+      --text:#e9eefc;
+      --border:rgba(233,238,252,.14);
+      --good:#22c55e;
+      --bad:#ef4444;
+      --focus:#60a5fa;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(96,165,250,.18), transparent 55%),
+                  radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.12), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      display:flex; align-items:center; justify-content:center;
+      padding:18px;
+    }
+    .wrap{width:min(560px, 100%)}
+    .card{
+      background: linear-gradient(180deg, rgba(17,26,46,.95), rgba(17,26,46,.78));
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      padding:18px;
+    }
+    header{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      margin-bottom:14px;
+    }
+    .title{font-weight:700; letter-spacing:.2px}
+    .sub{color:var(--muted); font-size:12.5px; margin-top:2px}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:8px 10px;
+      background: rgba(11,18,32,.35);
+      font-size:12.5px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .grid{display:grid; gap:12px}
+    .kanji{
+      text-align:center;
+      font-size:92px;
+      line-height:1.05;
+      padding:18px 8px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(11,18,32,.35);
+      user-select:none;
+    }
+    .hint{color:var(--muted); font-size:12.5px; text-align:center; margin-top:-2px}
+    .choices{display:grid; grid-template-columns:1fr; gap:10px; margin-top:8px}
+    button.choice{
+      width:100%;
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(233,238,252,.04);
+      color:var(--text);
+      font-size:18px;
+      font-weight:650;
+      text-align:left;
+      display:flex; justify-content:space-between; gap:12px; align-items:center;
+      cursor:pointer;
+      transition: transform .04s ease, background .12s ease, border-color .12s ease;
+    }
+    button.choice:active{transform: scale(.99)}
+    button.choice:focus-visible{outline:3px solid rgba(96,165,250,.35); outline-offset:2px}
+    .knum{color:var(--muted); font-weight:700; font-size:13px; border:1px solid var(--border); padding:6px 9px; border-radius:999px}
+
+    button.choice.correct{border-color: rgba(34,197,94,.65); background: rgba(34,197,94,.12)}
+    button.choice.wrong{border-color: rgba(239,68,68,.7); background: rgba(239,68,68,.12)}
+
+    .row{display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-top:12px}
+    .status{color:var(--muted); font-size:13px}
+
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      border:1px solid var(--border);
+      background: rgba(233,238,252,.04);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:650;
+    }
+    .btn:focus-visible{outline:3px solid rgba(96,165,250,.35); outline-offset:2px}
+
+    .tiny{font-size:12px; color:var(--muted)}
+    .footer{margin-top:10px; text-align:center}
+    @media (min-width: 520px){
+      .choices{grid-template-columns:1fr 1fr}
+      button.choice{text-align:left}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <div>
+          <div class="title">Kanji Quiz – Grade 1 (80)</div>
+          <div class="sub">Show a kanji → choose the correct reading (ひらがな). Random mode.</div>
+        </div>
+        <div class="pill" id="scorePill">0 correct • 0 wrong</div>
+      </header>
+
+      <div class="grid">
+        <div class="kanji" id="kanji">?</div>
+        <div class="hint" id="hint">Tap an answer. Keys 1–4 also work on desktop.</div>
+
+        <div class="choices" id="choices"></div>
+
+        <div class="row">
+          <div class="status" id="status">Ready.</div>
+          <div class="actions">
+            <button class="btn" id="skipBtn" type="button">Skip</button>
+            <button class="btn" id="resetBtn" type="button">Reset score</button>
+          </div>
+        </div>
+
+        <div class="footer tiny">
+          Data source: MEXT Grade 1 list (80 kanji). Readings here are a single common reading per kanji.
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Register the service worker (enables offline)
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js");
+    });
+  }
+
+  const KANJI = [
+    { k:"一", a:"いち" },{ k:"右", a:"みぎ" },{ k:"雨", a:"あめ" },{ k:"円", a:"えん" },{ k:"王", a:"おう" },
+    { k:"音", a:"おと" },{ k:"下", a:"した" },{ k:"火", a:"ひ" },{ k:"花", a:"はな" },{ k:"貝", a:"かい" },
+    { k:"学", a:"がく" },{ k:"気", a:"き" },{ k:"九", a:"きゅう" },{ k:"休", a:"やすむ" },{ k:"玉", a:"たま" },
+    { k:"金", a:"かね" },{ k:"空", a:"そら" },{ k:"月", a:"つき" },{ k:"犬", a:"いぬ" },{ k:"見", a:"みる" },
+    { k:"五", a:"ご" },{ k:"口", a:"くち" },{ k:"校", a:"こう" },{ k:"左", a:"ひだり" },{ k:"三", a:"さん" },
+    { k:"山", a:"やま" },{ k:"子", a:"こ" },{ k:"四", a:"よん" },{ k:"糸", a:"いと" },{ k:"字", a:"じ" },
+    { k:"耳", a:"みみ" },{ k:"七", a:"なな" },{ k:"車", a:"くるま" },{ k:"手", a:"て" },{ k:"十", a:"じゅう" },
+    { k:"出", a:"でる" },{ k:"女", a:"おんな" },{ k:"小", a:"ちいさい" },{ k:"上", a:"うえ" },{ k:"森", a:"もり" },
+    { k:"人", a:"ひと" },{ k:"水", a:"みず" },{ k:"正", a:"ただしい" },{ k:"生", a:"いきる" },{ k:"青", a:"あお" },
+    { k:"夕", a:"ゆう" },{ k:"石", a:"いし" },{ k:"赤", a:"あか" },{ k:"千", a:"せん" },{ k:"川", a:"かわ" },
+    { k:"先", a:"さき" },{ k:"早", a:"はやい" },{ k:"草", a:"くさ" },{ k:"足", a:"あし" },{ k:"村", a:"むら" },
+    { k:"大", a:"おおきい" },{ k:"男", a:"おとこ" },{ k:"竹", a:"たけ" },{ k:"中", a:"なか" },{ k:"虫", a:"むし" },
+    { k:"町", a:"まち" },{ k:"天", a:"てん" },{ k:"田", a:"た" },{ k:"土", a:"つち" },{ k:"二", a:"に" },
+    { k:"日", a:"ひ" },{ k:"入", a:"はいる" },{ k:"年", a:"とし" },{ k:"白", a:"しろ" },{ k:"八", a:"はち" },
+    { k:"百", a:"ひゃく" },{ k:"文", a:"ぶん" },{ k:"木", a:"き" },{ k:"本", a:"ほん" },{ k:"名", a:"な" },
+    { k:"目", a:"め" },{ k:"立", a:"たつ" },{ k:"力", a:"ちから" },{ k:"林", a:"はやし" },{ k:"六", a:"ろく" },
+  ];
+
+  const elKanji = document.getElementById('kanji');
+  const elChoices = document.getElementById('choices');
+  const elStatus = document.getElementById('status');
+  const elScore = document.getElementById('scorePill');
+  const skipBtn = document.getElementById('skipBtn');
+  const resetBtn = document.getElementById('resetBtn');
+
+  let current = null;
+  let locked = false;
+  let correct = 0;
+  let wrong = 0;
+
+  const rand = (n) => Math.floor(Math.random() * n);
+
+  function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
+      const j = rand(i+1);
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function setScore(){ elScore.textContent = `${correct} correct • ${wrong} wrong`; }
+
+  function pickQuestion(){
+    locked = false;
+    elStatus.textContent = 'Choose the correct reading.';
+    current = KANJI[rand(KANJI.length)];
+    elKanji.textContent = current.k;
+
+    const pool = [...new Set(KANJI.map(x => x.a))].filter(a => a !== current.a);
+    shuffle(pool);
+    const wrongs = pool.slice(0, 3);
+
+    const answers = shuffle([
+      { text: current.a, ok: true },
+      ...wrongs.map(t => ({ text: t, ok: false }))
+    ]);
+
+    elChoices.innerHTML = '';
+    answers.forEach((ans, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice';
+      btn.type = 'button';
+      btn.dataset.ok = ans.ok ? '1' : '0';
+      btn.dataset.text = ans.text;
+      btn.innerHTML = `<span>${ans.text}</span><span class="knum">${idx+1}</span>`;
+      btn.addEventListener('click', () => choose(btn));
+      elChoices.appendChild(btn);
+    });
+  }
+
+  function choose(btn){
+    if(locked) return;
+    locked = true;
+
+    const buttons = [...document.querySelectorAll('button.choice')];
+    buttons.forEach(b => b.disabled = true);
+
+    const isOk = btn.dataset.ok === '1';
+    if(isOk){
+      correct++;
+      btn.classList.add('correct');
+      elStatus.textContent = '✓ せいかい';
+    } else {
+      wrong++;
+      btn.classList.add('wrong');
+      elStatus.textContent = '✗ ちがいます';
+      const right = buttons.find(b => b.dataset.text === current.a);
+      if(right) right.classList.add('correct');
+    }
+
+    setScore();
+    window.setTimeout(pickQuestion, 950);
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if(e.key === ' '){
+      e.preventDefault();
+      if(!locked) pickQuestion();
+      return;
+    }
+    const n = Number(e.key);
+    if(Number.isFinite(n) && n >= 1 && n <= 4){
+      const btn = document.querySelectorAll('button.choice')[n-1];
+      if(btn) btn.click();
+    }
+  });
+
+  skipBtn.addEventListener('click', () => pickQuestion());
+  resetBtn.addEventListener('click', () => { correct = 0; wrong = 0; setScore(); elStatus.textContent = 'Score reset.'; });
+
+  setScore();
+  pickQuestion();
+</script>
+</body>
+</html>
