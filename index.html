@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kanji Quiz (Grade 1) – Random MCQ</title>
+  <title>Kanji Snap</title>
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.webmanifest">
@@ -11,6 +11,13 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <style>
+    /* Kanji font (put your TTF at ./fonts/my-font.ttf) */
+    @font-face{
+      font-family: "KanjiFont";
+      src: url("./fonts/my-font.ttf") format("truetype");
+      font-display: swap;
+    }
+
     :root{
       --bg:#0b1220;
       --card:#111a2e;
@@ -20,34 +27,62 @@
       --good:#22c55e;
       --bad:#ef4444;
       --focus:#60a5fa;
+      --chip:rgba(233,238,252,.06);
     }
     *{box-sizing:border-box}
     body{
       margin:0; min-height:100vh;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 700px at 20% 10%, rgba(96,165,250,.18), transparent 55%),
-                  radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.12), transparent 55%),
-                  var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans";
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(96,165,250,.18), transparent 55%),
+        radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.12), transparent 55%),
+        var(--bg);
       color:var(--text);
       display:flex; align-items:center; justify-content:center;
-      padding:18px;
+      padding:16px;
     }
-    .wrap{width:min(560px, 100%)}
+    .wrap{width:min(640px, 100%)}
     .card{
       background: linear-gradient(180deg, rgba(17,26,46,.95), rgba(17,26,46,.78));
       border:1px solid var(--border);
       border-radius:18px;
       box-shadow: 0 18px 50px rgba(0,0,0,.35);
-      padding:18px;
+      padding:16px;
     }
+
     header{
-      display:flex; gap:12px; align-items:center; justify-content:space-between;
-      margin-bottom:14px;
+      display:flex; gap:12px; align-items:flex-start; justify-content:space-between;
+      margin-bottom:12px;
     }
-    .title{font-weight:700; letter-spacing:.2px}
+    .title{font-weight:800; letter-spacing:.2px}
     .sub{color:var(--muted); font-size:12.5px; margin-top:2px}
+
+    .tabs{
+      display:flex;
+      gap:8px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px;
+      background: rgba(11,18,32,.35);
+      user-select:none;
+    }
+    .tab{
+      appearance:none;
+      border:0;
+      background: transparent;
+      color: var(--muted);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .tab.active{
+      background: rgba(233,238,252,.07);
+      color: var(--text);
+      border:1px solid var(--border);
+    }
+
     .pill{
-      display:inline-flex; gap:8px; align-items:center;
       border:1px solid var(--border);
       border-radius:999px;
       padding:8px 10px;
@@ -55,45 +90,17 @@
       font-size:12.5px;
       color:var(--muted);
       white-space:nowrap;
+      align-self:center;
     }
-    .grid{display:grid; gap:12px}
-    .kanji{
-      text-align:center;
-      font-size:92px;
-      line-height:1.05;
-      padding:18px 8px;
-      border-radius:16px;
-      border:1px solid var(--border);
-      background: rgba(11,18,32,.35);
-      user-select:none;
-    }
-    .hint{color:var(--muted); font-size:12.5px; text-align:center; margin-top:-2px}
-    .choices{display:grid; grid-template-columns:1fr; gap:10px; margin-top:8px}
-    button.choice{
-      width:100%;
-      padding:14px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(233,238,252,.04);
-      color:var(--text);
-      font-size:18px;
-      font-weight:650;
-      text-align:left;
-      display:flex; justify-content:space-between; gap:12px; align-items:center;
-      cursor:pointer;
-      transition: transform .04s ease, background .12s ease, border-color .12s ease;
-    }
-    button.choice:active{transform: scale(.99)}
-    button.choice:focus-visible{outline:3px solid rgba(96,165,250,.35); outline-offset:2px}
-    .knum{color:var(--muted); font-weight:700; font-size:13px; border:1px solid var(--border); padding:6px 9px; border-radius:999px}
 
-    button.choice.correct{border-color: rgba(34,197,94,.65); background: rgba(34,197,94,.12)}
-    button.choice.wrong{border-color: rgba(239,68,68,.7); background: rgba(239,68,68,.12)}
+    .view{display:none}
+    .view.active{display:block}
 
-    .row{display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-top:12px}
-    .status{color:var(--muted); font-size:13px}
+    .sectionTitle{font-weight:800; margin:8px 0 6px 0}
+    .row{display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    .muted{color:var(--muted); font-size:13px}
+    .tiny{color:var(--muted); font-size:12px}
 
-    .actions{display:flex; gap:10px; flex-wrap:wrap}
     .btn{
       border:1px solid var(--border);
       background: rgba(233,238,252,.04);
@@ -101,15 +108,164 @@
       padding:10px 12px;
       border-radius:12px;
       cursor:pointer;
-      font-weight:650;
+      font-weight:800;
     }
     .btn:focus-visible{outline:3px solid rgba(96,165,250,.35); outline-offset:2px}
+    .btn.primary{
+      background: rgba(96,165,250,.14);
+      border-color: rgba(96,165,250,.35);
+    }
 
-    .tiny{font-size:12px; color:var(--muted)}
-    .footer{margin-top:10px; text-align:center}
-    @media (min-width: 520px){
-      .choices{grid-template-columns:1fr 1fr}
-      button.choice{text-align:left}
+    /* Home game buttons */
+    .games{display:grid; gap:10px; margin-top:8px}
+    .gameBtn{
+      width:100%;
+      text-align:left;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(233,238,252,.04);
+      color:var(--text);
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+    .gameBtn strong{display:block}
+    .gameBtn span{display:block; color:var(--muted); font-size:12.5px; margin-top:2px}
+    .gameBtn:active{transform: scale(.995)}
+
+    /* Settings */
+    .settingsCard{
+      border:1px solid var(--border);
+      background: rgba(11,18,32,.25);
+      border-radius:16px;
+      padding:12px;
+      margin-top:10px;
+    }
+    .checks{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+    label.check{
+      display:flex; gap:8px; align-items:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: var(--chip);
+      cursor:pointer;
+      user-select:none;
+      font-weight:800;
+    }
+    input[type="checkbox"]{
+      width:18px; height:18px;
+      accent-color: var(--focus);
+    }
+    .disabledNote{
+      margin-top:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px dashed rgba(233,238,252,.22);
+      background: rgba(233,238,252,.03);
+      color: var(--muted);
+      font-size:12.5px;
+    }
+
+    /* Game screen */
+    .prompt{
+      border:1px solid var(--border);
+      border-radius:16px;
+      background: rgba(11,18,32,.35);
+      padding:14px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height: 170px;
+      margin-top:10px;
+    }
+    .kanjiText{
+      font-family: "KanjiFont", system-ui, sans-serif;
+      font-size:92px;
+      line-height:1;
+      user-select:none;
+    }
+
+    .choices{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+
+    /* Answer tile button */
+    button.choice{
+      border:1px solid var(--border);
+      background: rgba(233,238,252,.04);
+      color:var(--text);
+      border-radius:16px;
+      padding:12px;
+      min-height: 140px;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
+    }
+    button.choice:disabled{cursor:default; opacity:1}
+    button.choice.correct{border-color: rgba(34,197,94,.65); background: rgba(34,197,94,.12)}
+    button.choice.wrong{border-color: rgba(239,68,68,.7); background: rgba(239,68,68,.12)}
+
+    .badge{
+      position:absolute;
+      top:8px; right:8px;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--border);
+      background: rgba(11,18,32,.45);
+      border-radius:999px;
+      padding:5px 8px;
+      z-index:2;
+    }
+
+    /* Meaning image */
+    .meaningImg{
+      max-width:100%;
+      max-height:115px;
+      width:auto;
+      height:auto;
+      display:block;
+    }
+
+    /* Fallback tile (hiragana meaning) */
+    .meaningFallback{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:12px;
+      border-radius:12px;
+      background: rgba(233,238,252,.05);
+      border:1px dashed rgba(233,238,252,.22);
+      font-size:22px;
+      font-weight:900;
+      color: var(--text);
+      line-height:1.15;
+    }
+
+    .gameControls{
+      margin-top:12px;
+      display:flex; gap:10px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    }
+
+    .warn{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(239,68,68,.35);
+      background: rgba(239,68,68,.10);
+      color: var(--text);
+      font-size:12.5px;
     }
   </style>
 </head>
@@ -118,74 +274,363 @@
     <div class="card">
       <header>
         <div>
-          <div class="title">Kanji Quiz – Grade 1 (80)</div>
-          <div class="sub">Show a kanji → choose the correct reading (ひらがな). Random mode.</div>
+          <div class="title">Kanji Snap</div>
+          <div class="sub">Multi-game kanji trainer (offline PWA). Meaning images: ./images/meaning/本.png etc.</div>
         </div>
-        <div class="pill" id="scorePill">0 correct • 0 wrong</div>
+
+        <div class="tabs" role="tablist" aria-label="Main tabs">
+          <button class="tab active" id="tabHome" type="button" role="tab" aria-selected="true">Home</button>
+          <button class="tab" id="tabSettings" type="button" role="tab" aria-selected="false">Settings</button>
+          <button class="tab" id="tabGame" type="button" role="tab" aria-selected="false" style="display:none">Game</button>
+        </div>
       </header>
 
-      <div class="grid">
-        <div class="kanji" id="kanji">?</div>
-        <div class="hint" id="hint">Tap an answer. Keys 1–4 also work on desktop.</div>
-
-        <div class="choices" id="choices"></div>
-
+      <!-- HOME -->
+      <section class="view active" id="viewHome" aria-labelledby="tabHome">
         <div class="row">
-          <div class="status" id="status">Ready.</div>
-          <div class="actions">
-            <button class="btn" id="skipBtn" type="button">Skip</button>
-            <button class="btn" id="resetBtn" type="button">Reset score</button>
+          <div class="pill" id="activePill">Active: …</div>
+          <button class="btn" id="goSettingsBtn" type="button">Open settings</button>
+        </div>
+
+        <div class="sectionTitle">Games</div>
+        <div class="games">
+          <button class="gameBtn" id="startMeaningMCQ" type="button">
+            <div>
+              <strong>Meaning (4-choice)</strong>
+              <span>Show kanji → pick correct meaning image (fallback to hiragana tile if missing).</span>
+            </div>
+            <div class="pill" id="poolCountPill">0 kanji</div>
+          </button>
+
+          <button class="gameBtn" type="button" disabled style="opacity:.6; cursor:not-allowed">
+            <div>
+              <strong>Coming later: other games</strong>
+              <span>More modes, kanji selection, and additional grades.</span>
+            </div>
+            <div class="pill">Soon</div>
+          </button>
+        </div>
+
+        <div class="tiny" style="margin-top:10px">
+          Tip: To add a meaning image for a kanji, upload <code>images/meaning/&lt;KANJI&gt;.png</code>.
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="view" id="viewSettings" aria-labelledby="tabSettings">
+        <div class="row">
+          <div>
+            <div class="sectionTitle">Kanji selection</div>
+            <div class="muted">Choose which grades are included in the active pool.</div>
+          </div>
+          <button class="btn" id="backHomeBtn" type="button">Back</button>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Select by grade</div>
+          <div class="checks">
+            <label class="check"><input id="chkG1" type="checkbox"> Grade 1</label>
+            <label class="check"><input id="chkG2" type="checkbox"> Grade 2</label>
+            <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
+          </div>
+          <div class="disabledNote">
+            Note: right now the app only includes Grade 1 data. Grade 2/3 plumbing is in place; you’ll add the data later.
           </div>
         </div>
 
-        <div class="footer tiny">
-          Data source: MEXT Grade 1 list (80 kanji). Readings here are a single common reading per kanji.
+        <div class="settingsCard">
+          <div class="sectionTitle">Select individually</div>
+          <div class="muted">
+            Coming next: a searchable kanji picker where you can force-include or exclude individual kanji (overriding grade defaults).
+          </div>
         </div>
-      </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Storage</div>
+          <div class="muted">Settings are saved on this device.</div>
+          <div class="row" style="margin-top:10px">
+            <button class="btn" id="resetSettingsBtn" type="button">Reset settings</button>
+            <div class="pill" id="settingsSavedPill">Saved</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GAME -->
+      <section class="view" id="viewGame" aria-labelledby="tabGame">
+        <div class="row">
+          <div>
+            <div class="sectionTitle" id="gameTitle">Game</div>
+            <div class="muted" id="gameSubtitle">…</div>
+          </div>
+          <button class="btn" id="exitGameBtn" type="button">Exit</button>
+        </div>
+
+        <div id="emptyPoolWarn" class="warn" style="display:none">
+          Your active pool is empty. Go to Settings and enable at least one grade.
+        </div>
+
+        <div class="prompt" id="prompt">
+          <div class="kanjiText" id="kanjiPrompt">？</div>
+        </div>
+
+        <div class="choices" id="choices"></div>
+
+        <div class="gameControls">
+          <div class="pill" id="scorePill">0 correct • 0 wrong</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap">
+            <button class="btn" id="skipBtn" type="button">Skip</button>
+            <button class="btn" id="resetScoreBtn" type="button">Reset score</button>
+          </div>
+        </div>
+
+        <div class="tiny" style="margin-top:10px">
+          Keyboard: 1–4 choose; Space = skip (desktop).
+        </div>
+      </section>
     </div>
   </div>
 
 <script>
-  // Register the service worker (enables offline)
+  // --- Offline / SW registration ---
   if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js");
-    });
+    window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
   }
 
-  const KANJI = [
-    { k:"一", a:"いち" },{ k:"右", a:"みぎ" },{ k:"雨", a:"あめ" },{ k:"円", a:"えん" },{ k:"王", a:"おう" },
-    { k:"音", a:"おと" },{ k:"下", a:"した" },{ k:"火", a:"ひ" },{ k:"花", a:"はな" },{ k:"貝", a:"かい" },
-    { k:"学", a:"がく" },{ k:"気", a:"き" },{ k:"九", a:"きゅう" },{ k:"休", a:"やすむ" },{ k:"玉", a:"たま" },
-    { k:"金", a:"かね" },{ k:"空", a:"そら" },{ k:"月", a:"つき" },{ k:"犬", a:"いぬ" },{ k:"見", a:"みる" },
-    { k:"五", a:"ご" },{ k:"口", a:"くち" },{ k:"校", a:"こう" },{ k:"左", a:"ひだり" },{ k:"三", a:"さん" },
-    { k:"山", a:"やま" },{ k:"子", a:"こ" },{ k:"四", a:"よん" },{ k:"糸", a:"いと" },{ k:"字", a:"じ" },
-    { k:"耳", a:"みみ" },{ k:"七", a:"なな" },{ k:"車", a:"くるま" },{ k:"手", a:"て" },{ k:"十", a:"じゅう" },
-    { k:"出", a:"でる" },{ k:"女", a:"おんな" },{ k:"小", a:"ちいさい" },{ k:"上", a:"うえ" },{ k:"森", a:"もり" },
-    { k:"人", a:"ひと" },{ k:"水", a:"みず" },{ k:"正", a:"ただしい" },{ k:"生", a:"いきる" },{ k:"青", a:"あお" },
-    { k:"夕", a:"ゆう" },{ k:"石", a:"いし" },{ k:"赤", a:"あか" },{ k:"千", a:"せん" },{ k:"川", a:"かわ" },
-    { k:"先", a:"さき" },{ k:"早", a:"はやい" },{ k:"草", a:"くさ" },{ k:"足", a:"あし" },{ k:"村", a:"むら" },
-    { k:"大", a:"おおきい" },{ k:"男", a:"おとこ" },{ k:"竹", a:"たけ" },{ k:"中", a:"なか" },{ k:"虫", a:"むし" },
-    { k:"町", a:"まち" },{ k:"天", a:"てん" },{ k:"田", a:"た" },{ k:"土", a:"つち" },{ k:"二", a:"に" },
-    { k:"日", a:"ひ" },{ k:"入", a:"はいる" },{ k:"年", a:"とし" },{ k:"白", a:"しろ" },{ k:"八", a:"はち" },
-    { k:"百", a:"ひゃく" },{ k:"文", a:"ぶん" },{ k:"木", a:"き" },{ k:"本", a:"ほん" },{ k:"名", a:"な" },
-    { k:"目", a:"め" },{ k:"立", a:"たつ" },{ k:"力", a:"ちから" },{ k:"林", a:"はやし" },{ k:"六", a:"ろく" },
+  // --- Meaning image config ---
+  // Your current meaning images are named like "本.png" (kanji filename).
+  const MEANING_IMG_DIR = "./images/meaning/";
+  function meaningImgUrlForKanji(kanjiChar){
+    // Use encodeURIComponent to be safe with Unicode filenames.
+    return MEANING_IMG_DIR + encodeURIComponent(kanjiChar) + ".png";
+  }
+
+  // --- Data (Grade 1 for now; extend later) ---
+  // meaningKey is the hiragana fallback text for the meaning tile.
+  const KANJI_DB = [
+    { id:"一", grade:1, meaningKey:"いち" },
+    { id:"右", grade:1, meaningKey:"みぎ" },
+    { id:"雨", grade:1, meaningKey:"あめ" },
+    { id:"円", grade:1, meaningKey:"えん" },
+    { id:"王", grade:1, meaningKey:"おう" },
+    { id:"音", grade:1, meaningKey:"おと" },
+    { id:"下", grade:1, meaningKey:"した" },
+    { id:"火", grade:1, meaningKey:"ひ" },
+    { id:"花", grade:1, meaningKey:"はな" },
+    { id:"貝", grade:1, meaningKey:"かい" },
+    { id:"学", grade:1, meaningKey:"まなぶ" },
+    { id:"気", grade:1, meaningKey:"き" },
+    { id:"九", grade:1, meaningKey:"きゅう" },
+    { id:"休", grade:1, meaningKey:"やすむ" },
+    { id:"玉", grade:1, meaningKey:"たま" },
+    { id:"金", grade:1, meaningKey:"かね" },
+    { id:"空", grade:1, meaningKey:"そら" },
+    { id:"月", grade:1, meaningKey:"つき" },
+    { id:"犬", grade:1, meaningKey:"いぬ" },
+    { id:"見", grade:1, meaningKey:"みる" },
+    { id:"五", grade:1, meaningKey:"ご" },
+    { id:"口", grade:1, meaningKey:"くち" },
+    { id:"校", grade:1, meaningKey:"がっこう" },
+    { id:"左", grade:1, meaningKey:"ひだり" },
+    { id:"三", grade:1, meaningKey:"さん" },
+    { id:"山", grade:1, meaningKey:"やま" },
+    { id:"子", grade:1, meaningKey:"こ" },
+    { id:"四", grade:1, meaningKey:"よん" },
+    { id:"糸", grade:1, meaningKey:"いと" },
+    { id:"字", grade:1, meaningKey:"じ" },
+    { id:"耳", grade:1, meaningKey:"みみ" },
+    { id:"七", grade:1, meaningKey:"なな" },
+    { id:"車", grade:1, meaningKey:"くるま" },
+    { id:"手", grade:1, meaningKey:"て" },
+    { id:"十", grade:1, meaningKey:"じゅう" },
+    { id:"出", grade:1, meaningKey:"でる" },
+    { id:"女", grade:1, meaningKey:"おんな" },
+    { id:"小", grade:1, meaningKey:"ちいさい" },
+    { id:"上", grade:1, meaningKey:"うえ" },
+    { id:"森", grade:1, meaningKey:"もり" },
+    { id:"人", grade:1, meaningKey:"ひと" },
+    { id:"水", grade:1, meaningKey:"みず" },
+    { id:"正", grade:1, meaningKey:"ただしい" },
+    { id:"生", grade:1, meaningKey:"いきる" },
+    { id:"青", grade:1, meaningKey:"あお" },
+    { id:"夕", grade:1, meaningKey:"ゆう" },
+    { id:"石", grade:1, meaningKey:"いし" },
+    { id:"赤", grade:1, meaningKey:"あか" },
+    { id:"千", grade:1, meaningKey:"せん" },
+    { id:"川", grade:1, meaningKey:"かわ" },
+    { id:"先", grade:1, meaningKey:"さき" },
+    { id:"早", grade:1, meaningKey:"はやい" },
+    { id:"草", grade:1, meaningKey:"くさ" },
+    { id:"足", grade:1, meaningKey:"あし" },
+    { id:"村", grade:1, meaningKey:"むら" },
+    { id:"大", grade:1, meaningKey:"おおきい" },
+    { id:"男", grade:1, meaningKey:"おとこ" },
+    { id:"竹", grade:1, meaningKey:"たけ" },
+    { id:"中", grade:1, meaningKey:"なか" },
+    { id:"虫", grade:1, meaningKey:"むし" },
+    { id:"町", grade:1, meaningKey:"まち" },
+    { id:"天", grade:1, meaningKey:"てん" },
+    { id:"田", grade:1, meaningKey:"た" },
+    { id:"土", grade:1, meaningKey:"つち" },
+    { id:"二", grade:1, meaningKey:"に" },
+    { id:"日", grade:1, meaningKey:"ひ" },
+    { id:"入", grade:1, meaningKey:"はいる" },
+    { id:"年", grade:1, meaningKey:"とし" },
+    { id:"白", grade:1, meaningKey:"しろ" },
+    { id:"八", grade:1, meaningKey:"はち" },
+    { id:"百", grade:1, meaningKey:"ひゃく" },
+    { id:"文", grade:1, meaningKey:"ぶん" },
+    { id:"木", grade:1, meaningKey:"き" },
+    { id:"本", grade:1, meaningKey:"ほん" },
+    { id:"名", grade:1, meaningKey:"なまえ" },
+    { id:"目", grade:1, meaningKey:"め" },
+    { id:"立", grade:1, meaningKey:"たつ" },
+    { id:"力", grade:1, meaningKey:"ちから" },
+    { id:"林", grade:1, meaningKey:"はやし" },
+    { id:"六", grade:1, meaningKey:"ろく" },
   ];
 
-  const elKanji = document.getElementById('kanji');
-  const elChoices = document.getElementById('choices');
-  const elStatus = document.getElementById('status');
-  const elScore = document.getElementById('scorePill');
-  const skipBtn = document.getElementById('skipBtn');
-  const resetBtn = document.getElementById('resetBtn');
+  // --- Settings (grade selection now; individual selection later) ---
+  const SETTINGS_KEY = "kanjiSnap.settings.v1";
+  const DEFAULT_SETTINGS = {
+    enabledGrades: { 1:true, 2:false, 3:false },
+    includeKanji: [],
+    excludeKanji: []
+  };
 
+  function loadSettings(){
+    try{
+      const raw = localStorage.getItem(SETTINGS_KEY);
+      if(!raw) return structuredClone(DEFAULT_SETTINGS);
+      const obj = JSON.parse(raw);
+      obj.enabledGrades = obj.enabledGrades || {1:true,2:false,3:false};
+      obj.includeKanji = obj.includeKanji || [];
+      obj.excludeKanji = obj.excludeKanji || [];
+      if(typeof obj.enabledGrades[1] !== "boolean") obj.enabledGrades[1] = true;
+      if(typeof obj.enabledGrades[2] !== "boolean") obj.enabledGrades[2] = false;
+      if(typeof obj.enabledGrades[3] !== "boolean") obj.enabledGrades[3] = false;
+      return obj;
+    } catch {
+      return structuredClone(DEFAULT_SETTINGS);
+    }
+  }
+  function saveSettings(){
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    flashSaved();
+  }
+
+  let settings = loadSettings();
+
+  function getActivePool(){
+    let pool = KANJI_DB.filter(k => !!settings.enabledGrades[k.grade]);
+    if(settings.excludeKanji?.length){
+      const ex = new Set(settings.excludeKanji);
+      pool = pool.filter(k => !ex.has(k.id));
+    }
+    if(settings.includeKanji?.length){
+      const inc = new Set(settings.includeKanji);
+      const byId = new Map(pool.map(k => [k.id, k]));
+      for(const id of inc){
+        if(byId.has(id)) continue;
+        const found = KANJI_DB.find(k => k.id === id);
+        if(found) pool.push(found);
+      }
+    }
+    return pool;
+  }
+
+  // --- UI refs ---
+  const tabHome = document.getElementById("tabHome");
+  const tabSettings = document.getElementById("tabSettings");
+  const tabGame = document.getElementById("tabGame");
+
+  const viewHome = document.getElementById("viewHome");
+  const viewSettings = document.getElementById("viewSettings");
+  const viewGame = document.getElementById("viewGame");
+
+  const activePill = document.getElementById("activePill");
+  const poolCountPill = document.getElementById("poolCountPill");
+  const goSettingsBtn = document.getElementById("goSettingsBtn");
+  const backHomeBtn = document.getElementById("backHomeBtn");
+
+  const chkG1 = document.getElementById("chkG1");
+  const chkG2 = document.getElementById("chkG2");
+  const chkG3 = document.getElementById("chkG3");
+  const resetSettingsBtn = document.getElementById("resetSettingsBtn");
+  const settingsSavedPill = document.getElementById("settingsSavedPill");
+
+  const startMeaningMCQ = document.getElementById("startMeaningMCQ");
+
+  const gameTitle = document.getElementById("gameTitle");
+  const gameSubtitle = document.getElementById("gameSubtitle");
+  const exitGameBtn = document.getElementById("exitGameBtn");
+
+  const emptyPoolWarn = document.getElementById("emptyPoolWarn");
+  const kanjiPrompt = document.getElementById("kanjiPrompt");
+  const choicesEl = document.getElementById("choices");
+  const scorePill = document.getElementById("scorePill");
+  const skipBtn = document.getElementById("skipBtn");
+  const resetScoreBtn = document.getElementById("resetScoreBtn");
+
+  // --- Tab / view switching ---
+  function setActiveTab(which){
+    tabHome.classList.toggle("active", which === "home");
+    tabSettings.classList.toggle("active", which === "settings");
+    tabGame.classList.toggle("active", which === "game");
+    tabHome.setAttribute("aria-selected", which === "home" ? "true" : "false");
+    tabSettings.setAttribute("aria-selected", which === "settings" ? "true" : "false");
+    tabGame.setAttribute("aria-selected", which === "game" ? "true" : "false");
+
+    viewHome.classList.toggle("active", which === "home");
+    viewSettings.classList.toggle("active", which === "settings");
+    viewGame.classList.toggle("active", which === "game");
+
+    tabGame.style.display = (which === "game") ? "" : "none";
+  }
+
+  tabHome.addEventListener("click", () => setActiveTab("home"));
+  tabSettings.addEventListener("click", () => setActiveTab("settings"));
+  goSettingsBtn.addEventListener("click", () => setActiveTab("settings"));
+  backHomeBtn.addEventListener("click", () => setActiveTab("home"));
+
+  // --- Settings UI binding ---
+  function syncSettingsUI(){
+    chkG1.checked = !!settings.enabledGrades[1];
+    chkG2.checked = !!settings.enabledGrades[2];
+    chkG3.checked = !!settings.enabledGrades[3];
+    updateHomeBadges();
+  }
+
+  function updateHomeBadges(){
+    const enabled = [1,2,3].filter(g => !!settings.enabledGrades[g]);
+    const label = enabled.length ? `Active grades: ${enabled.map(g => "G"+g).join("+")}` : "Active grades: none";
+    const pool = getActivePool();
+    activePill.textContent = `${label} • ${pool.length} kanji`;
+    poolCountPill.textContent = `${pool.length} kanji`;
+  }
+
+  function flashSaved(){
+    settingsSavedPill.textContent = "Saved ✓";
+    window.setTimeout(() => settingsSavedPill.textContent = "Saved", 900);
+  }
+
+  chkG1.addEventListener("change", () => { settings.enabledGrades[1] = chkG1.checked; saveSettings(); updateHomeBadges(); });
+  chkG2.addEventListener("change", () => { settings.enabledGrades[2] = chkG2.checked; saveSettings(); updateHomeBadges(); });
+  chkG3.addEventListener("change", () => { settings.enabledGrades[3] = chkG3.checked; saveSettings(); updateHomeBadges(); });
+
+  resetSettingsBtn.addEventListener("click", () => {
+    settings = structuredClone(DEFAULT_SETTINGS);
+    saveSettings();
+    syncSettingsUI();
+  });
+
+  // --- Game: Meaning (4-choice) using ACTIVE POOL ---
   let current = null;
   let locked = false;
   let correct = 0;
   let wrong = 0;
+  let activePool = [];
 
   const rand = (n) => Math.floor(Math.random() * n);
-
   function shuffle(arr){
     for(let i=arr.length-1;i>0;i--){
       const j = rand(i+1);
@@ -193,79 +638,140 @@
     }
     return arr;
   }
+  function setScore(){ scorePill.textContent = `${correct} correct • ${wrong} wrong`; }
 
-  function setScore(){ elScore.textContent = `${correct} correct • ${wrong} wrong`; }
+  function renderMeaningChoiceContent(btn, kanjiChar, hiraganaMeaning){
+    // Try image: images/meaning/<KANJI>.png
+    const img = document.createElement("img");
+    img.className = "meaningImg";
+    img.alt = hiraganaMeaning;
+
+    const fallback = () => {
+      img.remove();
+      const div = document.createElement("div");
+      div.className = "meaningFallback";
+      div.textContent = hiraganaMeaning;
+      btn.appendChild(div);
+    };
+
+    img.onerror = fallback;
+    img.onload = () => {
+      // Keep the image; do nothing else.
+    };
+
+    img.src = meaningImgUrlForKanji(kanjiChar);
+    btn.appendChild(img);
+  }
+
+  function renderChoices(options){
+    choicesEl.innerHTML = "";
+    options.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "choice";
+      btn.dataset.ok = opt.ok ? "1" : "0";
+      btn.dataset.kanji = opt.kanji;
+      btn.dataset.meaning = opt.meaning;
+
+      const badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = String(idx + 1);
+      btn.appendChild(badge);
+
+      renderMeaningChoiceContent(btn, opt.kanji, opt.meaning);
+
+      btn.addEventListener("click", () => choose(btn));
+      choicesEl.appendChild(btn);
+    });
+  }
 
   function pickQuestion(){
     locked = false;
-    elStatus.textContent = 'Choose the correct reading.';
-    current = KANJI[rand(KANJI.length)];
-    elKanji.textContent = current.k;
 
-    const pool = [...new Set(KANJI.map(x => x.a))].filter(a => a !== current.a);
+    if(activePool.length === 0){
+      emptyPoolWarn.style.display = "";
+      kanjiPrompt.textContent = "？";
+      choicesEl.innerHTML = "";
+      return;
+    }
+    emptyPoolWarn.style.display = "none";
+
+    // Pick prompt
+    current = activePool[rand(activePool.length)];
+    kanjiPrompt.textContent = current.id;
+
+    // Pick 3 wrong options (unique by kanji id)
+    const pool = activePool.filter(k => k.id !== current.id);
     shuffle(pool);
     const wrongs = pool.slice(0, 3);
 
-    const answers = shuffle([
-      { text: current.a, ok: true },
-      ...wrongs.map(t => ({ text: t, ok: false }))
+    const options = shuffle([
+      { kanji: current.id, meaning: current.meaningKey, ok: true },
+      ...wrongs.map(w => ({ kanji: w.id, meaning: w.meaningKey, ok: false }))
     ]);
 
-    elChoices.innerHTML = '';
-    answers.forEach((ans, idx) => {
-      const btn = document.createElement('button');
-      btn.className = 'choice';
-      btn.type = 'button';
-      btn.dataset.ok = ans.ok ? '1' : '0';
-      btn.dataset.text = ans.text;
-      btn.innerHTML = `<span>${ans.text}</span><span class="knum">${idx+1}</span>`;
-      btn.addEventListener('click', () => choose(btn));
-      elChoices.appendChild(btn);
-    });
+    renderChoices(options);
   }
 
   function choose(btn){
     if(locked) return;
     locked = true;
 
-    const buttons = [...document.querySelectorAll('button.choice')];
+    const buttons = [...document.querySelectorAll("button.choice")];
     buttons.forEach(b => b.disabled = true);
 
-    const isOk = btn.dataset.ok === '1';
+    const isOk = btn.dataset.ok === "1";
     if(isOk){
       correct++;
-      btn.classList.add('correct');
-      elStatus.textContent = '✓ せいかい';
+      btn.classList.add("correct");
     } else {
       wrong++;
-      btn.classList.add('wrong');
-      elStatus.textContent = '✗ ちがいます';
-      const right = buttons.find(b => b.dataset.text === current.a);
-      if(right) right.classList.add('correct');
+      btn.classList.add("wrong");
+      // highlight correct
+      const right = buttons.find(b => b.dataset.kanji === current.id);
+      if(right) right.classList.add("correct");
     }
 
     setScore();
-    window.setTimeout(pickQuestion, 950);
+    window.setTimeout(pickQuestion, 900);
   }
 
-  window.addEventListener('keydown', (e) => {
-    if(e.key === ' '){
+  function startGameMeaningMCQ(){
+    activePool = getActivePool();
+    correct = 0; wrong = 0; setScore();
+
+    gameTitle.textContent = "Meaning (4-choice)";
+    gameSubtitle.textContent = "Kanji prompt (TTF) → choose meaning image (./images/meaning/<KANJI>.png), fallback to hiragana tile.";
+
+    setActiveTab("game");
+    pickQuestion();
+  }
+
+  startMeaningMCQ.addEventListener("click", startGameMeaningMCQ);
+  exitGameBtn.addEventListener("click", () => setActiveTab("home"));
+
+  skipBtn.addEventListener("click", () => pickQuestion());
+  resetScoreBtn.addEventListener("click", () => { correct = 0; wrong = 0; setScore(); });
+
+  // Keyboard: 1–4 chooses; Space skips
+  window.addEventListener("keydown", (e) => {
+    if(!viewGame.classList.contains("active")) return;
+    if(e.key === " "){
       e.preventDefault();
       if(!locked) pickQuestion();
       return;
     }
     const n = Number(e.key);
     if(Number.isFinite(n) && n >= 1 && n <= 4){
-      const btn = document.querySelectorAll('button.choice')[n-1];
+      const btn = document.querySelectorAll("button.choice")[n-1];
       if(btn) btn.click();
     }
   });
 
-  skipBtn.addEventListener('click', () => pickQuestion());
-  resetBtn.addEventListener('click', () => { correct = 0; wrong = 0; setScore(); elStatus.textContent = 'Score reset.'; });
-
-  setScore();
-  pickQuestion();
+  // --- Init ---
+  syncSettingsUI();
+  updateHomeBadges();
+  setActiveTab("home");
 </script>
 </body>
 </html>
