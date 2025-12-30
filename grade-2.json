@@ -1,0 +1,7746 @@
+[
+  {
+    "kanji": "引",
+    "grade": 2,
+    "kyoiku_index": 81,
+    "onyomi": [
+      "イン"
+    ],
+    "kunyomi": [
+      "ひく",
+      "ひ"
+    ],
+    "words": [
+      {
+        "word": "取引",
+        "reading": "とりひき",
+        "band": 3000,
+        "meaning_en": "transactions; dealings; business",
+        "meaning_hira": "とりひき",
+        "grade": 3
+      },
+      {
+        "word": "引く",
+        "reading": "ひく",
+        "band": 3000,
+        "meaning_en": "to pull; to tug; to lead (e.g. a horse)",
+        "meaning_hira": "ひく"
+      },
+      {
+        "word": "引退",
+        "reading": "いんたい",
+        "band": 7000,
+        "meaning_en": "retirement",
+        "meaning_hira": "いんたい",
+        "grade": 9
+      },
+      {
+        "word": "引き続き",
+        "reading": "ひきつづき",
+        "band": 7000,
+        "meaning_en": "continuously; continually; without a break",
+        "meaning_hira": "ひきつづき",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[ひ]く"
+  },
+  {
+    "kanji": "羽",
+    "grade": 2,
+    "kyoiku_index": 82,
+    "onyomi": [
+      "ウ"
+    ],
+    "kunyomi": [
+      "は",
+      "わ",
+      "はね"
+    ],
+    "words": [
+      {
+        "word": "羽",
+        "reading": "はね",
+        "band": 7000,
+        "meaning_en": "feather; plume; down",
+        "meaning_hira": "はね"
+      },
+      {
+        "word": "羽目",
+        "reading": "はめ",
+        "band": 15000,
+        "meaning_en": "panel; wainscoting; wainscotting",
+        "meaning_hira": "はめ",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "はね"
+  },
+  {
+    "kanji": "雲",
+    "grade": 2,
+    "kyoiku_index": 83,
+    "onyomi": [
+      "ウン"
+    ],
+    "kunyomi": [
+      "くも"
+    ],
+    "words": [
+      {
+        "word": "雲",
+        "reading": "くも",
+        "band": 7000,
+        "meaning_en": "cloud",
+        "meaning_hira": "くも"
+      },
+      {
+        "word": "出雲",
+        "reading": "いずも",
+        "band": 15000,
+        "meaning_en": "Izumo (former province located in the east of present-day Shimane Prefecture)",
+        "meaning_hira": "いずも",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "くも"
+  },
+  {
+    "kanji": "園",
+    "grade": 2,
+    "kyoiku_index": 84,
+    "onyomi": [
+      "エン"
+    ],
+    "kunyomi": [
+      "その"
+    ],
+    "words": [
+      {
+        "word": "園",
+        "reading": "えん",
+        "band": 7000,
+        "meaning_en": "garden; orchard; park",
+        "meaning_hira": "えん"
+      },
+      {
+        "word": "学園",
+        "reading": "がくえん",
+        "band": 7000,
+        "meaning_en": "educational institution; school; academy",
+        "meaning_hira": "がくえん",
+        "grade": 2
+      },
+      {
+        "word": "保育園",
+        "reading": "ほいくえん",
+        "band": 7000,
+        "meaning_en": "nursery school; day nursery; day care center",
+        "meaning_hira": "ほいくえん",
+        "grade": 9
+      },
+      {
+        "word": "幼稚園",
+        "reading": "ようちえん",
+        "band": 7000,
+        "meaning_en": "kindergarten (in Japan, non-compulsory education from age 3 until primary school); preschool",
+        "meaning_hira": "ようちえん",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "えん"
+  },
+  {
+    "kanji": "遠",
+    "grade": 2,
+    "kyoiku_index": 85,
+    "onyomi": [
+      "エン",
+      "オン"
+    ],
+    "kunyomi": [
+      "とおい",
+      "とお"
+    ],
+    "words": [
+      {
+        "word": "遠い",
+        "reading": "とおい",
+        "band": 3000,
+        "meaning_en": "far; distant; far away",
+        "meaning_hira": "とおい"
+      },
+      {
+        "word": "永遠",
+        "reading": "えいえん",
+        "band": 7000,
+        "meaning_en": "eternity; perpetuity; permanence",
+        "meaning_hira": "えいえん",
+        "grade": 9
+      },
+      {
+        "word": "遠く",
+        "reading": "とおく",
+        "band": 7000,
+        "meaning_en": "far away; distant place; a (great) distance",
+        "meaning_hira": "とおく"
+      },
+      {
+        "word": "遠ざかる",
+        "reading": "とおざかる",
+        "band": 15000,
+        "meaning_en": "to go away; to become more distant; to fade away",
+        "meaning_hira": "とおざかる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[とお]い"
+  },
+  {
+    "kanji": "何",
+    "grade": 2,
+    "kyoiku_index": 86,
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "なに",
+      "なん"
+    ],
+    "words": [
+      {
+        "word": "何",
+        "reading": "なん",
+        "band": 1000,
+        "meaning_en": "what; see:; 何; 1. what",
+        "meaning_hira": "なん"
+      },
+      {
+        "word": "何故",
+        "reading": "なにゆえ",
+        "band": 3000,
+        "meaning_en": "why",
+        "meaning_hira": "なにゆえ",
+        "grade": 9
+      },
+      {
+        "word": "何とか",
+        "reading": "なんとか",
+        "band": 3000,
+        "meaning_en": "something; something or other; so-and-so",
+        "meaning_hira": "なんとか"
+      },
+      {
+        "word": "何人",
+        "reading": "なにじん",
+        "band": 7000,
+        "meaning_en": "what nationality",
+        "meaning_hira": "なにじん",
+        "grade": 2
+      },
+      {
+        "word": "何だか",
+        "reading": "なんだか",
+        "band": 7000,
+        "meaning_en": "(a) little; somewhat; somehow",
+        "meaning_hira": "なんだか"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "なん"
+  },
+  {
+    "kanji": "科",
+    "grade": 2,
+    "kyoiku_index": 87,
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "科",
+        "reading": "とが",
+        "band": 3000,
+        "meaning_en": "error; mistake; fault",
+        "meaning_hira": "とが"
+      },
+      {
+        "word": "教科書",
+        "reading": "きょうかしょ",
+        "band": 3000,
+        "meaning_en": "textbook; coursebook; schoolbook",
+        "meaning_hira": "きょうかしょ",
+        "grade": 2
+      },
+      {
+        "word": "科目",
+        "reading": "かもく",
+        "band": 7000,
+        "meaning_en": "(school) subject; curriculum; course",
+        "meaning_hira": "かもく",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "とが"
+  },
+  {
+    "kanji": "夏",
+    "grade": 2,
+    "kyoiku_index": 88,
+    "onyomi": [
+      "カ",
+      "ガ",
+      "ゲ"
+    ],
+    "kunyomi": [
+      "なつ"
+    ],
+    "words": [
+      {
+        "word": "夏",
+        "reading": "なつ",
+        "band": 1000,
+        "meaning_en": "summer",
+        "meaning_hira": "なつ"
+      },
+      {
+        "word": "夏休み",
+        "reading": "なつやすみ",
+        "band": 7000,
+        "meaning_en": "summer vacation; summer holiday",
+        "meaning_hira": "なつやすみ",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "なつ"
+  },
+  {
+    "kanji": "家",
+    "grade": 2,
+    "kyoiku_index": 89,
+    "onyomi": [
+      "カ",
+      "ケ"
+    ],
+    "kunyomi": [
+      "いえ",
+      "や",
+      "うち"
+    ],
+    "words": [
+      {
+        "word": "家",
+        "reading": "か",
+        "band": 1000,
+        "meaning_en": "-ist; -er; used after a noun indicating someone's occupation, pursuits, disposition, etc.; see:; 政治家; politician; statesman",
+        "meaning_hira": "か"
+      },
+      {
+        "word": "家族",
+        "reading": "かぞく",
+        "band": 1000,
+        "meaning_en": "family",
+        "meaning_hira": "かぞく",
+        "grade": 3
+      },
+      {
+        "word": "作家",
+        "reading": "さっか",
+        "band": 3000,
+        "meaning_en": "author; writer; novelist",
+        "meaning_hira": "さっか",
+        "grade": 2
+      },
+      {
+        "word": "実家",
+        "reading": "じっか",
+        "band": 7000,
+        "meaning_en": "(one's parents') home",
+        "meaning_hira": "じっか",
+        "grade": 3
+      },
+      {
+        "word": "お家",
+        "reading": "おうち",
+        "band": 15000,
+        "meaning_en": "your home; your family; their home; see:; お宅; 1. your house; your home; your family",
+        "meaning_hira": "おうち"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "か"
+  },
+  {
+    "kanji": "歌",
+    "grade": 2,
+    "kyoiku_index": 90,
+    "onyomi": [
+      "カ"
+    ],
+    "kunyomi": [
+      "うた"
+    ],
+    "words": [
+      {
+        "word": "歌",
+        "reading": "うた",
+        "band": 3000,
+        "meaning_en": "song; singing; esp. 唄 for folk songs and shamisen songs",
+        "meaning_hira": "うた"
+      },
+      {
+        "word": "歌う",
+        "reading": "うたう",
+        "band": 3000,
+        "meaning_en": "to sing",
+        "meaning_hira": "うたう"
+      },
+      {
+        "word": "歌手",
+        "reading": "かしゅ",
+        "band": 7000,
+        "meaning_en": "singer",
+        "meaning_hira": "かしゅ",
+        "grade": 2
+      },
+      {
+        "word": "和歌山",
+        "reading": "わかやま",
+        "band": 15000,
+        "meaning_en": "Wakayama (city, prefecture)",
+        "meaning_hira": "わかやま",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "うた"
+  },
+  {
+    "kanji": "画",
+    "grade": 2,
+    "kyoiku_index": 91,
+    "onyomi": [
+      "ガ",
+      "カク",
+      "エ",
+      "カイ"
+    ],
+    "kunyomi": [
+      "えがく",
+      "えが",
+      "かぎ",
+      "はかりごと",
+      "はか"
+    ],
+    "words": [
+      {
+        "word": "映画",
+        "reading": "えいが",
+        "band": 1000,
+        "meaning_en": "movie; film; motion picture",
+        "meaning_hira": "えいが",
+        "grade": 9
+      },
+      {
+        "word": "計画",
+        "reading": "けいかく",
+        "band": 1000,
+        "meaning_en": "plan; project; schedule",
+        "meaning_hira": "けいかく",
+        "grade": 2
+      },
+      {
+        "word": "画像",
+        "reading": "がぞう",
+        "band": 3000,
+        "meaning_en": "image; picture; portrait",
+        "meaning_hira": "がぞう",
+        "grade": 9
+      },
+      {
+        "word": "画面",
+        "reading": "がめん",
+        "band": 3000,
+        "meaning_en": "screen (of a TV, computer, etc.)",
+        "meaning_hira": "がめん",
+        "grade": 3
+      },
+      {
+        "word": "画",
+        "reading": "かく",
+        "band": 7000,
+        "meaning_en": "stroke (of a kanji)",
+        "meaning_hira": "かく"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かく"
+  },
+  {
+    "kanji": "回",
+    "grade": 2,
+    "kyoiku_index": 92,
+    "onyomi": [
+      "カイ",
+      "エ"
+    ],
+    "kunyomi": [
+      "まわる",
+      "まわ",
+      "もとお",
+      "か"
+    ],
+    "words": [
+      {
+        "word": "回",
+        "reading": "かい",
+        "band": 1000,
+        "meaning_en": "counter for occurrences",
+        "meaning_hira": "かい"
+      },
+      {
+        "word": "今回",
+        "reading": "こんかい",
+        "band": 1000,
+        "meaning_en": "this time; now",
+        "meaning_hira": "こんかい",
+        "grade": 2
+      },
+      {
+        "word": "回る",
+        "reading": "みる",
+        "band": 3000,
+        "meaning_en": "to go around",
+        "meaning_hira": "みる"
+      },
+      {
+        "word": "回復",
+        "reading": "かいふく",
+        "band": 3000,
+        "meaning_en": "restoration; recovery; rehabilitation",
+        "meaning_hira": "かいふく",
+        "grade": 9
+      },
+      {
+        "word": "次回",
+        "reading": "じかい",
+        "band": 3000,
+        "meaning_en": "next time (occasion)",
+        "meaning_hira": "じかい",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かい"
+  },
+  {
+    "kanji": "会",
+    "grade": 2,
+    "kyoiku_index": 93,
+    "onyomi": [
+      "カイ",
+      "エ"
+    ],
+    "kunyomi": [
+      "あう",
+      "あ",
+      "あつ"
+    ],
+    "words": [
+      {
+        "word": "会",
+        "reading": "え",
+        "band": 1000,
+        "meaning_en": "gathering (esp. Buddhist, festive, etc.)",
+        "meaning_hira": "え"
+      },
+      {
+        "word": "会う",
+        "reading": "あう",
+        "band": 1000,
+        "meaning_en": "to meet; to encounter; to see; 逢う is often used for close friends, etc. and may be associated with drama or pathos; 遭う may have an undesirable nuance",
+        "meaning_hira": "あう"
+      },
+      {
+        "word": "会社",
+        "reading": "かいしゃ",
+        "band": 1000,
+        "meaning_en": "company; corporation; firm",
+        "meaning_hira": "かいしゃ",
+        "grade": 2
+      },
+      {
+        "word": "大会",
+        "reading": "たいかい",
+        "band": 1000,
+        "meaning_en": "mass meeting; convention; rally",
+        "meaning_hira": "たいかい",
+        "grade": 2
+      },
+      {
+        "word": "社会",
+        "reading": "しゃかい",
+        "band": 1000,
+        "meaning_en": "society; public; community",
+        "meaning_hira": "しゃかい",
+        "grade": 2
+      },
+      {
+        "word": "会長",
+        "reading": "かいちょう",
+        "band": 3000,
+        "meaning_en": "president (of a society); chairman",
+        "meaning_hira": "かいちょう",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "え"
+  },
+  {
+    "kanji": "海",
+    "grade": 2,
+    "kyoiku_index": 94,
+    "onyomi": [
+      "カイ"
+    ],
+    "kunyomi": [
+      "うみ"
+    ],
+    "words": [
+      {
+        "word": "海",
+        "reading": "うみ",
+        "band": 1000,
+        "meaning_en": "sea; ocean; waters",
+        "meaning_hira": "うみ"
+      },
+      {
+        "word": "海外",
+        "reading": "かいがい",
+        "band": 1000,
+        "meaning_en": "foreign; abroad; overseas",
+        "meaning_hira": "かいがい",
+        "grade": 2
+      },
+      {
+        "word": "北海道",
+        "reading": "ほっかいどう",
+        "band": 3000,
+        "meaning_en": "Hokkaido (island, prefectural-level administrative unit)",
+        "meaning_hira": "ほっかいどう",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "うみ"
+  },
+  {
+    "kanji": "絵",
+    "grade": 2,
+    "kyoiku_index": 95,
+    "onyomi": [
+      "カイ",
+      "エ"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "絵",
+        "reading": "え",
+        "band": 3000,
+        "meaning_en": "picture; drawing; painting",
+        "meaning_hira": "え"
+      },
+      {
+        "word": "絵本",
+        "reading": "えほん",
+        "band": 7000,
+        "meaning_en": "picture book",
+        "meaning_hira": "えほん",
+        "grade": 2
+      },
+      {
+        "word": "絵画",
+        "reading": "かいが",
+        "band": 7000,
+        "meaning_en": "painting; picture",
+        "meaning_hira": "かいが",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "え"
+  },
+  {
+    "kanji": "外",
+    "grade": 2,
+    "kyoiku_index": 96,
+    "onyomi": [
+      "ガイ",
+      "ゲ"
+    ],
+    "kunyomi": [
+      "そと",
+      "はず",
+      "ほか"
+    ],
+    "words": [
+      {
+        "word": "外",
+        "reading": "そと",
+        "band": 1000,
+        "meaning_en": "outside; exterior",
+        "meaning_hira": "そと"
+      },
+      {
+        "word": "外国",
+        "reading": "がいこく",
+        "band": 1000,
+        "meaning_en": "foreign country",
+        "meaning_hira": "がいこく",
+        "grade": 2
+      },
+      {
+        "word": "海外",
+        "reading": "かいがい",
+        "band": 1000,
+        "meaning_en": "foreign; abroad; overseas",
+        "meaning_hira": "かいがい",
+        "grade": 2
+      },
+      {
+        "word": "外交",
+        "reading": "がいこう",
+        "band": 3000,
+        "meaning_en": "diplomacy",
+        "meaning_hira": "がいこう",
+        "grade": 2
+      },
+      {
+        "word": "外す",
+        "reading": "はずす",
+        "band": 7000,
+        "meaning_en": "to remove; to take off; to detach",
+        "meaning_hira": "はずす"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "そと"
+  },
+  {
+    "kanji": "角",
+    "grade": 2,
+    "kyoiku_index": 97,
+    "onyomi": [
+      "カク"
+    ],
+    "kunyomi": [
+      "かど",
+      "つの"
+    ],
+    "words": [
+      {
+        "word": "角",
+        "reading": "すみ",
+        "band": 7000,
+        "meaning_en": "corner; nook; recess",
+        "meaning_hira": "すみ"
+      },
+      {
+        "word": "全角",
+        "reading": "ぜんかく",
+        "band": 7000,
+        "meaning_en": "em; em quad (printing); full-width character; see:; 半角; half-width characters (e.g. romaji); single-byte characters; en quad",
+        "meaning_hira": "ぜんかく",
+        "grade": 3
+      },
+      {
+        "word": "角度",
+        "reading": "かくど",
+        "band": 7000,
+        "meaning_en": "angle",
+        "meaning_hira": "かくど",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "すみ"
+  },
+  {
+    "kanji": "楽",
+    "grade": 2,
+    "kyoiku_index": 98,
+    "onyomi": [
+      "ガク",
+      "ラク",
+      "ゴウ"
+    ],
+    "kunyomi": [
+      "たのしい",
+      "たの",
+      "この"
+    ],
+    "words": [
+      {
+        "word": "音楽",
+        "reading": "おんがく",
+        "band": 1000,
+        "meaning_en": "music",
+        "meaning_hira": "おんがく",
+        "grade": 2
+      },
+      {
+        "word": "楽しい",
+        "reading": "たのしい",
+        "band": 1000,
+        "meaning_en": "enjoyable; fun; pleasant",
+        "meaning_hira": "たのしい"
+      },
+      {
+        "word": "楽しむ",
+        "reading": "たのしむ",
+        "band": 1000,
+        "meaning_en": "to enjoy; to take pleasure in; to have a good time",
+        "meaning_hira": "たのしむ"
+      },
+      {
+        "word": "楽",
+        "reading": "らく",
+        "band": 3000,
+        "meaning_en": "comfort; ease; relief",
+        "meaning_hira": "らく"
+      },
+      {
+        "word": "楽しみ",
+        "reading": "たのしみ",
+        "band": 3000,
+        "meaning_en": "enjoyment; pleasure; amusement",
+        "meaning_hira": "たのしみ"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "らく"
+  },
+  {
+    "kanji": "活",
+    "grade": 2,
+    "kyoiku_index": 99,
+    "onyomi": [
+      "カツ"
+    ],
+    "kunyomi": [
+      "いきる",
+      "い"
+    ],
+    "words": [
+      {
+        "word": "活動",
+        "reading": "かつどう",
+        "band": 1000,
+        "meaning_en": "activity (of a person, organization, animal, volcano, etc.); action; operation",
+        "meaning_hira": "かつどう",
+        "grade": 3
+      },
+      {
+        "word": "生活",
+        "reading": "せいかつ",
+        "band": 1000,
+        "meaning_en": "life; living",
+        "meaning_hira": "せいかつ",
+        "grade": 2
+      },
+      {
+        "word": "活用",
+        "reading": "かつよう",
+        "band": 3000,
+        "meaning_en": "practical use; application; making good use of",
+        "meaning_hira": "かつよう",
+        "grade": 2
+      },
+      {
+        "word": "活躍",
+        "reading": "かつやく",
+        "band": 3000,
+        "meaning_en": "activity (esp. energetic or successful); great efforts; active participation",
+        "meaning_hira": "かつやく",
+        "grade": 9
+      },
+      {
+        "word": "活",
+        "reading": "かつ",
+        "band": 7000,
+        "meaning_en": "living; life",
+        "meaning_hira": "かつ"
+      },
+      {
+        "word": "活かす",
+        "reading": "いかす",
+        "band": 7000,
+        "meaning_en": "to make (the best) use of; to put to good use; to leverage (skills, attributes, experience, etc.)",
+        "meaning_hira": "いかす"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かつ"
+  },
+  {
+    "kanji": "間",
+    "grade": 2,
+    "kyoiku_index": 100,
+    "onyomi": [
+      "カン",
+      "ケン"
+    ],
+    "kunyomi": [
+      "あいだ",
+      "ま",
+      "あい"
+    ],
+    "words": [
+      {
+        "word": "間",
+        "reading": "けん",
+        "band": 1000,
+        "meaning_en": "ken (6 shaku, approx. 1.818 m)",
+        "meaning_hira": "けん"
+      },
+      {
+        "word": "人間",
+        "reading": "じんかん",
+        "band": 1000,
+        "meaning_en": "the world",
+        "meaning_hira": "じんかん",
+        "grade": 2
+      },
+      {
+        "word": "年間",
+        "reading": "ねんかん",
+        "band": 1000,
+        "meaning_en": "(period of) a year",
+        "meaning_hira": "ねんかん",
+        "grade": 2
+      },
+      {
+        "word": "時間",
+        "reading": "じかん",
+        "band": 1000,
+        "meaning_en": "time",
+        "meaning_hira": "じかん",
+        "grade": 2
+      },
+      {
+        "word": "間違い",
+        "reading": "まちがい",
+        "band": 3000,
+        "meaning_en": "mistake; error; blunder",
+        "meaning_hira": "まちがい",
+        "grade": 9
+      },
+      {
+        "word": "あっという間に",
+        "reading": "あっというまに",
+        "band": 7000,
+        "meaning_en": "in an instant; in a flash; in the blink of an eye",
+        "meaning_hira": "あっというまに"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "けん"
+  },
+  {
+    "kanji": "丸",
+    "grade": 2,
+    "kyoiku_index": 101,
+    "onyomi": [
+      "ガン"
+    ],
+    "kunyomi": [
+      "まる"
+    ],
+    "words": [
+      {
+        "word": "丸",
+        "reading": "まる",
+        "band": 7000,
+        "meaning_en": "circle; see:; ○; 1. circle",
+        "meaning_hira": "まる"
+      },
+      {
+        "word": "丸い",
+        "reading": "まるい",
+        "band": 7000,
+        "meaning_en": "round; circular; spherical; 丸い usu. refers to ball-shaped, and 円い to disc-shaped objects",
+        "meaning_hira": "まるい"
+      },
+      {
+        "word": "丸ごと",
+        "reading": "まるごと",
+        "band": 15000,
+        "meaning_en": "in its entirety; whole; wholly",
+        "meaning_hira": "まるごと"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "まる"
+  },
+  {
+    "kanji": "岩",
+    "grade": 2,
+    "kyoiku_index": 102,
+    "onyomi": [
+      "ガン"
+    ],
+    "kunyomi": [
+      "いわ"
+    ],
+    "words": [
+      {
+        "word": "岩",
+        "reading": "いわ",
+        "band": 7000,
+        "meaning_en": "rock; boulder",
+        "meaning_hira": "いわ"
+      },
+      {
+        "word": "岩手",
+        "reading": "いわて",
+        "band": 7000,
+        "meaning_en": "Iwate (prefecture)",
+        "meaning_hira": "いわて",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "いわ"
+  },
+  {
+    "kanji": "顔",
+    "grade": 2,
+    "kyoiku_index": 103,
+    "onyomi": [
+      "ガン"
+    ],
+    "kunyomi": [
+      "かお"
+    ],
+    "words": [
+      {
+        "word": "顔",
+        "reading": "かお",
+        "band": 1000,
+        "meaning_en": "face; visage",
+        "meaning_hira": "かお"
+      },
+      {
+        "word": "笑顔",
+        "reading": "えがお",
+        "band": 3000,
+        "meaning_en": "smiling face; smile",
+        "meaning_hira": "えがお",
+        "grade": 9
+      },
+      {
+        "word": "顔つき",
+        "reading": "かおつき",
+        "band": 15000,
+        "meaning_en": "(outward) looks; features; face",
+        "meaning_hira": "かおつき"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かお"
+  },
+  {
+    "kanji": "汽",
+    "grade": 2,
+    "kyoiku_index": 104,
+    "onyomi": [
+      "キ"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "汽車",
+        "reading": "きしゃ",
+        "band": 15000,
+        "meaning_en": "train (esp. a long-distance train)",
+        "meaning_hira": "きしゃ",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[き]"
+  },
+  {
+    "kanji": "記",
+    "grade": 2,
+    "kyoiku_index": 105,
+    "onyomi": [
+      "キ"
+    ],
+    "kunyomi": [
+      "しるす",
+      "しる"
+    ],
+    "words": [
+      {
+        "word": "日記",
+        "reading": "にっき",
+        "band": 1000,
+        "meaning_en": "diary; journal",
+        "meaning_hira": "にっき",
+        "grade": 2
+      },
+      {
+        "word": "記",
+        "reading": "き",
+        "band": 3000,
+        "meaning_en": "account; history; chronicle; also written 紀",
+        "meaning_hira": "き"
+      },
+      {
+        "word": "記念",
+        "reading": "きねん",
+        "band": 3000,
+        "meaning_en": "commemoration; celebration; remembrance",
+        "meaning_hira": "きねん",
+        "grade": 9
+      },
+      {
+        "word": "記憶",
+        "reading": "きおく",
+        "band": 3000,
+        "meaning_en": "memory; recollection; remembrance",
+        "meaning_hira": "きおく",
+        "grade": 9
+      },
+      {
+        "word": "記録",
+        "reading": "きろく",
+        "band": 3000,
+        "meaning_en": "record; document; minutes",
+        "meaning_hira": "きろく",
+        "grade": 9
+      },
+      {
+        "word": "記す",
+        "reading": "しるす",
+        "band": 7000,
+        "meaning_en": "to write down; to note down; to jot down",
+        "meaning_hira": "しるす"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "き"
+  },
+  {
+    "kanji": "帰",
+    "grade": 2,
+    "kyoiku_index": 106,
+    "onyomi": [
+      "キ"
+    ],
+    "kunyomi": [
+      "かえる",
+      "かえ",
+      "おく",
+      "とつ"
+    ],
+    "words": [
+      {
+        "word": "帰る",
+        "reading": "かえる",
+        "band": 1000,
+        "meaning_en": "to return; to come home; to go home",
+        "meaning_hira": "かえる"
+      },
+      {
+        "word": "帰り",
+        "reading": "かえり",
+        "band": 3000,
+        "meaning_en": "return; coming back",
+        "meaning_hira": "かえり"
+      },
+      {
+        "word": "帰国",
+        "reading": "きこく",
+        "band": 3000,
+        "meaning_en": "return to one's country",
+        "meaning_hira": "きこく",
+        "grade": 2
+      },
+      {
+        "word": "帰宅",
+        "reading": "きたく",
+        "band": 3000,
+        "meaning_en": "returning home; going home; coming home",
+        "meaning_hira": "きたく",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[かえ]る"
+  },
+  {
+    "kanji": "弓",
+    "grade": 2,
+    "kyoiku_index": 107,
+    "onyomi": [
+      "キュウ"
+    ],
+    "kunyomi": [
+      "ゆみ"
+    ],
+    "words": [
+      {
+        "word": "弓",
+        "reading": "ゆみ",
+        "band": 15000,
+        "meaning_en": "bow (weapon); ゆ is usu. a prefix",
+        "meaning_hira": "ゆみ"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ゆみ"
+  },
+  {
+    "kanji": "牛",
+    "grade": 2,
+    "kyoiku_index": 108,
+    "onyomi": [
+      "ギュウ"
+    ],
+    "kunyomi": [
+      "うし"
+    ],
+    "words": [
+      {
+        "word": "牛",
+        "reading": "うし",
+        "band": 3000,
+        "meaning_en": "cattle (Bos taurus); cow; bull",
+        "meaning_hira": "うし"
+      },
+      {
+        "word": "牛乳",
+        "reading": "ぎゅうにゅう",
+        "band": 7000,
+        "meaning_en": "(cow's) milk",
+        "meaning_hira": "ぎゅうにゅう",
+        "grade": 9
+      },
+      {
+        "word": "牛肉",
+        "reading": "ぎゅうにく",
+        "band": 7000,
+        "meaning_en": "beef",
+        "meaning_hira": "ぎゅうにく",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "うし"
+  },
+  {
+    "kanji": "魚",
+    "grade": 2,
+    "kyoiku_index": 109,
+    "onyomi": [
+      "ギョ"
+    ],
+    "kunyomi": [
+      "うお",
+      "さかな"
+    ],
+    "words": [
+      {
+        "word": "魚",
+        "reading": "さかな",
+        "band": 3000,
+        "meaning_en": "fish",
+        "meaning_hira": "さかな"
+      },
+      {
+        "word": "金魚",
+        "reading": "きんぎょ",
+        "band": 15000,
+        "meaning_en": "goldfish (Carassius auratus)",
+        "meaning_hira": "きんぎょ",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "さかな"
+  },
+  {
+    "kanji": "京",
+    "grade": 2,
+    "kyoiku_index": 110,
+    "onyomi": [
+      "キョウ",
+      "ケイ",
+      "キン"
+    ],
+    "kunyomi": [
+      "みやこ"
+    ],
+    "words": [
+      {
+        "word": "東京",
+        "reading": "とうきょう",
+        "band": 1000,
+        "meaning_en": "Tokyo",
+        "meaning_hira": "とうきょう",
+        "grade": 2
+      },
+      {
+        "word": "京",
+        "reading": "きょう",
+        "band": 7000,
+        "meaning_en": "imperial capital (esp. Kyoto)",
+        "meaning_hira": "きょう"
+      },
+      {
+        "word": "北京",
+        "reading": "ほっきょう",
+        "band": 7000,
+        "meaning_en": "Kyoto; see:; 南京; 1. Nanjing (China); Nanking",
+        "meaning_hira": "ほっきょう",
+        "grade": 2
+      },
+      {
+        "word": "東京大学",
+        "reading": "とうきょうだいがく",
+        "band": 7000,
+        "meaning_en": "University of Tokyo",
+        "meaning_hira": "とうきょうだいがく",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "きょう"
+  },
+  {
+    "kanji": "強",
+    "grade": 2,
+    "kyoiku_index": 111,
+    "onyomi": [
+      "キョウ",
+      "ゴウ"
+    ],
+    "kunyomi": [
+      "つよい",
+      "つよ",
+      "し",
+      "こわ"
+    ],
+    "words": [
+      {
+        "word": "勉強",
+        "reading": "べんきょう",
+        "band": 1000,
+        "meaning_en": "study",
+        "meaning_hira": "べんきょう",
+        "grade": 3
+      },
+      {
+        "word": "強い",
+        "reading": "つよい",
+        "band": 1000,
+        "meaning_en": "strong; potent; competent",
+        "meaning_hira": "つよい"
+      },
+      {
+        "word": "強",
+        "reading": "きょう",
+        "band": 7000,
+        "meaning_en": "a little over; a little more than; antonym:; 弱; 1. a little less than; a little under; slightly fewer than",
+        "meaning_hira": "きょう"
+      },
+      {
+        "word": "強烈",
+        "reading": "きょうれつ",
+        "band": 7000,
+        "meaning_en": "strong; intense; severe",
+        "meaning_hira": "きょうれつ",
+        "grade": 9
+      },
+      {
+        "word": "強める",
+        "reading": "つよめる",
+        "band": 7000,
+        "meaning_en": "to strengthen; to emphasize; to emphasise",
+        "meaning_hira": "つよめる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "きょう"
+  },
+  {
+    "kanji": "教",
+    "grade": 2,
+    "kyoiku_index": 112,
+    "onyomi": [
+      "キョウ"
+    ],
+    "kunyomi": [
+      "おしえる",
+      "おし",
+      "おそ"
+    ],
+    "words": [
+      {
+        "word": "教育",
+        "reading": "きょういく",
+        "band": 1000,
+        "meaning_en": "education; schooling; training",
+        "meaning_hira": "きょういく",
+        "grade": 3
+      },
+      {
+        "word": "教える",
+        "reading": "おしえる",
+        "band": 1000,
+        "meaning_en": "to teach; to instruct",
+        "meaning_hira": "おしえる"
+      },
+      {
+        "word": "宗教",
+        "reading": "しゅうきょう",
+        "band": 3000,
+        "meaning_en": "religion; religious affiliation; belief",
+        "meaning_hira": "しゅうきょう",
+        "grade": 9
+      },
+      {
+        "word": "教師",
+        "reading": "きょうし",
+        "band": 3000,
+        "meaning_en": "teacher; instructor",
+        "meaning_hira": "きょうし",
+        "grade": 9
+      },
+      {
+        "word": "教",
+        "reading": "きょう",
+        "band": 7000,
+        "meaning_en": "-ism (religion)",
+        "meaning_hira": "きょう"
+      },
+      {
+        "word": "教え",
+        "reading": "おしえ",
+        "band": 7000,
+        "meaning_en": "teaching; instruction; teachings",
+        "meaning_hira": "おしえ"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "きょう"
+  },
+  {
+    "kanji": "近",
+    "grade": 2,
+    "kyoiku_index": 113,
+    "onyomi": [
+      "キン",
+      "コン"
+    ],
+    "kunyomi": [
+      "ちかい",
+      "ちか"
+    ],
+    "words": [
+      {
+        "word": "近い",
+        "reading": "ちかい",
+        "band": 1000,
+        "meaning_en": "near; close; short (distance)",
+        "meaning_hira": "ちかい"
+      },
+      {
+        "word": "近く",
+        "reading": "ちかく",
+        "band": 1000,
+        "meaning_en": "near; neighbourhood; neighborhood; see:; 近い; 1. near; close; short (distance)",
+        "meaning_hira": "ちかく"
+      },
+      {
+        "word": "近代",
+        "reading": "きんだい",
+        "band": 3000,
+        "meaning_en": "present day; modern times; recent times",
+        "meaning_hira": "きんだい",
+        "grade": 3
+      },
+      {
+        "word": "近所",
+        "reading": "きんじょ",
+        "band": 3000,
+        "meaning_en": "neighbourhood; neighborhood; vicinity",
+        "meaning_hira": "きんじょ",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[ちか]い"
+  },
+  {
+    "kanji": "兄",
+    "grade": 2,
+    "kyoiku_index": 114,
+    "onyomi": [
+      "ケイ",
+      "キョウ"
+    ],
+    "kunyomi": [
+      "あに"
+    ],
+    "words": [
+      {
+        "word": "兄",
+        "reading": "けい",
+        "band": 7000,
+        "meaning_en": "you; used in letters to address a male friend or superior",
+        "meaning_hira": "けい"
+      },
+      {
+        "word": "兄さん",
+        "reading": "にいさん",
+        "band": 7000,
+        "meaning_en": "older brother; elder brother; see:; お兄さん; 1. older brother; elder brother",
+        "meaning_hira": "にいさん"
+      },
+      {
+        "word": "兄ちゃん",
+        "reading": "にいちゃん",
+        "band": 15000,
+        "meaning_en": "(one's) older brother; see:; お兄ちゃん; 1. (one's) older brother",
+        "meaning_hira": "にいちゃん"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "けい"
+  },
+  {
+    "kanji": "形",
+    "grade": 2,
+    "kyoiku_index": 115,
+    "onyomi": [
+      "ケイ",
+      "ギョウ"
+    ],
+    "kunyomi": [
+      "かた",
+      "かたち",
+      "なり"
+    ],
+    "words": [
+      {
+        "word": "形",
+        "reading": "かたち",
+        "band": 1000,
+        "meaning_en": "form; shape; figure",
+        "meaning_hira": "かたち"
+      },
+      {
+        "word": "形式",
+        "reading": "けいしき",
+        "band": 3000,
+        "meaning_en": "form (as opposed to substance)",
+        "meaning_hira": "けいしき",
+        "grade": 3
+      },
+      {
+        "word": "形成",
+        "reading": "けいせい",
+        "band": 3000,
+        "meaning_en": "formation; molding; making (up)",
+        "meaning_hira": "けいせい",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かたち"
+  },
+  {
+    "kanji": "計",
+    "grade": 2,
+    "kyoiku_index": 116,
+    "onyomi": [
+      "ケイ"
+    ],
+    "kunyomi": [
+      "はかる",
+      "はか"
+    ],
+    "words": [
+      {
+        "word": "計画",
+        "reading": "けいかく",
+        "band": 1000,
+        "meaning_en": "plan; project; schedule",
+        "meaning_hira": "けいかく",
+        "grade": 2
+      },
+      {
+        "word": "計",
+        "reading": "はか",
+        "band": 3000,
+        "meaning_en": "progress",
+        "meaning_hira": "はか"
+      },
+      {
+        "word": "会計",
+        "reading": "かいけい",
+        "band": 3000,
+        "meaning_en": "accounting; finance; account",
+        "meaning_hira": "かいけい",
+        "grade": 2
+      },
+      {
+        "word": "計算",
+        "reading": "けいさん",
+        "band": 3000,
+        "meaning_en": "calculation; computation; reckoning",
+        "meaning_hira": "けいさん",
+        "grade": 2
+      },
+      {
+        "word": "設計",
+        "reading": "せっけい",
+        "band": 3000,
+        "meaning_en": "plan; design; layout",
+        "meaning_hira": "せっけい",
+        "grade": 9
+      },
+      {
+        "word": "計る",
+        "reading": "はかる",
+        "band": 7000,
+        "meaning_en": "to measure; to weigh; to survey",
+        "meaning_hira": "はかる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "はか"
+  },
+  {
+    "kanji": "元",
+    "grade": 2,
+    "kyoiku_index": 117,
+    "onyomi": [
+      "ゲン",
+      "ガン"
+    ],
+    "kunyomi": [
+      "もと"
+    ],
+    "words": [
+      {
+        "word": "元",
+        "reading": "ゆあん",
+        "band": 1000,
+        "meaning_en": "yuan (monetary unit of China); Chinese:; yuán; see:; 元; （; げん; 3. yuan (monetary unit of China)",
+        "meaning_hira": "ゆあん"
+      },
+      {
+        "word": "元気",
+        "reading": "げんき",
+        "band": 3000,
+        "meaning_en": "lively; full of spirit; energetic",
+        "meaning_hira": "げんき",
+        "grade": 2
+      },
+      {
+        "word": "地元",
+        "reading": "じもと",
+        "band": 3000,
+        "meaning_en": "home area; home town",
+        "meaning_hira": "じもと",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ゆあん"
+  },
+  {
+    "kanji": "言",
+    "grade": 2,
+    "kyoiku_index": 118,
+    "onyomi": [
+      "ゲン",
+      "ゴン"
+    ],
+    "kunyomi": [
+      "いう",
+      "い",
+      "こと"
+    ],
+    "words": [
+      {
+        "word": "発言",
+        "reading": "はつげん",
+        "band": 1000,
+        "meaning_en": "statement; remark; observation",
+        "meaning_hira": "はつげん",
+        "grade": 3
+      },
+      {
+        "word": "言う",
+        "reading": "いう",
+        "band": 1000,
+        "meaning_en": "to say; to utter; to declare",
+        "meaning_hira": "いう"
+      },
+      {
+        "word": "言える",
+        "reading": "いえる",
+        "band": 1000,
+        "meaning_en": "to be possible to say; to be able to say; see:; 言う; 1. to say; to utter; to declare",
+        "meaning_hira": "いえる"
+      },
+      {
+        "word": "一言",
+        "reading": "ひとこと",
+        "band": 3000,
+        "meaning_en": "single word; a few words; brief comment",
+        "meaning_hira": "ひとこと",
+        "grade": 2
+      },
+      {
+        "word": "言語",
+        "reading": "げんご",
+        "band": 3000,
+        "meaning_en": "language",
+        "meaning_hira": "げんご",
+        "grade": 2
+      },
+      {
+        "word": "言",
+        "reading": "げん",
+        "band": 7000,
+        "meaning_en": "word; remark; statement",
+        "meaning_hira": "げん"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "げん"
+  },
+  {
+    "kanji": "原",
+    "grade": 2,
+    "kyoiku_index": 119,
+    "onyomi": [
+      "ゲン"
+    ],
+    "kunyomi": [
+      "はら"
+    ],
+    "words": [
+      {
+        "word": "原因",
+        "reading": "げんいん",
+        "band": 1000,
+        "meaning_en": "cause; origin; source",
+        "meaning_hira": "げんいん",
+        "grade": 9
+      },
+      {
+        "word": "原告",
+        "reading": "げんこく",
+        "band": 3000,
+        "meaning_en": "plaintiff; accuser; prosecutor; see:; 被告; defendant; the accused",
+        "meaning_hira": "げんこく",
+        "grade": 9
+      },
+      {
+        "word": "原理",
+        "reading": "げんり",
+        "band": 3000,
+        "meaning_en": "principle; theory; fundamental truth",
+        "meaning_hira": "げんり",
+        "grade": 2
+      },
+      {
+        "word": "原",
+        "reading": "げん",
+        "band": 7000,
+        "meaning_en": "original; primitive; primary",
+        "meaning_hira": "げん"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "げん"
+  },
+  {
+    "kanji": "戸",
+    "grade": 2,
+    "kyoiku_index": 120,
+    "onyomi": [
+      "コ"
+    ],
+    "kunyomi": [
+      "と"
+    ],
+    "words": [
+      {
+        "word": "神戸",
+        "reading": "こうべ",
+        "band": 3000,
+        "meaning_en": "Kobe (city)",
+        "meaning_hira": "こうべ",
+        "grade": 3
+      },
+      {
+        "word": "戸",
+        "reading": "と",
+        "band": 7000,
+        "meaning_en": "door (esp. Japanese-style); see:; 扉; 1. door; gate; opening",
+        "meaning_hira": "と"
+      },
+      {
+        "word": "江戸",
+        "reading": "えど",
+        "band": 7000,
+        "meaning_en": "Edo (shogunate capital; former name of Tokyo); Yedo",
+        "meaning_hira": "えど",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "と"
+  },
+  {
+    "kanji": "古",
+    "grade": 2,
+    "kyoiku_index": 121,
+    "onyomi": [
+      "コ"
+    ],
+    "kunyomi": [
+      "ふるい",
+      "ふる"
+    ],
+    "words": [
+      {
+        "word": "古い",
+        "reading": "ふるい",
+        "band": 3000,
+        "meaning_en": "old; aged; ancient; of things, not people",
+        "meaning_hira": "ふるい"
+      },
+      {
+        "word": "名古屋",
+        "reading": "なごや",
+        "band": 3000,
+        "meaning_en": "Nagoya (city)",
+        "meaning_hira": "なごや",
+        "grade": 3
+      },
+      {
+        "word": "古",
+        "reading": "いにしえ",
+        "band": 7000,
+        "meaning_en": "antiquity; ancient times; bygone days",
+        "meaning_hira": "いにしえ"
+      },
+      {
+        "word": "中古",
+        "reading": "ちゅうこ",
+        "band": 7000,
+        "meaning_en": "used; second-hand; old",
+        "meaning_hira": "ちゅうこ",
+        "grade": 2
+      },
+      {
+        "word": "古く",
+        "reading": "ふるく",
+        "band": 15000,
+        "meaning_en": "anciently; formerly",
+        "meaning_hira": "ふるく"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "いにしえ"
+  },
+  {
+    "kanji": "午",
+    "grade": 2,
+    "kyoiku_index": 122,
+    "onyomi": [
+      "ゴ"
+    ],
+    "kunyomi": [
+      "うま"
+    ],
+    "words": [
+      {
+        "word": "午後",
+        "reading": "ごご",
+        "band": 1000,
+        "meaning_en": "afternoon; p.m.",
+        "meaning_hira": "ごご",
+        "grade": 2
+      },
+      {
+        "word": "午前",
+        "reading": "ごぜん",
+        "band": 3000,
+        "meaning_en": "morning; a.m.",
+        "meaning_hira": "ごぜん",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[ご]"
+  },
+  {
+    "kanji": "後",
+    "grade": 2,
+    "kyoiku_index": 123,
+    "onyomi": [
+      "ゴ",
+      "コウ"
+    ],
+    "kunyomi": [
+      "のち",
+      "うし",
+      "うしろ",
+      "あと",
+      "おく"
+    ],
+    "words": [
+      {
+        "word": "後",
+        "reading": "ご",
+        "band": 1000,
+        "meaning_en": "after",
+        "meaning_hira": "ご"
+      },
+      {
+        "word": "今後",
+        "reading": "こんご",
+        "band": 1000,
+        "meaning_en": "from now on; hereafter",
+        "meaning_hira": "こんご",
+        "grade": 2
+      },
+      {
+        "word": "午後",
+        "reading": "ごご",
+        "band": 1000,
+        "meaning_en": "afternoon; p.m.",
+        "meaning_hira": "ごご",
+        "grade": 2
+      },
+      {
+        "word": "その後",
+        "reading": "そのあと",
+        "band": 1000,
+        "meaning_en": "after that; afterwards; thereafter; そのご is more formal",
+        "meaning_hira": "そのあと"
+      },
+      {
+        "word": "後ろ",
+        "reading": "うしろ",
+        "band": 3000,
+        "meaning_en": "back; behind; rear",
+        "meaning_hira": "うしろ"
+      },
+      {
+        "word": "戦後",
+        "reading": "せんご",
+        "band": 3000,
+        "meaning_en": "postwar period; period after Second World War",
+        "meaning_hira": "せんご",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ご"
+  },
+  {
+    "kanji": "語",
+    "grade": 2,
+    "kyoiku_index": 124,
+    "onyomi": [
+      "ゴ"
+    ],
+    "kunyomi": [
+      "かたる",
+      "かた"
+    ],
+    "words": [
+      {
+        "word": "語",
+        "reading": "ご",
+        "band": 1000,
+        "meaning_en": "word; term",
+        "meaning_hira": "ご"
+      },
+      {
+        "word": "英語",
+        "reading": "えいご",
+        "band": 1000,
+        "meaning_en": "English (language)",
+        "meaning_hira": "えいご",
+        "grade": 9
+      },
+      {
+        "word": "語る",
+        "reading": "かたる",
+        "band": 1000,
+        "meaning_en": "to talk about; to speak of; to tell",
+        "meaning_hira": "かたる"
+      },
+      {
+        "word": "日本語",
+        "reading": "にほんご",
+        "band": 1000,
+        "meaning_en": "Japanese (language)",
+        "meaning_hira": "にほんご",
+        "grade": 2
+      },
+      {
+        "word": "言語",
+        "reading": "げんご",
+        "band": 3000,
+        "meaning_en": "language",
+        "meaning_hira": "げんご",
+        "grade": 2
+      },
+      {
+        "word": "語りかける",
+        "reading": "かたりかける",
+        "band": 15000,
+        "meaning_en": "to make a speech; to address",
+        "meaning_hira": "かたりかける"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ご"
+  },
+  {
+    "kanji": "工",
+    "grade": 2,
+    "kyoiku_index": 125,
+    "onyomi": [
+      "コウ",
+      "ク",
+      "グ"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "工夫",
+        "reading": "くふう",
+        "band": 3000,
+        "meaning_en": "devising (a way); contriving; inventing",
+        "meaning_hira": "くふう",
+        "grade": 9
+      },
+      {
+        "word": "工",
+        "reading": "こう",
+        "band": 7000,
+        "meaning_en": "(factory) worker",
+        "meaning_hira": "こう"
+      },
+      {
+        "word": "施工",
+        "reading": "せこう",
+        "band": 7000,
+        "meaning_en": "construction; constructing; carrying out",
+        "meaning_hira": "せこう",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "こう"
+  },
+  {
+    "kanji": "公",
+    "grade": 2,
+    "kyoiku_index": 126,
+    "onyomi": [
+      "コウ",
+      "ク"
+    ],
+    "kunyomi": [
+      "おおやけ"
+    ],
+    "words": [
+      {
+        "word": "公",
+        "reading": "きみ",
+        "band": 3000,
+        "meaning_en": "you; buddy; pal; sometimes considered male language; referring to someone of equal or lower status",
+        "meaning_hira": "きみ"
+      },
+      {
+        "word": "公共",
+        "reading": "こうきょう",
+        "band": 3000,
+        "meaning_en": "public (facilities, service, etc.); communal",
+        "meaning_hira": "こうきょう",
+        "grade": 9
+      },
+      {
+        "word": "公式",
+        "reading": "こうしき",
+        "band": 3000,
+        "meaning_en": "official; formal",
+        "meaning_hira": "こうしき",
+        "grade": 3
+      },
+      {
+        "word": "主人公",
+        "reading": "しゅじんこう",
+        "band": 3000,
+        "meaning_en": "protagonist; main character; hero",
+        "meaning_hira": "しゅじんこう",
+        "grade": 3
+      },
+      {
+        "word": "公務員",
+        "reading": "こうむいん",
+        "band": 3000,
+        "meaning_en": "public employee; government employee; public-sector worker",
+        "meaning_hira": "こうむいん",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "きみ"
+  },
+  {
+    "kanji": "広",
+    "grade": 2,
+    "kyoiku_index": 127,
+    "onyomi": [
+      "コウ"
+    ],
+    "kunyomi": [
+      "ひろい",
+      "ひろ"
+    ],
+    "words": [
+      {
+        "word": "広い",
+        "reading": "ひろい",
+        "band": 3000,
+        "meaning_en": "spacious; vast; wide",
+        "meaning_hira": "ひろい"
+      },
+      {
+        "word": "広告",
+        "reading": "こうこく",
+        "band": 3000,
+        "meaning_en": "advertisement; advertising",
+        "meaning_hira": "こうこく",
+        "grade": 9
+      },
+      {
+        "word": "広がる",
+        "reading": "ひろがる",
+        "band": 3000,
+        "meaning_en": "to spread (out); to extend; to stretch",
+        "meaning_hira": "ひろがる"
+      },
+      {
+        "word": "広げる",
+        "reading": "ひろげる",
+        "band": 3000,
+        "meaning_en": "to spread; to extend; to expand",
+        "meaning_hira": "ひろげる"
+      },
+      {
+        "word": "広まる",
+        "reading": "ひろまる",
+        "band": 15000,
+        "meaning_en": "to spread; to be propagated",
+        "meaning_hira": "ひろまる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[ひろ]い"
+  },
+  {
+    "kanji": "交",
+    "grade": 2,
+    "kyoiku_index": 128,
+    "onyomi": [
+      "コウ"
+    ],
+    "kunyomi": [
+      "まじわる",
+      "まじ",
+      "ま",
+      "か",
+      "かわ",
+      "こもごも"
+    ],
+    "words": [
+      {
+        "word": "交流",
+        "reading": "こうりゅう",
+        "band": 3000,
+        "meaning_en": "exchange (e.g. cultural); interchange; interaction",
+        "meaning_hira": "こうりゅう",
+        "grade": 3
+      },
+      {
+        "word": "交渉",
+        "reading": "こうしょう",
+        "band": 3000,
+        "meaning_en": "negotiations; bargaining; discussions",
+        "meaning_hira": "こうしょう",
+        "grade": 9
+      },
+      {
+        "word": "交通",
+        "reading": "こうつう",
+        "band": 3000,
+        "meaning_en": "traffic; transportation",
+        "meaning_hira": "こうつう",
+        "grade": 2
+      },
+      {
+        "word": "外交",
+        "reading": "がいこう",
+        "band": 3000,
+        "meaning_en": "diplomacy",
+        "meaning_hira": "がいこう",
+        "grade": 2
+      },
+      {
+        "word": "交わす",
+        "reading": "かわす",
+        "band": 7000,
+        "meaning_en": "to exchange (messages, greetings, arguments, etc.)",
+        "meaning_hira": "かわす"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[か]わす"
+  },
+  {
+    "kanji": "光",
+    "grade": 2,
+    "kyoiku_index": 129,
+    "onyomi": [
+      "コウ"
+    ],
+    "kunyomi": [
+      "ひかる",
+      "ひか",
+      "ひかり"
+    ],
+    "words": [
+      {
+        "word": "光",
+        "reading": "ひかり",
+        "band": 3000,
+        "meaning_en": "light",
+        "meaning_hira": "ひかり"
+      },
+      {
+        "word": "光る",
+        "reading": "ひかる",
+        "band": 7000,
+        "meaning_en": "to shine; to glitter; to be bright",
+        "meaning_hira": "ひかる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ひかり"
+  },
+  {
+    "kanji": "考",
+    "grade": 2,
+    "kyoiku_index": 130,
+    "onyomi": [
+      "コウ"
+    ],
+    "kunyomi": [
+      "かんがえる",
+      "かんが"
+    ],
+    "words": [
+      {
+        "word": "参考",
+        "reading": "さんこう",
+        "band": 1000,
+        "meaning_en": "reference; consultation",
+        "meaning_hira": "さんこう",
+        "grade": 9
+      },
+      {
+        "word": "考え",
+        "reading": "かんがえ",
+        "band": 1000,
+        "meaning_en": "thinking; thought; view",
+        "meaning_hira": "かんがえ"
+      },
+      {
+        "word": "考える",
+        "reading": "かんがえる",
+        "band": 1000,
+        "meaning_en": "to think (about, of); to think over; to ponder",
+        "meaning_hira": "かんがえる"
+      },
+      {
+        "word": "考え方",
+        "reading": "かんがえかた",
+        "band": 1000,
+        "meaning_en": "way of thinking; point of view; opinion",
+        "meaning_hira": "かんがえかた",
+        "grade": 2
+      },
+      {
+        "word": "考",
+        "reading": "こう",
+        "band": 15000,
+        "meaning_en": "thought",
+        "meaning_hira": "こう"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "こう"
+  },
+  {
+    "kanji": "行",
+    "grade": 2,
+    "kyoiku_index": 131,
+    "onyomi": [
+      "コウ",
+      "ギョウ",
+      "アン"
+    ],
+    "kunyomi": [
+      "いく",
+      "い",
+      "ゆ",
+      "おこな",
+      "おこ"
+    ],
+    "words": [
+      {
+        "word": "旅行",
+        "reading": "りょこう",
+        "band": 1000,
+        "meaning_en": "travel; trip; journey",
+        "meaning_hira": "りょこう",
+        "grade": 3
+      },
+      {
+        "word": "行く",
+        "reading": "いく",
+        "band": 1000,
+        "meaning_en": "to go; to move (towards); to head (towards); see:; 来る; 1. to come (spatially or temporally); to approach; to arrive",
+        "meaning_hira": "いく"
+      },
+      {
+        "word": "行政",
+        "reading": "ぎょうせい",
+        "band": 1000,
+        "meaning_en": "executive; government",
+        "meaning_hira": "ぎょうせい",
+        "grade": 9
+      },
+      {
+        "word": "銀行",
+        "reading": "ぎんこう",
+        "band": 1000,
+        "meaning_en": "bank; banking institution",
+        "meaning_hira": "ぎんこう",
+        "grade": 3
+      },
+      {
+        "word": "行",
+        "reading": "ぎょう",
+        "band": 3000,
+        "meaning_en": "line (of text); row; verse",
+        "meaning_hira": "ぎょう"
+      },
+      {
+        "word": "飛行機",
+        "reading": "ひこうき",
+        "band": 3000,
+        "meaning_en": "airplane; aeroplane; plane",
+        "meaning_hira": "ひこうき",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ぎょう"
+  },
+  {
+    "kanji": "高",
+    "grade": 2,
+    "kyoiku_index": 132,
+    "onyomi": [
+      "コウ"
+    ],
+    "kunyomi": [
+      "たかい",
+      "たか"
+    ],
+    "words": [
+      {
+        "word": "高",
+        "reading": "こう",
+        "band": 1000,
+        "meaning_en": "high; see:; 高レベル; high level",
+        "meaning_hira": "こう"
+      },
+      {
+        "word": "高い",
+        "reading": "たかい",
+        "band": 1000,
+        "meaning_en": "high; tall; antonym:; 低い; 1. low (rank, degree, value, content, quality, etc.)",
+        "meaning_hira": "たかい"
+      },
+      {
+        "word": "高度",
+        "reading": "こうど",
+        "band": 3000,
+        "meaning_en": "altitude; height; elevation",
+        "meaning_hira": "こうど",
+        "grade": 3
+      },
+      {
+        "word": "高校",
+        "reading": "こうこう",
+        "band": 3000,
+        "meaning_en": "senior high school; high school; see:; 高等学校; senior high school; high school",
+        "meaning_hira": "こうこう",
+        "grade": 2
+      },
+      {
+        "word": "高まる",
+        "reading": "たかまる",
+        "band": 3000,
+        "meaning_en": "to rise; to swell; to be promoted",
+        "meaning_hira": "たかまる"
+      },
+      {
+        "word": "高める",
+        "reading": "たかめる",
+        "band": 3000,
+        "meaning_en": "to raise; to lift; to boost",
+        "meaning_hira": "たかめる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "こう"
+  },
+  {
+    "kanji": "黄",
+    "grade": 2,
+    "kyoiku_index": 133,
+    "onyomi": [
+      "コウ",
+      "オウ"
+    ],
+    "kunyomi": [
+      "き"
+    ],
+    "words": [
+      {
+        "word": "黄",
+        "reading": "き",
+        "band": 7000,
+        "meaning_en": "yellow; see:; 黄色; yellow; amber",
+        "meaning_hira": "き"
+      },
+      {
+        "word": "黄色",
+        "reading": "きいろ",
+        "band": 7000,
+        "meaning_en": "yellow; amber",
+        "meaning_hira": "きいろ",
+        "grade": 2
+      },
+      {
+        "word": "黄金",
+        "reading": "おうごん",
+        "band": 7000,
+        "meaning_en": "gold (Au)",
+        "meaning_hira": "おうごん",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "き"
+  },
+  {
+    "kanji": "合",
+    "grade": 2,
+    "kyoiku_index": 134,
+    "onyomi": [
+      "ゴウ",
+      "ガッ",
+      "カッ"
+    ],
+    "kunyomi": [
+      "あう",
+      "あ"
+    ],
+    "words": [
+      {
+        "word": "合う",
+        "reading": "あう",
+        "band": 1000,
+        "meaning_en": "to come together; to merge; to unite",
+        "meaning_hira": "あう"
+      },
+      {
+        "word": "場合",
+        "reading": "ばやい",
+        "band": 1000,
+        "meaning_en": "case; occasion; situation; dialectal; see:; 場合; （; ばあい; case; occasion; situation; circumstances",
+        "meaning_hira": "ばやい",
+        "grade": 2
+      },
+      {
+        "word": "試合",
+        "reading": "しあい",
+        "band": 1000,
+        "meaning_en": "match; game; bout",
+        "meaning_hira": "しあい",
+        "grade": 9
+      },
+      {
+        "word": "組合",
+        "reading": "くみあい",
+        "band": 3000,
+        "meaning_en": "association; union; guild",
+        "meaning_hira": "くみあい",
+        "grade": 2
+      },
+      {
+        "word": "総合",
+        "reading": "そうごう",
+        "band": 3000,
+        "meaning_en": "synthesis; combination; integration",
+        "meaning_hira": "そうごう",
+        "grade": 9
+      },
+      {
+        "word": "合",
+        "reading": "あい",
+        "band": 7000,
+        "meaning_en": "between-season wear; spring and autumn clothing; spring and fall clothing; also written as 間; see:; 合服; between-season wear; spring and autumn clothing",
+        "meaning_hira": "あい"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "あい"
+  },
+  {
+    "kanji": "谷",
+    "grade": 2,
+    "kyoiku_index": 135,
+    "onyomi": [
+      "コク"
+    ],
+    "kunyomi": [
+      "たに",
+      "きわ"
+    ],
+    "words": [
+      {
+        "word": "谷",
+        "reading": "たに",
+        "band": 7000,
+        "meaning_en": "valley; ravine; gorge",
+        "meaning_hira": "たに"
+      },
+      {
+        "word": "渋谷",
+        "reading": "しぶや",
+        "band": 7000,
+        "meaning_en": "Shibuya City (special ward of Tokyo); Shibuya",
+        "meaning_hira": "しぶや",
+        "grade": 9
+      },
+      {
+        "word": "谷川",
+        "reading": "たにがわ",
+        "band": 15000,
+        "meaning_en": "mountain stream",
+        "meaning_hira": "たにがわ",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "たに"
+  },
+  {
+    "kanji": "国",
+    "grade": 2,
+    "kyoiku_index": 136,
+    "onyomi": [
+      "コク"
+    ],
+    "kunyomi": [
+      "くに"
+    ],
+    "words": [
+      {
+        "word": "国",
+        "reading": "くに",
+        "band": 1000,
+        "meaning_en": "country; state",
+        "meaning_hira": "くに"
+      },
+      {
+        "word": "中国",
+        "reading": "ちゅうごく",
+        "band": 1000,
+        "meaning_en": "China; see:; 中華人民共和国; People's Republic of China",
+        "meaning_hira": "ちゅうごく",
+        "grade": 2
+      },
+      {
+        "word": "全国",
+        "reading": "ぜんこく",
+        "band": 1000,
+        "meaning_en": "the whole country",
+        "meaning_hira": "ぜんこく",
+        "grade": 3
+      },
+      {
+        "word": "国民",
+        "reading": "こくみん",
+        "band": 1000,
+        "meaning_en": "people (of a country); nation; citizen",
+        "meaning_hira": "こくみん",
+        "grade": 9
+      },
+      {
+        "word": "外国",
+        "reading": "がいこく",
+        "band": 1000,
+        "meaning_en": "foreign country",
+        "meaning_hira": "がいこく",
+        "grade": 2
+      },
+      {
+        "word": "米国",
+        "reading": "べいこく",
+        "band": 1000,
+        "meaning_en": "(United States of) America; USA; US; see:; アメリカ; 1. (United States of) America; United States; US; USA",
+        "meaning_hira": "べいこく",
+        "grade": 2
+      },
+      {
+        "word": "わが国",
+        "reading": "わがくに",
+        "band": 7000,
+        "meaning_en": "our country; our land; one's own country",
+        "meaning_hira": "わがくに"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "くに"
+  },
+  {
+    "kanji": "黒",
+    "grade": 2,
+    "kyoiku_index": 137,
+    "onyomi": [
+      "コク"
+    ],
+    "kunyomi": [
+      "くろ"
+    ],
+    "words": [
+      {
+        "word": "黒",
+        "reading": "くろ",
+        "band": 3000,
+        "meaning_en": "black",
+        "meaning_hira": "くろ"
+      },
+      {
+        "word": "黒い",
+        "reading": "くろい",
+        "band": 7000,
+        "meaning_en": "black",
+        "meaning_hira": "くろい"
+      },
+      {
+        "word": "黒人",
+        "reading": "くろうと",
+        "band": 7000,
+        "meaning_en": "expert; professional; master; antonym:; 素人; （; しろうと; 1. amateur; layman; ordinary person; novice",
+        "meaning_hira": "くろうと",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "くろ"
+  },
+  {
+    "kanji": "今",
+    "grade": 2,
+    "kyoiku_index": 138,
+    "onyomi": [
+      "コン",
+      "キン"
+    ],
+    "kunyomi": [
+      "いま"
+    ],
+    "words": [
+      {
+        "word": "今",
+        "reading": "いま",
+        "band": 1000,
+        "meaning_en": "now; the present time; just now",
+        "meaning_hira": "いま"
+      },
+      {
+        "word": "今回",
+        "reading": "こんかい",
+        "band": 1000,
+        "meaning_en": "this time; now",
+        "meaning_hira": "こんかい",
+        "grade": 2
+      },
+      {
+        "word": "今年",
+        "reading": "ことし",
+        "band": 1000,
+        "meaning_en": "this year",
+        "meaning_hira": "ことし",
+        "grade": 2
+      },
+      {
+        "word": "今度",
+        "reading": "こんど",
+        "band": 1000,
+        "meaning_en": "this time; now",
+        "meaning_hira": "こんど",
+        "grade": 3
+      },
+      {
+        "word": "今後",
+        "reading": "こんご",
+        "band": 1000,
+        "meaning_en": "from now on; hereafter",
+        "meaning_hira": "こんご",
+        "grade": 2
+      },
+      {
+        "word": "今や",
+        "reading": "いまや",
+        "band": 7000,
+        "meaning_en": "now (esp. in contrast to the past); now at last; at present",
+        "meaning_hira": "いまや"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "いま"
+  },
+  {
+    "kanji": "才",
+    "grade": 2,
+    "kyoiku_index": 139,
+    "onyomi": [
+      "サイ"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "才",
+        "reading": "さい",
+        "band": 3000,
+        "meaning_en": "... years old; age (of) ...",
+        "meaning_hira": "さい"
+      },
+      {
+        "word": "天才",
+        "reading": "てんさい",
+        "band": 7000,
+        "meaning_en": "genius; prodigy; natural gift; antonym:; 凡才; mediocrity; ordinary ability",
+        "meaning_hira": "てんさい",
+        "grade": 2
+      },
+      {
+        "word": "才能",
+        "reading": "さいのう",
+        "band": 7000,
+        "meaning_en": "talent; ability",
+        "meaning_hira": "さいのう",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "さい"
+  },
+  {
+    "kanji": "細",
+    "grade": 2,
+    "kyoiku_index": 140,
+    "onyomi": [
+      "サイ"
+    ],
+    "kunyomi": [
+      "ほそい",
+      "ほそ",
+      "こま"
+    ],
+    "words": [
+      {
+        "word": "詳細",
+        "reading": "しょうさい",
+        "band": 1000,
+        "meaning_en": "details; particulars; specifics",
+        "meaning_hira": "しょうさい",
+        "grade": 9
+      },
+      {
+        "word": "細胞",
+        "reading": "さいぼう",
+        "band": 3000,
+        "meaning_en": "cell",
+        "meaning_hira": "さいぼう",
+        "grade": 9
+      },
+      {
+        "word": "細かい",
+        "reading": "こまかい",
+        "band": 3000,
+        "meaning_en": "small",
+        "meaning_hira": "こまかい"
+      },
+      {
+        "word": "細い",
+        "reading": "ほそい",
+        "band": 7000,
+        "meaning_en": "thin; slender; fine",
+        "meaning_hira": "ほそい"
+      },
+      {
+        "word": "細",
+        "reading": "さい",
+        "band": 15000,
+        "meaning_en": "detail; details; see:; 微に入り細を穿つ; to go into the minutest details",
+        "meaning_hira": "さい"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "さい"
+  },
+  {
+    "kanji": "作",
+    "grade": 2,
+    "kyoiku_index": 141,
+    "onyomi": [
+      "サク",
+      "サ"
+    ],
+    "kunyomi": [
+      "つくる",
+      "つく"
+    ],
+    "words": [
+      {
+        "word": "作る",
+        "reading": "つくる",
+        "band": 1000,
+        "meaning_en": "to make; to produce; to manufacture; 造る usu. for large-scale building, manufacturing, etc.; 創る usu. for creating",
+        "meaning_hira": "つくる"
+      },
+      {
+        "word": "作品",
+        "reading": "さくひん",
+        "band": 1000,
+        "meaning_en": "work (e.g. book, film, painting, composition); piece; production",
+        "meaning_hira": "さくひん",
+        "grade": 3
+      },
+      {
+        "word": "作成",
+        "reading": "さくせい",
+        "band": 1000,
+        "meaning_en": "making (a report, plan, contract, etc.); drawing up; writing out",
+        "meaning_hira": "さくせい",
+        "grade": 9
+      },
+      {
+        "word": "作業",
+        "reading": "さぎょう",
+        "band": 1000,
+        "meaning_en": "work; operation; task",
+        "meaning_hira": "さぎょう",
+        "grade": 3
+      },
+      {
+        "word": "作",
+        "reading": "さく",
+        "band": 3000,
+        "meaning_en": "work (e.g. of art); piece; production",
+        "meaning_hira": "さく"
+      },
+      {
+        "word": "著作",
+        "reading": "ちょさく",
+        "band": 3000,
+        "meaning_en": "writing (a book); book; (literary) work",
+        "meaning_hira": "ちょさく",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "さく"
+  },
+  {
+    "kanji": "算",
+    "grade": 2,
+    "kyoiku_index": 142,
+    "onyomi": [
+      "サン"
+    ],
+    "kunyomi": [
+      "そろ"
+    ],
+    "words": [
+      {
+        "word": "予算",
+        "reading": "よさん",
+        "band": 1000,
+        "meaning_en": "estimate (of costs); budget",
+        "meaning_hira": "よさん",
+        "grade": 3
+      },
+      {
+        "word": "計算",
+        "reading": "けいさん",
+        "band": 3000,
+        "meaning_en": "calculation; computation; reckoning",
+        "meaning_hira": "けいさん",
+        "grade": 2
+      },
+      {
+        "word": "決算",
+        "reading": "けっさん",
+        "band": 7000,
+        "meaning_en": "settlement of accounts; closing accounts; financial results",
+        "meaning_hira": "けっさん",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[さん]"
+  },
+  {
+    "kanji": "止",
+    "grade": 2,
+    "kyoiku_index": 143,
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "とまる",
+      "と",
+      "とど",
+      "や",
+      "よ"
+    ],
+    "words": [
+      {
+        "word": "停止",
+        "reading": "ていし",
+        "band": 3000,
+        "meaning_en": "stoppage; coming to a stop; halt",
+        "meaning_hira": "ていし",
+        "grade": 9
+      },
+      {
+        "word": "廃止",
+        "reading": "はいし",
+        "band": 3000,
+        "meaning_en": "abolition; discontinuance; discontinuation",
+        "meaning_hira": "はいし",
+        "grade": 9
+      },
+      {
+        "word": "禁止",
+        "reading": "きんし",
+        "band": 3000,
+        "meaning_en": "prohibition; inhibition; ban",
+        "meaning_hira": "きんし",
+        "grade": 9
+      },
+      {
+        "word": "止める",
+        "reading": "とどめる",
+        "band": 3000,
+        "meaning_en": "to stop; to stay (e.g. the night); to cease",
+        "meaning_hira": "とどめる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[とど]める"
+  },
+  {
+    "kanji": "市",
+    "grade": 2,
+    "kyoiku_index": 144,
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "いち"
+    ],
+    "words": [
+      {
+        "word": "市",
+        "reading": "いち",
+        "band": 1000,
+        "meaning_en": "market; fair",
+        "meaning_hira": "いち"
+      },
+      {
+        "word": "市場",
+        "reading": "いちば",
+        "band": 1000,
+        "meaning_en": "(town) market; (street) market; marketplace",
+        "meaning_hira": "いちば",
+        "grade": 2
+      },
+      {
+        "word": "都市",
+        "reading": "とし",
+        "band": 1000,
+        "meaning_en": "town; city; municipal",
+        "meaning_hira": "とし",
+        "grade": 3
+      },
+      {
+        "word": "市民",
+        "reading": "しみん",
+        "band": 3000,
+        "meaning_en": "citizen (of a country); citizenry",
+        "meaning_hira": "しみん",
+        "grade": 9
+      },
+      {
+        "word": "市町村",
+        "reading": "しちょうそん",
+        "band": 3000,
+        "meaning_en": "cities, towns and villages; municipalities",
+        "meaning_hira": "しちょうそん",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "いち"
+  },
+  {
+    "kanji": "矢",
+    "grade": 2,
+    "kyoiku_index": 145,
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "や"
+    ],
+    "words": [
+      {
+        "word": "矢",
+        "reading": "や",
+        "band": 7000,
+        "meaning_en": "arrow",
+        "meaning_hira": "や"
+      },
+      {
+        "word": "矢先",
+        "reading": "やさき",
+        "band": 15000,
+        "meaning_en": "arrowhead",
+        "meaning_hira": "やさき",
+        "grade": 2
+      },
+      {
+        "word": "矢印",
+        "reading": "やじるし",
+        "band": 15000,
+        "meaning_en": "arrow (symbol)",
+        "meaning_hira": "やじるし",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "や"
+  },
+  {
+    "kanji": "姉",
+    "grade": 2,
+    "kyoiku_index": 146,
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "あね",
+      "はは"
+    ],
+    "words": [
+      {
+        "word": "姉",
+        "reading": "あね",
+        "band": 7000,
+        "meaning_en": "older sister; elder sister",
+        "meaning_hira": "あね"
+      },
+      {
+        "word": "姉妹",
+        "reading": "しまい",
+        "band": 7000,
+        "meaning_en": "sisters",
+        "meaning_hira": "しまい",
+        "grade": 2
+      },
+      {
+        "word": "姉さん",
+        "reading": "ねえさん",
+        "band": 7000,
+        "meaning_en": "older sister; elder sister; usu. 姉さん",
+        "meaning_hira": "ねえさん"
+      },
+      {
+        "word": "姉ちゃん",
+        "reading": "ねえちゃん",
+        "band": 15000,
+        "meaning_en": "(one's) older sister; (one's) elder sister; see:; 姉さん; 1. older sister; elder sister",
+        "meaning_hira": "ねえちゃん"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "あね"
+  },
+  {
+    "kanji": "思",
+    "grade": 2,
+    "kyoiku_index": 147,
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "おもう",
+      "おも",
+      "おもえら",
+      "おぼ"
+    ],
+    "words": [
+      {
+        "word": "思う",
+        "reading": "おもう",
+        "band": 1000,
+        "meaning_en": "to think; to consider; to believe; 想う has connotations of heart-felt",
+        "meaning_hira": "おもう"
+      },
+      {
+        "word": "思える",
+        "reading": "おもえる",
+        "band": 1000,
+        "meaning_en": "to seem; to appear likely",
+        "meaning_hira": "おもえる"
+      },
+      {
+        "word": "思想",
+        "reading": "しそう",
+        "band": 3000,
+        "meaning_en": "thought; idea; ideology",
+        "meaning_hira": "しそう",
+        "grade": 3
+      },
+      {
+        "word": "不思議",
+        "reading": "ふしぎ",
+        "band": 3000,
+        "meaning_en": "wonderful; marvelous; strange",
+        "meaning_hira": "ふしぎ",
+        "grade": 9
+      },
+      {
+        "word": "思い出す",
+        "reading": "おもいだす",
+        "band": 3000,
+        "meaning_en": "to recall; to remember; to recollect",
+        "meaning_hira": "おもいだす",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[おも]う"
+  },
+  {
+    "kanji": "紙",
+    "grade": 2,
+    "kyoiku_index": 148,
+    "onyomi": [
+      "シ"
+    ],
+    "kunyomi": [
+      "かみ"
+    ],
+    "words": [
+      {
+        "word": "紙",
+        "reading": "し",
+        "band": 3000,
+        "meaning_en": "newspaper; see:; 新聞紙; 2. newspaper",
+        "meaning_hira": "し"
+      },
+      {
+        "word": "手紙",
+        "reading": "てがみ",
+        "band": 3000,
+        "meaning_en": "letter; note",
+        "meaning_hira": "てがみ",
+        "grade": 2
+      },
+      {
+        "word": "紙面",
+        "reading": "しめん",
+        "band": 15000,
+        "meaning_en": "space on a page (e.g. in a newspaper)",
+        "meaning_hira": "しめん",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "し"
+  },
+  {
+    "kanji": "寺",
+    "grade": 2,
+    "kyoiku_index": 149,
+    "onyomi": [
+      "ジ"
+    ],
+    "kunyomi": [
+      "てら"
+    ],
+    "words": [
+      {
+        "word": "寺",
+        "reading": "てら",
+        "band": 7000,
+        "meaning_en": "temple (Buddhist)",
+        "meaning_hira": "てら"
+      },
+      {
+        "word": "お寺",
+        "reading": "おてら",
+        "band": 15000,
+        "meaning_en": "temple; see:; 寺; temple (Buddhist)",
+        "meaning_hira": "おてら"
+      },
+      {
+        "word": "寺院",
+        "reading": "じいん",
+        "band": 15000,
+        "meaning_en": "Buddhist temple",
+        "meaning_hira": "じいん",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "てら"
+  },
+  {
+    "kanji": "自",
+    "grade": 2,
+    "kyoiku_index": 150,
+    "onyomi": [
+      "ジ",
+      "シ"
+    ],
+    "kunyomi": [
+      "みずから",
+      "みずか",
+      "おの"
+    ],
+    "words": [
+      {
+        "word": "自分",
+        "reading": "じぶん",
+        "band": 1000,
+        "meaning_en": "myself; yourself; oneself",
+        "meaning_hira": "じぶん",
+        "grade": 2
+      },
+      {
+        "word": "自然",
+        "reading": "しぜん",
+        "band": 1000,
+        "meaning_en": "nature",
+        "meaning_hira": "しぜん",
+        "grade": 9
+      },
+      {
+        "word": "自ら",
+        "reading": "おのずから",
+        "band": 3000,
+        "meaning_en": "naturally; in due course; by itself; see:; 自ずと; naturally; in due course; by itself; of its own accord",
+        "meaning_hira": "おのずから"
+      },
+      {
+        "word": "自動車",
+        "reading": "じどうしゃ",
+        "band": 3000,
+        "meaning_en": "car; automobile; motorcar",
+        "meaning_hira": "じどうしゃ",
+        "grade": 3
+      },
+      {
+        "word": "自",
+        "reading": "じ",
+        "band": 7000,
+        "meaning_en": "self-",
+        "meaning_hira": "じ"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "じ"
+  },
+  {
+    "kanji": "時",
+    "grade": 2,
+    "kyoiku_index": 151,
+    "onyomi": [
+      "ジ"
+    ],
+    "kunyomi": [
+      "とき"
+    ],
+    "words": [
+      {
+        "word": "時",
+        "reading": "じ",
+        "band": 1000,
+        "meaning_en": "hour; o'clock",
+        "meaning_hira": "じ"
+      },
+      {
+        "word": "当時",
+        "reading": "とうじ",
+        "band": 1000,
+        "meaning_en": "at that time; in those days",
+        "meaning_hira": "とうじ",
+        "grade": 2
+      },
+      {
+        "word": "時代",
+        "reading": "じだい",
+        "band": 1000,
+        "meaning_en": "period; epoch; era",
+        "meaning_hira": "じだい",
+        "grade": 3
+      },
+      {
+        "word": "時間",
+        "reading": "じかん",
+        "band": 1000,
+        "meaning_en": "time",
+        "meaning_hira": "じかん",
+        "grade": 2
+      },
+      {
+        "word": "同時に",
+        "reading": "どうじに",
+        "band": 1000,
+        "meaning_en": "at the same time; at once; simultaneously",
+        "meaning_hira": "どうじに",
+        "grade": 2
+      },
+      {
+        "word": "時には",
+        "reading": "ときには",
+        "band": 7000,
+        "meaning_en": "at times; occasionally",
+        "meaning_hira": "ときには"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "じ"
+  },
+  {
+    "kanji": "室",
+    "grade": 2,
+    "kyoiku_index": 152,
+    "onyomi": [
+      "シツ"
+    ],
+    "kunyomi": [
+      "むろ"
+    ],
+    "words": [
+      {
+        "word": "室",
+        "reading": "しつ",
+        "band": 1000,
+        "meaning_en": "room",
+        "meaning_hira": "しつ"
+      },
+      {
+        "word": "教室",
+        "reading": "きょうしつ",
+        "band": 3000,
+        "meaning_en": "classroom; lecture room",
+        "meaning_hira": "きょうしつ",
+        "grade": 2
+      },
+      {
+        "word": "室内",
+        "reading": "しつない",
+        "band": 7000,
+        "meaning_en": "indoor; inside the room",
+        "meaning_hira": "しつない",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しつ"
+  },
+  {
+    "kanji": "社",
+    "grade": 2,
+    "kyoiku_index": 153,
+    "onyomi": [
+      "シャ"
+    ],
+    "kunyomi": [
+      "やしろ"
+    ],
+    "words": [
+      {
+        "word": "社",
+        "reading": "しゃ",
+        "band": 1000,
+        "meaning_en": "company; firm; office; see:; 会社; 1. company; corporation; firm; see:; 結社; association; society",
+        "meaning_hira": "しゃ"
+      },
+      {
+        "word": "会社",
+        "reading": "かいしゃ",
+        "band": 1000,
+        "meaning_en": "company; corporation; firm",
+        "meaning_hira": "かいしゃ",
+        "grade": 2
+      },
+      {
+        "word": "社会",
+        "reading": "しゃかい",
+        "band": 1000,
+        "meaning_en": "society; public; community",
+        "meaning_hira": "しゃかい",
+        "grade": 2
+      },
+      {
+        "word": "社長",
+        "reading": "しゃちょう",
+        "band": 1000,
+        "meaning_en": "company president; manager; director",
+        "meaning_hira": "しゃちょう",
+        "grade": 2
+      },
+      {
+        "word": "株式会社",
+        "reading": "かぶしきがいしゃ",
+        "band": 3000,
+        "meaning_en": "stock company; corporation; kabushiki kaisha",
+        "meaning_hira": "かぶしきがいしゃ",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しゃ"
+  },
+  {
+    "kanji": "弱",
+    "grade": 2,
+    "kyoiku_index": 154,
+    "onyomi": [
+      "ジャク"
+    ],
+    "kunyomi": [
+      "よわい",
+      "よわ"
+    ],
+    "words": [
+      {
+        "word": "弱い",
+        "reading": "よわい",
+        "band": 3000,
+        "meaning_en": "weak; frail; delicate",
+        "meaning_hira": "よわい"
+      },
+      {
+        "word": "弱",
+        "reading": "じゃく",
+        "band": 7000,
+        "meaning_en": "a little less than; a little under; slightly fewer than; antonym:; 強; 1. a little over; a little more than",
+        "meaning_hira": "じゃく"
+      },
+      {
+        "word": "脆弱",
+        "reading": "ぜいじゃく",
+        "band": 7000,
+        "meaning_en": "weak; frail; fragile",
+        "meaning_hira": "ぜいじゃく",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "じゃく"
+  },
+  {
+    "kanji": "首",
+    "grade": 2,
+    "kyoiku_index": 155,
+    "onyomi": [
+      "シュ"
+    ],
+    "kunyomi": [
+      "くび"
+    ],
+    "words": [
+      {
+        "word": "首",
+        "reading": "かしら",
+        "band": 3000,
+        "meaning_en": "head (of a doll); see:; 頭; （; かしら; 1. head",
+        "meaning_hira": "かしら"
+      },
+      {
+        "word": "首脳",
+        "reading": "しゅのう",
+        "band": 7000,
+        "meaning_en": "head; leader; top; esp. 首脳",
+        "meaning_hira": "しゅのう",
+        "grade": 9
+      },
+      {
+        "word": "首都",
+        "reading": "しゅと",
+        "band": 7000,
+        "meaning_en": "capital (city); metropolis",
+        "meaning_hira": "しゅと",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かしら"
+  },
+  {
+    "kanji": "秋",
+    "grade": 2,
+    "kyoiku_index": 156,
+    "onyomi": [
+      "シュウ"
+    ],
+    "kunyomi": [
+      "あき",
+      "とき"
+    ],
+    "words": [
+      {
+        "word": "秋",
+        "reading": "とき",
+        "band": 3000,
+        "meaning_en": "time; hour; moment; 刻 signifies a time of day; 秋 signifies an important time",
+        "meaning_hira": "とき"
+      },
+      {
+        "word": "秋田",
+        "reading": "あきた",
+        "band": 7000,
+        "meaning_en": "Akita (city, prefecture)",
+        "meaning_hira": "あきた",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "とき"
+  },
+  {
+    "kanji": "週",
+    "grade": 2,
+    "kyoiku_index": 157,
+    "onyomi": [
+      "シュウ"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "週",
+        "reading": "しゅう",
+        "band": 3000,
+        "meaning_en": "week",
+        "meaning_hira": "しゅう"
+      },
+      {
+        "word": "今週",
+        "reading": "こんしゅう",
+        "band": 3000,
+        "meaning_en": "this week",
+        "meaning_hira": "こんしゅう",
+        "grade": 2
+      },
+      {
+        "word": "先週",
+        "reading": "せんしゅう",
+        "band": 3000,
+        "meaning_en": "last week; the week before",
+        "meaning_hira": "せんしゅう",
+        "grade": 2
+      },
+      {
+        "word": "来週",
+        "reading": "らいしゅう",
+        "band": 7000,
+        "meaning_en": "next week",
+        "meaning_hira": "らいしゅう",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しゅう"
+  },
+  {
+    "kanji": "春",
+    "grade": 2,
+    "kyoiku_index": 158,
+    "onyomi": [
+      "シュン"
+    ],
+    "kunyomi": [
+      "はる"
+    ],
+    "words": [
+      {
+        "word": "春",
+        "reading": "はる",
+        "band": 3000,
+        "meaning_en": "spring; springtime",
+        "meaning_hira": "はる"
+      },
+      {
+        "word": "青春",
+        "reading": "せいしゅん",
+        "band": 7000,
+        "meaning_en": "youth; adolescence; springtime of life",
+        "meaning_hira": "せいしゅん",
+        "grade": 2
+      },
+      {
+        "word": "売春",
+        "reading": "ばいしゅん",
+        "band": 15000,
+        "meaning_en": "prostitution",
+        "meaning_hira": "ばいしゅん",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "はる"
+  },
+  {
+    "kanji": "書",
+    "grade": 2,
+    "kyoiku_index": 159,
+    "onyomi": [
+      "ショ"
+    ],
+    "kunyomi": [
+      "かく",
+      "か"
+    ],
+    "words": [
+      {
+        "word": "書",
+        "reading": "ふみ",
+        "band": 1000,
+        "meaning_en": "letter; note; mail",
+        "meaning_hira": "ふみ"
+      },
+      {
+        "word": "書く",
+        "reading": "かく",
+        "band": 1000,
+        "meaning_en": "to write; to compose; to pen",
+        "meaning_hira": "かく"
+      },
+      {
+        "word": "文書",
+        "reading": "ぶんしょ",
+        "band": 3000,
+        "meaning_en": "document; writing; letter",
+        "meaning_hira": "ぶんしょ",
+        "grade": 2
+      },
+      {
+        "word": "図書館",
+        "reading": "としょかん",
+        "band": 3000,
+        "meaning_en": "library",
+        "meaning_hira": "としょかん",
+        "grade": 3
+      },
+      {
+        "word": "書き込み",
+        "reading": "かきこみ",
+        "band": 3000,
+        "meaning_en": "writing",
+        "meaning_hira": "かきこみ",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ふみ"
+  },
+  {
+    "kanji": "少",
+    "grade": 2,
+    "kyoiku_index": 160,
+    "onyomi": [
+      "ショウ"
+    ],
+    "kunyomi": [
+      "すくない",
+      "すく",
+      "すこ"
+    ],
+    "words": [
+      {
+        "word": "少し",
+        "reading": "すこし",
+        "band": 1000,
+        "meaning_en": "a little; a bit; a small amount",
+        "meaning_hira": "すこし"
+      },
+      {
+        "word": "少ない",
+        "reading": "すくない",
+        "band": 1000,
+        "meaning_en": "few; little; small (amount)",
+        "meaning_hira": "すくない"
+      },
+      {
+        "word": "少年",
+        "reading": "しょうねん",
+        "band": 3000,
+        "meaning_en": "boy",
+        "meaning_hira": "しょうねん",
+        "grade": 2
+      },
+      {
+        "word": "もう少し",
+        "reading": "もうすこし",
+        "band": 3000,
+        "meaning_en": "a bit more; a bit longer",
+        "meaning_hira": "もうすこし"
+      },
+      {
+        "word": "少なくとも",
+        "reading": "すくなくとも",
+        "band": 3000,
+        "meaning_en": "at least",
+        "meaning_hira": "すくなくとも"
+      },
+      {
+        "word": "少",
+        "reading": "しょう",
+        "band": 7000,
+        "meaning_en": "small; little; few",
+        "meaning_hira": "しょう"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しょう"
+  },
+  {
+    "kanji": "場",
+    "grade": 2,
+    "kyoiku_index": 161,
+    "onyomi": [
+      "ジョウ",
+      "チョウ"
+    ],
+    "kunyomi": [
+      "ば"
+    ],
+    "words": [
+      {
+        "word": "場",
+        "reading": "じょう",
+        "band": 1000,
+        "meaning_en": "place; spot; grounds",
+        "meaning_hira": "じょう"
+      },
+      {
+        "word": "場合",
+        "reading": "ばやい",
+        "band": 1000,
+        "meaning_en": "case; occasion; situation; dialectal; see:; 場合; （; ばあい; case; occasion; situation; circumstances",
+        "meaning_hira": "ばやい",
+        "grade": 2
+      },
+      {
+        "word": "場所",
+        "reading": "ばしょ",
+        "band": 1000,
+        "meaning_en": "place; location; spot",
+        "meaning_hira": "ばしょ",
+        "grade": 3
+      },
+      {
+        "word": "市場",
+        "reading": "いちば",
+        "band": 1000,
+        "meaning_en": "(town) market; (street) market; marketplace",
+        "meaning_hira": "いちば",
+        "grade": 2
+      },
+      {
+        "word": "立場",
+        "reading": "たちば",
+        "band": 1000,
+        "meaning_en": "position; situation",
+        "meaning_hira": "たちば",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "じょう"
+  },
+  {
+    "kanji": "色",
+    "grade": 2,
+    "kyoiku_index": 162,
+    "onyomi": [
+      "ショク",
+      "シキ"
+    ],
+    "kunyomi": [
+      "いろ"
+    ],
+    "words": [
+      {
+        "word": "色",
+        "reading": "しょく",
+        "band": 1000,
+        "meaning_en": "counter for colours",
+        "meaning_hira": "しょく"
+      },
+      {
+        "word": "色々",
+        "reading": "いろいろ",
+        "band": 3000,
+        "meaning_en": "various; a variety of; all sorts of",
+        "meaning_hira": "いろいろ"
+      },
+      {
+        "word": "景色",
+        "reading": "けしき",
+        "band": 7000,
+        "meaning_en": "scenery; scene; landscape",
+        "meaning_hira": "けしき",
+        "grade": 9
+      },
+      {
+        "word": "色んな",
+        "reading": "いろんな",
+        "band": 7000,
+        "meaning_en": "various; a variety of; all sorts of; see:; いろいろ; 1. various; a variety of; all sorts of; many (different)",
+        "meaning_hira": "いろんな"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しょく"
+  },
+  {
+    "kanji": "食",
+    "grade": 2,
+    "kyoiku_index": 163,
+    "onyomi": [
+      "ショク",
+      "ジキ"
+    ],
+    "kunyomi": [
+      "くう",
+      "く",
+      "た",
+      "は"
+    ],
+    "words": [
+      {
+        "word": "食べる",
+        "reading": "たべる",
+        "band": 1000,
+        "meaning_en": "to eat",
+        "meaning_hira": "たべる"
+      },
+      {
+        "word": "食",
+        "reading": "しょく",
+        "band": 3000,
+        "meaning_en": "food; foodstuff",
+        "meaning_hira": "しょく"
+      },
+      {
+        "word": "食う",
+        "reading": "くう",
+        "band": 3000,
+        "meaning_en": "to eat",
+        "meaning_hira": "くう"
+      },
+      {
+        "word": "食事",
+        "reading": "しょくじ",
+        "band": 3000,
+        "meaning_en": "meal (e.g. lunch, dinner)",
+        "meaning_hira": "しょくじ",
+        "grade": 3
+      },
+      {
+        "word": "食品",
+        "reading": "しょくひん",
+        "band": 3000,
+        "meaning_en": "food; food products; foodstuffs",
+        "meaning_hira": "しょくひん",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しょく"
+  },
+  {
+    "kanji": "心",
+    "grade": 2,
+    "kyoiku_index": 164,
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "こころ"
+    ],
+    "words": [
+      {
+        "word": "心",
+        "reading": "しん",
+        "band": 1000,
+        "meaning_en": "heart; mind; spirit; see:; 心; （; こころ; 1. mind; heart; spirit",
+        "meaning_hira": "しん"
+      },
+      {
+        "word": "中心",
+        "reading": "なかご",
+        "band": 1000,
+        "meaning_en": "core",
+        "meaning_hira": "なかご",
+        "grade": 2
+      },
+      {
+        "word": "安心",
+        "reading": "あんじん",
+        "band": 3000,
+        "meaning_en": "obtaining peace of mind through faith or ascetic practice",
+        "meaning_hira": "あんじん",
+        "grade": 3
+      },
+      {
+        "word": "心配",
+        "reading": "しんぱい",
+        "band": 3000,
+        "meaning_en": "worry; concern; anxiety",
+        "meaning_hira": "しんぱい",
+        "grade": 3
+      },
+      {
+        "word": "心から",
+        "reading": "こころから",
+        "band": 7000,
+        "meaning_en": "from the bottom of one's heart; heartily; sincerely",
+        "meaning_hira": "こころから"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しん"
+  },
+  {
+    "kanji": "新",
+    "grade": 2,
+    "kyoiku_index": 165,
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "あたらしい",
+      "あたら",
+      "あら"
+    ],
+    "words": [
+      {
+        "word": "新",
+        "reading": "さら",
+        "band": 1000,
+        "meaning_en": "new; unused",
+        "meaning_hira": "さら"
+      },
+      {
+        "word": "新聞",
+        "reading": "しんぶん",
+        "band": 1000,
+        "meaning_en": "newspaper",
+        "meaning_hira": "しんぶん",
+        "grade": 2
+      },
+      {
+        "word": "新しい",
+        "reading": "あたらしい",
+        "band": 1000,
+        "meaning_en": "new; novel; fresh",
+        "meaning_hira": "あたらしい"
+      },
+      {
+        "word": "新た",
+        "reading": "あらた",
+        "band": 3000,
+        "meaning_en": "new; fresh; novel",
+        "meaning_hira": "あらた"
+      },
+      {
+        "word": "最新",
+        "reading": "さいしん",
+        "band": 3000,
+        "meaning_en": "latest; newest; late-breaking (news)",
+        "meaning_hira": "さいしん",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "さら"
+  },
+  {
+    "kanji": "親",
+    "grade": 2,
+    "kyoiku_index": 166,
+    "onyomi": [
+      "シン"
+    ],
+    "kunyomi": [
+      "おや",
+      "した"
+    ],
+    "words": [
+      {
+        "word": "親",
+        "reading": "しん",
+        "band": 1000,
+        "meaning_en": "intimacy; closeness; friendliness; antonym:; 疎; （; そ; 2. distant (of a relationship); estranged; alienated",
+        "meaning_hira": "しん"
+      },
+      {
+        "word": "母親",
+        "reading": "ははおや",
+        "band": 3000,
+        "meaning_en": "mother",
+        "meaning_hira": "ははおや",
+        "grade": 2
+      },
+      {
+        "word": "父親",
+        "reading": "ちちおや",
+        "band": 3000,
+        "meaning_en": "father",
+        "meaning_hira": "ちちおや",
+        "grade": 2
+      },
+      {
+        "word": "親子",
+        "reading": "おやこ",
+        "band": 7000,
+        "meaning_en": "parent and child",
+        "meaning_hira": "おやこ",
+        "grade": 2
+      },
+      {
+        "word": "親しい",
+        "reading": "ちかしい",
+        "band": 7000,
+        "meaning_en": "intimate; close; see:; 親しい; （; したしい; 1. close (e.g. friend); familiar; friendly; intimate",
+        "meaning_hira": "ちかしい"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しん"
+  },
+  {
+    "kanji": "図",
+    "grade": 2,
+    "kyoiku_index": 167,
+    "onyomi": [
+      "ズ",
+      "ト"
+    ],
+    "kunyomi": [
+      "え",
+      "はか"
+    ],
+    "words": [
+      {
+        "word": "図",
+        "reading": "ず",
+        "band": 3000,
+        "meaning_en": "drawing; picture; diagram",
+        "meaning_hira": "ず"
+      },
+      {
+        "word": "図る",
+        "reading": "はかる",
+        "band": 3000,
+        "meaning_en": "to plan; to attempt; to devise",
+        "meaning_hira": "はかる"
+      },
+      {
+        "word": "地図",
+        "reading": "ちず",
+        "band": 3000,
+        "meaning_en": "map; atlas; chart",
+        "meaning_hira": "ちず",
+        "grade": 2
+      },
+      {
+        "word": "図書館",
+        "reading": "としょかん",
+        "band": 3000,
+        "meaning_en": "library",
+        "meaning_hira": "としょかん",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ず"
+  },
+  {
+    "kanji": "数",
+    "grade": 2,
+    "kyoiku_index": 168,
+    "onyomi": [
+      "スウ",
+      "ス",
+      "サク",
+      "ソク",
+      "シュ"
+    ],
+    "kunyomi": [
+      "かず",
+      "かぞ",
+      "しばしば",
+      "せ",
+      "わずらわ"
+    ],
+    "words": [
+      {
+        "word": "数",
+        "reading": "しばしば",
+        "band": 1000,
+        "meaning_en": "often; again and again; frequently; see:; 度々; （; たびたび; often; again and again; over and over again; repeatedly; frequently",
+        "meaning_hira": "しばしば"
+      },
+      {
+        "word": "多数",
+        "reading": "たすう",
+        "band": 3000,
+        "meaning_en": "large number (of); many; antonym:; 少数; small number; few; minority",
+        "meaning_hira": "たすう",
+        "grade": 2
+      },
+      {
+        "word": "数字",
+        "reading": "すうじ",
+        "band": 3000,
+        "meaning_en": "numeral; digit; numeric character",
+        "meaning_hira": "すうじ",
+        "grade": 2
+      },
+      {
+        "word": "数学",
+        "reading": "すうがく",
+        "band": 3000,
+        "meaning_en": "mathematics",
+        "meaning_hira": "すうがく",
+        "grade": 2
+      },
+      {
+        "word": "複数",
+        "reading": "ふくすう",
+        "band": 3000,
+        "meaning_en": "plural; multiple",
+        "meaning_hira": "ふくすう",
+        "grade": 9
+      },
+      {
+        "word": "数える",
+        "reading": "かぞえる",
+        "band": 7000,
+        "meaning_en": "to count; to enumerate",
+        "meaning_hira": "かぞえる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しばしば"
+  },
+  {
+    "kanji": "西",
+    "grade": 2,
+    "kyoiku_index": 169,
+    "onyomi": [
+      "セイ",
+      "サイ",
+      "ス"
+    ],
+    "kunyomi": [
+      "にし"
+    ],
+    "words": [
+      {
+        "word": "西",
+        "reading": "せい",
+        "band": 3000,
+        "meaning_en": "Spain; see:; 西班牙; Spain",
+        "meaning_hira": "せい"
+      },
+      {
+        "word": "関西",
+        "reading": "かんさい",
+        "band": 3000,
+        "meaning_en": "Kansai (region comprising Kyoto, Osaka, Kobe and surrounding prefectures)",
+        "meaning_hira": "かんさい",
+        "grade": 9
+      },
+      {
+        "word": "東西",
+        "reading": "とうざい",
+        "band": 7000,
+        "meaning_en": "east and west",
+        "meaning_hira": "とうざい",
+        "grade": 2
+      },
+      {
+        "word": "西洋",
+        "reading": "せいよう",
+        "band": 7000,
+        "meaning_en": "the West; the Occident; Western countries; see:; 東洋; 1. the East; the Orient; (East) Asia",
+        "meaning_hira": "せいよう",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "せい"
+  },
+  {
+    "kanji": "声",
+    "grade": 2,
+    "kyoiku_index": 170,
+    "onyomi": [
+      "セイ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "こえ"
+    ],
+    "words": [
+      {
+        "word": "声",
+        "reading": "しょう",
+        "band": 1000,
+        "meaning_en": "voice; sound; see:; 六境; six objective fields of the senses (shape and colour, sound, scent, flavour, physical feeling, and mental presentation)",
+        "meaning_hira": "しょう"
+      },
+      {
+        "word": "声明",
+        "reading": "しょうみょう",
+        "band": 7000,
+        "meaning_en": "sabdavidya (ancient Indian linguistic and grammatical studies); see:; 五明; the five sciences of ancient India (grammar and composition, arts and mathematics, medicine, logic, and philosophy)",
+        "meaning_hira": "しょうみょう",
+        "grade": 2
+      },
+      {
+        "word": "大声",
+        "reading": "おおごえ",
+        "band": 7000,
+        "meaning_en": "loud voice; antonym:; 小声; low voice; whisper",
+        "meaning_hira": "おおごえ",
+        "grade": 2
+      },
+      {
+        "word": "音声",
+        "reading": "おんせい",
+        "band": 7000,
+        "meaning_en": "voice; speech; sound of a voice",
+        "meaning_hira": "おんせい",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "しょう"
+  },
+  {
+    "kanji": "星",
+    "grade": 2,
+    "kyoiku_index": 171,
+    "onyomi": [
+      "セイ",
+      "ショウ"
+    ],
+    "kunyomi": [
+      "ほし"
+    ],
+    "words": [
+      {
+        "word": "星",
+        "reading": "せい",
+        "band": 3000,
+        "meaning_en": "Chinese \"star\" constellation (one of the 28 mansions); see:; 星宿; 3. Chinese \"star\" constellation (one of the 28 mansions); see:; 二十八宿; 28 mansions of Chinese astronomy (constellations dividing the ecliptic into 28 positions); see:; 朱雀; 2. seven mansions (Chinese constellations) of the southern heavens",
+        "meaning_hira": "せい"
+      },
+      {
+        "word": "惑星",
+        "reading": "わくせい",
+        "band": 7000,
+        "meaning_en": "planet",
+        "meaning_hira": "わくせい",
+        "grade": 9
+      },
+      {
+        "word": "火星",
+        "reading": "かせい",
+        "band": 15000,
+        "meaning_en": "Mars (planet)",
+        "meaning_hira": "かせい",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "せい"
+  },
+  {
+    "kanji": "晴",
+    "grade": 2,
+    "kyoiku_index": 172,
+    "onyomi": [
+      "セイ"
+    ],
+    "kunyomi": [
+      "はれる",
+      "は"
+    ],
+    "words": [
+      {
+        "word": "素晴らしい",
+        "reading": "すばらしい",
+        "band": 3000,
+        "meaning_en": "wonderful; splendid; magnificent",
+        "meaning_hira": "すばらしい",
+        "grade": 9
+      },
+      {
+        "word": "晴れ",
+        "reading": "はれ",
+        "band": 7000,
+        "meaning_en": "clear weather; fine weather",
+        "meaning_hira": "はれ"
+      },
+      {
+        "word": "晴れる",
+        "reading": "はれる",
+        "band": 7000,
+        "meaning_en": "to clear up; to clear away; to be sunny",
+        "meaning_hira": "はれる"
+      },
+      {
+        "word": "晴",
+        "reading": "はれ",
+        "band": 15000,
+        "meaning_en": "clear weather; fine weather",
+        "meaning_hira": "はれ"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "はれ"
+  },
+  {
+    "kanji": "切",
+    "grade": 2,
+    "kyoiku_index": 173,
+    "onyomi": [
+      "セツ",
+      "サイ"
+    ],
+    "kunyomi": [
+      "きる",
+      "き"
+    ],
+    "words": [
+      {
+        "word": "大切",
+        "reading": "おおぎり",
+        "band": 1000,
+        "meaning_en": "largely cut (e.g. of cabbage); cut into large pieces",
+        "meaning_hira": "おおぎり",
+        "grade": 2
+      },
+      {
+        "word": "一切",
+        "reading": "いっさい",
+        "band": 3000,
+        "meaning_en": "all; everything; entirety",
+        "meaning_hira": "いっさい",
+        "grade": 2
+      },
+      {
+        "word": "切る",
+        "reading": "きる",
+        "band": 3000,
+        "meaning_en": "to cut; to cut through; to perform (surgery)",
+        "meaning_hira": "きる"
+      },
+      {
+        "word": "適切",
+        "reading": "てきせつ",
+        "band": 3000,
+        "meaning_en": "appropriate; suitable; fitting",
+        "meaning_hira": "てきせつ",
+        "grade": 9
+      },
+      {
+        "word": "切れる",
+        "reading": "きれる",
+        "band": 3000,
+        "meaning_en": "to break; to snap; to be cut",
+        "meaning_hira": "きれる"
+      },
+      {
+        "word": "切",
+        "reading": "せつ",
+        "band": 15000,
+        "meaning_en": "eager; earnest; ardent; see:; 切に; eagerly; earnestly; ardently; see:; 切なる; eager; earnest; ardent",
+        "meaning_hira": "せつ"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "せつ"
+  },
+  {
+    "kanji": "雪",
+    "grade": 2,
+    "kyoiku_index": 174,
+    "onyomi": [
+      "セツ"
+    ],
+    "kunyomi": [
+      "ゆき"
+    ],
+    "words": [
+      {
+        "word": "雪",
+        "reading": "ゆき",
+        "band": 3000,
+        "meaning_en": "snow; snowfall",
+        "meaning_hira": "ゆき"
+      },
+      {
+        "word": "大雪",
+        "reading": "おおゆき",
+        "band": 15000,
+        "meaning_en": "heavy snow; heavy snowfall",
+        "meaning_hira": "おおゆき",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ゆき"
+  },
+  {
+    "kanji": "船",
+    "grade": 2,
+    "kyoiku_index": 175,
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "ふね"
+    ],
+    "words": [
+      {
+        "word": "船",
+        "reading": "せん",
+        "band": 3000,
+        "meaning_en": "ship; boat; vessel",
+        "meaning_hira": "せん"
+      },
+      {
+        "word": "船舶",
+        "reading": "せんぱく",
+        "band": 15000,
+        "meaning_en": "vessel; ship; shipping",
+        "meaning_hira": "せんぱく",
+        "grade": 9
+      },
+      {
+        "word": "船長",
+        "reading": "せんちょう",
+        "band": 15000,
+        "meaning_en": "ship's captain; skipper",
+        "meaning_hira": "せんちょう",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "せん"
+  },
+  {
+    "kanji": "線",
+    "grade": 2,
+    "kyoiku_index": 176,
+    "onyomi": [
+      "セン"
+    ],
+    "kunyomi": [
+      "すじ"
+    ],
+    "words": [
+      {
+        "word": "線",
+        "reading": "せん",
+        "band": 3000,
+        "meaning_en": "line; stripe; stria",
+        "meaning_hira": "せん"
+      },
+      {
+        "word": "無線",
+        "reading": "むせん",
+        "band": 7000,
+        "meaning_en": "radio (communication)",
+        "meaning_hira": "むせん",
+        "grade": 9
+      },
+      {
+        "word": "視線",
+        "reading": "しせん",
+        "band": 7000,
+        "meaning_en": "one's line of sight; one's gaze; one's eyes (looking)",
+        "meaning_hira": "しせん",
+        "grade": 9
+      },
+      {
+        "word": "路線",
+        "reading": "ろせん",
+        "band": 7000,
+        "meaning_en": "route (bus, train, air, etc.); line",
+        "meaning_hira": "ろせん",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "せん"
+  },
+  {
+    "kanji": "前",
+    "grade": 2,
+    "kyoiku_index": 177,
+    "onyomi": [
+      "ゼン"
+    ],
+    "kunyomi": [
+      "まえ"
+    ],
+    "words": [
+      {
+        "word": "前",
+        "reading": "さき",
+        "band": 1000,
+        "meaning_en": "point; tip; end",
+        "meaning_hira": "さき"
+      },
+      {
+        "word": "名前",
+        "reading": "なまえ",
+        "band": 1000,
+        "meaning_en": "name",
+        "meaning_hira": "なまえ",
+        "grade": 2
+      },
+      {
+        "word": "お前",
+        "reading": "おまえ",
+        "band": 3000,
+        "meaning_en": "you; formerly honorific, now very informal",
+        "meaning_hira": "おまえ"
+      },
+      {
+        "word": "前提",
+        "reading": "ぜんてい",
+        "band": 3000,
+        "meaning_en": "condition; assumption; prerequisite",
+        "meaning_hira": "ぜんてい",
+        "grade": 9
+      },
+      {
+        "word": "午前",
+        "reading": "ごぜん",
+        "band": 3000,
+        "meaning_en": "morning; a.m.",
+        "meaning_hira": "ごぜん",
+        "grade": 2
+      },
+      {
+        "word": "当たり前",
+        "reading": "あたりまえ",
+        "band": 3000,
+        "meaning_en": "natural; reasonable; obvious",
+        "meaning_hira": "あたりまえ",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "さき"
+  },
+  {
+    "kanji": "組",
+    "grade": 2,
+    "kyoiku_index": 178,
+    "onyomi": [
+      "ソ"
+    ],
+    "kunyomi": [
+      "くむ",
+      "く",
+      "くみ"
+    ],
+    "words": [
+      {
+        "word": "番組",
+        "reading": "ばんぐみ",
+        "band": 1000,
+        "meaning_en": "program (e.g. TV); programme",
+        "meaning_hira": "ばんぐみ",
+        "grade": 2
+      },
+      {
+        "word": "組織",
+        "reading": "そしき",
+        "band": 1000,
+        "meaning_en": "organization; organisation; formation",
+        "meaning_hira": "そしき",
+        "grade": 9
+      },
+      {
+        "word": "組",
+        "reading": "くみ",
+        "band": 3000,
+        "meaning_en": "class (of students); pronounced ぐみ as a suffix",
+        "meaning_hira": "くみ"
+      },
+      {
+        "word": "組む",
+        "reading": "くむ",
+        "band": 3000,
+        "meaning_en": "to cross (legs or arms); to link (arms)",
+        "meaning_hira": "くむ"
+      },
+      {
+        "word": "組合",
+        "reading": "くみあい",
+        "band": 3000,
+        "meaning_en": "association; union; guild",
+        "meaning_hira": "くみあい",
+        "grade": 2
+      },
+      {
+        "word": "仕組み",
+        "reading": "しくみ",
+        "band": 3000,
+        "meaning_en": "structure; construction; arrangement",
+        "meaning_hira": "しくみ",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "くみ"
+  },
+  {
+    "kanji": "走",
+    "grade": 2,
+    "kyoiku_index": 179,
+    "onyomi": [
+      "ソウ"
+    ],
+    "kunyomi": [
+      "はしる",
+      "はし"
+    ],
+    "words": [
+      {
+        "word": "走る",
+        "reading": "はしる",
+        "band": 1000,
+        "meaning_en": "to run",
+        "meaning_hira": "はしる"
+      },
+      {
+        "word": "走行",
+        "reading": "そうこう",
+        "band": 7000,
+        "meaning_en": "running (of a car, bus, etc.); traveling; travelling",
+        "meaning_hira": "そうこう",
+        "grade": 2
+      },
+      {
+        "word": "走り",
+        "reading": "はしり",
+        "band": 15000,
+        "meaning_en": "running",
+        "meaning_hira": "はしり"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[はし]る"
+  },
+  {
+    "kanji": "多",
+    "grade": 2,
+    "kyoiku_index": 180,
+    "onyomi": [
+      "タ"
+    ],
+    "kunyomi": [
+      "おおい",
+      "おお",
+      "まさ"
+    ],
+    "words": [
+      {
+        "word": "多い",
+        "reading": "おおい",
+        "band": 1000,
+        "meaning_en": "many; numerous; a lot",
+        "meaning_hira": "おおい"
+      },
+      {
+        "word": "多く",
+        "reading": "おおく",
+        "band": 1000,
+        "meaning_en": "many; much; plenty",
+        "meaning_hira": "おおく"
+      },
+      {
+        "word": "多",
+        "reading": "た",
+        "band": 3000,
+        "meaning_en": "multi-",
+        "meaning_hira": "た"
+      },
+      {
+        "word": "多分",
+        "reading": "たぶん",
+        "band": 3000,
+        "meaning_en": "probably; likely; perhaps",
+        "meaning_hira": "たぶん",
+        "grade": 2
+      },
+      {
+        "word": "多少",
+        "reading": "たしょう",
+        "band": 3000,
+        "meaning_en": "a little; some; somewhat",
+        "meaning_hira": "たしょう",
+        "grade": 2
+      },
+      {
+        "word": "多数",
+        "reading": "たすう",
+        "band": 3000,
+        "meaning_en": "large number (of); many; antonym:; 少数; small number; few; minority",
+        "meaning_hira": "たすう",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "た"
+  },
+  {
+    "kanji": "太",
+    "grade": 2,
+    "kyoiku_index": 181,
+    "onyomi": [
+      "タイ",
+      "タ"
+    ],
+    "kunyomi": [
+      "ふとい",
+      "ふと"
+    ],
+    "words": [
+      {
+        "word": "太陽",
+        "reading": "たいよう",
+        "band": 3000,
+        "meaning_en": "Sun",
+        "meaning_hira": "たいよう",
+        "grade": 3
+      },
+      {
+        "word": "太",
+        "reading": "ふと",
+        "band": 7000,
+        "meaning_en": "fat; fatty",
+        "meaning_hira": "ふと"
+      },
+      {
+        "word": "太い",
+        "reading": "ふとい",
+        "band": 7000,
+        "meaning_en": "fat; thick",
+        "meaning_hira": "ふとい"
+      },
+      {
+        "word": "太郎",
+        "reading": "たろう",
+        "band": 7000,
+        "meaning_en": "first son; used in names, or as a name by itself",
+        "meaning_hira": "たろう",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ふと"
+  },
+  {
+    "kanji": "体",
+    "grade": 2,
+    "kyoiku_index": 182,
+    "onyomi": [
+      "タイ",
+      "テイ"
+    ],
+    "kunyomi": [
+      "からだ",
+      "かたち"
+    ],
+    "words": [
+      {
+        "word": "体",
+        "reading": "からだ",
+        "band": 1000,
+        "meaning_en": "body; からだ is a gikun reading of 身体; see:; 身体; （; しんたい; body; physical system; (the) person",
+        "meaning_hira": "からだ"
+      },
+      {
+        "word": "体験",
+        "reading": "たいけん",
+        "band": 1000,
+        "meaning_en": "(practical) experience; personal experience; hands-on experience",
+        "meaning_hira": "たいけん",
+        "grade": 9
+      },
+      {
+        "word": "全体",
+        "reading": "ぜんたい",
+        "band": 1000,
+        "meaning_en": "whole; entirety",
+        "meaning_hira": "ぜんたい",
+        "grade": 3
+      },
+      {
+        "word": "具体",
+        "reading": "ぐたい",
+        "band": 1000,
+        "meaning_en": "concreteness; embodiment; antonym:; 抽象; abstraction",
+        "meaning_hira": "ぐたい",
+        "grade": 3
+      },
+      {
+        "word": "団体",
+        "reading": "だんたい",
+        "band": 1000,
+        "meaning_en": "group; party; team",
+        "meaning_hira": "だんたい",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "からだ"
+  },
+  {
+    "kanji": "台",
+    "grade": 2,
+    "kyoiku_index": 183,
+    "onyomi": [
+      "ダイ",
+      "タイ"
+    ],
+    "kunyomi": [
+      "うてな",
+      "われ",
+      "つかさ"
+    ],
+    "words": [
+      {
+        "word": "台",
+        "reading": "だい",
+        "band": 1000,
+        "meaning_en": "stand; rest; base",
+        "meaning_hira": "だい"
+      },
+      {
+        "word": "台湾",
+        "reading": "たいわん",
+        "band": 3000,
+        "meaning_en": "Taiwan",
+        "meaning_hira": "たいわん",
+        "grade": 9
+      },
+      {
+        "word": "仙台",
+        "reading": "せんだい",
+        "band": 7000,
+        "meaning_en": "Sendai (city in Miyagi)",
+        "meaning_hira": "せんだい",
+        "grade": 9
+      },
+      {
+        "word": "台風",
+        "reading": "たいふう",
+        "band": 7000,
+        "meaning_en": "typhoon; hurricane",
+        "meaning_hira": "たいふう",
+        "grade": 2
+      },
+      {
+        "word": "たたき台",
+        "reading": "たたきだい",
+        "band": 15000,
+        "meaning_en": "chopping block; see:; 叩く; （; たたく; 1. to strike; to hit; to beat; to knock; to pound; to bang; to slap; to spank; to tap; to pat; to clap (one's hands); to play (the drums)",
+        "meaning_hira": "たたきだい"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "だい"
+  },
+  {
+    "kanji": "地",
+    "grade": 2,
+    "kyoiku_index": 184,
+    "onyomi": [
+      "チ",
+      "ジ"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "地",
+        "reading": "ち",
+        "band": 1000,
+        "meaning_en": "earth; ground; land",
+        "meaning_hira": "ち"
+      },
+      {
+        "word": "地域",
+        "reading": "ちいき",
+        "band": 1000,
+        "meaning_en": "area; region; district",
+        "meaning_hira": "ちいき",
+        "grade": 9
+      },
+      {
+        "word": "地方",
+        "reading": "じかた",
+        "band": 1000,
+        "meaning_en": "person in charge of music (in a Japanese dance performance); see:; 立方; （; たちかた; 2. dancer (in a Japanese dance performance)",
+        "meaning_hira": "じかた",
+        "grade": 2
+      },
+      {
+        "word": "土地",
+        "reading": "とち",
+        "band": 3000,
+        "meaning_en": "plot of land; lot; soil",
+        "meaning_hira": "とち",
+        "grade": 2
+      },
+      {
+        "word": "地球",
+        "reading": "ちきゅう",
+        "band": 3000,
+        "meaning_en": "Earth; the globe",
+        "meaning_hira": "ちきゅう",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ち"
+  },
+  {
+    "kanji": "池",
+    "grade": 2,
+    "kyoiku_index": 185,
+    "onyomi": [
+      "チ"
+    ],
+    "kunyomi": [
+      "いけ"
+    ],
+    "words": [
+      {
+        "word": "池",
+        "reading": "いけ",
+        "band": 7000,
+        "meaning_en": "pond",
+        "meaning_hira": "いけ"
+      },
+      {
+        "word": "電池",
+        "reading": "でんち",
+        "band": 7000,
+        "meaning_en": "battery; cell",
+        "meaning_hira": "でんち",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "いけ"
+  },
+  {
+    "kanji": "知",
+    "grade": 2,
+    "kyoiku_index": 186,
+    "onyomi": [
+      "チ"
+    ],
+    "kunyomi": [
+      "しる",
+      "し"
+    ],
+    "words": [
+      {
+        "word": "知る",
+        "reading": "しる",
+        "band": 1000,
+        "meaning_en": "to know; to be aware (of); to be conscious (of)",
+        "meaning_hira": "しる"
+      },
+      {
+        "word": "知識",
+        "reading": "ちしき",
+        "band": 1000,
+        "meaning_en": "knowledge; information",
+        "meaning_hira": "ちしき",
+        "grade": 9
+      },
+      {
+        "word": "知",
+        "reading": "ち",
+        "band": 3000,
+        "meaning_en": "wisdom",
+        "meaning_hira": "ち"
+      },
+      {
+        "word": "承知",
+        "reading": "しょうち",
+        "band": 3000,
+        "meaning_en": "knowledge; awareness",
+        "meaning_hira": "しょうち",
+        "grade": 9
+      },
+      {
+        "word": "知れる",
+        "reading": "しれる",
+        "band": 3000,
+        "meaning_en": "to become known; to come to light; to be discovered; see:; お里が知れる; to reveal one's (poor) upbringing (through poor manners, etc.); to betray one's origin; to give oneself away",
+        "meaning_hira": "しれる"
+      },
+      {
+        "word": "お知らせ",
+        "reading": "おしらせ",
+        "band": 3000,
+        "meaning_en": "notice; notification; see:; 知らせ; 1. news; word; tidings; notice; notification; information",
+        "meaning_hira": "おしらせ"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ち"
+  },
+  {
+    "kanji": "茶",
+    "grade": 2,
+    "kyoiku_index": 187,
+    "onyomi": [
+      "チャ",
+      "サ"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "お茶",
+        "reading": "おちゃ",
+        "band": 3000,
+        "meaning_en": "tea (esp. green or barley); see:; 茶; 1. tea",
+        "meaning_hira": "おちゃ"
+      },
+      {
+        "word": "茶",
+        "reading": "ちゃ",
+        "band": 7000,
+        "meaning_en": "tea; see:; お茶; 1. tea (esp. green or barley)",
+        "meaning_hira": "ちゃ"
+      },
+      {
+        "word": "紅茶",
+        "reading": "こうちゃ",
+        "band": 7000,
+        "meaning_en": "black tea",
+        "meaning_hira": "こうちゃ",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ちゃ"
+  },
+  {
+    "kanji": "昼",
+    "grade": 2,
+    "kyoiku_index": 188,
+    "onyomi": [
+      "チュウ"
+    ],
+    "kunyomi": [
+      "ひる"
+    ],
+    "words": [
+      {
+        "word": "昼",
+        "reading": "ひる",
+        "band": 3000,
+        "meaning_en": "noon; midday; see:; お昼; 2. noon; midday",
+        "meaning_hira": "ひる"
+      },
+      {
+        "word": "お昼",
+        "reading": "おひる",
+        "band": 7000,
+        "meaning_en": "lunch; see:; 昼; 3. lunch",
+        "meaning_hira": "おひる"
+      },
+      {
+        "word": "昼間",
+        "reading": "ひるま",
+        "band": 7000,
+        "meaning_en": "daytime; during the day; time from sunrise until sunset",
+        "meaning_hira": "ひるま",
+        "grade": 2
+      },
+      {
+        "word": "昼食",
+        "reading": "ちゅうじき",
+        "band": 7000,
+        "meaning_en": "lunch; midday meal; see:; 昼食; （; ちゅうしょく; lunch; midday meal",
+        "meaning_hira": "ちゅうじき",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ひる"
+  },
+  {
+    "kanji": "長",
+    "grade": 2,
+    "kyoiku_index": 189,
+    "onyomi": [
+      "チョウ"
+    ],
+    "kunyomi": [
+      "ながい",
+      "なが",
+      "おさ"
+    ],
+    "words": [
+      {
+        "word": "長",
+        "reading": "ちょう",
+        "band": 1000,
+        "meaning_en": "head; chief; leader",
+        "meaning_hira": "ちょう"
+      },
+      {
+        "word": "成長",
+        "reading": "せいちょう",
+        "band": 1000,
+        "meaning_en": "growth; development; growing up",
+        "meaning_hira": "せいちょう",
+        "grade": 9
+      },
+      {
+        "word": "社長",
+        "reading": "しゃちょう",
+        "band": 1000,
+        "meaning_en": "company president; manager; director",
+        "meaning_hira": "しゃちょう",
+        "grade": 2
+      },
+      {
+        "word": "長い",
+        "reading": "ながい",
+        "band": 1000,
+        "meaning_en": "long (distance, length); antonym:; 短い; 1. short",
+        "meaning_hira": "ながい"
+      },
+      {
+        "word": "会長",
+        "reading": "かいちょう",
+        "band": 3000,
+        "meaning_en": "president (of a society); chairman",
+        "meaning_hira": "かいちょう",
+        "grade": 2
+      },
+      {
+        "word": "長らく",
+        "reading": "ながらく",
+        "band": 15000,
+        "meaning_en": "long; (for a) long time",
+        "meaning_hira": "ながらく"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ちょう"
+  },
+  {
+    "kanji": "鳥",
+    "grade": 2,
+    "kyoiku_index": 190,
+    "onyomi": [
+      "チョウ"
+    ],
+    "kunyomi": [
+      "とり"
+    ],
+    "words": [
+      {
+        "word": "鳥",
+        "reading": "とり",
+        "band": 3000,
+        "meaning_en": "bird",
+        "meaning_hira": "とり"
+      },
+      {
+        "word": "鳥取",
+        "reading": "とりとり",
+        "band": 15000,
+        "meaning_en": "bird catcher; bird handler (oft. chicken)",
+        "meaning_hira": "とりとり",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "とり"
+  },
+  {
+    "kanji": "朝",
+    "grade": 2,
+    "kyoiku_index": 191,
+    "onyomi": [
+      "チョウ"
+    ],
+    "kunyomi": [
+      "あさ"
+    ],
+    "words": [
+      {
+        "word": "朝",
+        "reading": "あさ",
+        "band": 1000,
+        "meaning_en": "morning",
+        "meaning_hira": "あさ"
+      },
+      {
+        "word": "北朝鮮",
+        "reading": "きたちょうせん",
+        "band": 3000,
+        "meaning_en": "North Korea",
+        "meaning_hira": "きたちょうせん",
+        "grade": 9
+      },
+      {
+        "word": "今朝",
+        "reading": "けさ",
+        "band": 7000,
+        "meaning_en": "this morning",
+        "meaning_hira": "けさ",
+        "grade": 2
+      },
+      {
+        "word": "朝日新聞",
+        "reading": "あさひしんぶん",
+        "band": 7000,
+        "meaning_en": "Asahi Shimbun (Japanese newspaper)",
+        "meaning_hira": "あさひしんぶん",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "あさ"
+  },
+  {
+    "kanji": "直",
+    "grade": 2,
+    "kyoiku_index": 192,
+    "onyomi": [
+      "チョク",
+      "ジキ",
+      "ジカ"
+    ],
+    "kunyomi": [
+      "ただちに",
+      "ただ",
+      "なお",
+      "す"
+    ],
+    "words": [
+      {
+        "word": "正直",
+        "reading": "しょうじき",
+        "band": 3000,
+        "meaning_en": "honest; frank; candid",
+        "meaning_hira": "しょうじき",
+        "grade": 2
+      },
+      {
+        "word": "直す",
+        "reading": "なおす",
+        "band": 3000,
+        "meaning_en": "to repair; to mend; to fix",
+        "meaning_hira": "なおす"
+      },
+      {
+        "word": "直後",
+        "reading": "ちょくご",
+        "band": 3000,
+        "meaning_en": "immediately following",
+        "meaning_hira": "ちょくご",
+        "grade": 2
+      },
+      {
+        "word": "直接",
+        "reading": "ちょくせつ",
+        "band": 3000,
+        "meaning_en": "direct; immediate; personal; see:; 間接; indirection; indirectness",
+        "meaning_hira": "ちょくせつ",
+        "grade": 9
+      },
+      {
+        "word": "直",
+        "reading": "なお",
+        "band": 7000,
+        "meaning_en": "straight; see:; 真直; （; まなお; straightness; see:; 直直; （; なおなお; 1. straight",
+        "meaning_hira": "なお"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "なお"
+  },
+  {
+    "kanji": "通",
+    "grade": 2,
+    "kyoiku_index": 193,
+    "onyomi": [
+      "ツウ",
+      "ツ"
+    ],
+    "kunyomi": [
+      "とおる",
+      "とお",
+      "かよ"
+    ],
+    "words": [
+      {
+        "word": "普通",
+        "reading": "ふつう",
+        "band": 1000,
+        "meaning_en": "normal; ordinary; regular",
+        "meaning_hira": "ふつう",
+        "grade": 9
+      },
+      {
+        "word": "通り",
+        "reading": "とおり",
+        "band": 1000,
+        "meaning_en": "street; road; avenue",
+        "meaning_hira": "とおり"
+      },
+      {
+        "word": "通信",
+        "reading": "つうしん",
+        "band": 1000,
+        "meaning_en": "correspondence; communication; transmission",
+        "meaning_hira": "つうしん",
+        "grade": 9
+      },
+      {
+        "word": "通",
+        "reading": "つう",
+        "band": 3000,
+        "meaning_en": "authority; expert; connoisseur",
+        "meaning_hira": "つう"
+      },
+      {
+        "word": "共通",
+        "reading": "きょうつう",
+        "band": 3000,
+        "meaning_en": "common; shared; mutual",
+        "meaning_hira": "きょうつう",
+        "grade": 9
+      },
+      {
+        "word": "通る",
+        "reading": "とおる",
+        "band": 3000,
+        "meaning_en": "to go by; to go past; to go along",
+        "meaning_hira": "とおる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "つう"
+  },
+  {
+    "kanji": "弟",
+    "grade": 2,
+    "kyoiku_index": 194,
+    "onyomi": [
+      "テイ",
+      "ダイ",
+      "デ"
+    ],
+    "kunyomi": [
+      "おとうと"
+    ],
+    "words": [
+      {
+        "word": "弟",
+        "reading": "おとうと",
+        "band": 7000,
+        "meaning_en": "younger brother; little brother; kid brother; see:; 兄; 1. older brother; elder brother",
+        "meaning_hira": "おとうと"
+      },
+      {
+        "word": "弟子",
+        "reading": "でし",
+        "band": 7000,
+        "meaning_en": "pupil; disciple; adherent",
+        "meaning_hira": "でし",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "おとうと"
+  },
+  {
+    "kanji": "店",
+    "grade": 2,
+    "kyoiku_index": 195,
+    "onyomi": [
+      "テン"
+    ],
+    "kunyomi": [
+      "みせ",
+      "たな"
+    ],
+    "words": [
+      {
+        "word": "店",
+        "reading": "たな",
+        "band": 1000,
+        "meaning_en": "merchant's home; see:; お店; store; shop; establishment; restaurant",
+        "meaning_hira": "たな"
+      },
+      {
+        "word": "店舗",
+        "reading": "てんぽ",
+        "band": 3000,
+        "meaning_en": "shop; store; establishment",
+        "meaning_hira": "てんぽ",
+        "grade": 9
+      },
+      {
+        "word": "書店",
+        "reading": "しょてん",
+        "band": 3000,
+        "meaning_en": "bookshop; bookstore",
+        "meaning_hira": "しょてん",
+        "grade": 2
+      },
+      {
+        "word": "店員",
+        "reading": "てんいん",
+        "band": 7000,
+        "meaning_en": "employee (of a store); shop assistant; clerk",
+        "meaning_hira": "てんいん",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "たな"
+  },
+  {
+    "kanji": "点",
+    "grade": 2,
+    "kyoiku_index": 196,
+    "onyomi": [
+      "テン"
+    ],
+    "kunyomi": [
+      "つける",
+      "つ",
+      "た",
+      "さ",
+      "とぼ",
+      "とも",
+      "ぼち"
+    ],
+    "words": [
+      {
+        "word": "点",
+        "reading": "ちょぼ",
+        "band": 1000,
+        "meaning_en": "dot; point; mark",
+        "meaning_hira": "ちょぼ"
+      },
+      {
+        "word": "観点",
+        "reading": "かんてん",
+        "band": 3000,
+        "meaning_en": "point of view; viewpoint; standpoint",
+        "meaning_hira": "かんてん",
+        "grade": 9
+      },
+      {
+        "word": "拠点",
+        "reading": "きょてん",
+        "band": 7000,
+        "meaning_en": "base (of operations); site; location",
+        "meaning_hira": "きょてん",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ちょぼ"
+  },
+  {
+    "kanji": "電",
+    "grade": 2,
+    "kyoiku_index": 197,
+    "onyomi": [
+      "デン"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "電話",
+        "reading": "でんわ",
+        "band": 1000,
+        "meaning_en": "telephone call; phone call",
+        "meaning_hira": "でんわ",
+        "grade": 2
+      },
+      {
+        "word": "電子",
+        "reading": "でんし",
+        "band": 3000,
+        "meaning_en": "electron",
+        "meaning_hira": "でんし",
+        "grade": 2
+      },
+      {
+        "word": "電",
+        "reading": "いなずま",
+        "band": 7000,
+        "meaning_en": "lightning; flash of lightning; lightning bolt",
+        "meaning_hira": "いなずま"
+      },
+      {
+        "word": "発電",
+        "reading": "はつでん",
+        "band": 7000,
+        "meaning_en": "generation of electricity; power generation",
+        "meaning_hira": "はつでん",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "いなずま"
+  },
+  {
+    "kanji": "刀",
+    "grade": 2,
+    "kyoiku_index": 198,
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "かたな",
+      "そり"
+    ],
+    "words": [
+      {
+        "word": "刀",
+        "reading": "かたな",
+        "band": 7000,
+        "meaning_en": "sword (esp. Japanese single-edged); katana",
+        "meaning_hira": "かたな"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かたな"
+  },
+  {
+    "kanji": "冬",
+    "grade": 2,
+    "kyoiku_index": 199,
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "ふゆ"
+    ],
+    "words": [
+      {
+        "word": "冬",
+        "reading": "ふゆ",
+        "band": 3000,
+        "meaning_en": "winter",
+        "meaning_hira": "ふゆ"
+      },
+      {
+        "word": "冬季",
+        "reading": "とうき",
+        "band": 15000,
+        "meaning_en": "winter season; winter",
+        "meaning_hira": "とうき",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ふゆ"
+  },
+  {
+    "kanji": "当",
+    "grade": 2,
+    "kyoiku_index": 200,
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "あたる",
+      "あ",
+      "まさ"
+    ],
+    "words": [
+      {
+        "word": "当時",
+        "reading": "とうじ",
+        "band": 1000,
+        "meaning_en": "at that time; in those days",
+        "meaning_hira": "とうじ",
+        "grade": 2
+      },
+      {
+        "word": "当然",
+        "reading": "とうぜん",
+        "band": 1000,
+        "meaning_en": "natural; right; proper",
+        "meaning_hira": "とうぜん",
+        "grade": 9
+      },
+      {
+        "word": "担当",
+        "reading": "たんとう",
+        "band": 1000,
+        "meaning_en": "being in charge (of an area of responsibility); being responsible (for a work role, etc.)",
+        "meaning_hira": "たんとう",
+        "grade": 9
+      },
+      {
+        "word": "本当に",
+        "reading": "ほんとうに",
+        "band": 1000,
+        "meaning_en": "really; truly",
+        "meaning_hira": "ほんとうに",
+        "grade": 2
+      },
+      {
+        "word": "当",
+        "reading": "はた",
+        "band": 3000,
+        "meaning_en": "or; otherwise",
+        "meaning_hira": "はた"
+      },
+      {
+        "word": "当たる",
+        "reading": "あたる",
+        "band": 3000,
+        "meaning_en": "to be hit; to strike; antonym:; 外す; 5. to miss (a target, chance, punch, etc.)",
+        "meaning_hira": "あたる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "はた"
+  },
+  {
+    "kanji": "東",
+    "grade": 2,
+    "kyoiku_index": 201,
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "ひがし"
+    ],
+    "words": [
+      {
+        "word": "東京",
+        "reading": "とうきょう",
+        "band": 1000,
+        "meaning_en": "Tokyo",
+        "meaning_hira": "とうきょう",
+        "grade": 2
+      },
+      {
+        "word": "東",
+        "reading": "あずま",
+        "band": 3000,
+        "meaning_en": "eastern Japan (esp. Kamakura or Edo, from perspective of Kyoto or Nara); eastern provinces",
+        "meaning_hira": "あずま"
+      },
+      {
+        "word": "関東",
+        "reading": "かんとう",
+        "band": 7000,
+        "meaning_en": "Kantō (region comprising Tokyo and surrounding prefectures)",
+        "meaning_hira": "かんとう",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "あずま"
+  },
+  {
+    "kanji": "答",
+    "grade": 2,
+    "kyoiku_index": 202,
+    "onyomi": [
+      "トウ"
+    ],
+    "kunyomi": [
+      "こたえる",
+      "こた"
+    ],
+    "words": [
+      {
+        "word": "答え",
+        "reading": "いらえ",
+        "band": 3000,
+        "meaning_en": "reply; response",
+        "meaning_hira": "いらえ"
+      },
+      {
+        "word": "答弁",
+        "reading": "とうべん",
+        "band": 3000,
+        "meaning_en": "response; reply; answer",
+        "meaning_hira": "とうべん",
+        "grade": 9
+      },
+      {
+        "word": "答える",
+        "reading": "こたえる",
+        "band": 3000,
+        "meaning_en": "to answer; to reply",
+        "meaning_hira": "こたえる"
+      },
+      {
+        "word": "答",
+        "reading": "こたえ",
+        "band": 7000,
+        "meaning_en": "answer; reply; response",
+        "meaning_hira": "こたえ"
+      },
+      {
+        "word": "応答",
+        "reading": "おうとう",
+        "band": 7000,
+        "meaning_en": "reply; answer; response",
+        "meaning_hira": "おうとう",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "こたえ"
+  },
+  {
+    "kanji": "頭",
+    "grade": 2,
+    "kyoiku_index": 203,
+    "onyomi": [
+      "トウ",
+      "ズ",
+      "ト"
+    ],
+    "kunyomi": [
+      "あたま",
+      "かしら",
+      "かぶり"
+    ],
+    "words": [
+      {
+        "word": "頭",
+        "reading": "かぶし",
+        "band": 1000,
+        "meaning_en": "shape of one's head",
+        "meaning_hira": "かぶし"
+      },
+      {
+        "word": "冒頭",
+        "reading": "ぼうとう",
+        "band": 7000,
+        "meaning_en": "beginning; opening; start",
+        "meaning_hira": "ぼうとう",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かぶし"
+  },
+  {
+    "kanji": "同",
+    "grade": 2,
+    "kyoiku_index": 204,
+    "onyomi": [
+      "ドウ"
+    ],
+    "kunyomi": [
+      "おなじ",
+      "おな"
+    ],
+    "words": [
+      {
+        "word": "同",
+        "reading": "どう",
+        "band": 1000,
+        "meaning_en": "the same; the said",
+        "meaning_hira": "どう"
+      },
+      {
+        "word": "同じ",
+        "reading": "おなじ",
+        "band": 1000,
+        "meaning_en": "same; identical; equal",
+        "meaning_hira": "おなじ"
+      },
+      {
+        "word": "同時に",
+        "reading": "どうじに",
+        "band": 1000,
+        "meaning_en": "at the same time; at once; simultaneously",
+        "meaning_hira": "どうじに",
+        "grade": 2
+      },
+      {
+        "word": "同じく",
+        "reading": "おなじく",
+        "band": 3000,
+        "meaning_en": "in the same way; like; likewise",
+        "meaning_hira": "おなじく"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "どう"
+  },
+  {
+    "kanji": "道",
+    "grade": 2,
+    "kyoiku_index": 205,
+    "onyomi": [
+      "ドウ",
+      "トウ"
+    ],
+    "kunyomi": [
+      "みち",
+      "いう"
+    ],
+    "words": [
+      {
+        "word": "道",
+        "reading": "どう",
+        "band": 1000,
+        "meaning_en": "road; path; street; see:; 道; （; みち; 1. road; path; street; lane; passage",
+        "meaning_hira": "どう"
+      },
+      {
+        "word": "報道",
+        "reading": "ほうどう",
+        "band": 3000,
+        "meaning_en": "report (of news); reporting; news",
+        "meaning_hira": "ほうどう",
+        "grade": 9
+      },
+      {
+        "word": "道路",
+        "reading": "どうろ",
+        "band": 3000,
+        "meaning_en": "road; highway",
+        "meaning_hira": "どうろ",
+        "grade": 3
+      },
+      {
+        "word": "鉄道",
+        "reading": "てつどう",
+        "band": 3000,
+        "meaning_en": "railroad; railway; rail transport",
+        "meaning_hira": "てつどう",
+        "grade": 3
+      },
+      {
+        "word": "北海道",
+        "reading": "ほっかいどう",
+        "band": 3000,
+        "meaning_en": "Hokkaido (island, prefectural-level administrative unit)",
+        "meaning_hira": "ほっかいどう",
+        "grade": 2
+      },
+      {
+        "word": "道のり",
+        "reading": "みちのり",
+        "band": 15000,
+        "meaning_en": "distance; journey; itinerary",
+        "meaning_hira": "みちのり"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "どう"
+  },
+  {
+    "kanji": "読",
+    "grade": 2,
+    "kyoiku_index": 206,
+    "onyomi": [
+      "ドク",
+      "トク",
+      "トウ"
+    ],
+    "kunyomi": [
+      "よむ",
+      "よ"
+    ],
+    "words": [
+      {
+        "word": "読む",
+        "reading": "よむ",
+        "band": 1000,
+        "meaning_en": "to read",
+        "meaning_hira": "よむ"
+      },
+      {
+        "word": "読書",
+        "reading": "どくしょ",
+        "band": 3000,
+        "meaning_en": "reading (books)",
+        "meaning_hira": "どくしょ",
+        "grade": 2
+      },
+      {
+        "word": "読者",
+        "reading": "どくしゃ",
+        "band": 3000,
+        "meaning_en": "reader",
+        "meaning_hira": "どくしゃ",
+        "grade": 3
+      },
+      {
+        "word": "読める",
+        "reading": "よめる",
+        "band": 3000,
+        "meaning_en": "to be able to read; to be legible; to be decipherable",
+        "meaning_hira": "よめる"
+      },
+      {
+        "word": "読み",
+        "reading": "よみ",
+        "band": 7000,
+        "meaning_en": "reading",
+        "meaning_hira": "よみ"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[よ]む"
+  },
+  {
+    "kanji": "内",
+    "grade": 2,
+    "kyoiku_index": 207,
+    "onyomi": [
+      "ナイ",
+      "ダイ"
+    ],
+    "kunyomi": [
+      "うち"
+    ],
+    "words": [
+      {
+        "word": "内",
+        "reading": "うち",
+        "band": 1000,
+        "meaning_en": "inside; within",
+        "meaning_hira": "うち"
+      },
+      {
+        "word": "内容",
+        "reading": "ないよう",
+        "band": 1000,
+        "meaning_en": "contents; content; substance",
+        "meaning_hira": "ないよう",
+        "grade": 9
+      },
+      {
+        "word": "国内",
+        "reading": "こくない",
+        "band": 1000,
+        "meaning_en": "within the country; inside the county; domestic; see:; 国外; outside the country; abroad",
+        "meaning_hira": "こくない",
+        "grade": 2
+      },
+      {
+        "word": "案内",
+        "reading": "あんない",
+        "band": 3000,
+        "meaning_en": "guidance; leading (the way); showing around",
+        "meaning_hira": "あんない",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "うち"
+  },
+  {
+    "kanji": "南",
+    "grade": 2,
+    "kyoiku_index": 208,
+    "onyomi": [
+      "ナン",
+      "ナ"
+    ],
+    "kunyomi": [
+      "みなみ"
+    ],
+    "words": [
+      {
+        "word": "南",
+        "reading": "みなみ",
+        "band": 3000,
+        "meaning_en": "south",
+        "meaning_hira": "みなみ"
+      },
+      {
+        "word": "南部",
+        "reading": "なんぶ",
+        "band": 7000,
+        "meaning_en": "southern part; the south (of a region)",
+        "meaning_hira": "なんぶ",
+        "grade": 3
+      },
+      {
+        "word": "東南アジア",
+        "reading": "とうなんあじあ",
+        "band": 7000,
+        "meaning_en": "Southeast Asia",
+        "meaning_hira": "とうなんあじあ",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "みなみ"
+  },
+  {
+    "kanji": "肉",
+    "grade": 2,
+    "kyoiku_index": 209,
+    "onyomi": [
+      "ニク"
+    ],
+    "kunyomi": [
+      "しし"
+    ],
+    "words": [
+      {
+        "word": "肉",
+        "reading": "にく",
+        "band": 3000,
+        "meaning_en": "flesh",
+        "meaning_hira": "にく"
+      },
+      {
+        "word": "筋肉",
+        "reading": "すじにく",
+        "band": 7000,
+        "meaning_en": "sinewy meat",
+        "meaning_hira": "すじにく",
+        "grade": 9
+      },
+      {
+        "word": "肉体",
+        "reading": "にくたい",
+        "band": 7000,
+        "meaning_en": "the body; the flesh; the outer man",
+        "meaning_hira": "にくたい",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "にく"
+  },
+  {
+    "kanji": "馬",
+    "grade": 2,
+    "kyoiku_index": 210,
+    "onyomi": [
+      "バ"
+    ],
+    "kunyomi": [
+      "うま",
+      "ま"
+    ],
+    "words": [
+      {
+        "word": "馬",
+        "reading": "うま",
+        "band": 3000,
+        "meaning_en": "horse",
+        "meaning_hira": "うま"
+      },
+      {
+        "word": "競馬",
+        "reading": "けいば",
+        "band": 7000,
+        "meaning_en": "horse racing",
+        "meaning_hira": "けいば",
+        "grade": 9
+      },
+      {
+        "word": "馬鹿",
+        "reading": "ばか",
+        "band": 7000,
+        "meaning_en": "idiot; moron; fool",
+        "meaning_hira": "ばか",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "うま"
+  },
+  {
+    "kanji": "売",
+    "grade": 2,
+    "kyoiku_index": 211,
+    "onyomi": [
+      "バイ"
+    ],
+    "kunyomi": [
+      "うる",
+      "う"
+    ],
+    "words": [
+      {
+        "word": "売る",
+        "reading": "うる",
+        "band": 1000,
+        "meaning_en": "to sell",
+        "meaning_hira": "うる"
+      },
+      {
+        "word": "販売",
+        "reading": "はんばい",
+        "band": 1000,
+        "meaning_en": "sale; sales; selling",
+        "meaning_hira": "はんばい",
+        "grade": 9
+      },
+      {
+        "word": "発売",
+        "reading": "はつばい",
+        "band": 3000,
+        "meaning_en": "sale; offering for sale; putting on sale",
+        "meaning_hira": "はつばい",
+        "grade": 3
+      },
+      {
+        "word": "売れる",
+        "reading": "うれる",
+        "band": 3000,
+        "meaning_en": "to sell (well); see:; 売る; 1. to sell",
+        "meaning_hira": "うれる"
+      },
+      {
+        "word": "売り",
+        "reading": "うり",
+        "band": 15000,
+        "meaning_en": "sale; selling",
+        "meaning_hira": "うり"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[う]る"
+  },
+  {
+    "kanji": "買",
+    "grade": 2,
+    "kyoiku_index": 212,
+    "onyomi": [
+      "バイ"
+    ],
+    "kunyomi": [
+      "かう",
+      "か"
+    ],
+    "words": [
+      {
+        "word": "買う",
+        "reading": "かう",
+        "band": 1000,
+        "meaning_en": "to buy; to purchase",
+        "meaning_hira": "かう"
+      },
+      {
+        "word": "売買",
+        "reading": "ばいばい",
+        "band": 7000,
+        "meaning_en": "trade; buying and selling; trafficking (e.g. of humans, arms, drugs)",
+        "meaning_hira": "ばいばい",
+        "grade": 2
+      },
+      {
+        "word": "買収",
+        "reading": "ばいしゅう",
+        "band": 7000,
+        "meaning_en": "acquisition (esp. corporate); buy-out; takeover",
+        "meaning_hira": "ばいしゅう",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[か]う"
+  },
+  {
+    "kanji": "麦",
+    "grade": 2,
+    "kyoiku_index": 213,
+    "onyomi": [
+      "バク"
+    ],
+    "kunyomi": [
+      "むぎ"
+    ],
+    "words": [
+      {
+        "word": "蕎麦",
+        "reading": "そば",
+        "band": 7000,
+        "meaning_en": "buckwheat (Fagopyrum esculentum)",
+        "meaning_hira": "そば",
+        "grade": 9
+      },
+      {
+        "word": "麦",
+        "reading": "むぎ",
+        "band": 15000,
+        "meaning_en": "wheat; barley; oat (oats)",
+        "meaning_hira": "むぎ"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "むぎ"
+  },
+  {
+    "kanji": "半",
+    "grade": 2,
+    "kyoiku_index": 214,
+    "onyomi": [
+      "ハン"
+    ],
+    "kunyomi": [
+      "なかば",
+      "なか"
+    ],
+    "words": [
+      {
+        "word": "半",
+        "reading": "はん",
+        "band": 3000,
+        "meaning_en": "half; semi-; partial",
+        "meaning_hira": "はん"
+      },
+      {
+        "word": "前半",
+        "reading": "ぜんはん",
+        "band": 3000,
+        "meaning_en": "first half; see:; 後半; second half; latter half",
+        "meaning_hira": "ぜんはん",
+        "grade": 2
+      },
+      {
+        "word": "半分",
+        "reading": "はんぶん",
+        "band": 3000,
+        "meaning_en": "half",
+        "meaning_hira": "はんぶん",
+        "grade": 2
+      },
+      {
+        "word": "時半",
+        "reading": "じはん",
+        "band": 3000,
+        "meaning_en": "half past (the hour); as 六時半, etc.",
+        "meaning_hira": "じはん",
+        "grade": 2
+      },
+      {
+        "word": "半ば",
+        "reading": "なかば",
+        "band": 7000,
+        "meaning_en": "middle; halfway; midway",
+        "meaning_hira": "なかば"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "はん"
+  },
+  {
+    "kanji": "番",
+    "grade": 2,
+    "kyoiku_index": 215,
+    "onyomi": [
+      "バン"
+    ],
+    "kunyomi": [
+      "つがい",
+      "つが"
+    ],
+    "words": [
+      {
+        "word": "一番",
+        "reading": "いちばん",
+        "band": 1000,
+        "meaning_en": "number one; first; first place",
+        "meaning_hira": "いちばん",
+        "grade": 2
+      },
+      {
+        "word": "番組",
+        "reading": "ばんぐみ",
+        "band": 1000,
+        "meaning_en": "program (e.g. TV); programme",
+        "meaning_hira": "ばんぐみ",
+        "grade": 2
+      },
+      {
+        "word": "番",
+        "reading": "つがい",
+        "band": 3000,
+        "meaning_en": "pair (esp. of mated animals); brace; couple",
+        "meaning_hira": "つがい"
+      },
+      {
+        "word": "番号",
+        "reading": "ばんごう",
+        "band": 3000,
+        "meaning_en": "number; series of digits",
+        "meaning_hira": "ばんごう",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "つがい"
+  },
+  {
+    "kanji": "父",
+    "grade": 2,
+    "kyoiku_index": 216,
+    "onyomi": [
+      "フ"
+    ],
+    "kunyomi": [
+      "ちち"
+    ],
+    "words": [
+      {
+        "word": "父",
+        "reading": "ちち",
+        "band": 3000,
+        "meaning_en": "father; see:; 母; mother",
+        "meaning_hira": "ちち"
+      },
+      {
+        "word": "父親",
+        "reading": "ちちおや",
+        "band": 3000,
+        "meaning_en": "father",
+        "meaning_hira": "ちちおや",
+        "grade": 2
+      },
+      {
+        "word": "祖父",
+        "reading": "そふ",
+        "band": 7000,
+        "meaning_en": "grandfather",
+        "meaning_hira": "そふ",
+        "grade": 9
+      },
+      {
+        "word": "お父さん",
+        "reading": "おとうさん",
+        "band": 7000,
+        "meaning_en": "father; dad; papa; see:; 父さん; father; dad; papa; pa; pop; daddy; dada",
+        "meaning_hira": "おとうさん"
+      },
+      {
+        "word": "父さん",
+        "reading": "とうさん",
+        "band": 15000,
+        "meaning_en": "father; dad; papa; see:; お父さん; 1. father; dad; papa; pa; pop; daddy; dada",
+        "meaning_hira": "とうさん"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ちち"
+  },
+  {
+    "kanji": "風",
+    "grade": 2,
+    "kyoiku_index": 217,
+    "onyomi": [
+      "フウ",
+      "フ"
+    ],
+    "kunyomi": [
+      "かぜ"
+    ],
+    "words": [
+      {
+        "word": "風",
+        "reading": "かぜ",
+        "band": 1000,
+        "meaning_en": "wind; breeze; draught",
+        "meaning_hira": "かぜ"
+      },
+      {
+        "word": "風呂",
+        "reading": "ふろ",
+        "band": 3000,
+        "meaning_en": "bath; bathing; bathtub; see:; お風呂; bath",
+        "meaning_hira": "ふろ",
+        "grade": 9
+      },
+      {
+        "word": "風景",
+        "reading": "ふうけい",
+        "band": 3000,
+        "meaning_en": "scenery; scene; landscape",
+        "meaning_hira": "ふうけい",
+        "grade": 9
+      },
+      {
+        "word": "台風",
+        "reading": "たいふう",
+        "band": 7000,
+        "meaning_en": "typhoon; hurricane",
+        "meaning_hira": "たいふう",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かぜ"
+  },
+  {
+    "kanji": "分",
+    "grade": 2,
+    "kyoiku_index": 218,
+    "onyomi": [
+      "ブン",
+      "フン",
+      "ブ"
+    ],
+    "kunyomi": [
+      "わける",
+      "わ"
+    ],
+    "words": [
+      {
+        "word": "分",
+        "reading": "ふん",
+        "band": 1000,
+        "meaning_en": "minute (unit of time)",
+        "meaning_hira": "ふん"
+      },
+      {
+        "word": "分析",
+        "reading": "ぶんせき",
+        "band": 1000,
+        "meaning_en": "analysis",
+        "meaning_hira": "ぶんせき",
+        "grade": 9
+      },
+      {
+        "word": "十分",
+        "reading": "じっぷん",
+        "band": 1000,
+        "meaning_en": "ten minutes",
+        "meaning_hira": "じっぷん",
+        "grade": 2
+      },
+      {
+        "word": "自分",
+        "reading": "じぶん",
+        "band": 1000,
+        "meaning_en": "myself; yourself; oneself",
+        "meaning_hira": "じぶん",
+        "grade": 2
+      },
+      {
+        "word": "部分",
+        "reading": "ぶぶん",
+        "band": 1000,
+        "meaning_en": "portion; section; part",
+        "meaning_hira": "ぶぶん",
+        "grade": 3
+      },
+      {
+        "word": "分かる",
+        "reading": "わかる",
+        "band": 1000,
+        "meaning_en": "to understand; to comprehend; to grasp",
+        "meaning_hira": "わかる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ふん"
+  },
+  {
+    "kanji": "聞",
+    "grade": 2,
+    "kyoiku_index": 219,
+    "onyomi": [
+      "ブン",
+      "モン"
+    ],
+    "kunyomi": [
+      "きく",
+      "き"
+    ],
+    "words": [
+      {
+        "word": "新聞",
+        "reading": "しんぶん",
+        "band": 1000,
+        "meaning_en": "newspaper",
+        "meaning_hira": "しんぶん",
+        "grade": 2
+      },
+      {
+        "word": "聞く",
+        "reading": "きく",
+        "band": 1000,
+        "meaning_en": "to hear",
+        "meaning_hira": "きく"
+      },
+      {
+        "word": "聞ける",
+        "reading": "きける",
+        "band": 7000,
+        "meaning_en": "to tell",
+        "meaning_hira": "きける"
+      },
+      {
+        "word": "朝日新聞",
+        "reading": "あさひしんぶん",
+        "band": 7000,
+        "meaning_en": "Asahi Shimbun (Japanese newspaper)",
+        "meaning_hira": "あさひしんぶん",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[き]く"
+  },
+  {
+    "kanji": "米",
+    "grade": 2,
+    "kyoiku_index": 220,
+    "onyomi": [
+      "ベイ",
+      "マイ",
+      "メエトル"
+    ],
+    "kunyomi": [
+      "こめ",
+      "よね"
+    ],
+    "words": [
+      {
+        "word": "米",
+        "reading": "べい",
+        "band": 1000,
+        "meaning_en": "(United States of) America; USA; see:; 亜米利加; 1. (United States of) America; United States; US; USA",
+        "meaning_hira": "べい"
+      },
+      {
+        "word": "米国",
+        "reading": "べいこく",
+        "band": 1000,
+        "meaning_en": "(United States of) America; USA; US; see:; アメリカ; 1. (United States of) America; United States; US; USA",
+        "meaning_hira": "べいこく",
+        "grade": 2
+      },
+      {
+        "word": "欧米",
+        "reading": "おうべい",
+        "band": 7000,
+        "meaning_en": "Europe and the United States; Europe and America; the West",
+        "meaning_hira": "おうべい",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "べい"
+  },
+  {
+    "kanji": "歩",
+    "grade": 2,
+    "kyoiku_index": 221,
+    "onyomi": [
+      "ホ",
+      "ブ",
+      "フ"
+    ],
+    "kunyomi": [
+      "あるく",
+      "ある",
+      "あゆ"
+    ],
+    "words": [
+      {
+        "word": "歩く",
+        "reading": "あるく",
+        "band": 1000,
+        "meaning_en": "to walk",
+        "meaning_hira": "あるく"
+      },
+      {
+        "word": "歩",
+        "reading": "ぶ",
+        "band": 3000,
+        "meaning_en": "bu; traditional unit of area, approx. 3.31 square metres",
+        "meaning_hira": "ぶ"
+      },
+      {
+        "word": "散歩",
+        "reading": "さんぽ",
+        "band": 3000,
+        "meaning_en": "walk; stroll",
+        "meaning_hira": "さんぽ",
+        "grade": 9
+      },
+      {
+        "word": "歩む",
+        "reading": "あゆむ",
+        "band": 7000,
+        "meaning_en": "to walk; to go on foot",
+        "meaning_hira": "あゆむ"
+      },
+      {
+        "word": "進歩",
+        "reading": "しんぽ",
+        "band": 7000,
+        "meaning_en": "progress; advance; improvement; antonym:; 退歩; retrogression; degeneration; deterioration",
+        "meaning_hira": "しんぽ",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ぶ"
+  },
+  {
+    "kanji": "母",
+    "grade": 2,
+    "kyoiku_index": 222,
+    "onyomi": [
+      "ボ"
+    ],
+    "kunyomi": [
+      "はは",
+      "も"
+    ],
+    "words": [
+      {
+        "word": "母",
+        "reading": "はは",
+        "band": 3000,
+        "meaning_en": "mother; かか was used by children; see:; 父; father",
+        "meaning_hira": "はは"
+      },
+      {
+        "word": "母親",
+        "reading": "ははおや",
+        "band": 3000,
+        "meaning_en": "mother",
+        "meaning_hira": "ははおや",
+        "grade": 2
+      },
+      {
+        "word": "お母さん",
+        "reading": "おかあさん",
+        "band": 3000,
+        "meaning_en": "mother; mom; mum; see:; 母さん; 1. mother",
+        "meaning_hira": "おかあさん"
+      },
+      {
+        "word": "母さん",
+        "reading": "かあさん",
+        "band": 15000,
+        "meaning_en": "mother; see:; お母さん; 1. mother; mom; mum; ma",
+        "meaning_hira": "かあさん"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "はは"
+  },
+  {
+    "kanji": "方",
+    "grade": 2,
+    "kyoiku_index": 223,
+    "onyomi": [
+      "ホウ"
+    ],
+    "kunyomi": [
+      "かた"
+    ],
+    "words": [
+      {
+        "word": "方",
+        "reading": "かた",
+        "band": 1000,
+        "meaning_en": "direction; way; also ほう",
+        "meaning_hira": "かた"
+      },
+      {
+        "word": "一方",
+        "reading": "いっぽう",
+        "band": 1000,
+        "meaning_en": "one (esp. of two); the other; one way",
+        "meaning_hira": "いっぽう",
+        "grade": 2
+      },
+      {
+        "word": "地方",
+        "reading": "じかた",
+        "band": 1000,
+        "meaning_en": "person in charge of music (in a Japanese dance performance); see:; 立方; （; たちかた; 2. dancer (in a Japanese dance performance)",
+        "meaning_hira": "じかた",
+        "grade": 2
+      },
+      {
+        "word": "方向",
+        "reading": "ほうこう",
+        "band": 1000,
+        "meaning_en": "direction; orientation; bearing",
+        "meaning_hira": "ほうこう",
+        "grade": 3
+      },
+      {
+        "word": "方法",
+        "reading": "ほうほう",
+        "band": 1000,
+        "meaning_en": "method; way; manner",
+        "meaning_hira": "ほうほう",
+        "grade": 9
+      },
+      {
+        "word": "考え方",
+        "reading": "かんがえかた",
+        "band": 1000,
+        "meaning_en": "way of thinking; point of view; opinion",
+        "meaning_hira": "かんがえかた",
+        "grade": 2
+      },
+      {
+        "word": "やり方",
+        "reading": "やりかた",
+        "band": 3000,
+        "meaning_en": "way (of doing); manner; method",
+        "meaning_hira": "やりかた"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "かた"
+  },
+  {
+    "kanji": "北",
+    "grade": 2,
+    "kyoiku_index": 224,
+    "onyomi": [
+      "ホク"
+    ],
+    "kunyomi": [
+      "きた"
+    ],
+    "words": [
+      {
+        "word": "北",
+        "reading": "きた",
+        "band": 3000,
+        "meaning_en": "north",
+        "meaning_hira": "きた"
+      },
+      {
+        "word": "北朝鮮",
+        "reading": "きたちょうせん",
+        "band": 3000,
+        "meaning_en": "North Korea",
+        "meaning_hira": "きたちょうせん",
+        "grade": 9
+      },
+      {
+        "word": "北海道",
+        "reading": "ほっかいどう",
+        "band": 3000,
+        "meaning_en": "Hokkaido (island, prefectural-level administrative unit)",
+        "meaning_hira": "ほっかいどう",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "きた"
+  },
+  {
+    "kanji": "毎",
+    "grade": 2,
+    "kyoiku_index": 225,
+    "onyomi": [
+      "マイ"
+    ],
+    "kunyomi": [
+      "ごと"
+    ],
+    "words": [
+      {
+        "word": "毎日",
+        "reading": "まいにち",
+        "band": 1000,
+        "meaning_en": "every day; daily",
+        "meaning_hira": "まいにち",
+        "grade": 2
+      },
+      {
+        "word": "毎年",
+        "reading": "まいとし",
+        "band": 3000,
+        "meaning_en": "every year; yearly; annually",
+        "meaning_hira": "まいとし",
+        "grade": 2
+      },
+      {
+        "word": "毎",
+        "reading": "ごと",
+        "band": 7000,
+        "meaning_en": "each; every; see:; ごとに; one by one; each; every; at intervals of",
+        "meaning_hira": "ごと"
+      },
+      {
+        "word": "毎週",
+        "reading": "まいしゅう",
+        "band": 7000,
+        "meaning_en": "every week",
+        "meaning_hira": "まいしゅう",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ごと"
+  },
+  {
+    "kanji": "妹",
+    "grade": 2,
+    "kyoiku_index": 226,
+    "onyomi": [
+      "マイ"
+    ],
+    "kunyomi": [
+      "いもうと"
+    ],
+    "words": [
+      {
+        "word": "妹",
+        "reading": "いも",
+        "band": 7000,
+        "meaning_en": "darling (woman); dear; honey",
+        "meaning_hira": "いも"
+      },
+      {
+        "word": "姉妹",
+        "reading": "しまい",
+        "band": 7000,
+        "meaning_en": "sisters",
+        "meaning_hira": "しまい",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "いも"
+  },
+  {
+    "kanji": "万",
+    "grade": 2,
+    "kyoiku_index": 227,
+    "onyomi": [
+      "マン",
+      "バン"
+    ],
+    "kunyomi": [
+      "よろず"
+    ],
+    "words": [
+      {
+        "word": "万",
+        "reading": "まん",
+        "band": 1000,
+        "meaning_en": "10,000; ten thousand; 萬 is sometimes used in legal documents",
+        "meaning_hira": "まん"
+      },
+      {
+        "word": "万全",
+        "reading": "ばんぜん",
+        "band": 15000,
+        "meaning_en": "perfection; flawlessness",
+        "meaning_hira": "ばんぜん",
+        "grade": 3
+      },
+      {
+        "word": "万博",
+        "reading": "ばんぱく",
+        "band": 15000,
+        "meaning_en": "world fair; international exposition; see:; 万国博覧会; world fair; international exposition",
+        "meaning_hira": "ばんぱく",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "まん"
+  },
+  {
+    "kanji": "明",
+    "grade": 2,
+    "kyoiku_index": 228,
+    "onyomi": [
+      "メイ",
+      "ミョウ",
+      "ミン"
+    ],
+    "kunyomi": [
+      "あかり",
+      "あ",
+      "あか",
+      "あき"
+    ],
+    "words": [
+      {
+        "word": "明日",
+        "reading": "あした",
+        "band": 1000,
+        "meaning_en": "tomorrow",
+        "meaning_hira": "あした",
+        "grade": 2
+      },
+      {
+        "word": "説明",
+        "reading": "せつめい",
+        "band": 1000,
+        "meaning_en": "explanation; exposition; description",
+        "meaning_hira": "せつめい",
+        "grade": 9
+      },
+      {
+        "word": "明らか",
+        "reading": "あきらか",
+        "band": 1000,
+        "meaning_en": "clear; obvious; evident",
+        "meaning_hira": "あきらか"
+      },
+      {
+        "word": "明確",
+        "reading": "めいかく",
+        "band": 3000,
+        "meaning_en": "clear; precise; definite",
+        "meaning_hira": "めいかく",
+        "grade": 9
+      },
+      {
+        "word": "明るい",
+        "reading": "あかるい",
+        "band": 3000,
+        "meaning_en": "light; bright; well-lit",
+        "meaning_hira": "あかるい"
+      },
+      {
+        "word": "明",
+        "reading": "みょう",
+        "band": 7000,
+        "meaning_en": "vidya (wisdom)",
+        "meaning_hira": "みょう"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "みょう"
+  },
+  {
+    "kanji": "鳴",
+    "grade": 2,
+    "kyoiku_index": 229,
+    "onyomi": [
+      "メイ"
+    ],
+    "kunyomi": [
+      "なく",
+      "な"
+    ],
+    "words": [
+      {
+        "word": "鳴る",
+        "reading": "なる",
+        "band": 7000,
+        "meaning_en": "to sound; to ring; to resound",
+        "meaning_hira": "なる"
+      },
+      {
+        "word": "鳴らす",
+        "reading": "ならす",
+        "band": 7000,
+        "meaning_en": "to ring; to sound; to chime",
+        "meaning_hira": "ならす"
+      },
+      {
+        "word": "悲鳴",
+        "reading": "ひめい",
+        "band": 15000,
+        "meaning_en": "shriek; scream",
+        "meaning_hira": "ひめい",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[な]る"
+  },
+  {
+    "kanji": "毛",
+    "grade": 2,
+    "kyoiku_index": 230,
+    "onyomi": [
+      "モウ"
+    ],
+    "kunyomi": [
+      "け"
+    ],
+    "words": [
+      {
+        "word": "毛",
+        "reading": "もう",
+        "band": 7000,
+        "meaning_en": "one-thousandth; 0.03 mm (one-thousandth of a sun); 0.01 percent (one-thousandth of a wari)",
+        "meaning_hira": "もう"
+      },
+      {
+        "word": "毛布",
+        "reading": "もうふ",
+        "band": 15000,
+        "meaning_en": "blanket",
+        "meaning_hira": "もうふ",
+        "grade": 9
+      },
+      {
+        "word": "髪の毛",
+        "reading": "かみのけ",
+        "band": 15000,
+        "meaning_en": "hair (on the head); (a) hair",
+        "meaning_hira": "かみのけ",
+        "grade": 9
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "もう"
+  },
+  {
+    "kanji": "門",
+    "grade": 2,
+    "kyoiku_index": 231,
+    "onyomi": [
+      "モン"
+    ],
+    "kunyomi": [
+      "かど",
+      "と"
+    ],
+    "words": [
+      {
+        "word": "専門",
+        "reading": "せんもん",
+        "band": 1000,
+        "meaning_en": "speciality; specialty; special subject of study",
+        "meaning_hira": "せんもん",
+        "grade": 9
+      },
+      {
+        "word": "部門",
+        "reading": "ぶもん",
+        "band": 3000,
+        "meaning_en": "division (of a larger group); branch; field",
+        "meaning_hira": "ぶもん",
+        "grade": 3
+      },
+      {
+        "word": "門",
+        "reading": "と",
+        "band": 7000,
+        "meaning_en": "shutter; window shutter",
+        "meaning_hira": "と"
+      },
+      {
+        "word": "入門",
+        "reading": "にゅうもん",
+        "band": 7000,
+        "meaning_en": "becoming a pupil (of); becoming a disciple; entering an institution",
+        "meaning_hira": "にゅうもん",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "と"
+  },
+  {
+    "kanji": "夜",
+    "grade": 2,
+    "kyoiku_index": 232,
+    "onyomi": [
+      "ヤ"
+    ],
+    "kunyomi": [
+      "よ",
+      "よる"
+    ],
+    "words": [
+      {
+        "word": "夜",
+        "reading": "や",
+        "band": 1000,
+        "meaning_en": "counter for nights; after numbers in the ichi, ni, san counting system",
+        "meaning_hira": "や"
+      },
+      {
+        "word": "今夜",
+        "reading": "こんや",
+        "band": 7000,
+        "meaning_en": "this evening; tonight; see:; 今晩; tonight; this evening",
+        "meaning_hira": "こんや",
+        "grade": 2
+      },
+      {
+        "word": "昨夜",
+        "reading": "さくや",
+        "band": 7000,
+        "meaning_en": "last night; yesterday evening; less colloquial than ゆうべ; see:; 昨夜; （; ゆうべ; last night; yesterday evening",
+        "meaning_hira": "さくや",
+        "grade": 9
+      },
+      {
+        "word": "深夜",
+        "reading": "しんや",
+        "band": 7000,
+        "meaning_en": "late at night",
+        "meaning_hira": "しんや",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "や"
+  },
+  {
+    "kanji": "野",
+    "grade": 2,
+    "kyoiku_index": 233,
+    "onyomi": [
+      "ヤ",
+      "ショ"
+    ],
+    "kunyomi": [
+      "の"
+    ],
+    "words": [
+      {
+        "word": "分野",
+        "reading": "ぶんや",
+        "band": 1000,
+        "meaning_en": "field; sphere; realm",
+        "meaning_hira": "ぶんや",
+        "grade": 2
+      },
+      {
+        "word": "野球",
+        "reading": "やきゅう",
+        "band": 3000,
+        "meaning_en": "baseball",
+        "meaning_hira": "やきゅう",
+        "grade": 3
+      },
+      {
+        "word": "野菜",
+        "reading": "やさい",
+        "band": 3000,
+        "meaning_en": "vegetable",
+        "meaning_hira": "やさい",
+        "grade": 9
+      },
+      {
+        "word": "野",
+        "reading": "の",
+        "band": 7000,
+        "meaning_en": "field; plain",
+        "meaning_hira": "の"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "の"
+  },
+  {
+    "kanji": "友",
+    "grade": 2,
+    "kyoiku_index": 234,
+    "onyomi": [
+      "ユウ"
+    ],
+    "kunyomi": [
+      "とも"
+    ],
+    "words": [
+      {
+        "word": "友人",
+        "reading": "ゆうじん",
+        "band": 1000,
+        "meaning_en": "friend; more formal than 友達; see:; 友達; friend; companion",
+        "meaning_hira": "ゆうじん",
+        "grade": 2
+      },
+      {
+        "word": "友",
+        "reading": "とも",
+        "band": 7000,
+        "meaning_en": "friend; companion; comrade",
+        "meaning_hira": "とも"
+      },
+      {
+        "word": "親友",
+        "reading": "しんゆう",
+        "band": 7000,
+        "meaning_en": "close friend; bosom friend; buddy",
+        "meaning_hira": "しんゆう",
+        "grade": 2
+      },
+      {
+        "word": "友だち",
+        "reading": "ともだち",
+        "band": 7000,
+        "meaning_en": "friend; companion",
+        "meaning_hira": "ともだち"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "とも"
+  },
+  {
+    "kanji": "用",
+    "grade": 2,
+    "kyoiku_index": 235,
+    "onyomi": [
+      "ヨウ"
+    ],
+    "kunyomi": [
+      "もちいる",
+      "もち"
+    ],
+    "words": [
+      {
+        "word": "用",
+        "reading": "よう",
+        "band": 1000,
+        "meaning_en": "business; task; errand",
+        "meaning_hira": "よう"
+      },
+      {
+        "word": "利用",
+        "reading": "りよう",
+        "band": 1000,
+        "meaning_en": "use; utilization; utilisation",
+        "meaning_hira": "りよう",
+        "grade": 9
+      },
+      {
+        "word": "採用",
+        "reading": "さいよう",
+        "band": 3000,
+        "meaning_en": "use; adoption; acceptance",
+        "meaning_hira": "さいよう",
+        "grade": 9
+      },
+      {
+        "word": "活用",
+        "reading": "かつよう",
+        "band": 3000,
+        "meaning_en": "practical use; application; making good use of",
+        "meaning_hira": "かつよう",
+        "grade": 2
+      },
+      {
+        "word": "用いる",
+        "reading": "もちいる",
+        "band": 3000,
+        "meaning_en": "to use; to make use of; to utilize",
+        "meaning_hira": "もちいる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "よう"
+  },
+  {
+    "kanji": "曜",
+    "grade": 2,
+    "kyoiku_index": 236,
+    "onyomi": [
+      "ヨウ"
+    ],
+    "kunyomi": [],
+    "words": [
+      {
+        "word": "土曜日",
+        "reading": "どようび",
+        "band": 3000,
+        "meaning_en": "Saturday",
+        "meaning_hira": "どようび",
+        "grade": 2
+      },
+      {
+        "word": "日曜日",
+        "reading": "にちようび",
+        "band": 3000,
+        "meaning_en": "Sunday",
+        "meaning_hira": "にちようび",
+        "grade": 2
+      },
+      {
+        "word": "金曜日",
+        "reading": "きんようび",
+        "band": 7000,
+        "meaning_en": "Friday",
+        "meaning_hira": "きんようび",
+        "grade": 2
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "[よう]"
+  },
+  {
+    "kanji": "来",
+    "grade": 2,
+    "kyoiku_index": 237,
+    "onyomi": [
+      "ライ",
+      "タイ"
+    ],
+    "kunyomi": [
+      "くる",
+      "く",
+      "きた",
+      "き",
+      "こ"
+    ],
+    "words": [
+      {
+        "word": "将来",
+        "reading": "しょうらい",
+        "band": 1000,
+        "meaning_en": "future; (future) prospects",
+        "meaning_hira": "しょうらい",
+        "grade": 9
+      },
+      {
+        "word": "来る",
+        "reading": "きたる",
+        "band": 1000,
+        "meaning_en": "next (e.g. \"next April\"); forthcoming; coming; antonym:; 去る; 6. last ... (e.g. \"last April\")",
+        "meaning_hira": "きたる"
+      },
+      {
+        "word": "出来る",
+        "reading": "できる",
+        "band": 1000,
+        "meaning_en": "to be able to do; to be possible; to be permitted (to do)",
+        "meaning_hira": "できる",
+        "grade": 2
+      },
+      {
+        "word": "本来",
+        "reading": "ほんらい",
+        "band": 3000,
+        "meaning_en": "originally; primarily",
+        "meaning_hira": "ほんらい",
+        "grade": 2
+      },
+      {
+        "word": "来",
+        "reading": "らい",
+        "band": 7000,
+        "meaning_en": "next (year, spring, etc.); coming",
+        "meaning_hira": "らい"
+      },
+      {
+        "word": "やって来る",
+        "reading": "やってくる",
+        "band": 7000,
+        "meaning_en": "to come along; to come around; to turn up",
+        "meaning_hira": "やってくる"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "らい"
+  },
+  {
+    "kanji": "里",
+    "grade": 2,
+    "kyoiku_index": 238,
+    "onyomi": [
+      "リ"
+    ],
+    "kunyomi": [
+      "さと"
+    ],
+    "words": [
+      {
+        "word": "里",
+        "reading": "さと",
+        "band": 3000,
+        "meaning_en": "village; hamlet",
+        "meaning_hira": "さと"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "さと"
+  },
+  {
+    "kanji": "理",
+    "grade": 2,
+    "kyoiku_index": 239,
+    "onyomi": [
+      "リ"
+    ],
+    "kunyomi": [
+      "ことわり"
+    ],
+    "words": [
+      {
+        "word": "処理",
+        "reading": "しょり",
+        "band": 1000,
+        "meaning_en": "processing; dealing with; treatment",
+        "meaning_hira": "しょり",
+        "grade": 9
+      },
+      {
+        "word": "料理",
+        "reading": "りょうり",
+        "band": 1000,
+        "meaning_en": "cooking; cookery; cuisine",
+        "meaning_hira": "りょうり",
+        "grade": 9
+      },
+      {
+        "word": "理由",
+        "reading": "りゆう",
+        "band": 1000,
+        "meaning_en": "reason; grounds; pretext",
+        "meaning_hira": "りゆう",
+        "grade": 3
+      },
+      {
+        "word": "理解",
+        "reading": "りかい",
+        "band": 1000,
+        "meaning_en": "understanding; comprehension; appreciation",
+        "meaning_hira": "りかい",
+        "grade": 9
+      },
+      {
+        "word": "理",
+        "reading": "ことわり",
+        "band": 7000,
+        "meaning_en": "reason; logic; sense",
+        "meaning_hira": "ことわり"
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "ことわり"
+  },
+  {
+    "kanji": "話",
+    "grade": 2,
+    "kyoiku_index": 240,
+    "onyomi": [
+      "ワ"
+    ],
+    "kunyomi": [
+      "はなす",
+      "はな",
+      "はなし"
+    ],
+    "words": [
+      {
+        "word": "話",
+        "reading": "はなし",
+        "band": 1000,
+        "meaning_en": "talk; speech; chat",
+        "meaning_hira": "はなし"
+      },
+      {
+        "word": "話す",
+        "reading": "はなす",
+        "band": 1000,
+        "meaning_en": "to talk; to speak; to converse",
+        "meaning_hira": "はなす"
+      },
+      {
+        "word": "電話",
+        "reading": "でんわ",
+        "band": 1000,
+        "meaning_en": "telephone call; phone call",
+        "meaning_hira": "でんわ",
+        "grade": 2
+      },
+      {
+        "word": "会話",
+        "reading": "かいわ",
+        "band": 3000,
+        "meaning_en": "conversation; talk; chat",
+        "meaning_hira": "かいわ",
+        "grade": 2
+      },
+      {
+        "word": "話題",
+        "reading": "わだい",
+        "band": 3000,
+        "meaning_en": "topic; subject",
+        "meaning_hira": "わだい",
+        "grade": 3
+      },
+      {
+        "word": "お世話",
+        "reading": "おせわ",
+        "band": 3000,
+        "meaning_en": "help; aid; assistance",
+        "meaning_hira": "おせわ",
+        "grade": 3
+      }
+    ],
+    "meaning_en": "",
+    "meaning_hira": "",
+    "label": "はなし"
+  }
+]

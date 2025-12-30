@@ -11,10 +11,9 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <style>
-    /* Kanji font (put your TTF at ./fonts/my-font.ttf) */
     @font-face{
       font-family: "KanjiFont";
-      src: url("./fonts/my-font.ttf") format("truetype");
+      src: url("./fonts/Aiharahudemojikaisho_free305.ttf") format("truetype");
       font-display: swap;
     }
 
@@ -23,12 +22,20 @@
       --card:#111a2e;
       --muted:#a8b3cf;
       --text:#e9eefc;
+
       --border:rgba(233,238,252,.14);
       --good:#22c55e;
       --bad:#ef4444;
       --focus:#60a5fa;
       --chip:rgba(233,238,252,.06);
+
+      /* NEW: light surfaces */
+      --paper:#ffffff;
+      --paperBorder: rgba(0,0,0,.12);
+      --ink:#000000;
+      --inkMuted: rgba(0,0,0,.62);
     }
+
     *{box-sizing:border-box}
     body{
       margin:0; min-height:100vh;
@@ -41,7 +48,7 @@
       display:flex; align-items:center; justify-content:center;
       padding:16px;
     }
-    .wrap{width:min(640px, 100%)}
+    .wrap{width:min(680px, 100%)}
     .card{
       background: linear-gradient(180deg, rgba(17,26,46,.95), rgba(17,26,46,.78));
       border:1px solid var(--border);
@@ -111,12 +118,7 @@
       font-weight:800;
     }
     .btn:focus-visible{outline:3px solid rgba(96,165,250,.35); outline-offset:2px}
-    .btn.primary{
-      background: rgba(96,165,250,.14);
-      border-color: rgba(96,165,250,.35);
-    }
 
-    /* Home game buttons */
     .games{display:grid; gap:10px; margin-top:8px}
     .gameBtn{
       width:100%;
@@ -136,7 +138,6 @@
     .gameBtn span{display:block; color:var(--muted); font-size:12.5px; margin-top:2px}
     .gameBtn:active{transform: scale(.995)}
 
-    /* Settings */
     .settingsCard{
       border:1px solid var(--border);
       background: rgba(11,18,32,.25);
@@ -159,21 +160,12 @@
       width:18px; height:18px;
       accent-color: var(--focus);
     }
-    .disabledNote{
-      margin-top:8px;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px dashed rgba(233,238,252,.22);
-      background: rgba(233,238,252,.03);
-      color: var(--muted);
-      font-size:12.5px;
-    }
 
-    /* Game screen */
+    /* GAME prompt: white background + black kanji */
     .prompt{
-      border:1px solid var(--border);
+      border:1px solid var(--paperBorder);
       border-radius:16px;
-      background: rgba(11,18,32,.35);
+      background: var(--paper);
       padding:14px;
       display:flex;
       justify-content:center;
@@ -186,6 +178,7 @@
       font-size:92px;
       line-height:1;
       user-select:none;
+      color: var(--ink);
     }
 
     .choices{
@@ -195,11 +188,11 @@
       gap:10px;
     }
 
-    /* Answer tile button */
+    /* Answer tile: white background + black text/images */
     button.choice{
-      border:1px solid var(--border);
-      background: rgba(233,238,252,.04);
-      color:var(--text);
+      border:1px solid var(--paperBorder);
+      background: var(--paper);
+      color: var(--ink);
       border-radius:16px;
       padding:12px;
       min-height: 140px;
@@ -211,22 +204,21 @@
       overflow:hidden;
     }
     button.choice:disabled{cursor:default; opacity:1}
-    button.choice.correct{border-color: rgba(34,197,94,.65); background: rgba(34,197,94,.12)}
-    button.choice.wrong{border-color: rgba(239,68,68,.7); background: rgba(239,68,68,.12)}
+    button.choice.correct{border-color: rgba(34,197,94,.65); box-shadow: 0 0 0 3px rgba(34,197,94,.20) inset}
+    button.choice.wrong{border-color: rgba(239,68,68,.7); box-shadow: 0 0 0 3px rgba(239,68,68,.18) inset}
 
     .badge{
       position:absolute;
       top:8px; right:8px;
       font-size:12px;
-      color:var(--muted);
-      border:1px solid var(--border);
-      background: rgba(11,18,32,.45);
+      color: var(--inkMuted);
+      border:1px solid var(--paperBorder);
+      background: rgba(255,255,255,.78);
       border-radius:999px;
       padding:5px 8px;
       z-index:2;
     }
 
-    /* Meaning image */
     .meaningImg{
       max-width:100%;
       max-height:115px;
@@ -235,7 +227,6 @@
       display:block;
     }
 
-    /* Fallback tile (hiragana meaning) */
     .meaningFallback{
       width:100%;
       aspect-ratio: 1 / 1;
@@ -245,11 +236,11 @@
       text-align:center;
       padding:12px;
       border-radius:12px;
-      background: rgba(233,238,252,.05);
-      border:1px dashed rgba(233,238,252,.22);
+      background: rgba(0,0,0,.03);
+      border:1px dashed rgba(0,0,0,.18);
       font-size:22px;
       font-weight:900;
-      color: var(--text);
+      color: var(--ink);
       line-height:1.15;
     }
 
@@ -267,6 +258,19 @@
       color: var(--text);
       font-size:12.5px;
     }
+
+    .status{
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(96,165,250,.35);
+      background: rgba(96,165,250,.10);
+      color: var(--text);
+      font-size:12.5px;
+      display:none;
+    }
+    .status.show{display:block}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono"; font-size: .95em}
   </style>
 </head>
 <body>
@@ -275,7 +279,7 @@
       <header>
         <div>
           <div class="title">Kanji Snap</div>
-          <div class="sub">Multi-game kanji trainer (offline PWA). Meaning images: ./images/meaning/本.png etc.</div>
+          <div class="sub">Core data comes from grade JSON files (grade-1.json, grade-2.json, grade-3.json, ...)</div>
         </div>
 
         <div class="tabs" role="tablist" aria-label="Main tabs">
@@ -284,6 +288,8 @@
           <button class="tab" id="tabGame" type="button" role="tab" aria-selected="false" style="display:none">Game</button>
         </div>
       </header>
+
+      <div class="status" id="statusBox">Loading…</div>
 
       <!-- HOME -->
       <section class="view active" id="viewHome" aria-labelledby="tabHome">
@@ -297,22 +303,14 @@
           <button class="gameBtn" id="startMeaningMCQ" type="button">
             <div>
               <strong>Meaning (4-choice)</strong>
-              <span>Show kanji → pick correct meaning image (fallback to hiragana tile if missing).</span>
+              <span>Kanji prompt → choose meaning image (<code>images/meaning/&lt;KANJI&gt;.png</code>), fallback to hiragana tile.</span>
             </div>
-            <div class="pill" id="poolCountPill">0 kanji</div>
-          </button>
-
-          <button class="gameBtn" type="button" disabled style="opacity:.6; cursor:not-allowed">
-            <div>
-              <strong>Coming later: other games</strong>
-              <span>More modes, kanji selection, and additional grades.</span>
-            </div>
-            <div class="pill">Soon</div>
+            <div class="pill" id="poolCountPill">…</div>
           </button>
         </div>
 
         <div class="tiny" style="margin-top:10px">
-          Tip: To add a meaning image for a kanji, upload <code>images/meaning/&lt;KANJI&gt;.png</code>.
+          Meaning images: <code>images/meaning/本.png</code> etc. Missing files fall back to text.
         </div>
       </section>
 
@@ -321,7 +319,7 @@
         <div class="row">
           <div>
             <div class="sectionTitle">Kanji selection</div>
-            <div class="muted">Choose which grades are included in the active pool.</div>
+            <div class="muted">Select which grades are included in the active pool.</div>
           </div>
           <button class="btn" id="backHomeBtn" type="button">Back</button>
         </div>
@@ -332,16 +330,10 @@
             <label class="check"><input id="chkG1" type="checkbox"> Grade 1</label>
             <label class="check"><input id="chkG2" type="checkbox"> Grade 2</label>
             <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
+            <!-- Later: add G4–G6 here; the loader already supports it -->
           </div>
-          <div class="disabledNote">
-            Note: right now the app only includes Grade 1 data. Grade 2/3 plumbing is in place; you’ll add the data later.
-          </div>
-        </div>
-
-        <div class="settingsCard">
-          <div class="sectionTitle">Select individually</div>
-          <div class="muted">
-            Coming next: a searchable kanji picker where you can force-include or exclude individual kanji (overriding grade defaults).
+          <div class="tiny" style="margin-top:8px">
+            The app will fetch grade files on demand (offline cached by the service worker once visited).
           </div>
         </div>
 
@@ -369,7 +361,7 @@
           Your active pool is empty. Go to Settings and enable at least one grade.
         </div>
 
-        <div class="prompt" id="prompt">
+        <div class="prompt">
           <div class="kanjiText" id="kanjiPrompt">？</div>
         </div>
 
@@ -391,108 +383,138 @@
   </div>
 
 <script>
-  // --- Offline / SW registration ---
+  // --- Service worker ---
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
   }
 
   // --- Meaning image config ---
-  // Your current meaning images are named like "本.png" (kanji filename).
   const MEANING_IMG_DIR = "./images/meaning/";
   function meaningImgUrlForKanji(kanjiChar){
-    // Use encodeURIComponent to be safe with Unicode filenames.
     return MEANING_IMG_DIR + encodeURIComponent(kanjiChar) + ".png";
   }
 
-  // --- Data (Grade 1 for now; extend later) ---
-  // meaningKey is the hiragana fallback text for the meaning tile.
-  const KANJI_DB = [
-    { id:"一", grade:1, meaningKey:"いち" },
-    { id:"右", grade:1, meaningKey:"みぎ" },
-    { id:"雨", grade:1, meaningKey:"あめ" },
-    { id:"円", grade:1, meaningKey:"えん" },
-    { id:"王", grade:1, meaningKey:"おう" },
-    { id:"音", grade:1, meaningKey:"おと" },
-    { id:"下", grade:1, meaningKey:"した" },
-    { id:"火", grade:1, meaningKey:"ひ" },
-    { id:"花", grade:1, meaningKey:"はな" },
-    { id:"貝", grade:1, meaningKey:"かい" },
-    { id:"学", grade:1, meaningKey:"まなぶ" },
-    { id:"気", grade:1, meaningKey:"き" },
-    { id:"九", grade:1, meaningKey:"きゅう" },
-    { id:"休", grade:1, meaningKey:"やすむ" },
-    { id:"玉", grade:1, meaningKey:"たま" },
-    { id:"金", grade:1, meaningKey:"かね" },
-    { id:"空", grade:1, meaningKey:"そら" },
-    { id:"月", grade:1, meaningKey:"つき" },
-    { id:"犬", grade:1, meaningKey:"いぬ" },
-    { id:"見", grade:1, meaningKey:"みる" },
-    { id:"五", grade:1, meaningKey:"ご" },
-    { id:"口", grade:1, meaningKey:"くち" },
-    { id:"校", grade:1, meaningKey:"がっこう" },
-    { id:"左", grade:1, meaningKey:"ひだり" },
-    { id:"三", grade:1, meaningKey:"さん" },
-    { id:"山", grade:1, meaningKey:"やま" },
-    { id:"子", grade:1, meaningKey:"こ" },
-    { id:"四", grade:1, meaningKey:"よん" },
-    { id:"糸", grade:1, meaningKey:"いと" },
-    { id:"字", grade:1, meaningKey:"じ" },
-    { id:"耳", grade:1, meaningKey:"みみ" },
-    { id:"七", grade:1, meaningKey:"なな" },
-    { id:"車", grade:1, meaningKey:"くるま" },
-    { id:"手", grade:1, meaningKey:"て" },
-    { id:"十", grade:1, meaningKey:"じゅう" },
-    { id:"出", grade:1, meaningKey:"でる" },
-    { id:"女", grade:1, meaningKey:"おんな" },
-    { id:"小", grade:1, meaningKey:"ちいさい" },
-    { id:"上", grade:1, meaningKey:"うえ" },
-    { id:"森", grade:1, meaningKey:"もり" },
-    { id:"人", grade:1, meaningKey:"ひと" },
-    { id:"水", grade:1, meaningKey:"みず" },
-    { id:"正", grade:1, meaningKey:"ただしい" },
-    { id:"生", grade:1, meaningKey:"いきる" },
-    { id:"青", grade:1, meaningKey:"あお" },
-    { id:"夕", grade:1, meaningKey:"ゆう" },
-    { id:"石", grade:1, meaningKey:"いし" },
-    { id:"赤", grade:1, meaningKey:"あか" },
-    { id:"千", grade:1, meaningKey:"せん" },
-    { id:"川", grade:1, meaningKey:"かわ" },
-    { id:"先", grade:1, meaningKey:"さき" },
-    { id:"早", grade:1, meaningKey:"はやい" },
-    { id:"草", grade:1, meaningKey:"くさ" },
-    { id:"足", grade:1, meaningKey:"あし" },
-    { id:"村", grade:1, meaningKey:"むら" },
-    { id:"大", grade:1, meaningKey:"おおきい" },
-    { id:"男", grade:1, meaningKey:"おとこ" },
-    { id:"竹", grade:1, meaningKey:"たけ" },
-    { id:"中", grade:1, meaningKey:"なか" },
-    { id:"虫", grade:1, meaningKey:"むし" },
-    { id:"町", grade:1, meaningKey:"まち" },
-    { id:"天", grade:1, meaningKey:"てん" },
-    { id:"田", grade:1, meaningKey:"た" },
-    { id:"土", grade:1, meaningKey:"つち" },
-    { id:"二", grade:1, meaningKey:"に" },
-    { id:"日", grade:1, meaningKey:"ひ" },
-    { id:"入", grade:1, meaningKey:"はいる" },
-    { id:"年", grade:1, meaningKey:"とし" },
-    { id:"白", grade:1, meaningKey:"しろ" },
-    { id:"八", grade:1, meaningKey:"はち" },
-    { id:"百", grade:1, meaningKey:"ひゃく" },
-    { id:"文", grade:1, meaningKey:"ぶん" },
-    { id:"木", grade:1, meaningKey:"き" },
-    { id:"本", grade:1, meaningKey:"ほん" },
-    { id:"名", grade:1, meaningKey:"なまえ" },
-    { id:"目", grade:1, meaningKey:"め" },
-    { id:"立", grade:1, meaningKey:"たつ" },
-    { id:"力", grade:1, meaningKey:"ちから" },
-    { id:"林", grade:1, meaningKey:"はやし" },
-    { id:"六", grade:1, meaningKey:"ろく" },
-  ];
+  // --- Grade file map (extend later to 4..6) ---
+  const GRADE_FILES = {
+    1: "./grade-1.json",
+    2: "./grade-2.json",
+    3: "./grade-3.json",
+    // 4: "./grade-4.json",
+    // 5: "./grade-5.json",
+    // 6: "./grade-6.json",
+  };
 
-  // --- Settings (grade selection now; individual selection later) ---
-  const SETTINGS_KEY = "kanjiSnap.settings.v1";
+  // --- App state: loaded grade caches + normalized DB ---
+  const loadedGrades = new Set();              // which grades are loaded
+  const kanjiById = new Map();                 // id -> normalized record
+
+  // normalized record shape we use internally:
+  // { id, grade, on:[], kun:[], meaningKey }
+  function normalizeKanjiEntry(raw){
+    const id = raw.kanji;
+    const grade = Number(raw.grade);
+
+    // Your files use "onyomi" + "kunyomi" arrays. 
+    const on = Array.isArray(raw.onyomi) ? raw.onyomi : [];
+    const kun = Array.isArray(raw.kunyomi) ? raw.kunyomi : [];
+
+    // Pick a reasonable hiragana fallback text for meaning tiles:
+    // 1) raw.meaning_hira if present and non-empty
+    // 2) raw.label if it looks hiragana-ish (often it’s a reading label)
+    // 3) first kunyomi (strip brackets/dots if present)
+    // 4) otherwise "みてい"
+    let meaningKey = (raw.meaning_hira || "").trim();
+
+    if(!meaningKey){
+      const label = (raw.label || "").trim();
+      if(label) meaningKey = label;
+    }
+    if(!meaningKey && kun.length){
+      meaningKey = String(kun[0]).replace(/\[|\]/g, "").replace(/\./g, "").trim();
+    }
+    if(!meaningKey) meaningKey = "みてい";
+
+    return { id, grade, on, kun, meaningKey };
+  }
+
+  const statusBox = document.getElementById("statusBox");
+  function setStatus(msg){
+    if(!msg){
+      statusBox.classList.remove("show");
+      statusBox.textContent = "";
+      return;
+    }
+    statusBox.textContent = msg;
+    statusBox.classList.add("show");
+  }
+
+async function loadGrade(grade){
+  if(loadedGrades.has(grade)) return;
+  const url = GRADE_FILES[grade];
+  if(!url) return;
+
+  setStatus(`Loading grade ${grade}…`);
+
+  let res;
+  try {
+    res = await fetch(url); // <- IMPORTANT: no {cache:"no-store"}
+  } catch (e) {
+    throw new Error(`Failed to fetch ${url}. Check the file exists and is reachable.`);
+  }
+
+  if(!res.ok){
+    throw new Error(`Fetch failed for ${url}: HTTP ${res.status}. (Likely wrong path/filename)`);
+  }
+
+  const arr = await res.json();
+  if(!Array.isArray(arr)) throw new Error(`${url} is not a JSON array`);
+
+  for(const raw of arr){
+    if(!raw || !raw.kanji) continue;
+    const norm = normalizeKanjiEntry(raw);
+    kanjiById.set(norm.id, norm);
+  }
+
+  loadedGrades.add(grade);
+  setStatus(null);
+}
+
+  async function ensureGradesLoaded(grades){
+    // load sequentially so the status message is sensible
+    for(const g of grades){
+      await loadGrade(g);
+    }
+  }
+
+  function getEnabledGrades(){
+    return Object.keys(settings.enabledGrades)
+      .map(Number)
+      .filter(g => settings.enabledGrades[g]);
+  }
+
+  function getActivePool(){
+    const enabled = new Set(getEnabledGrades());
+    let pool = [...kanjiById.values()].filter(k => enabled.has(k.grade));
+
+    // future include/exclude hooks preserved
+    if(settings.excludeKanji?.length){
+      const ex = new Set(settings.excludeKanji);
+      pool = pool.filter(k => !ex.has(k.id));
+    }
+    if(settings.includeKanji?.length){
+      const inc = new Set(settings.includeKanji);
+      for(const id of inc){
+        const found = kanjiById.get(id);
+        if(found && !pool.some(x => x.id === id)) pool.push(found);
+      }
+    }
+    return pool;
+  }
+
+  // --- Settings ---
+  const SETTINGS_KEY = "kanjiSnap.settings.v2";
   const DEFAULT_SETTINGS = {
-    enabledGrades: { 1:true, 2:false, 3:false },
+    enabledGrades: { 1:true, 2:false, 3:false, 4:false, 5:false, 6:false },
     includeKanji: [],
     excludeKanji: []
   };
@@ -502,12 +524,12 @@
       const raw = localStorage.getItem(SETTINGS_KEY);
       if(!raw) return structuredClone(DEFAULT_SETTINGS);
       const obj = JSON.parse(raw);
-      obj.enabledGrades = obj.enabledGrades || {1:true,2:false,3:false};
+      obj.enabledGrades = obj.enabledGrades || structuredClone(DEFAULT_SETTINGS.enabledGrades);
       obj.includeKanji = obj.includeKanji || [];
       obj.excludeKanji = obj.excludeKanji || [];
-      if(typeof obj.enabledGrades[1] !== "boolean") obj.enabledGrades[1] = true;
-      if(typeof obj.enabledGrades[2] !== "boolean") obj.enabledGrades[2] = false;
-      if(typeof obj.enabledGrades[3] !== "boolean") obj.enabledGrades[3] = false;
+      for(const g of Object.keys(DEFAULT_SETTINGS.enabledGrades)){
+        if(typeof obj.enabledGrades[g] !== "boolean") obj.enabledGrades[g] = DEFAULT_SETTINGS.enabledGrades[g];
+      }
       return obj;
     } catch {
       return structuredClone(DEFAULT_SETTINGS);
@@ -519,24 +541,6 @@
   }
 
   let settings = loadSettings();
-
-  function getActivePool(){
-    let pool = KANJI_DB.filter(k => !!settings.enabledGrades[k.grade]);
-    if(settings.excludeKanji?.length){
-      const ex = new Set(settings.excludeKanji);
-      pool = pool.filter(k => !ex.has(k.id));
-    }
-    if(settings.includeKanji?.length){
-      const inc = new Set(settings.includeKanji);
-      const byId = new Map(pool.map(k => [k.id, k]));
-      for(const id of inc){
-        if(byId.has(id)) continue;
-        const found = KANJI_DB.find(k => k.id === id);
-        if(found) pool.push(found);
-      }
-    }
-    return pool;
-  }
 
   // --- UI refs ---
   const tabHome = document.getElementById("tabHome");
@@ -571,7 +575,6 @@
   const skipBtn = document.getElementById("skipBtn");
   const resetScoreBtn = document.getElementById("resetScoreBtn");
 
-  // --- Tab / view switching ---
   function setActiveTab(which){
     tabHome.classList.toggle("active", which === "home");
     tabSettings.classList.toggle("active", which === "settings");
@@ -592,38 +595,40 @@
   goSettingsBtn.addEventListener("click", () => setActiveTab("settings"));
   backHomeBtn.addEventListener("click", () => setActiveTab("home"));
 
-  // --- Settings UI binding ---
-  function syncSettingsUI(){
-    chkG1.checked = !!settings.enabledGrades[1];
-    chkG2.checked = !!settings.enabledGrades[2];
-    chkG3.checked = !!settings.enabledGrades[3];
-    updateHomeBadges();
+  function flashSaved(){
+    settingsSavedPill.textContent = "Saved ✓";
+    window.setTimeout(() => settingsSavedPill.textContent = "Saved", 900);
   }
 
-  function updateHomeBadges(){
-    const enabled = [1,2,3].filter(g => !!settings.enabledGrades[g]);
+  async function updateHomeBadges(){
+    // ensure currently enabled grades are loaded so counts are real
+    const enabled = getEnabledGrades().filter(g => !!GRADE_FILES[g]);
+    await ensureGradesLoaded(enabled);
+
     const label = enabled.length ? `Active grades: ${enabled.map(g => "G"+g).join("+")}` : "Active grades: none";
     const pool = getActivePool();
     activePill.textContent = `${label} • ${pool.length} kanji`;
     poolCountPill.textContent = `${pool.length} kanji`;
   }
 
-  function flashSaved(){
-    settingsSavedPill.textContent = "Saved ✓";
-    window.setTimeout(() => settingsSavedPill.textContent = "Saved", 900);
+  async function syncSettingsUI(){
+    chkG1.checked = !!settings.enabledGrades[1];
+    chkG2.checked = !!settings.enabledGrades[2];
+    chkG3.checked = !!settings.enabledGrades[3];
+    await updateHomeBadges();
   }
 
-  chkG1.addEventListener("change", () => { settings.enabledGrades[1] = chkG1.checked; saveSettings(); updateHomeBadges(); });
-  chkG2.addEventListener("change", () => { settings.enabledGrades[2] = chkG2.checked; saveSettings(); updateHomeBadges(); });
-  chkG3.addEventListener("change", () => { settings.enabledGrades[3] = chkG3.checked; saveSettings(); updateHomeBadges(); });
+  chkG1.addEventListener("change", async () => { settings.enabledGrades[1] = chkG1.checked; saveSettings(); await updateHomeBadges(); });
+  chkG2.addEventListener("change", async () => { settings.enabledGrades[2] = chkG2.checked; saveSettings(); await updateHomeBadges(); });
+  chkG3.addEventListener("change", async () => { settings.enabledGrades[3] = chkG3.checked; saveSettings(); await updateHomeBadges(); });
 
-  resetSettingsBtn.addEventListener("click", () => {
+  resetSettingsBtn.addEventListener("click", async () => {
     settings = structuredClone(DEFAULT_SETTINGS);
     saveSettings();
-    syncSettingsUI();
+    await syncSettingsUI();
   });
 
-  // --- Game: Meaning (4-choice) using ACTIVE POOL ---
+  // --- Game: Meaning (4-choice) ---
   let current = null;
   let locked = false;
   let correct = 0;
@@ -640,25 +645,20 @@
   }
   function setScore(){ scorePill.textContent = `${correct} correct • ${wrong} wrong`; }
 
-  function renderMeaningChoiceContent(btn, kanjiChar, hiraganaMeaning){
-    // Try image: images/meaning/<KANJI>.png
+  function renderMeaningChoiceContent(btn, kanjiChar, hiraganaText){
     const img = document.createElement("img");
     img.className = "meaningImg";
-    img.alt = hiraganaMeaning;
+    img.alt = hiraganaText;
 
     const fallback = () => {
       img.remove();
       const div = document.createElement("div");
       div.className = "meaningFallback";
-      div.textContent = hiraganaMeaning;
+      div.textContent = hiraganaText;
       btn.appendChild(div);
     };
 
     img.onerror = fallback;
-    img.onload = () => {
-      // Keep the image; do nothing else.
-    };
-
     img.src = meaningImgUrlForKanji(kanjiChar);
     btn.appendChild(img);
   }
@@ -671,7 +671,6 @@
       btn.className = "choice";
       btn.dataset.ok = opt.ok ? "1" : "0";
       btn.dataset.kanji = opt.kanji;
-      btn.dataset.meaning = opt.meaning;
 
       const badge = document.createElement("span");
       badge.className = "badge";
@@ -696,11 +695,9 @@
     }
     emptyPoolWarn.style.display = "none";
 
-    // Pick prompt
     current = activePool[rand(activePool.length)];
     kanjiPrompt.textContent = current.id;
 
-    // Pick 3 wrong options (unique by kanji id)
     const pool = activePool.filter(k => k.id !== current.id);
     shuffle(pool);
     const wrongs = pool.slice(0, 3);
@@ -727,7 +724,6 @@
     } else {
       wrong++;
       btn.classList.add("wrong");
-      // highlight correct
       const right = buttons.find(b => b.dataset.kanji === current.id);
       if(right) right.classList.add("correct");
     }
@@ -736,24 +732,30 @@
     window.setTimeout(pickQuestion, 900);
   }
 
-  function startGameMeaningMCQ(){
+  async function startGameMeaningMCQ(){
+    // ensure enabled grades are loaded before we build pool
+    const enabled = getEnabledGrades().filter(g => !!GRADE_FILES[g]);
+    await ensureGradesLoaded(enabled);
+
     activePool = getActivePool();
     correct = 0; wrong = 0; setScore();
 
     gameTitle.textContent = "Meaning (4-choice)";
-    gameSubtitle.textContent = "Kanji prompt (TTF) → choose meaning image (./images/meaning/<KANJI>.png), fallback to hiragana tile.";
+    gameSubtitle.textContent = "Kanji prompt → choose meaning image (images/meaning/<KANJI>.png), fallback to hiragana tile.";
 
     setActiveTab("game");
     pickQuestion();
   }
 
-  startMeaningMCQ.addEventListener("click", startGameMeaningMCQ);
-  exitGameBtn.addEventListener("click", () => setActiveTab("home"));
+  startMeaningMCQ.addEventListener("click", () => startGameMeaningMCQ().catch(err => {
+    console.error(err);
+    setStatus(String(err));
+  }));
 
+  exitGameBtn.addEventListener("click", () => setActiveTab("home"));
   skipBtn.addEventListener("click", () => pickQuestion());
   resetScoreBtn.addEventListener("click", () => { correct = 0; wrong = 0; setScore(); });
 
-  // Keyboard: 1–4 chooses; Space skips
   window.addEventListener("keydown", (e) => {
     if(!viewGame.classList.contains("active")) return;
     if(e.key === " "){
@@ -769,9 +771,19 @@
   });
 
   // --- Init ---
-  syncSettingsUI();
-  updateHomeBadges();
-  setActiveTab("home");
+  (async () => {
+    setActiveTab("home");
+    await syncSettingsUI();
+
+    // Preload Grade 1 on first load for snappy first game
+    if(settings.enabledGrades[1]) {
+      await ensureGradesLoaded([1]);
+      await updateHomeBadges();
+    }
+  })().catch(err => {
+    console.error(err);
+    setStatus(String(err));
+  });
 </script>
 </body>
 </html>
