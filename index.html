@@ -205,8 +205,17 @@
       overflow:hidden;
     }
     button.choice:disabled{cursor:default; opacity:1}
-    button.choice.correct{border-color: rgba(34,197,94,.65); box-shadow: 0 0 0 3px rgba(34,197,94,.20) inset}
-    button.choice.wrong{border-color: rgba(239,68,68,.7); box-shadow: 0 0 0 3px rgba(239,68,68,.18) inset}
+button.choice.correct{
+  background: #d1fae5;        /* light green */
+  border-color: #22c55e;
+  box-shadow: inset 0 0 0 3px rgba(34,197,94,.35);
+}
+
+button.choice.wrong{
+  background: #fee2e2;        /* light red */
+  border-color: #ef4444;
+  box-shadow: inset 0 0 0 3px rgba(239,68,68,.35);
+}
 
     .badge{
       position:absolute;
