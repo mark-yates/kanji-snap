@@ -13,7 +13,7 @@
   <style>
     @font-face{
       font-family: "KanjiFont";
-      src: url("./fonts/Aiharahudemojikaisho_free305.ttf") format("truetype");
+      src: url("./fonts/my-font.ttf") format("truetype");
       font-display: swap;
     }
 
@@ -29,7 +29,7 @@
       --focus:#60a5fa;
       --chip:rgba(233,238,252,.06);
 
-      /* NEW: light surfaces */
+      /* Light surfaces for game area */
       --paper:#ffffff;
       --paperBorder: rgba(0,0,0,.12);
       --ink:#000000;
@@ -172,6 +172,7 @@
       align-items:center;
       min-height: 170px;
       margin-top:10px;
+      cursor: pointer; /* clickable for Sneak Peek */
     }
     .kanjiText{
       font-family: "KanjiFont", system-ui, sans-serif;
@@ -270,7 +271,47 @@
       display:none;
     }
     .status.show{display:block}
-    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono"; font-size: .95em}
+
+    /* Sneak Peek dictionary tile */
+    .dictTile{
+      border:1px solid var(--paperBorder);
+      background: var(--paper);
+      color: var(--ink);
+      border-radius:16px;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .dictHeader{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .dictKanji{
+      font-family: "KanjiFont", system-ui, sans-serif;
+      font-size:64px; line-height:1; color: var(--ink);
+    }
+    .chips{display:flex; gap:6px; flex-wrap:wrap}
+    .chipLight{
+      border:1px solid var(--paperBorder);
+      border-radius:999px; padding:6px 10px;
+      color: var(--inkMuted);
+      background: rgba(0,0,0,.04);
+      font-weight:700; font-size:12.5px;
+    }
+    .dictRows{display:grid; gap:8px}
+    .rowKV{display:grid; grid-template-columns: 110px 1fr; gap:8px; align-items:start}
+    .k{color: var(--inkMuted); font-weight:800}
+    .v{word-break: break-word}
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono";
+      white-space: pre-wrap; font-size:12px; color:#111;
+      background: rgba(0,0,0,.03); border:1px dashed rgba(0,0,0,.12);
+      padding:10px; border-radius:10px;
+      max-height: 240px; overflow:auto;
+    }
+    .peekHint{
+      margin-top:6px; color: var(--muted); font-size:12px;
+    }
   </style>
 </head>
 <body>
@@ -279,7 +320,7 @@
       <header>
         <div>
           <div class="title">Kanji Snap</div>
-          <div class="sub">Core data comes from grade JSON files (grade-1.json, grade-2.json, grade-3.json, ...)</div>
+          <div class="sub">Sneak Peek: tap the kanji prompt to toggle the dictionary tile.</div>
         </div>
 
         <div class="tabs" role="tablist" aria-label="Main tabs">
@@ -303,7 +344,7 @@
           <button class="gameBtn" id="startMeaningMCQ" type="button">
             <div>
               <strong>Meaning (4-choice)</strong>
-              <span>Kanji prompt → choose meaning image (<code>images/meaning/&lt;KANJI&gt;.png</code>), fallback to hiragana tile.</span>
+              <span>Kanji prompt → choose meaning image (<code>images/meaning/&lt;KANJI&gt;.png</code>), fallback to hiragana tile. Tap prompt for Sneak Peek.</span>
             </div>
             <div class="pill" id="poolCountPill">…</div>
           </button>
@@ -330,10 +371,9 @@
             <label class="check"><input id="chkG1" type="checkbox"> Grade 1</label>
             <label class="check"><input id="chkG2" type="checkbox"> Grade 2</label>
             <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
-            <!-- Later: add G4–G6 here; the loader already supports it -->
           </div>
           <div class="tiny" style="margin-top:8px">
-            The app will fetch grade files on demand (offline cached by the service worker once visited).
+            The app fetches grade files on demand and caches them offline after first load.
           </div>
         </div>
 
@@ -361,7 +401,7 @@
           Your active pool is empty. Go to Settings and enable at least one grade.
         </div>
 
-        <div class="prompt">
+        <div class="prompt" id="prompt" title="Tap to toggle Sneak Peek">
           <div class="kanjiText" id="kanjiPrompt">？</div>
         </div>
 
@@ -376,7 +416,7 @@
         </div>
 
         <div class="tiny" style="margin-top:10px">
-          Keyboard: 1–4 choose; Space = skip (desktop).
+          Keyboard: 1–4 choose; Space = skip. Tap the prompt for Sneak Peek.
         </div>
       </section>
     </div>
@@ -394,37 +434,28 @@
     return MEANING_IMG_DIR + encodeURIComponent(kanjiChar) + ".png";
   }
 
-  // --- Grade file map (extend later to 4..6) ---
+  // --- Grade file map (extend to 4..6 later) ---
   const GRADE_FILES = {
     1: "./grade-1.json",
     2: "./grade-2.json",
     3: "./grade-3.json",
-    // 4: "./grade-4.json",
-    // 5: "./grade-5.json",
-    // 6: "./grade-6.json",
   };
 
   // --- App state: loaded grade caches + normalized DB ---
-  const loadedGrades = new Set();              // which grades are loaded
-  const kanjiById = new Map();                 // id -> normalized record
+  const loadedGrades = new Set();      // which grades are loaded
+  const kanjiById = new Map();         // id -> normalized record AND raw
 
-  // normalized record shape we use internally:
-  // { id, grade, on:[], kun:[], meaningKey }
+  // normalized record we use internally;
+  // we also keep a copy of the original 'raw' object so Sneak Peek can show every field.
   function normalizeKanjiEntry(raw){
     const id = raw.kanji;
     const grade = Number(raw.grade);
 
-    // Your files use "onyomi" + "kunyomi" arrays. 
-    const on = Array.isArray(raw.onyomi) ? raw.onyomi : [];
+    const on  = Array.isArray(raw.onyomi) ? raw.onyomi : [];
     const kun = Array.isArray(raw.kunyomi) ? raw.kunyomi : [];
 
-    // Pick a reasonable hiragana fallback text for meaning tiles:
-    // 1) raw.meaning_hira if present and non-empty
-    // 2) raw.label if it looks hiragana-ish (often it’s a reading label)
-    // 3) first kunyomi (strip brackets/dots if present)
-    // 4) otherwise "みてい"
+    // Choose fallback text for meaning tiles:
     let meaningKey = (raw.meaning_hira || "").trim();
-
     if(!meaningKey){
       const label = (raw.label || "").trim();
       if(label) meaningKey = label;
@@ -434,7 +465,7 @@
     }
     if(!meaningKey) meaningKey = "みてい";
 
-    return { id, grade, on, kun, meaningKey };
+    return { id, grade, on, kun, meaningKey, raw };
   }
 
   const statusBox = document.getElementById("statusBox");
@@ -448,42 +479,37 @@
     statusBox.classList.add("show");
   }
 
-async function loadGrade(grade){
-  if(loadedGrades.has(grade)) return;
-  const url = GRADE_FILES[grade];
-  if(!url) return;
+  async function loadGrade(grade){
+    if(loadedGrades.has(grade)) return;
+    const url = GRADE_FILES[grade];
+    if(!url) return;
 
-  setStatus(`Loading grade ${grade}…`);
+    setStatus(`Loading grade ${grade}…`);
+    let res;
+    try {
+      res = await fetch(url);
+    } catch (e) {
+      throw new Error(`Failed to fetch ${url}. Check the file exists and is reachable.`);
+    }
+    if(!res.ok){
+      throw new Error(`Fetch failed for ${url}: HTTP ${res.status}.`);
+    }
 
-  let res;
-  try {
-    res = await fetch(url); // <- IMPORTANT: no {cache:"no-store"}
-  } catch (e) {
-    throw new Error(`Failed to fetch ${url}. Check the file exists and is reachable.`);
+    const arr = await res.json();
+    if(!Array.isArray(arr)) throw new Error(`${url} is not a JSON array`);
+
+    for(const raw of arr){
+      if(!raw || !raw.kanji) continue;
+      const norm = normalizeKanjiEntry(raw);
+      kanjiById.set(norm.id, norm);
+    }
+
+    loadedGrades.add(grade);
+    setStatus(null);
   }
-
-  if(!res.ok){
-    throw new Error(`Fetch failed for ${url}: HTTP ${res.status}. (Likely wrong path/filename)`);
-  }
-
-  const arr = await res.json();
-  if(!Array.isArray(arr)) throw new Error(`${url} is not a JSON array`);
-
-  for(const raw of arr){
-    if(!raw || !raw.kanji) continue;
-    const norm = normalizeKanjiEntry(raw);
-    kanjiById.set(norm.id, norm);
-  }
-
-  loadedGrades.add(grade);
-  setStatus(null);
-}
 
   async function ensureGradesLoaded(grades){
-    // load sequentially so the status message is sensible
-    for(const g of grades){
-      await loadGrade(g);
-    }
+    for(const g of grades){ await loadGrade(g); }
   }
 
   function getEnabledGrades(){
@@ -495,8 +521,6 @@ async function loadGrade(grade){
   function getActivePool(){
     const enabled = new Set(getEnabledGrades());
     let pool = [...kanjiById.values()].filter(k => enabled.has(k.grade));
-
-    // future include/exclude hooks preserved
     if(settings.excludeKanji?.length){
       const ex = new Set(settings.excludeKanji);
       pool = pool.filter(k => !ex.has(k.id));
@@ -569,6 +593,7 @@ async function loadGrade(grade){
   const exitGameBtn = document.getElementById("exitGameBtn");
 
   const emptyPoolWarn = document.getElementById("emptyPoolWarn");
+  const promptEl = document.getElementById("prompt");
   const kanjiPrompt = document.getElementById("kanjiPrompt");
   const choicesEl = document.getElementById("choices");
   const scorePill = document.getElementById("scorePill");
@@ -601,7 +626,6 @@ async function loadGrade(grade){
   }
 
   async function updateHomeBadges(){
-    // ensure currently enabled grades are loaded so counts are real
     const enabled = getEnabledGrades().filter(g => !!GRADE_FILES[g]);
     await ensureGradesLoaded(enabled);
 
@@ -628,12 +652,13 @@ async function loadGrade(grade){
     await syncSettingsUI();
   });
 
-  // --- Game: Meaning (4-choice) ---
+  // --- Game: Meaning (4-choice) + Sneak Peek ---
   let current = null;
   let locked = false;
   let correct = 0;
   let wrong = 0;
   let activePool = [];
+  let peekMode = false; // NEW: Sneak Peek toggle
 
   const rand = (n) => Math.floor(Math.random() * n);
   function shuffle(arr){
@@ -665,6 +690,7 @@ async function loadGrade(grade){
 
   function renderChoices(options){
     choicesEl.innerHTML = "";
+    choicesEl.style.display = "grid";
     options.forEach((opt, idx) => {
       const btn = document.createElement("button");
       btn.type = "button";
@@ -684,8 +710,69 @@ async function loadGrade(grade){
     });
   }
 
+  function renderDictionaryTile(record){
+    // record: normalized { id, grade, on, kun, meaningKey, raw }
+    choicesEl.innerHTML = "";
+    choicesEl.style.display = "block"; // single tile
+
+    const tile = document.createElement("div");
+    tile.className = "dictTile";
+
+    const header = document.createElement("div");
+    header.className = "dictHeader";
+
+    const big = document.createElement("div");
+    big.className = "dictKanji";
+    big.textContent = record.id;
+
+    const chips = document.createElement("div");
+    chips.className = "chips";
+    const chipG = document.createElement("div");
+    chipG.className = "chipLight";
+    chipG.textContent = `Grade G${record.grade}`;
+    chips.appendChild(chipG);
+
+    header.appendChild(big);
+    header.appendChild(chips);
+
+    const rows = document.createElement("div");
+    rows.className = "dictRows";
+
+    function addKV(k, v){
+      const row = document.createElement("div");
+      row.className = "rowKV";
+      const kk = document.createElement("div");
+      kk.className = "k"; kk.textContent = k;
+      const vv = document.createElement("div");
+      vv.className = "v"; vv.textContent = v;
+      row.appendChild(kk); row.appendChild(vv);
+      rows.appendChild(row);
+    }
+
+    if(record.on?.length)  addKV("音読み", record.on.join("、"));
+    if(record.kun?.length) addKV("訓読み", record.kun.join("、"));
+    addKV("fallback", record.meaningKey);
+
+    // Show all raw fields (complete JSON) for full transparency
+    const pre = document.createElement("pre");
+    pre.className = "mono";
+    pre.textContent = JSON.stringify(record.raw, null, 2);
+
+    const hint = document.createElement("div");
+    hint.className = "peekHint";
+    hint.textContent = "Tap the kanji prompt again to return to the choices.";
+
+    tile.appendChild(header);
+    tile.appendChild(rows);
+    tile.appendChild(pre);
+    tile.appendChild(hint);
+
+    choicesEl.appendChild(tile);
+  }
+
   function pickQuestion(){
     locked = false;
+    peekMode = false; // reset sneak peek when moving to a new question
 
     if(activePool.length === 0){
       emptyPoolWarn.style.display = "";
@@ -712,6 +799,7 @@ async function loadGrade(grade){
 
   function choose(btn){
     if(locked) return;
+    if(peekMode) return; // while peeking, ignore choice clicks
     locked = true;
 
     const buttons = [...document.querySelectorAll("button.choice")];
@@ -733,7 +821,6 @@ async function loadGrade(grade){
   }
 
   async function startGameMeaningMCQ(){
-    // ensure enabled grades are loaded before we build pool
     const enabled = getEnabledGrades().filter(g => !!GRADE_FILES[g]);
     await ensureGradesLoaded(enabled);
 
@@ -741,7 +828,7 @@ async function loadGrade(grade){
     correct = 0; wrong = 0; setScore();
 
     gameTitle.textContent = "Meaning (4-choice)";
-    gameSubtitle.textContent = "Kanji prompt → choose meaning image (images/meaning/<KANJI>.png), fallback to hiragana tile.";
+    gameSubtitle.textContent = "Tap the kanji prompt to toggle Sneak Peek (dictionary tile).";
 
     setActiveTab("game");
     pickQuestion();
@@ -756,13 +843,36 @@ async function loadGrade(grade){
   skipBtn.addEventListener("click", () => pickQuestion());
   resetScoreBtn.addEventListener("click", () => { correct = 0; wrong = 0; setScore(); });
 
+  // Sneak Peek toggle by clicking the prompt
+  promptEl.addEventListener("click", () => {
+    if(!viewGame.classList.contains("active")) return;
+    if(!current) return;
+    peekMode = !peekMode;
+    if(peekMode){
+      // show dictionary tile for current
+      renderDictionaryTile(current);
+    } else {
+      // restore choices for current
+      const pool = activePool.filter(k => k.id !== current.id);
+      shuffle(pool);
+      const wrongs = pool.slice(0, 3);
+      const options = shuffle([
+        { kanji: current.id, meaning: current.meaningKey, ok: true },
+        ...wrongs.map(w => ({ kanji: w.id, meaning: w.meaningKey, ok: false }))
+      ]);
+      renderChoices(options);
+    }
+  });
+
+  // Keyboard: 1–4 chooses; Space skips
   window.addEventListener("keydown", (e) => {
     if(!viewGame.classList.contains("active")) return;
     if(e.key === " "){
       e.preventDefault();
-      if(!locked) pickQuestion();
+      if(!locked && !peekMode) pickQuestion();
       return;
     }
+    if(peekMode) return; // disable keyboard answers while peeking
     const n = Number(e.key);
     if(Number.isFinite(n) && n >= 1 && n <= 4){
       const btn = document.querySelectorAll("button.choice")[n-1];
@@ -775,7 +885,6 @@ async function loadGrade(grade){
     setActiveTab("home");
     await syncSettingsUI();
 
-    // Preload Grade 1 on first load for snappy first game
     if(settings.enabledGrades[1]) {
       await ensureGradesLoaded([1]);
       await updateHomeBadges();
