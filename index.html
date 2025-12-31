@@ -34,6 +34,9 @@
       --goodBorder:#22c55e;
       --badBg:#fee2e2;
       --badBorder:#ef4444;
+
+      --focus:#60a5fa;
+      --chip:rgba(233,238,252,.06);
     }
 
     *{box-sizing:border-box}
@@ -116,6 +119,7 @@
       font-weight:900;
     }
     .btn:active{transform:scale(.995)}
+    .btn:focus-visible{outline:3px solid rgba(96,165,250,.35); outline-offset:2px}
 
     .pill{
       border:1px solid var(--border);
@@ -125,6 +129,33 @@
       color:var(--muted);
       font-size:12.5px;
       white-space:nowrap;
+    }
+
+    /* Home cards */
+    .sectionTitle{font-weight:900; margin:10px 0 6px 0}
+    .muted{color:var(--muted); font-size:13px; line-height:1.35}
+
+    .settingsCard{
+      border:1px solid var(--border);
+      background: rgba(11,18,32,.25);
+      border-radius:16px;
+      padding:12px;
+      margin-top:10px;
+    }
+    .checks{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+    label.check{
+      display:flex; gap:8px; align-items:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: var(--chip);
+      cursor:pointer;
+      user-select:none;
+      font-weight:900;
+    }
+    input[type="checkbox"]{
+      width:18px; height:18px;
+      accent-color: var(--focus);
     }
 
     /* Game */
@@ -184,15 +215,8 @@
       font-size:22px;
     }
     button.choice:disabled{cursor:default; opacity:1}
-
-    button.choice.correct{
-      background:var(--goodBg);
-      border-color:var(--goodBorder);
-    }
-    button.choice.wrong{
-      background:var(--badBg);
-      border-color:var(--badBorder);
-    }
+    button.choice.correct{ background:var(--goodBg); border-color:var(--goodBorder); }
+    button.choice.wrong{ background:var(--badBg); border-color:var(--badBorder); }
 
     .badge{
       position:absolute;
@@ -316,10 +340,11 @@
       <header>
         <div>
           <div class="title">Kanji Snap</div>
-          <div class="sub">Tap the kanji tile for Sneak Peek (costs 1 life). Wrong answer costs 3 lives.</div>
+          <div class="sub">Lives: start 10. Wrong: -3. Sneak Peek: -1 (once per question).</div>
         </div>
         <div class="tabs" role="tablist">
           <button class="tab active" id="tabHome" type="button">Home</button>
+          <button class="tab" id="tabSettings" type="button">Settings</button>
           <button class="tab" id="tabGame" type="button" style="display:none;">Game</button>
         </div>
       </header>
@@ -327,11 +352,42 @@
       <!-- HOME -->
       <section class="view active" id="viewHome">
         <div class="row">
-          <div class="pill" id="homePill">Grades: 1–3</div>
+          <div class="pill" id="homePill">Active: …</div>
           <button class="btn" id="startBtn" type="button">Start game</button>
         </div>
-        <div style="margin-top:12px; color:var(--muted); font-size:13px; line-height:1.35;">
-          Lives: start with <b>10</b>. Wrong answer: <b>-3</b>. Sneak Peek: <b>-1</b> (charged once per question).
+        <div class="muted" style="margin-top:12px;">
+          Tap the kanji tile for Sneak Peek (shows dictionary tile and costs 1 life the first time per question).
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="view" id="viewSettings">
+        <div class="row">
+          <div>
+            <div class="sectionTitle">Kanji selection</div>
+            <div class="muted">Select which grade lists are included.</div>
+          </div>
+          <button class="btn" id="backHomeBtn" type="button">Back</button>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Select by grade</div>
+          <div class="checks">
+            <label class="check"><input id="chkG1" type="checkbox"> Grade 1</label>
+            <label class="check"><input id="chkG2" type="checkbox"> Grade 2</label>
+            <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
+          </div>
+          <div class="muted" style="margin-top:8px;">
+            Future grades (4–6) can be added later without changing the game logic.
+          </div>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Storage</div>
+          <div class="row" style="margin-top:8px;">
+            <button class="btn" id="resetSettingsBtn" type="button">Reset settings</button>
+            <div class="pill" id="savedPill">Saved</div>
+          </div>
         </div>
       </section>
 
@@ -379,6 +435,9 @@
     1: "./grade-1.json",
     2: "./grade-2.json",
     3: "./grade-3.json",
+    // 4: "./grade-4.json",
+    // 5: "./grade-5.json",
+    // 6: "./grade-6.json",
   };
 
   const loadedGrades = new Set();
@@ -391,8 +450,6 @@
     const on  = Array.isArray(raw.onyomi) ? raw.onyomi : [];
     const kun = Array.isArray(raw.kunyomi) ? raw.kunyomi : [];
 
-    // Fallback text for meaning tiles:
-    // prefer meaning_hira, else label, else first kunyomi cleaned, else "みてい"
     let meaningKey = (raw.meaning_hira || "").trim();
     if(!meaningKey){
       const label = (raw.label || "").trim();
@@ -426,7 +483,7 @@
   }
 
   async function ensureGradesLoaded(grades){
-    for(const g of grades) await loadGrade(g);
+    for(const g of grades){ await loadGrade(g); }
   }
 
   // --- Meaning image config ---
@@ -435,16 +492,62 @@
     return MEANING_IMG_DIR + encodeURIComponent(kanjiChar) + ".png";
   }
 
+  // --- Settings ---
+  const SETTINGS_KEY = "kanjiSnap.settings.v3";
+  const DEFAULT_SETTINGS = {
+    enabledGrades: { 1:true, 2:false, 3:false, 4:false, 5:false, 6:false },
+  };
+
+  function loadSettings(){
+    try{
+      const raw = localStorage.getItem(SETTINGS_KEY);
+      if(!raw) return structuredClone(DEFAULT_SETTINGS);
+      const obj = JSON.parse(raw);
+      obj.enabledGrades = obj.enabledGrades || structuredClone(DEFAULT_SETTINGS.enabledGrades);
+      for(const g of Object.keys(DEFAULT_SETTINGS.enabledGrades)){
+        if(typeof obj.enabledGrades[g] !== "boolean") obj.enabledGrades[g] = DEFAULT_SETTINGS.enabledGrades[g];
+      }
+      return obj;
+    } catch {
+      return structuredClone(DEFAULT_SETTINGS);
+    }
+  }
+
+  function saveSettings(){
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    savedPill.textContent = "Saved ✓";
+    setTimeout(() => savedPill.textContent = "Saved", 900);
+  }
+
+  let settings = loadSettings();
+
+  function getEnabledGrades(){
+    return Object.keys(settings.enabledGrades)
+      .map(Number)
+      .filter(g => settings.enabledGrades[g] && !!GRADE_FILES[g]);
+  }
+
   // --- UI refs ---
   const tabHome = document.getElementById("tabHome");
+  const tabSettings = document.getElementById("tabSettings");
   const tabGame = document.getElementById("tabGame");
+
   const viewHome = document.getElementById("viewHome");
+  const viewSettings = document.getElementById("viewSettings");
   const viewGame = document.getElementById("viewGame");
 
+  const homePill = document.getElementById("homePill");
   const startBtn = document.getElementById("startBtn");
+
+  const backHomeBtn = document.getElementById("backHomeBtn");
+  const chkG1 = document.getElementById("chkG1");
+  const chkG2 = document.getElementById("chkG2");
+  const chkG3 = document.getElementById("chkG3");
+  const resetSettingsBtn = document.getElementById("resetSettingsBtn");
+  const savedPill = document.getElementById("savedPill");
+
   const exitBtn = document.getElementById("exitBtn");
   const skipBtn = document.getElementById("skipBtn");
-
   const promptEl = document.getElementById("prompt");
   const kanjiPrompt = document.getElementById("kanjiPrompt");
   const choicesEl = document.getElementById("choices");
@@ -459,28 +562,32 @@
   const gameOverOk = document.getElementById("gameOverOk");
 
   function setActiveTab(which){
-    const isHome = which === "home";
-    tabHome.classList.toggle("active", isHome);
-    tabGame.classList.toggle("active", !isHome);
-    viewHome.classList.toggle("active", isHome);
-    viewGame.classList.toggle("active", !isHome);
-    tabGame.style.display = isHome ? "none" : "";
+    tabHome.classList.toggle("active", which==="home");
+    tabSettings.classList.toggle("active", which==="settings");
+    tabGame.classList.toggle("active", which==="game");
+
+    viewHome.classList.toggle("active", which==="home");
+    viewSettings.classList.toggle("active", which==="settings");
+    viewGame.classList.toggle("active", which==="game");
+
+    tabGame.style.display = (which==="game") ? "" : "none";
   }
 
   tabHome.addEventListener("click", () => setActiveTab("home"));
-  tabGame.addEventListener("click", () => setActiveTab("game"));
+  tabSettings.addEventListener("click", () => setActiveTab("settings"));
+  backHomeBtn.addEventListener("click", () => setActiveTab("home"));
 
   // --- Game state ---
   let pool = [];
   let current = null;
-  let currentOptions = null; // options we rendered for the current question
+  let currentOptions = null;
   let locked = false;
 
   let score = 0;
   let lives = 10;
 
   let peekMode = false;
-  let peekChargedThisQuestion = false; // charge -1 only once per question
+  let peekChargedThisQuestion = false;
 
   function rand(n){ return Math.floor(Math.random() * n); }
   function shuffle(arr){
@@ -492,17 +599,22 @@
   }
 
   function updateHUD(){
-    hudLives.textContent = `Lives: ${Math.max(0, lives)}`;
+    hudLives.textContent = `Lives: ${Math.max(0,lives)}`;
     hudScore.textContent = `Score: ${score}`;
     hudPeek.textContent = `Sneak Peek: ${peekMode ? "on" : "off"}`;
   }
 
+  function updateHomeSummary(){
+    const enabled = getEnabledGrades();
+    const label = enabled.length ? enabled.map(g => "G"+g).join("+") : "none";
+    // pool size only known once loaded; show best effort
+    homePill.textContent = `Active grades: ${label}`;
+  }
+
   function endGame(){
-    // Prevent further inputs
     locked = true;
     peekMode = false;
     updateHUD();
-
     gameOverTitle.textContent = "Game over";
     gameOverText.textContent = `Final score: ${score}`;
     overlay.classList.add("show");
@@ -512,7 +624,6 @@
     overlay.classList.remove("show");
     setActiveTab("home");
   }
-
   gameOverOk.addEventListener("click", backToHome);
 
   function renderMeaningChoiceContent(btn, kanjiChar, hiraganaText){
@@ -550,8 +661,8 @@
       btn.appendChild(badge);
 
       renderMeaningChoiceContent(btn, opt.kanji, opt.meaning);
-
       btn.addEventListener("click", () => choose(btn));
+
       choicesEl.appendChild(btn);
     });
   }
@@ -588,8 +699,7 @@
       kk.className = "k"; kk.textContent = k;
       const vv = document.createElement("div");
       vv.textContent = v;
-      row.appendChild(kk);
-      row.appendChild(vv);
+      row.appendChild(kk); row.appendChild(vv);
       rows.appendChild(row);
     }
     if(record.on?.length) addKV("音読み", record.on.join("、"));
@@ -613,7 +723,6 @@
   }
 
   function buildOptionsForCurrent(){
-    // 3 wrong options from the pool (unique by id)
     const others = pool.filter(k => k.id !== current.id);
     shuffle(others);
     const wrongs = others.slice(0, 3);
@@ -634,8 +743,7 @@
     peekMode = false;
     peekChargedThisQuestion = false;
 
-    // clear prompt feedback
-    promptEl.classList.remove("correct", "wrong");
+    promptEl.classList.remove("correct","wrong");
 
     current = pool[rand(pool.length)];
     kanjiPrompt.textContent = current.id;
@@ -663,8 +771,6 @@
       lives -= 3;
       btn.classList.add("wrong");
       promptEl.classList.add("wrong");
-
-      // highlight correct tile
       const right = buttons.find(b => b.dataset.ok === "1");
       if(right) right.classList.add("correct");
     }
@@ -672,46 +778,39 @@
     updateHUD();
 
     if(lives <= 0){
-      // show feedback very briefly, then end
-      window.setTimeout(endGame, 700);
+      setTimeout(endGame, 700);
       return;
     }
-
-    // keep the pause you like
-    window.setTimeout(newQuestion, 900);
+    setTimeout(newQuestion, 900);
   }
 
   function togglePeek(){
     if(!current) return;
-    if(locked) return; // don’t allow peek during result pause
+    if(locked) return;
 
     peekMode = !peekMode;
 
     if(peekMode){
-      // Charge 1 life the first time we enter peek on this question
       if(!peekChargedThisQuestion){
         lives -= 1;
         peekChargedThisQuestion = true;
         updateHUD();
         if(lives <= 0){
-          // still show peek briefly then end, or end immediately—choose immediate
           endGame();
           return;
         }
       }
       renderDictionaryTile(current);
     } else {
-      // restore the same 4 choices for the same question
       renderChoices(currentOptions);
     }
 
     updateHUD();
   }
 
-  // Prompt click toggles sneak peek
   promptEl.addEventListener("click", togglePeek);
 
-  // Keyboard helpers (desktop)
+  // Desktop keyboard helpers
   window.addEventListener("keydown", (e) => {
     if(!viewGame.classList.contains("active")) return;
     if(overlay.classList.contains("show")) return;
@@ -734,47 +833,70 @@
     }
   });
 
-  // Buttons
   exitBtn.addEventListener("click", () => {
-    // exit immediately, no modal
     overlay.classList.remove("show");
     setActiveTab("home");
   });
 
   skipBtn.addEventListener("click", () => {
-    if(locked) return;
-    if(peekMode) return;
+    if(locked || peekMode) return;
     newQuestion();
   });
 
-  // Start game
-  startBtn.addEventListener("click", async () => {
-    try{
-      // Load grades 1–3 (you can later make this depend on settings)
-      await ensureGradesLoaded([1,2,3]);
-
-      pool = [...kanjiById.values()].filter(k => k.grade >= 1 && k.grade <= 3);
-      if(pool.length < 4) throw new Error("Not enough kanji loaded to start.");
-
-      score = 0;
-      lives = 10;
-      locked = false;
-      peekMode = false;
-      peekChargedThisQuestion = false;
-      current = null;
-      currentOptions = null;
-
-      overlay.classList.remove("show");
-      setActiveTab("game");
-      updateHUD();
-      newQuestion();
-    } catch(err){
-      alert(String(err));
+  async function startGame(){
+    const enabledGrades = getEnabledGrades();
+    if(enabledGrades.length === 0){
+      alert("Enable at least one grade in Settings.");
+      setActiveTab("settings");
+      return;
     }
+
+    await ensureGradesLoaded(enabledGrades);
+
+    pool = [...kanjiById.values()].filter(k => enabledGrades.includes(k.grade));
+    if(pool.length < 4){
+      alert("Not enough kanji in the selected pool. Enable more grades.");
+      setActiveTab("settings");
+      return;
+    }
+
+    score = 0;
+    lives = 10;
+    locked = false;
+    peekMode = false;
+    peekChargedThisQuestion = false;
+    current = null;
+    currentOptions = null;
+
+    overlay.classList.remove("show");
+    setActiveTab("game");
+    updateHUD();
+    newQuestion();
+  }
+
+  startBtn.addEventListener("click", () => startGame().catch(err => alert(String(err))));
+
+  // Settings wiring
+  function syncSettingsUI(){
+    chkG1.checked = !!settings.enabledGrades[1];
+    chkG2.checked = !!settings.enabledGrades[2];
+    chkG3.checked = !!settings.enabledGrades[3];
+    updateHomeSummary();
+  }
+
+  chkG1.addEventListener("change", () => { settings.enabledGrades[1]=chkG1.checked; saveSettings(); updateHomeSummary(); });
+  chkG2.addEventListener("change", () => { settings.enabledGrades[2]=chkG2.checked; saveSettings(); updateHomeSummary(); });
+  chkG3.addEventListener("change", () => { settings.enabledGrades[3]=chkG3.checked; saveSettings(); updateHomeSummary(); });
+
+  resetSettingsBtn.addEventListener("click", () => {
+    settings = structuredClone(DEFAULT_SETTINGS);
+    saveSettings();
+    syncSettingsUI();
   });
 
   // Init
   setActiveTab("home");
+  syncSettingsUI();
   updateHUD();
 </script>
 </body>
