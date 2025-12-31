@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Kanji Snap</title>
 
   <link rel="manifest" href="manifest.webmanifest">
@@ -18,65 +18,143 @@
 
     :root{
       --bg:#0b1220;
+      --card:#111a2e;
       --border:rgba(233,238,252,.14);
-      --paper:#ffffff;
-      --paperBorder:rgba(0,0,0,.15);
-      --ink:#000;
+      --text:#e9eefc;
       --muted:#a8b3cf;
+
+      /* game surfaces */
+      --paper:#ffffff;
+      --paperBorder:rgba(0,0,0,.16);
+      --ink:#000000;
+      --inkMuted:rgba(0,0,0,.62);
+
+      /* feedback */
+      --goodBg:#d1fae5;
+      --goodBorder:#22c55e;
+      --badBg:#fee2e2;
+      --badBorder:#ef4444;
     }
 
     *{box-sizing:border-box}
     body{
       margin:0;
       min-height:100vh;
-      background:var(--bg);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto;
-      color:#e9eefc;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(96,165,250,.18), transparent 55%),
+        radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.12), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans";
       display:flex;
       justify-content:center;
       padding:16px;
     }
 
-    .wrap{width:min(680px,100%)}
+    .wrap{width:min(720px,100%)}
     .card{
-      background:#111a2e;
+      background: linear-gradient(180deg, rgba(17,26,46,.95), rgba(17,26,46,.78));
       border:1px solid var(--border);
       border-radius:18px;
       padding:16px;
+      box-shadow:0 18px 50px rgba(0,0,0,.35);
     }
 
-    .tabs{display:flex;gap:8px;margin-bottom:12px}
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .title{font-weight:900; letter-spacing:.2px}
+    .sub{color:var(--muted); font-size:12.5px; margin-top:2px}
+
+    .tabs{
+      display:flex;
+      gap:8px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:6px;
+      background:rgba(11,18,32,.35);
+      user-select:none;
+    }
     .tab{
+      appearance:none;
+      border:0;
+      background:transparent;
+      color:var(--muted);
       padding:8px 12px;
       border-radius:999px;
-      border:1px solid var(--border);
-      background:none;
-      color:#e9eefc;
-      font-weight:700;
+      font-weight:900;
       cursor:pointer;
     }
-    .tab.active{background:rgba(233,238,252,.08)}
+    .tab.active{
+      background:rgba(233,238,252,.07);
+      color:var(--text);
+      border:1px solid var(--border);
+    }
 
     .view{display:none}
     .view.active{display:block}
 
+    .row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border:1px solid var(--border);
+      background:rgba(233,238,252,.04);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:900;
+    }
+    .btn:active{transform:scale(.995)}
+
+    .pill{
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:8px 10px;
+      background:rgba(11,18,32,.35);
+      color:var(--muted);
+      font-size:12.5px;
+      white-space:nowrap;
+    }
+
+    /* Game */
+    .hud{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+      margin-bottom:10px;
+    }
+
     .prompt{
-      background:var(--paper);
       border:2px solid var(--paperBorder);
+      background:var(--paper);
       border-radius:16px;
-      min-height:160px;
+      min-height:170px;
       display:flex;
       align-items:center;
       justify-content:center;
       cursor:pointer;
-      transition:background-color .15s;
+      transition: background-color .12s, border-color .12s;
+      user-select:none;
     }
-    .prompt.correct{background:#d1fae5;border-color:#22c55e}
-    .prompt.wrong{background:#fee2e2;border-color:#ef4444}
+    .prompt.correct{ background:var(--goodBg); border-color:var(--goodBorder); }
+    .prompt.wrong{ background:var(--badBg); border-color:var(--badBorder); }
 
     .kanjiText{
-      font-family:"KanjiFont",sans-serif;
+      font-family:"KanjiFont", system-ui, sans-serif;
       font-size:96px;
+      line-height:1;
       color:var(--ink);
     }
 
@@ -88,8 +166,9 @@
     }
 
     button.choice{
-      background:var(--paper);
       border:2px solid var(--paperBorder);
+      background:var(--paper);
+      color:var(--ink);
       border-radius:16px;
       min-height:140px;
       cursor:pointer;
@@ -97,182 +176,606 @@
       align-items:center;
       justify-content:center;
       position:relative;
-      transition:background-color .15s;
+      overflow:hidden;
+      transition: background-color .12s, border-color .12s;
+      padding:12px;
+      text-align:center;
+      font-weight:900;
+      font-size:22px;
     }
+    button.choice:disabled{cursor:default; opacity:1}
 
     button.choice.correct{
-      background:#d1fae5;
-      border-color:#22c55e;
+      background:var(--goodBg);
+      border-color:var(--goodBorder);
     }
     button.choice.wrong{
-      background:#fee2e2;
-      border-color:#ef4444;
+      background:var(--badBg);
+      border-color:var(--badBorder);
     }
 
+    .badge{
+      position:absolute;
+      top:8px; right:8px;
+      font-size:12px;
+      color:var(--inkMuted);
+      border:1px solid var(--paperBorder);
+      background:rgba(255,255,255,.78);
+      border-radius:999px;
+      padding:5px 8px;
+    }
+
+    .meaningImg{
+      max-width:100%;
+      max-height:115px;
+      width:auto;
+      height:auto;
+      display:block;
+    }
     .meaningFallback{
+      width:100%;
+      aspect-ratio:1/1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px;
+      border-radius:12px;
+      background:rgba(0,0,0,.03);
+      border:1px dashed rgba(0,0,0,.18);
       font-size:22px;
-      font-weight:800;
+      font-weight:900;
       color:var(--ink);
-      text-align:center;
+      line-height:1.15;
     }
 
+    /* Dictionary tile */
     .dictTile{
-      background:var(--paper);
       border:2px solid var(--paperBorder);
+      background:var(--paper);
+      color:var(--ink);
       border-radius:16px;
       padding:14px;
-      color:var(--ink);
     }
-
-    pre{
-      background:#f3f4f6;
-      padding:10px;
+    .dictHeader{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .dictKanji{
+      font-family:"KanjiFont", system-ui, sans-serif;
+      font-size:64px;
+      line-height:1;
+    }
+    .chips{display:flex; gap:6px; flex-wrap:wrap}
+    .chipLight{
+      border:1px solid var(--paperBorder);
+      border-radius:999px;
+      padding:6px 10px;
+      color:var(--inkMuted);
+      background:rgba(0,0,0,.04);
+      font-weight:800;
+      font-size:12.5px;
+    }
+    .rowKV{
+      display:grid;
+      grid-template-columns:110px 1fr;
+      gap:8px;
+      margin:6px 0;
+    }
+    .k{color:var(--inkMuted); font-weight:900}
+    .mono{
+      margin-top:10px;
+      background:rgba(0,0,0,.03);
+      border:1px dashed rgba(0,0,0,.14);
       border-radius:10px;
+      padding:10px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono";
+      white-space:pre-wrap;
       font-size:12px;
+      max-height:220px;
       overflow:auto;
-      max-height:240px;
+    }
+    .peekHint{
+      margin-top:8px;
+      color:var(--inkMuted);
+      font-size:12px;
     }
 
-    .pill{font-size:12px;color:var(--muted)}
+    /* Modal */
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      z-index:50;
+    }
+    .overlay.show{display:flex}
+    .modal{
+      width:min(520px,100%);
+      background:linear-gradient(180deg, rgba(17,26,46,.98), rgba(17,26,46,.92));
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+      box-shadow:0 18px 60px rgba(0,0,0,.45);
+      color:var(--text);
+    }
+    .modal h2{margin:0 0 8px 0; font-size:18px}
+    .modal p{margin:0 0 12px 0; color:var(--muted); line-height:1.35}
+    .modal .actions{display:flex; justify-content:flex-end; gap:10px}
   </style>
 </head>
 
 <body>
-<div class="wrap">
-  <div class="card">
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <div>
+          <div class="title">Kanji Snap</div>
+          <div class="sub">Tap the kanji tile for Sneak Peek (costs 1 life). Wrong answer costs 3 lives.</div>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" id="tabHome" type="button">Home</button>
+          <button class="tab" id="tabGame" type="button" style="display:none;">Game</button>
+        </div>
+      </header>
 
-    <div class="tabs">
-      <button class="tab active" id="tabHome">Home</button>
-      <button class="tab" id="tabGame">Game</button>
+      <!-- HOME -->
+      <section class="view active" id="viewHome">
+        <div class="row">
+          <div class="pill" id="homePill">Grades: 1–3</div>
+          <button class="btn" id="startBtn" type="button">Start game</button>
+        </div>
+        <div style="margin-top:12px; color:var(--muted); font-size:13px; line-height:1.35;">
+          Lives: start with <b>10</b>. Wrong answer: <b>-3</b>. Sneak Peek: <b>-1</b> (charged once per question).
+        </div>
+      </section>
+
+      <!-- GAME -->
+      <section class="view" id="viewGame">
+        <div class="row">
+          <div class="pill" id="hudLives">Lives: 10</div>
+          <div class="pill" id="hudScore">Score: 0</div>
+          <div class="pill" id="hudPeek">Sneak Peek: off</div>
+          <button class="btn" id="exitBtn" type="button">Exit</button>
+        </div>
+
+        <div class="prompt" id="prompt" title="Tap to Sneak Peek">
+          <div class="kanjiText" id="kanjiPrompt">？</div>
+        </div>
+
+        <div class="choices" id="choices"></div>
+
+        <div class="hud">
+          <button class="btn" id="skipBtn" type="button">Skip</button>
+        </div>
+      </section>
     </div>
-
-    <section class="view active" id="viewHome">
-      <button id="startGame">Start Meaning Quiz</button>
-    </section>
-
-    <section class="view" id="viewGame">
-      <div class="prompt" id="prompt">
-        <div class="kanjiText" id="kanjiPrompt">？</div>
-      </div>
-
-      <div class="choices" id="choices"></div>
-    </section>
-
   </div>
-</div>
+
+  <!-- Game Over Modal -->
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <h2 id="gameOverTitle">Game over</h2>
+      <p id="gameOverText">Final score: 0</p>
+      <div class="actions">
+        <button class="btn" id="gameOverOk" type="button">Back to Home</button>
+      </div>
+    </div>
+  </div>
 
 <script>
-if("serviceWorker" in navigator){
-  navigator.serviceWorker.register("./sw.js");
-}
+  // --- SW ---
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
+  }
 
-const GRADE_FILES={
-  1:"./grade-1.json",
-  2:"./grade-2.json",
-  3:"./grade-3.json"
-};
+  // --- Grade JSON files ---
+  const GRADE_FILES = {
+    1: "./grade-1.json",
+    2: "./grade-2.json",
+    3: "./grade-3.json",
+  };
 
-const kanjiMap=new Map();
-const loadedGrades=new Set();
+  const loadedGrades = new Set();
+  const kanjiById = new Map(); // id -> { id, grade, on, kun, meaningKey, raw }
 
-async function loadGrade(g){
-  if(loadedGrades.has(g))return;
-  const res=await fetch(GRADE_FILES[g]);
-  const arr=await res.json();
-  for(const r of arr){
-    kanjiMap.set(r.kanji,{
-      id:r.kanji,
-      grade:r.grade,
-      on:r.onyomi||[],
-      kun:r.kunyomi||[],
-      meaningKey:(r.label||"みてい"),
-      raw:r
+  function normalizeKanjiEntry(raw){
+    const id = raw.kanji;
+    const grade = Number(raw.grade);
+
+    const on  = Array.isArray(raw.onyomi) ? raw.onyomi : [];
+    const kun = Array.isArray(raw.kunyomi) ? raw.kunyomi : [];
+
+    // Fallback text for meaning tiles:
+    // prefer meaning_hira, else label, else first kunyomi cleaned, else "みてい"
+    let meaningKey = (raw.meaning_hira || "").trim();
+    if(!meaningKey){
+      const label = (raw.label || "").trim();
+      if(label) meaningKey = label;
+    }
+    if(!meaningKey && kun.length){
+      meaningKey = String(kun[0]).replace(/\[|\]/g, "").replace(/\./g, "").trim();
+    }
+    if(!meaningKey) meaningKey = "みてい";
+
+    return { id, grade, on, kun, meaningKey, raw };
+  }
+
+  async function loadGrade(g){
+    if(loadedGrades.has(g)) return;
+    const url = GRADE_FILES[g];
+    if(!url) return;
+
+    const res = await fetch(url);
+    if(!res.ok) throw new Error(`Fetch failed: ${url} (HTTP ${res.status})`);
+
+    const arr = await res.json();
+    if(!Array.isArray(arr)) throw new Error(`${url} is not a JSON array`);
+
+    for(const raw of arr){
+      if(!raw || !raw.kanji) continue;
+      const norm = normalizeKanjiEntry(raw);
+      kanjiById.set(norm.id, norm);
+    }
+    loadedGrades.add(g);
+  }
+
+  async function ensureGradesLoaded(grades){
+    for(const g of grades) await loadGrade(g);
+  }
+
+  // --- Meaning image config ---
+  const MEANING_IMG_DIR = "./images/meaning/";
+  function meaningImgUrlForKanji(kanjiChar){
+    return MEANING_IMG_DIR + encodeURIComponent(kanjiChar) + ".png";
+  }
+
+  // --- UI refs ---
+  const tabHome = document.getElementById("tabHome");
+  const tabGame = document.getElementById("tabGame");
+  const viewHome = document.getElementById("viewHome");
+  const viewGame = document.getElementById("viewGame");
+
+  const startBtn = document.getElementById("startBtn");
+  const exitBtn = document.getElementById("exitBtn");
+  const skipBtn = document.getElementById("skipBtn");
+
+  const promptEl = document.getElementById("prompt");
+  const kanjiPrompt = document.getElementById("kanjiPrompt");
+  const choicesEl = document.getElementById("choices");
+
+  const hudLives = document.getElementById("hudLives");
+  const hudScore = document.getElementById("hudScore");
+  const hudPeek  = document.getElementById("hudPeek");
+
+  const overlay = document.getElementById("overlay");
+  const gameOverTitle = document.getElementById("gameOverTitle");
+  const gameOverText = document.getElementById("gameOverText");
+  const gameOverOk = document.getElementById("gameOverOk");
+
+  function setActiveTab(which){
+    const isHome = which === "home";
+    tabHome.classList.toggle("active", isHome);
+    tabGame.classList.toggle("active", !isHome);
+    viewHome.classList.toggle("active", isHome);
+    viewGame.classList.toggle("active", !isHome);
+    tabGame.style.display = isHome ? "none" : "";
+  }
+
+  tabHome.addEventListener("click", () => setActiveTab("home"));
+  tabGame.addEventListener("click", () => setActiveTab("game"));
+
+  // --- Game state ---
+  let pool = [];
+  let current = null;
+  let currentOptions = null; // options we rendered for the current question
+  let locked = false;
+
+  let score = 0;
+  let lives = 10;
+
+  let peekMode = false;
+  let peekChargedThisQuestion = false; // charge -1 only once per question
+
+  function rand(n){ return Math.floor(Math.random() * n); }
+  function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
+      const j = rand(i+1);
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function updateHUD(){
+    hudLives.textContent = `Lives: ${Math.max(0, lives)}`;
+    hudScore.textContent = `Score: ${score}`;
+    hudPeek.textContent = `Sneak Peek: ${peekMode ? "on" : "off"}`;
+  }
+
+  function endGame(){
+    // Prevent further inputs
+    locked = true;
+    peekMode = false;
+    updateHUD();
+
+    gameOverTitle.textContent = "Game over";
+    gameOverText.textContent = `Final score: ${score}`;
+    overlay.classList.add("show");
+  }
+
+  function backToHome(){
+    overlay.classList.remove("show");
+    setActiveTab("home");
+  }
+
+  gameOverOk.addEventListener("click", backToHome);
+
+  function renderMeaningChoiceContent(btn, kanjiChar, hiraganaText){
+    const img = document.createElement("img");
+    img.className = "meaningImg";
+    img.alt = hiraganaText;
+
+    const fallback = () => {
+      img.remove();
+      const div = document.createElement("div");
+      div.className = "meaningFallback";
+      div.textContent = hiraganaText;
+      btn.appendChild(div);
+    };
+
+    img.onerror = fallback;
+    img.src = meaningImgUrlForKanji(kanjiChar);
+    btn.appendChild(img);
+  }
+
+  function renderChoices(options){
+    choicesEl.innerHTML = "";
+    choicesEl.style.display = "grid";
+
+    options.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "choice";
+      btn.dataset.ok = opt.ok ? "1" : "0";
+      btn.dataset.kanji = opt.kanji;
+
+      const badge = document.createElement("span");
+      badge.className = "badge";
+      badge.textContent = String(idx + 1);
+      btn.appendChild(badge);
+
+      renderMeaningChoiceContent(btn, opt.kanji, opt.meaning);
+
+      btn.addEventListener("click", () => choose(btn));
+      choicesEl.appendChild(btn);
     });
   }
-  loadedGrades.add(g);
-}
 
-let pool=[],current=null,locked=false,peek=false;
+  function renderDictionaryTile(record){
+    choicesEl.innerHTML = "";
+    choicesEl.style.display = "block";
 
-function shuffle(a){
-  for(let i=a.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [a[i],a[j]]=[a[j],a[i]];
+    const tile = document.createElement("div");
+    tile.className = "dictTile";
+
+    const header = document.createElement("div");
+    header.className = "dictHeader";
+
+    const big = document.createElement("div");
+    big.className = "dictKanji";
+    big.textContent = record.id;
+
+    const chips = document.createElement("div");
+    chips.className = "chips";
+    const chipG = document.createElement("div");
+    chipG.className = "chipLight";
+    chipG.textContent = `Grade G${record.grade}`;
+    chips.appendChild(chipG);
+
+    header.appendChild(big);
+    header.appendChild(chips);
+
+    const rows = document.createElement("div");
+    function addKV(k, v){
+      const row = document.createElement("div");
+      row.className = "rowKV";
+      const kk = document.createElement("div");
+      kk.className = "k"; kk.textContent = k;
+      const vv = document.createElement("div");
+      vv.textContent = v;
+      row.appendChild(kk);
+      row.appendChild(vv);
+      rows.appendChild(row);
+    }
+    if(record.on?.length) addKV("音読み", record.on.join("、"));
+    if(record.kun?.length) addKV("訓読み", record.kun.join("、"));
+    addKV("fallback", record.meaningKey);
+
+    const pre = document.createElement("div");
+    pre.className = "mono";
+    pre.textContent = JSON.stringify(record.raw, null, 2);
+
+    const hint = document.createElement("div");
+    hint.className = "peekHint";
+    hint.textContent = "Tap the kanji tile again to return to the 4 choices.";
+
+    tile.appendChild(header);
+    tile.appendChild(rows);
+    tile.appendChild(pre);
+    tile.appendChild(hint);
+
+    choicesEl.appendChild(tile);
   }
-  return a;
-}
 
-function renderChoices(opts){
-  choices.innerHTML="";
-  choices.style.display="grid";
-  opts.forEach(o=>{
-    const b=document.createElement("button");
-    b.className="choice";
-    b.dataset.ok=o.ok?"1":"0";
-    b.textContent=o.meaning;
-    b.onclick=()=>choose(b);
-    choices.appendChild(b);
+  function buildOptionsForCurrent(){
+    // 3 wrong options from the pool (unique by id)
+    const others = pool.filter(k => k.id !== current.id);
+    shuffle(others);
+    const wrongs = others.slice(0, 3);
+
+    return shuffle([
+      { kanji: current.id, meaning: current.meaningKey, ok: true },
+      ...wrongs.map(w => ({ kanji: w.id, meaning: w.meaningKey, ok: false }))
+    ]);
+  }
+
+  function newQuestion(){
+    if(lives <= 0){
+      endGame();
+      return;
+    }
+
+    locked = false;
+    peekMode = false;
+    peekChargedThisQuestion = false;
+
+    // clear prompt feedback
+    promptEl.classList.remove("correct", "wrong");
+
+    current = pool[rand(pool.length)];
+    kanjiPrompt.textContent = current.id;
+
+    currentOptions = buildOptionsForCurrent();
+    renderChoices(currentOptions);
+    updateHUD();
+  }
+
+  function choose(btn){
+    if(locked) return;
+    if(peekMode) return;
+    locked = true;
+
+    const buttons = [...document.querySelectorAll("button.choice")];
+    buttons.forEach(b => b.disabled = true);
+
+    const isOk = btn.dataset.ok === "1";
+
+    if(isOk){
+      score += 1;
+      btn.classList.add("correct");
+      promptEl.classList.add("correct");
+    } else {
+      lives -= 3;
+      btn.classList.add("wrong");
+      promptEl.classList.add("wrong");
+
+      // highlight correct tile
+      const right = buttons.find(b => b.dataset.ok === "1");
+      if(right) right.classList.add("correct");
+    }
+
+    updateHUD();
+
+    if(lives <= 0){
+      // show feedback very briefly, then end
+      window.setTimeout(endGame, 700);
+      return;
+    }
+
+    // keep the pause you like
+    window.setTimeout(newQuestion, 900);
+  }
+
+  function togglePeek(){
+    if(!current) return;
+    if(locked) return; // don’t allow peek during result pause
+
+    peekMode = !peekMode;
+
+    if(peekMode){
+      // Charge 1 life the first time we enter peek on this question
+      if(!peekChargedThisQuestion){
+        lives -= 1;
+        peekChargedThisQuestion = true;
+        updateHUD();
+        if(lives <= 0){
+          // still show peek briefly then end, or end immediately—choose immediate
+          endGame();
+          return;
+        }
+      }
+      renderDictionaryTile(current);
+    } else {
+      // restore the same 4 choices for the same question
+      renderChoices(currentOptions);
+    }
+
+    updateHUD();
+  }
+
+  // Prompt click toggles sneak peek
+  promptEl.addEventListener("click", togglePeek);
+
+  // Keyboard helpers (desktop)
+  window.addEventListener("keydown", (e) => {
+    if(!viewGame.classList.contains("active")) return;
+    if(overlay.classList.contains("show")) return;
+
+    if(e.key === " "){
+      e.preventDefault();
+      if(!locked && !peekMode) newQuestion();
+      return;
+    }
+    if(e.key.toLowerCase() === "p"){
+      togglePeek();
+      return;
+    }
+    if(peekMode || locked) return;
+
+    const n = Number(e.key);
+    if(Number.isFinite(n) && n >= 1 && n <= 4){
+      const btn = document.querySelectorAll("button.choice")[n-1];
+      if(btn) btn.click();
+    }
   });
-}
 
-function renderDict(k){
-  choices.innerHTML="";
-  choices.style.display="block";
-  const d=document.createElement("div");
-  d.className="dictTile";
-  d.innerHTML=`<strong>${k.id}</strong><br>
-    音: ${k.on.join("、")}<br>
-    訓: ${k.kun.join("、")}
-    <pre>${JSON.stringify(k.raw,null,2)}</pre>`;
-  choices.appendChild(d);
-}
+  // Buttons
+  exitBtn.addEventListener("click", () => {
+    // exit immediately, no modal
+    overlay.classList.remove("show");
+    setActiveTab("home");
+  });
 
-function pick(){
-  locked=false;peek=false;
-  prompt.classList.remove("correct","wrong");
+  skipBtn.addEventListener("click", () => {
+    if(locked) return;
+    if(peekMode) return;
+    newQuestion();
+  });
 
-  current=pool[Math.floor(Math.random()*pool.length)];
-  kanjiPrompt.textContent=current.id;
+  // Start game
+  startBtn.addEventListener("click", async () => {
+    try{
+      // Load grades 1–3 (you can later make this depend on settings)
+      await ensureGradesLoaded([1,2,3]);
 
-  const wrongs=shuffle(pool.filter(k=>k.id!==current.id)).slice(0,3);
-  const opts=shuffle([
-    {meaning:current.meaningKey,ok:true},
-    ...wrongs.map(w=>({meaning:w.meaningKey,ok:false}))
-  ]);
-  renderChoices(opts);
-}
+      pool = [...kanjiById.values()].filter(k => k.grade >= 1 && k.grade <= 3);
+      if(pool.length < 4) throw new Error("Not enough kanji loaded to start.");
 
-function choose(btn){
-  if(locked||peek)return;
-  locked=true;
+      score = 0;
+      lives = 10;
+      locked = false;
+      peekMode = false;
+      peekChargedThisQuestion = false;
+      current = null;
+      currentOptions = null;
 
-  const ok=btn.dataset.ok==="1";
-  if(ok){
-    btn.classList.add("correct");
-    prompt.classList.add("correct");
-  }else{
-    btn.classList.add("wrong");
-    prompt.classList.add("wrong");
-    [...document.querySelectorAll(".choice")]
-      .find(b=>b.dataset.ok==="1")
-      ?.classList.add("correct");
-  }
-  setTimeout(pick,900);
-}
+      overlay.classList.remove("show");
+      setActiveTab("game");
+      updateHUD();
+      newQuestion();
+    } catch(err){
+      alert(String(err));
+    }
+  });
 
-prompt.onclick=()=>{
-  if(!current)return;
-  peek=!peek;
-  peek?renderDict(current):pick();
-};
-
-startGame.onclick=async()=>{
-  await loadGrade(1);
-  pool=[...kanjiMap.values()];
-  viewHome.classList.remove("active");
-  viewGame.classList.add("active");
-  pick();
-};
+  // Init
+  setActiveTab("home");
+  updateHUD();
 </script>
 </body>
 </html>
