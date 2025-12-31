@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ja">
 <head>
@@ -9,367 +8,52 @@
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0b1220">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
-  <style>
-    @font-face{
-      font-family:"KanjiFont";
-      src:url("./fonts/my-font.ttf") format("truetype");
-      font-display:swap;
-    }
-
-    :root{
-      --bg:#0b1220;
-      --border:rgba(233,238,252,.14);
-      --text:#e9eefc;
-      --muted:#a8b3cf;
-
-      /* light surfaces */
-      --paper:#ffffff;
-      --paperBorder:rgba(0,0,0,.16);
-      --ink:#000000;
-      --inkMuted:rgba(0,0,0,.62);
-
-      /* feedback */
-      --goodBg:#d1fae5;
-      --goodBorder:#22c55e;
-      --badBg:#fee2e2;
-      --badBorder:#ef4444;
-
-      --focus:#60a5fa;
-      --chip:rgba(233,238,252,.06);
-    }
-
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      min-height:100vh;
-      background:
-        radial-gradient(1200px 700px at 20% 10%, rgba(96,165,250,.18), transparent 55%),
-        radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.12), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans";
-      display:flex;
-      justify-content:center;
-      padding:16px;
-    }
-
-    .wrap{width:min(720px,100%)}
-    .card{
-      background: linear-gradient(180deg, rgba(17,26,46,.95), rgba(17,26,46,.78));
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:16px;
-      box-shadow:0 18px 50px rgba(0,0,0,.35);
-    }
-
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      margin-bottom:10px;
-    }
-    .title{font-weight:900; letter-spacing:.2px}
-    .sub{color:var(--muted); font-size:12.5px; margin-top:2px}
-
-    .tabs{
-      display:flex;
-      gap:8px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      padding:6px;
-      background:rgba(11,18,32,.35);
-      user-select:none;
-    }
-    .tab{
-      appearance:none;
-      border:0;
-      background:transparent;
-      color:var(--muted);
-      padding:8px 12px;
-      border-radius:999px;
-      font-weight:900;
-      cursor:pointer;
-    }
-    .tab.active{
-      background:rgba(233,238,252,.07);
-      color:var(--text);
-      border:1px solid var(--border);
-    }
-
-    .view{display:none}
-    .view.active{display:block}
-
-    .row{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      border:1px solid var(--border);
-      background:rgba(233,238,252,.04);
-      color:var(--text);
-      padding:10px 12px;
-      border-radius:12px;
-      cursor:pointer;
-      font-weight:900;
-    }
-    .btn:active{transform:scale(.995)}
-    .btn:focus-visible{outline:3px solid rgba(96,165,250,.35); outline-offset:2px}
-
-    .pill{
-      border:1px solid var(--border);
-      border-radius:999px;
-      padding:8px 10px;
-      background:rgba(11,18,32,.35);
-      color:var(--muted);
-      font-size:12.5px;
-      white-space:nowrap;
-    }
-
-    .sectionTitle{font-weight:900; margin:10px 0 6px 0}
-    .muted{color:var(--muted); font-size:13px; line-height:1.35}
-
-    .settingsCard{
-      border:1px solid var(--border);
-      background: rgba(11,18,32,.25);
-      border-radius:16px;
-      padding:12px;
-      margin-top:10px;
-    }
-    .checks{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
-    label.check{
-      display:flex; gap:8px; align-items:center;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background: var(--chip);
-      cursor:pointer;
-      user-select:none;
-      font-weight:900;
-    }
-    input[type="checkbox"]{
-      width:18px; height:18px;
-      accent-color: var(--focus);
-    }
-
-    /* Game */
-    .hud{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:8px;
-      margin-bottom:10px;
-    }
-
-    .prompt{
-      border:2px solid var(--paperBorder);
-      background:var(--paper);
-      border-radius:16px;
-      min-height:170px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      transition: background-color .12s, border-color .12s;
-      user-select:none;
-    }
-    .prompt.correct{ background:var(--goodBg); border-color:var(--goodBorder); }
-    .prompt.wrong{ background:var(--badBg); border-color:var(--badBorder); }
-
-    .kanjiText{
-      font-family:"KanjiFont", system-ui, sans-serif;
-      font-size:96px;
-      line-height:1;
-      color:var(--ink);
-    }
-
-    .choices{
-      margin-top:12px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-    }
-
-    button.choice{
-      border:2px solid var(--paperBorder);
-      background:var(--paper);
-      color:var(--ink);
-      border-radius:16px;
-      min-height:140px;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-      overflow:hidden;
-      transition: background-color .12s, border-color .12s;
-      padding:12px;
-      text-align:center;
-      font-weight:900;
-      font-size:22px;
-    }
-    button.choice:disabled{cursor:default; opacity:1}
-    button.choice.correct{ background:var(--goodBg); border-color:var(--goodBorder); }
-    button.choice.wrong{ background:var(--badBg); border-color:var(--badBorder); }
-
-    .badge{
-      position:absolute;
-      top:8px; right:8px;
-      font-size:12px;
-      color:var(--inkMuted);
-      border:1px solid var(--paperBorder);
-      background:rgba(255,255,255,.78);
-      border-radius:999px;
-      padding:5px 8px;
-    }
-
-    .meaningImg{
-      max-width:100%;
-      max-height:115px;
-      width:auto;
-      height:auto;
-      display:block;
-    }
-
-    .meaningFallback{
-      width:100%;
-      aspect-ratio:1/1;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px;
-      border-radius:12px;
-      background:rgba(0,0,0,.03);
-      border:1px dashed rgba(0,0,0,.18);
-    }
-
-    /* bracket-colored rich fallback text */
-    .fallbackRich{
-      font-size:22px;
-      font-weight:900;
-      line-height:1.15;
-      text-align:center;
-      word-break:break-word;
-      color:var(--ink);
-    }
-    .fg-strong{ color: var(--ink); }
-    .fg-dim{ color: rgba(0,0,0,.50); }
-
-    /* Dictionary tile */
-    .dictTile{
-      border:2px solid var(--paperBorder);
-      background:var(--paper);
-      color:var(--ink);
-      border-radius:16px;
-      padding:14px;
-    }
-    .dictHeader{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:10px;
-    }
-    .dictKanji{
-      font-family:"KanjiFont", system-ui, sans-serif;
-      font-size:64px;
-      line-height:1;
-    }
-    .chips{display:flex; gap:6px; flex-wrap:wrap}
-    .chipLight{
-      border:1px solid var(--paperBorder);
-      border-radius:999px;
-      padding:6px 10px;
-      color:var(--inkMuted);
-      background:rgba(0,0,0,.04);
-      font-weight:800;
-      font-size:12.5px;
-    }
-    .rowKV{
-      display:grid;
-      grid-template-columns:110px 1fr;
-      gap:8px;
-      margin:6px 0;
-    }
-    .k{color:var(--inkMuted); font-weight:900}
-    .mono{
-      margin-top:10px;
-      background:rgba(0,0,0,.03);
-      border:1px dashed rgba(0,0,0,.14);
-      border-radius:10px;
-      padding:10px;
-      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono";
-      white-space:pre-wrap;
-      font-size:12px;
-      max-height:220px;
-      overflow:auto;
-    }
-    .peekHint{
-      margin-top:8px;
-      color:var(--inkMuted);
-      font-size:12px;
-    }
-
-    /* Modal */
-    .overlay{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.55);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:16px;
-      z-index:50;
-    }
-    .overlay.show{display:flex}
-    .modal{
-      width:min(520px,100%);
-      background:linear-gradient(180deg, rgba(17,26,46,.98), rgba(17,26,46,.92));
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:16px;
-      box-shadow:0 18px 60px rgba(0,0,0,.45);
-      color:var(--text);
-    }
-    .modal h2{margin:0 0 8px 0; font-size:18px}
-    .modal p{margin:0 0 12px 0; color:var(--muted); line-height:1.35}
-    .modal .actions{display:flex; justify-content:flex-end; gap:10px}
-  </style>
+  <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
   <div class="wrap">
     <div class="card">
-      <header>
+      <header class="header">
         <div>
           <div class="title">Kanji Snap</div>
-          <div class="sub">Lives: 10 • Wrong: -3 • Sneak Peek: -1 (once per question)</div>
+          <div class="sub">Games + Dictionary • Offline PWA</div>
         </div>
-        <div class="tabs" role="tablist">
+
+        <nav class="tabs" role="tablist" aria-label="Main tabs">
           <button class="tab active" id="tabHome" type="button">Home</button>
           <button class="tab" id="tabSettings" type="button">Settings</button>
+          <button class="tab" id="tabDictionary" type="button">Dictionary</button>
           <button class="tab" id="tabGame" type="button" style="display:none;">Game</button>
-        </div>
+        </nav>
       </header>
 
       <!-- HOME -->
-      <section class="view active" id="viewHome">
+      <section class="view active" id="viewHome" aria-labelledby="tabHome">
         <div class="row">
           <div class="pill" id="homePill">Active: …</div>
           <button class="btn" id="startBtn" type="button">Start game</button>
         </div>
-        <div class="muted" style="margin-top:12px;">
-          Tap the kanji tile for Sneak Peek (shows dictionary tile and costs 1 life the first time per question).
+
+        <div class="sectionTitle">Meaning quiz rules</div>
+        <div class="muted">
+          Start with <b>10 lives</b>. Wrong answer: <b>-3 lives</b>. Sneak Peek: <b>-1 life</b> (charged once per question).
+          Tap the kanji tile to toggle Sneak Peek.
+        </div>
+
+        <div class="sectionTitle">Dictionary</div>
+        <div class="muted">
+          Use Dictionary to look up kanji outside of a game. Search by kanji or reading text.
+        </div>
+
+        <div class="row" style="margin-top:12px;">
+          <button class="btn" id="goDictionaryBtn" type="button">Open dictionary</button>
+          <button class="btn" id="goSettingsBtn" type="button">Open settings</button>
         </div>
       </section>
 
       <!-- SETTINGS -->
-      <section class="view" id="viewSettings">
+      <section class="view" id="viewSettings" aria-labelledby="tabSettings">
         <div class="row">
           <div>
             <div class="sectionTitle">Kanji selection</div>
@@ -386,7 +70,7 @@
             <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
           </div>
           <div class="muted" style="margin-top:8px;">
-            Future grades (4–6) can be added later.
+            (Later you can add grade-4..6 files without changing the app structure.)
           </div>
         </div>
 
@@ -399,8 +83,52 @@
         </div>
       </section>
 
+      <!-- DICTIONARY -->
+      <section class="view" id="viewDictionary" aria-labelledby="tabDictionary">
+        <div class="row">
+          <div>
+            <div class="sectionTitle">Dictionary</div>
+            <div class="muted">Search kanji and view details.</div>
+          </div>
+          <button class="btn" id="dictBackBtn" type="button">Back</button>
+        </div>
+
+        <div class="dictTop">
+          <input id="dictSearch" class="input" type="search" placeholder="Search: 漢字 / よみ / label…" autocomplete="off" />
+          <div class="pill" id="dictStatusPill">…</div>
+        </div>
+
+        <div class="dictLayout">
+          <div class="dictListPane">
+            <div class="dictListHeader">
+              <div class="muted" id="dictCount">0 results</div>
+              <button class="btn btnSmall" id="dictClearBtn" type="button">Clear</button>
+            </div>
+            <div class="dictList" id="dictList"></div>
+          </div>
+
+          <div class="dictDetailPane">
+            <div class="dictDetailEmpty" id="dictEmpty">
+              Select a kanji from the list to view details.
+            </div>
+
+            <div class="dictDetail" id="dictDetail" style="display:none;">
+              <div class="dictDetailHeader">
+                <div class="dictBigKanji" id="dictBigKanji">本</div>
+                <div class="chips" id="dictChips"></div>
+              </div>
+
+              <div class="dictRows" id="dictRows"></div>
+
+              <div class="sectionTitle" style="margin-top:10px;">Raw JSON</div>
+              <pre class="mono" id="dictRaw"></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- GAME -->
-      <section class="view" id="viewGame">
+      <section class="view" id="viewGame" aria-labelledby="tabGame">
         <div class="row">
           <div class="pill" id="hudLives">Lives: 10</div>
           <div class="pill" id="hudScore">Score: 0</div>
@@ -417,6 +145,10 @@
         <div class="hud">
           <button class="btn" id="skipBtn" type="button">Skip</button>
         </div>
+
+        <div class="muted" style="margin-top:10px;">
+          Keyboard (desktop): 1–4 choose • P = peek • Space = skip
+        </div>
       </section>
     </div>
   </div>
@@ -432,516 +164,6 @@
     </div>
   </div>
 
-<script>
-  // --- SW ---
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
-  }
-
-  // --- Grade JSON files ---
-  const GRADE_FILES = {
-    1: "./grade-1.json",
-    2: "./grade-2.json",
-    3: "./grade-3.json",
-    // 4: "./grade-4.json",
-    // 5: "./grade-5.json",
-    // 6: "./grade-6.json",
-  };
-
-  const loadedGrades = new Set();
-  const kanjiById = new Map(); // id -> { id, grade, on, kun, meaningKey, raw }
-
-  function normalizeKanjiEntry(raw){
-    const id = raw.kanji;
-    const grade = Number(raw.grade);
-
-    const on  = Array.isArray(raw.onyomi) ? raw.onyomi : [];
-    const kun = Array.isArray(raw.kunyomi) ? raw.kunyomi : [];
-
-    let meaningKey = (raw.meaning_hira || "").trim();
-    if(!meaningKey){
-      const label = (raw.label || "").trim();
-      if(label) meaningKey = label;
-    }
-    if(!meaningKey && kun.length){
-      meaningKey = String(kun[0]).replace(/\[|\]/g, "").replace(/\./g, "").trim();
-    }
-    if(!meaningKey) meaningKey = "みてい";
-
-    return { id, grade, on, kun, meaningKey, raw };
-  }
-
-  async function loadGrade(g){
-    if(loadedGrades.has(g)) return;
-    const url = GRADE_FILES[g];
-    if(!url) return;
-
-    const res = await fetch(url);
-    if(!res.ok) throw new Error(`Fetch failed: ${url} (HTTP ${res.status})`);
-
-    const arr = await res.json();
-    if(!Array.isArray(arr)) throw new Error(`${url} is not a JSON array`);
-
-    for(const raw of arr){
-      if(!raw || !raw.kanji) continue;
-      const norm = normalizeKanjiEntry(raw);
-      kanjiById.set(norm.id, norm);
-    }
-    loadedGrades.add(g);
-  }
-
-  async function ensureGradesLoaded(grades){
-    for(const g of grades){ await loadGrade(g); }
-  }
-
-  // --- Meaning image config ---
-  const MEANING_IMG_DIR = "./images/meaning/";
-  function meaningImgUrlForKanji(kanjiChar){
-    return MEANING_IMG_DIR + encodeURIComponent(kanjiChar) + ".png";
-  }
-
-  // --- Bracket-colored rendering ---
-  // If there are NO brackets at all -> render everything black (fg-strong)
-  // If there are brackets -> inside brackets black, outside brackets 50% grey
-  function renderBracketColored(container, s){
-    container.innerHTML = "";
-    const str = String(s ?? "");
-
-    if(!str.includes("[")){
-      const span = document.createElement("span");
-      span.className = "fg-strong";
-      span.textContent = str;
-      container.appendChild(span);
-      return;
-    }
-
-    const tokens = str.match(/\[[^\]]*\]|[^\[]+/g) || [str];
-    for(const t of tokens){
-      if(t.startsWith("[") && t.endsWith("]")){
-        const span = document.createElement("span");
-        span.className = "fg-strong";
-        span.textContent = t.slice(1, -1);
-        container.appendChild(span);
-      } else {
-        const span = document.createElement("span");
-        span.className = "fg-dim";
-        span.textContent = t;
-        container.appendChild(span);
-      }
-    }
-  }
-
-  // --- Settings ---
-  const SETTINGS_KEY = "kanjiSnap.settings.v4";
-  const DEFAULT_SETTINGS = {
-    enabledGrades: { 1:true, 2:false, 3:false, 4:false, 5:false, 6:false },
-  };
-
-  function loadSettings(){
-    try{
-      const raw = localStorage.getItem(SETTINGS_KEY);
-      if(!raw) return structuredClone(DEFAULT_SETTINGS);
-      const obj = JSON.parse(raw);
-      obj.enabledGrades = obj.enabledGrades || structuredClone(DEFAULT_SETTINGS.enabledGrades);
-      for(const g of Object.keys(DEFAULT_SETTINGS.enabledGrades)){
-        if(typeof obj.enabledGrades[g] !== "boolean") obj.enabledGrades[g] = DEFAULT_SETTINGS.enabledGrades[g];
-      }
-      return obj;
-    } catch {
-      return structuredClone(DEFAULT_SETTINGS);
-    }
-  }
-
-  function saveSettings(){
-    localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
-    savedPill.textContent = "Saved ✓";
-    setTimeout(() => savedPill.textContent = "Saved", 900);
-  }
-
-  let settings = loadSettings();
-
-  function getEnabledGrades(){
-    return Object.keys(settings.enabledGrades)
-      .map(Number)
-      .filter(g => settings.enabledGrades[g] && !!GRADE_FILES[g]);
-  }
-
-  // --- UI refs ---
-  const tabHome = document.getElementById("tabHome");
-  const tabSettings = document.getElementById("tabSettings");
-  const tabGame = document.getElementById("tabGame");
-
-  const viewHome = document.getElementById("viewHome");
-  const viewSettings = document.getElementById("viewSettings");
-  const viewGame = document.getElementById("viewGame");
-
-  const homePill = document.getElementById("homePill");
-  const startBtn = document.getElementById("startBtn");
-
-  const backHomeBtn = document.getElementById("backHomeBtn");
-  const chkG1 = document.getElementById("chkG1");
-  const chkG2 = document.getElementById("chkG2");
-  const chkG3 = document.getElementById("chkG3");
-  const resetSettingsBtn = document.getElementById("resetSettingsBtn");
-  const savedPill = document.getElementById("savedPill");
-
-  const exitBtn = document.getElementById("exitBtn");
-  const skipBtn = document.getElementById("skipBtn");
-  const promptEl = document.getElementById("prompt");
-  const kanjiPrompt = document.getElementById("kanjiPrompt");
-  const choicesEl = document.getElementById("choices");
-
-  const hudLives = document.getElementById("hudLives");
-  const hudScore = document.getElementById("hudScore");
-  const hudPeek  = document.getElementById("hudPeek");
-
-  const overlay = document.getElementById("overlay");
-  const gameOverTitle = document.getElementById("gameOverTitle");
-  const gameOverText = document.getElementById("gameOverText");
-  const gameOverOk = document.getElementById("gameOverOk");
-
-  function setActiveTab(which){
-    tabHome.classList.toggle("active", which==="home");
-    tabSettings.classList.toggle("active", which==="settings");
-    tabGame.classList.toggle("active", which==="game");
-
-    viewHome.classList.toggle("active", which==="home");
-    viewSettings.classList.toggle("active", which==="settings");
-    viewGame.classList.toggle("active", which==="game");
-
-    tabGame.style.display = (which==="game") ? "" : "none";
-  }
-
-  tabHome.addEventListener("click", () => setActiveTab("home"));
-  tabSettings.addEventListener("click", () => setActiveTab("settings"));
-  backHomeBtn.addEventListener("click", () => setActiveTab("home"));
-
-  // --- Game state ---
-  let pool = [];
-  let current = null;
-  let currentOptions = null;
-  let locked = false;
-
-  let score = 0;
-  let lives = 10;
-
-  let peekMode = false;
-  let peekChargedThisQuestion = false;
-
-  function rand(n){ return Math.floor(Math.random() * n); }
-  function shuffle(arr){
-    for(let i=arr.length-1;i>0;i--){
-      const j = rand(i+1);
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
-
-  function updateHUD(){
-    hudLives.textContent = `Lives: ${Math.max(0,lives)}`;
-    hudScore.textContent = `Score: ${score}`;
-    hudPeek.textContent = `Sneak Peek: ${peekMode ? "on" : "off"}`;
-  }
-
-  function updateHomeSummary(){
-    const enabled = getEnabledGrades();
-    homePill.textContent = enabled.length
-      ? `Active grades: ${enabled.map(g=>"G"+g).join("+")}`
-      : "Active grades: none";
-  }
-
-  function endGame(){
-    locked = true;
-    peekMode = false;
-    updateHUD();
-    gameOverTitle.textContent = "Game over";
-    gameOverText.textContent = `Final score: ${score}`;
-    overlay.classList.add("show");
-  }
-
-  function backToHome(){
-    overlay.classList.remove("show");
-    setActiveTab("home");
-  }
-  gameOverOk.addEventListener("click", backToHome);
-
-  function renderMeaningChoiceContent(btn, kanjiChar, fallbackText){
-    const img = document.createElement("img");
-    img.className = "meaningImg";
-    img.alt = fallbackText;
-
-    const fallback = () => {
-      img.remove();
-      const div = document.createElement("div");
-      div.className = "meaningFallback";
-
-      const inner = document.createElement("div");
-      inner.className = "fallbackRich";
-      renderBracketColored(inner, fallbackText);
-
-      div.appendChild(inner);
-      btn.appendChild(div);
-    };
-
-    img.onerror = fallback;
-    img.src = meaningImgUrlForKanji(kanjiChar);
-    btn.appendChild(img);
-  }
-
-  function renderChoices(options){
-    choicesEl.innerHTML = "";
-    choicesEl.style.display = "grid";
-
-    options.forEach((opt, idx) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "choice";
-      btn.dataset.ok = opt.ok ? "1" : "0";
-      btn.dataset.kanji = opt.kanji;
-
-      const badge = document.createElement("span");
-      badge.className = "badge";
-      badge.textContent = String(idx + 1);
-      btn.appendChild(badge);
-
-      renderMeaningChoiceContent(btn, opt.kanji, opt.meaning);
-      btn.addEventListener("click", () => choose(btn));
-
-      choicesEl.appendChild(btn);
-    });
-  }
-
-  function renderDictionaryTile(record){
-    choicesEl.innerHTML = "";
-    choicesEl.style.display = "block";
-
-    const tile = document.createElement("div");
-    tile.className = "dictTile";
-
-    const header = document.createElement("div");
-    header.className = "dictHeader";
-
-    const big = document.createElement("div");
-    big.className = "dictKanji";
-    big.textContent = record.id;
-
-    const chips = document.createElement("div");
-    chips.className = "chips";
-    const chipG = document.createElement("div");
-    chipG.className = "chipLight";
-    chipG.textContent = `Grade G${record.grade}`;
-    chips.appendChild(chipG);
-
-    header.appendChild(big);
-    header.appendChild(chips);
-
-    const rows = document.createElement("div");
-    function addKV(k, v){
-      const row = document.createElement("div");
-      row.className = "rowKV";
-      const kk = document.createElement("div");
-      kk.className = "k"; kk.textContent = k;
-      const vv = document.createElement("div");
-      vv.textContent = v;
-      row.appendChild(kk); row.appendChild(vv);
-      rows.appendChild(row);
-    }
-    if(record.on?.length) addKV("音読み", record.on.join("、"));
-    if(record.kun?.length) addKV("訓読み", record.kun.join("、"));
-    addKV("fallback", record.meaningKey);
-
-    const pre = document.createElement("div");
-    pre.className = "mono";
-    pre.textContent = JSON.stringify(record.raw, null, 2);
-
-    const hint = document.createElement("div");
-    hint.className = "peekHint";
-    hint.textContent = "Tap the kanji tile again to return to the 4 choices.";
-
-    tile.appendChild(header);
-    tile.appendChild(rows);
-    tile.appendChild(pre);
-    tile.appendChild(hint);
-
-    choicesEl.appendChild(tile);
-  }
-
-  function buildOptionsForCurrent(){
-    const others = pool.filter(k => k.id !== current.id);
-    shuffle(others);
-    const wrongs = others.slice(0, 3);
-
-    return shuffle([
-      { kanji: current.id, meaning: current.meaningKey, ok: true },
-      ...wrongs.map(w => ({ kanji: w.id, meaning: w.meaningKey, ok: false }))
-    ]);
-  }
-
-  function newQuestion(){
-    if(lives <= 0){
-      endGame();
-      return;
-    }
-
-    locked = false;
-    peekMode = false;
-    peekChargedThisQuestion = false;
-
-    promptEl.classList.remove("correct","wrong");
-
-    current = pool[rand(pool.length)];
-    kanjiPrompt.textContent = current.id;
-
-    currentOptions = buildOptionsForCurrent();
-    renderChoices(currentOptions);
-    updateHUD();
-  }
-
-  function choose(btn){
-    if(locked) return;
-    if(peekMode) return;
-    locked = true;
-
-    const buttons = [...document.querySelectorAll("button.choice")];
-    buttons.forEach(b => b.disabled = true);
-
-    const isOk = btn.dataset.ok === "1";
-
-    if(isOk){
-      score += 1;
-      btn.classList.add("correct");
-      promptEl.classList.add("correct");
-    } else {
-      lives -= 3;
-      btn.classList.add("wrong");
-      promptEl.classList.add("wrong");
-      const right = buttons.find(b => b.dataset.ok === "1");
-      if(right) right.classList.add("correct");
-    }
-
-    updateHUD();
-
-    if(lives <= 0){
-      setTimeout(endGame, 700);
-      return;
-    }
-    setTimeout(newQuestion, 900);
-  }
-
-  function togglePeek(){
-    if(!current) return;
-    if(locked) return;
-
-    peekMode = !peekMode;
-
-    if(peekMode){
-      if(!peekChargedThisQuestion){
-        lives -= 1;
-        peekChargedThisQuestion = true;
-        updateHUD();
-        if(lives <= 0){
-          endGame();
-          return;
-        }
-      }
-      renderDictionaryTile(current);
-    } else {
-      renderChoices(currentOptions);
-    }
-
-    updateHUD();
-  }
-
-  promptEl.addEventListener("click", togglePeek);
-
-  // Desktop keyboard helpers
-  window.addEventListener("keydown", (e) => {
-    if(!viewGame.classList.contains("active")) return;
-    if(overlay.classList.contains("show")) return;
-
-    if(e.key === " "){
-      e.preventDefault();
-      if(!locked && !peekMode) newQuestion();
-      return;
-    }
-    if(e.key.toLowerCase() === "p"){
-      togglePeek();
-      return;
-    }
-    if(peekMode || locked) return;
-
-    const n = Number(e.key);
-    if(Number.isFinite(n) && n >= 1 && n <= 4){
-      const btn = document.querySelectorAll("button.choice")[n-1];
-      if(btn) btn.click();
-    }
-  });
-
-  exitBtn.addEventListener("click", () => {
-    overlay.classList.remove("show");
-    setActiveTab("home");
-  });
-
-  skipBtn.addEventListener("click", () => {
-    if(locked || peekMode) return;
-    newQuestion();
-  });
-
-  async function startGame(){
-    const enabledGrades = getEnabledGrades();
-    if(enabledGrades.length === 0){
-      alert("Enable at least one grade in Settings.");
-      setActiveTab("settings");
-      return;
-    }
-
-    await ensureGradesLoaded(enabledGrades);
-
-    pool = [...kanjiById.values()].filter(k => enabledGrades.includes(k.grade));
-    if(pool.length < 4){
-      alert("Not enough kanji in the selected pool. Enable more grades.");
-      setActiveTab("settings");
-      return;
-    }
-
-    score = 0;
-    lives = 10;
-    locked = false;
-    peekMode = false;
-    peekChargedThisQuestion = false;
-    current = null;
-    currentOptions = null;
-
-    overlay.classList.remove("show");
-    setActiveTab("game");
-    updateHUD();
-    newQuestion();
-  }
-
-  startBtn.addEventListener("click", () => startGame().catch(err => alert(String(err))));
-
-  // Settings wiring
-  function syncSettingsUI(){
-    chkG1.checked = !!settings.enabledGrades[1];
-    chkG2.checked = !!settings.enabledGrades[2];
-    chkG3.checked = !!settings.enabledGrades[3];
-    updateHomeSummary();
-  }
-
-  chkG1.addEventListener("change", () => { settings.enabledGrades[1]=chkG1.checked; saveSettings(); updateHomeSummary(); });
-  chkG2.addEventListener("change", () => { settings.enabledGrades[2]=chkG2.checked; saveSettings(); updateHomeSummary(); });
-  chkG3.addEventListener("change", () => { settings.enabledGrades[3]=chkG3.checked; saveSettings(); updateHomeSummary(); });
-
-  resetSettingsBtn.addEventListener("click", () => {
-    settings = structuredClone(DEFAULT_SETTINGS);
-    saveSettings();
-    syncSettingsUI();
-  });
-
-  // Init
-  setActiveTab("home");
-  syncSettingsUI();
-  updateHUD();
-</script>
+  <script type="module" src="./js/app.js"></script>
 </body>
 </html>

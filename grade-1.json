@@ -18,14 +18,16 @@
         "reading": "いっち",
         "band": 1000,
         "meaning_en": "most; best",
-        "meaning_hira": "いっち"
+        "meaning_hira": "いっち",
+        "age_min": 3
       },
       {
         "word": "一つ",
         "reading": "ひとつ",
         "band": 1000,
         "meaning_en": "one",
-        "meaning_hira": "ひとつ"
+        "meaning_hira": "ひとつ",
+        "age_min": 3
       },
       {
         "word": "一番",
@@ -33,7 +35,8 @@
         "band": 1000,
         "meaning_en": "number one; first; first place",
         "meaning_hira": "いちばん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "一緒",
@@ -41,7 +44,8 @@
         "band": 1000,
         "meaning_en": "(doing) together; usu. adverbially as 〜に",
         "meaning_hira": "いっしょ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "一般",
@@ -49,7 +53,8 @@
         "band": 1000,
         "meaning_en": "general; universal",
         "meaning_hira": "いっぱん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "一部",
@@ -57,7 +62,8 @@
         "band": 1000,
         "meaning_en": "one part; one portion; one section",
         "meaning_hira": "いちぶ",
-        "grade": 3
+        "grade": 3,
+        "age_min": 3
       }
     ],
     "meaning_en": "",
@@ -81,7 +87,8 @@
         "reading": "みぎ",
         "band": 3000,
         "meaning_en": "right; right-hand side; see:; 左; 1. left; left-hand side",
-        "meaning_hira": "みぎ"
+        "meaning_hira": "みぎ",
+        "age_min": 5
       },
       {
         "word": "左右",
@@ -89,7 +96,8 @@
         "band": 3000,
         "meaning_en": "(doing) various things; (doing) this and that",
         "meaning_hira": "とかく",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "右手",
@@ -97,7 +105,8 @@
         "band": 7000,
         "meaning_en": "right hand; sword hand; reins-holding hand; see:; 弓手; 1. bow hand; left hand",
         "meaning_hira": "めて",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -120,7 +129,8 @@
         "reading": "あめ",
         "band": 3000,
         "meaning_en": "rain",
-        "meaning_hira": "あめ"
+        "meaning_hira": "あめ",
+        "age_min": 3
       },
       {
         "word": "梅雨",
@@ -128,7 +138,8 @@
         "band": 7000,
         "meaning_en": "(East Asian) rainy season (in Japan, usu. from early June to mid-July)",
         "meaning_hira": "つゆ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "大雨",
@@ -136,7 +147,8 @@
         "band": 15000,
         "meaning_en": "heavy rain; torrential rainfall; downpour",
         "meaning_hira": "おおあめ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -160,7 +172,8 @@
         "reading": "えん",
         "band": 1000,
         "meaning_en": "yen (Japanese monetary unit)",
-        "meaning_hira": "えん"
+        "meaning_hira": "えん",
+        "age_min": 8
       },
       {
         "word": "円滑",
@@ -168,7 +181,8 @@
         "band": 7000,
         "meaning_en": "smooth; undisturbed; uninterrupted",
         "meaning_hira": "えんかつ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "円形",
@@ -176,7 +190,8 @@
         "band": 15000,
         "meaning_en": "round shape; circle; circular form",
         "meaning_hira": "えんけい",
-        "grade": 2
+        "grade": 2,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -197,7 +212,8 @@
         "reading": "おおきみ",
         "band": 3000,
         "meaning_en": "emperor",
-        "meaning_hira": "おおきみ"
+        "meaning_hira": "おおきみ",
+        "age_min": 8
       },
       {
         "word": "王国",
@@ -205,7 +221,8 @@
         "band": 7000,
         "meaning_en": "kingdom; monarchy",
         "meaning_hira": "おうこく",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       },
       {
         "word": "王子",
@@ -213,7 +230,8 @@
         "band": 7000,
         "meaning_en": "prince",
         "meaning_hira": "おうじ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -238,7 +256,8 @@
         "reading": "おん",
         "band": 1000,
         "meaning_en": "sound; noise",
-        "meaning_hira": "おん"
+        "meaning_hira": "おん",
+        "age_min": 3
       },
       {
         "word": "音楽",
@@ -246,7 +265,8 @@
         "band": 1000,
         "meaning_en": "music",
         "meaning_hira": "おんがく",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "録音",
@@ -254,7 +274,8 @@
         "band": 3000,
         "meaning_en": "(audio) recording; see:; 録画; (video) recording",
         "meaning_hira": "ろくおん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "発音",
@@ -262,7 +283,8 @@
         "band": 7000,
         "meaning_en": "pronunciation",
         "meaning_hira": "はつおん",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -291,7 +313,8 @@
         "reading": "か",
         "band": 1000,
         "meaning_en": "under (influence, control, conditions, etc. of); during (war, occupation, etc.)",
-        "meaning_hira": "か"
+        "meaning_hira": "か",
+        "age_min": 3
       },
       {
         "word": "以下",
@@ -299,28 +322,32 @@
         "band": 1000,
         "meaning_en": "not exceeding ...; not more than ...; ... and under; antonym:; 以上; 1. not less than ...; ... and over; ... and above; ... and upwards; ... or more",
         "meaning_hira": "いか",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "下さる",
         "reading": "くださる",
         "band": 1000,
         "meaning_en": "to give; to confer; to bestow",
-        "meaning_hira": "くださる"
+        "meaning_hira": "くださる",
+        "age_min": 3
       },
       {
         "word": "下がる",
         "reading": "さがる",
         "band": 3000,
         "meaning_en": "to come down; to go down; to fall; antonym:; 上がる; 1. to rise; to go up; to come up; to ascend; to be raised",
-        "meaning_hira": "さがる"
+        "meaning_hira": "さがる",
+        "age_min": 5
       },
       {
         "word": "下げる",
         "reading": "さげる",
         "band": 3000,
         "meaning_en": "to hang; to suspend; to wear (e.g. decoration)",
-        "meaning_hira": "さげる"
+        "meaning_hira": "さげる",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -343,7 +370,8 @@
         "reading": "ひ",
         "band": 1000,
         "meaning_en": "fire; flame; blaze",
-        "meaning_hira": "ひ"
+        "meaning_hira": "ひ",
+        "age_min": 3
       },
       {
         "word": "火災",
@@ -351,7 +379,8 @@
         "band": 7000,
         "meaning_en": "conflagration; fire",
         "meaning_hira": "かさい",
-        "grade": 9
+        "grade": 9,
+        "age_min": 12
       },
       {
         "word": "花火",
@@ -359,7 +388,8 @@
         "band": 7000,
         "meaning_en": "fireworks",
         "meaning_hira": "はなび",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "火曜日",
@@ -367,7 +397,8 @@
         "band": 7000,
         "meaning_en": "Tuesday",
         "meaning_hira": "かようび",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -390,7 +421,8 @@
         "reading": "はな",
         "band": 1000,
         "meaning_en": "flower; blossom; bloom",
-        "meaning_hira": "はな"
+        "meaning_hira": "はな",
+        "age_min": 3
       },
       {
         "word": "花火",
@@ -398,7 +430,8 @@
         "band": 7000,
         "meaning_en": "fireworks",
         "meaning_hira": "はなび",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "花粉",
@@ -406,14 +439,16 @@
         "band": 7000,
         "meaning_en": "pollen",
         "meaning_hira": "かふん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "お花",
         "reading": "おはな",
         "band": 15000,
         "meaning_en": "ikebana; Japanese art of flower arrangement; see:; 生け花; 1. ikebana",
-        "meaning_hira": "おはな"
+        "meaning_hira": "おはな",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -436,7 +471,8 @@
         "reading": "かい",
         "band": 15000,
         "meaning_en": "shellfish",
-        "meaning_hira": "かい"
+        "meaning_hira": "かい",
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -460,7 +496,8 @@
         "reading": "がく",
         "band": 1000,
         "meaning_en": "learning; scholarship; study",
-        "meaning_hira": "がく"
+        "meaning_hira": "がく",
+        "age_min": 8
       },
       {
         "word": "大学",
@@ -468,14 +505,16 @@
         "band": 1000,
         "meaning_en": "university; college",
         "meaning_hira": "だいがく",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "学ぶ",
         "reading": "まなぶ",
         "band": 1000,
         "meaning_en": "to learn; to study; to take lessons in",
-        "meaning_hira": "まなぶ"
+        "meaning_hira": "まなぶ",
+        "age_min": 8
       },
       {
         "word": "学校",
@@ -483,7 +522,8 @@
         "band": 1000,
         "meaning_en": "school",
         "meaning_hira": "がっこう",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "学習",
@@ -491,14 +531,16 @@
         "band": 3000,
         "meaning_en": "learning; study",
         "meaning_hira": "がくしゅう",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       },
       {
         "word": "学び",
         "reading": "まなび",
         "band": 15000,
         "meaning_en": "learning; study",
-        "meaning_hira": "まなび"
+        "meaning_hira": "まなび",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -520,7 +562,8 @@
         "reading": "き",
         "band": 1000,
         "meaning_en": "spirit; mind; heart; see:; 気が大きい; generous; big-hearted",
-        "meaning_hira": "き"
+        "meaning_hira": "き",
+        "age_min": 3
       },
       {
         "word": "人気",
@@ -528,7 +571,8 @@
         "band": 1000,
         "meaning_en": "prevailing mood of a locality; emotional climate of a district",
         "meaning_hira": "じんき",
-        "grade": 1
+        "grade": 1,
+        "age_min": 3
       },
       {
         "word": "元気",
@@ -536,7 +580,8 @@
         "band": 3000,
         "meaning_en": "lively; full of spirit; energetic",
         "meaning_hira": "げんき",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "気分",
@@ -544,14 +589,16 @@
         "band": 3000,
         "meaning_en": "feeling; mood",
         "meaning_hira": "きぶん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "気づく",
         "reading": "きづく",
         "band": 3000,
         "meaning_en": "to notice; to realize; to realise",
-        "meaning_hira": "きづく"
+        "meaning_hira": "きづく",
+        "age_min": 5
       },
       {
         "word": "雰囲気",
@@ -559,7 +606,8 @@
         "band": 3000,
         "meaning_en": "atmosphere; mood; ambience; often spoken as ふいんき",
         "meaning_hira": "ふんいき",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -584,7 +632,8 @@
         "reading": "きゅう",
         "band": 1000,
         "meaning_en": "nine; 9; 玖 is used in legal documents",
-        "meaning_hira": "きゅう"
+        "meaning_hira": "きゅう",
+        "age_min": 12
       },
       {
         "word": "九州",
@@ -592,7 +641,8 @@
         "band": 7000,
         "meaning_en": "Kyūshū (southernmost of the four main islands of Japan)",
         "meaning_hira": "きゅうしゅう",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       },
       {
         "word": "九月",
@@ -600,7 +650,8 @@
         "band": 7000,
         "meaning_en": "September",
         "meaning_hira": "くがつ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -625,14 +676,16 @@
         "reading": "やすみ",
         "band": 3000,
         "meaning_en": "rest; recess; respite",
-        "meaning_hira": "やすみ"
+        "meaning_hira": "やすみ",
+        "age_min": 5
       },
       {
         "word": "休む",
         "reading": "やすむ",
         "band": 3000,
         "meaning_en": "to be absent; to take a day off",
-        "meaning_hira": "やすむ"
+        "meaning_hira": "やすむ",
+        "age_min": 5
       },
       {
         "word": "休日",
@@ -640,14 +693,16 @@
         "band": 7000,
         "meaning_en": "holiday; day off",
         "meaning_hira": "きゅうじつ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "休める",
         "reading": "やすめる",
         "band": 15000,
         "meaning_en": "to rest; to suspend; to give relief",
-        "meaning_hira": "やすめる"
+        "meaning_hira": "やすめる",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -670,7 +725,8 @@
         "reading": "たま",
         "band": 3000,
         "meaning_en": "ball; sphere; globe",
-        "meaning_hira": "たま"
+        "meaning_hira": "たま",
+        "age_min": 5
       },
       {
         "word": "埼玉",
@@ -678,7 +734,8 @@
         "band": 7000,
         "meaning_en": "Saitama (city, prefecture); the city name is officially written in hiragana",
         "meaning_hira": "さいたま",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -702,14 +759,16 @@
         "reading": "かね",
         "band": 1000,
         "meaning_en": "money; see:; お金; money",
-        "meaning_hira": "かね"
+        "meaning_hira": "かね",
+        "age_min": 8
       },
       {
         "word": "お金",
         "reading": "おかね",
         "band": 1000,
         "meaning_en": "money; see:; 金; （; かね; 1. money",
-        "meaning_hira": "おかね"
+        "meaning_hira": "おかね",
+        "age_min": 8
       },
       {
         "word": "金融",
@@ -717,7 +776,8 @@
         "band": 1000,
         "meaning_en": "finance; financing; credit transacting",
         "meaning_hira": "きんゆう",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "年金",
@@ -725,7 +785,8 @@
         "band": 3000,
         "meaning_en": "annuity; pension",
         "meaning_hira": "ねんきん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "資金",
@@ -733,7 +794,8 @@
         "band": 3000,
         "meaning_en": "funds; capital",
         "meaning_hira": "しきん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -760,7 +822,8 @@
         "reading": "から",
         "band": 3000,
         "meaning_en": "emptiness; being empty",
-        "meaning_hira": "から"
+        "meaning_hira": "から",
+        "age_min": 5
       },
       {
         "word": "空気",
@@ -768,7 +831,8 @@
         "band": 3000,
         "meaning_en": "air; atmosphere",
         "meaning_hira": "くうき",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "空港",
@@ -776,7 +840,8 @@
         "band": 3000,
         "meaning_en": "airport",
         "meaning_hira": "くうこう",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "空間",
@@ -784,7 +849,8 @@
         "band": 3000,
         "meaning_en": "space; room; airspace",
         "meaning_hira": "くうかん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "航空",
@@ -792,14 +858,16 @@
         "band": 3000,
         "meaning_en": "aviation; flying",
         "meaning_hira": "こうくう",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "空く",
         "reading": "すく",
         "band": 7000,
         "meaning_en": "to become less crowded; to thin out; to get empty",
-        "meaning_hira": "すく"
+        "meaning_hira": "すく",
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -823,7 +891,8 @@
         "reading": "げつ",
         "band": 1000,
         "meaning_en": "Monday; see:; 月曜; Monday",
-        "meaning_hira": "げつ"
+        "meaning_hira": "げつ",
+        "age_min": 3
       },
       {
         "word": "今月",
@@ -831,14 +900,16 @@
         "band": 3000,
         "meaning_en": "this month",
         "meaning_hira": "こんげつ",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "か月",
         "reading": "かげつ",
         "band": 7000,
         "meaning_en": "counter for months",
-        "meaning_hira": "かげつ"
+        "meaning_hira": "かげつ",
+        "age_min": 8
       },
       {
         "word": "毎月",
@@ -846,7 +917,8 @@
         "band": 7000,
         "meaning_en": "every month; each month; monthly",
         "meaning_hira": "まいつき",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -869,7 +941,8 @@
         "reading": "いぬ",
         "band": 3000,
         "meaning_en": "dog (Canis (lupus) familiaris)",
-        "meaning_hira": "いぬ"
+        "meaning_hira": "いぬ",
+        "age_min": 3
       },
       {
         "word": "愛犬",
@@ -877,7 +950,8 @@
         "band": 15000,
         "meaning_en": "pet dog; beloved dog",
         "meaning_hira": "あいけん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -904,35 +978,40 @@
         "band": 1000,
         "meaning_en": "discovery; detection; finding",
         "meaning_hira": "はっけん",
-        "grade": 3
+        "grade": 3,
+        "age_min": 3
       },
       {
         "word": "見る",
         "reading": "みる",
         "band": 1000,
         "meaning_en": "to see; to look; to watch",
-        "meaning_hira": "みる"
+        "meaning_hira": "みる",
+        "age_min": 3
       },
       {
         "word": "見える",
         "reading": "みえる",
         "band": 1000,
         "meaning_en": "to be seen; to be visible; to be in sight",
-        "meaning_hira": "みえる"
+        "meaning_hira": "みえる",
+        "age_min": 3
       },
       {
         "word": "見つかる",
         "reading": "みつかる",
         "band": 3000,
         "meaning_en": "to be found; to be discovered",
-        "meaning_hira": "みつかる"
+        "meaning_hira": "みつかる",
+        "age_min": 5
       },
       {
         "word": "見つける",
         "reading": "みつける",
         "band": 3000,
         "meaning_en": "to find; to discover; to come across",
-        "meaning_hira": "みつける"
+        "meaning_hira": "みつける",
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -956,7 +1035,8 @@
         "reading": "ご",
         "band": 1000,
         "meaning_en": "five; 5; 伍 is used in legal documents",
-        "meaning_hira": "ご"
+        "meaning_hira": "ご",
+        "age_min": 12
       },
       {
         "word": "五輪",
@@ -964,14 +1044,16 @@
         "band": 7000,
         "meaning_en": "Olympic Games; Olympics; see:; オリンピック; Olympics; Olympic Games",
         "meaning_hira": "ごりん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "五つ",
         "reading": "いつつ",
         "band": 15000,
         "meaning_en": "five",
-        "meaning_hira": "いつつ"
+        "meaning_hira": "いつつ",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -995,7 +1077,8 @@
         "reading": "くち",
         "band": 1000,
         "meaning_en": "mouth",
-        "meaning_hira": "くち"
+        "meaning_hira": "くち",
+        "age_min": 3
       },
       {
         "word": "山口",
@@ -1003,7 +1086,8 @@
         "band": 7000,
         "meaning_en": "Yamaguchi (city, prefecture)",
         "meaning_hira": "やまぐち",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "窓口",
@@ -1011,7 +1095,8 @@
         "band": 7000,
         "meaning_en": "counter; window; teller window",
         "meaning_hira": "まどぐち",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -1033,14 +1118,16 @@
         "band": 1000,
         "meaning_en": "school",
         "meaning_hira": "がっこう",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "校",
         "reading": "こう",
         "band": 3000,
         "meaning_en": "school",
-        "meaning_hira": "こう"
+        "meaning_hira": "こう",
+        "age_min": 5
       },
       {
         "word": "高校",
@@ -1048,7 +1135,8 @@
         "band": 3000,
         "meaning_en": "senior high school; high school; see:; 高等学校; senior high school; high school",
         "meaning_hira": "こうこう",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "小学校",
@@ -1056,7 +1144,8 @@
         "band": 3000,
         "meaning_en": "primary school; elementary school; grade school",
         "meaning_hira": "しょうがっこう",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "高校生",
@@ -1064,7 +1153,8 @@
         "band": 3000,
         "meaning_en": "senior high school student",
         "meaning_hira": "こうこうせい",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -1087,7 +1177,8 @@
         "reading": "ひだり",
         "band": 3000,
         "meaning_en": "left; left-hand side; see:; 右; 1. right; right-hand side",
-        "meaning_hira": "ひだり"
+        "meaning_hira": "ひだり",
+        "age_min": 5
       },
       {
         "word": "左右",
@@ -1095,7 +1186,8 @@
         "band": 3000,
         "meaning_en": "(doing) various things; (doing) this and that",
         "meaning_hira": "とかく",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "左手",
@@ -1103,7 +1195,8 @@
         "band": 7000,
         "meaning_en": "left hand",
         "meaning_hira": "ひだりて",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -1129,14 +1222,16 @@
         "reading": "さん",
         "band": 1000,
         "meaning_en": "three; 3; 参 is used in legal documents",
-        "meaning_hira": "さん"
+        "meaning_hira": "さん",
+        "age_min": 12
       },
       {
         "word": "三つ",
         "reading": "みっつ",
         "band": 7000,
         "meaning_en": "three",
-        "meaning_hira": "みっつ"
+        "meaning_hira": "みっつ",
+        "age_min": 8
       },
       {
         "word": "三郎",
@@ -1144,7 +1239,8 @@
         "band": 7000,
         "meaning_en": "third son; see:; 三男; 2. third son",
         "meaning_hira": "さぶろう",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "第三者",
@@ -1152,7 +1248,8 @@
         "band": 7000,
         "meaning_en": "third party; third person; outsider",
         "meaning_hira": "だいさんしゃ",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -1175,7 +1272,8 @@
         "reading": "むれ",
         "band": 3000,
         "meaning_en": "mountain; hill",
-        "meaning_hira": "むれ"
+        "meaning_hira": "むれ",
+        "age_min": 5
       },
       {
         "word": "沢山",
@@ -1183,7 +1281,8 @@
         "band": 3000,
         "meaning_en": "enough; too many; too much; after a noun; see:; 沢山; （; たくさん; 3. enough; too many; too much",
         "meaning_hira": "だくさん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "山口",
@@ -1191,7 +1290,8 @@
         "band": 7000,
         "meaning_en": "Yamaguchi (city, prefecture)",
         "meaning_hira": "やまぐち",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "山本",
@@ -1199,7 +1299,8 @@
         "band": 7000,
         "meaning_en": "foot of a mountain; base of a mountain; see:; 山下; （; さんか; foot of a mountain; base of a mountain",
         "meaning_hira": "やまもと",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -1223,14 +1324,16 @@
         "reading": "し",
         "band": 1000,
         "meaning_en": "child (esp. a boy)",
-        "meaning_hira": "し"
+        "meaning_hira": "し",
+        "age_min": 3
       },
       {
         "word": "子ども",
         "reading": "こども",
         "band": 1000,
         "meaning_en": "child; children",
-        "meaning_hira": "こども"
+        "meaning_hira": "こども",
+        "age_min": 3
       },
       {
         "word": "女子",
@@ -1238,7 +1341,8 @@
         "band": 3000,
         "meaning_en": "woman; girl; see:; 女子; （; じょし; woman; girl",
         "meaning_hira": "おなご",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "息子",
@@ -1246,7 +1350,8 @@
         "band": 3000,
         "meaning_en": "son",
         "meaning_hira": "むすこ",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "電子",
@@ -1254,7 +1359,8 @@
         "band": 3000,
         "meaning_en": "electron",
         "meaning_hira": "でんし",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "女の子",
@@ -1262,7 +1368,8 @@
         "band": 3000,
         "meaning_en": "woman; girl; see:; 男; （; おのこ; man; boy",
         "meaning_hira": "めのこ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -1289,7 +1396,8 @@
         "reading": "し",
         "band": 1000,
         "meaning_en": "four; 4; 肆 is used in legal documents",
-        "meaning_hira": "し"
+        "meaning_hira": "し",
+        "age_min": 12
       },
       {
         "word": "四国",
@@ -1297,14 +1405,16 @@
         "band": 7000,
         "meaning_en": "Shikoku (smallest of the four main islands of Japan)",
         "meaning_hira": "しこく",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       },
       {
         "word": "四つ",
         "reading": "よっつ",
         "band": 15000,
         "meaning_en": "four; 4",
-        "meaning_hira": "よっつ"
+        "meaning_hira": "よっつ",
+        "age_min": 12
       },
       {
         "word": "四半期",
@@ -1312,7 +1422,8 @@
         "band": 15000,
         "meaning_en": "quarter (of a year)",
         "meaning_hira": "しはんき",
-        "grade": 3
+        "grade": 3,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -1335,7 +1446,8 @@
         "reading": "いと",
         "band": 7000,
         "meaning_en": "thread; yarn; string",
-        "meaning_hira": "いと"
+        "meaning_hira": "いと",
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -1359,14 +1471,16 @@
         "band": 1000,
         "meaning_en": "letter (of an alphabet); character",
         "meaning_hira": "もじ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 3
       },
       {
         "word": "字",
         "reading": "あざな",
         "band": 3000,
         "meaning_en": "Chinese courtesy name (name formerly given to adult Chinese men, used in place of their given name in formal situations)",
-        "meaning_hira": "あざな"
+        "meaning_hira": "あざな",
+        "age_min": 5
       },
       {
         "word": "数字",
@@ -1374,7 +1488,8 @@
         "band": 3000,
         "meaning_en": "numeral; digit; numeric character",
         "meaning_hira": "すうじ",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "赤字",
@@ -1382,7 +1497,8 @@
         "band": 3000,
         "meaning_en": "(being in) the red; deficit; antonym:; 黒字; 1. (being in) the black; surplus",
         "meaning_hira": "あかじ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -1405,7 +1521,8 @@
         "reading": "みみ",
         "band": 3000,
         "meaning_en": "ear",
-        "meaning_hira": "みみ"
+        "meaning_hira": "みみ",
+        "age_min": 3
       }
     ],
     "meaning_en": "",
@@ -1430,7 +1547,8 @@
         "reading": "ちー",
         "band": 1000,
         "meaning_en": "seven; Chinese:; qī",
-        "meaning_hira": "ちー"
+        "meaning_hira": "ちー",
+        "age_min": 3
       },
       {
         "word": "七夕",
@@ -1438,7 +1556,8 @@
         "band": 15000,
         "meaning_en": "Star Festival (held in July or August); Tanabata; Festival of the Weaver; see:; 五節句; the five festivals (January 7, March 3, May 5, July 7 and September 9)",
         "meaning_hira": "たなばた",
-        "grade": 1
+        "grade": 1,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -1461,7 +1580,8 @@
         "reading": "しゃ",
         "band": 1000,
         "meaning_en": "car; vehicle; van",
-        "meaning_hira": "しゃ"
+        "meaning_hira": "しゃ",
+        "age_min": 3
       },
       {
         "word": "自動車",
@@ -1469,7 +1589,8 @@
         "band": 3000,
         "meaning_en": "car; automobile; motorcar",
         "meaning_hira": "じどうしゃ",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "自転車",
@@ -1477,7 +1598,8 @@
         "band": 3000,
         "meaning_en": "bicycle; bike",
         "meaning_hira": "じてんしゃ",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "列車",
@@ -1485,7 +1607,8 @@
         "band": 7000,
         "meaning_en": "train; railway train",
         "meaning_hira": "れっしゃ",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -1508,7 +1631,8 @@
         "reading": "て",
         "band": 1000,
         "meaning_en": "hand; arm; occ. pronounced た when a prefix; see:; お手; 1. hand; arm",
-        "meaning_hira": "て"
+        "meaning_hira": "て",
+        "age_min": 3
       },
       {
         "word": "相手",
@@ -1516,7 +1640,8 @@
         "band": 1000,
         "meaning_en": "companion; partner; company",
         "meaning_hira": "あいて",
-        "grade": 3
+        "grade": 3,
+        "age_min": 3
       },
       {
         "word": "選手",
@@ -1524,7 +1649,8 @@
         "band": 1000,
         "meaning_en": "player (of a sport); athlete; team member",
         "meaning_hira": "せんしゅ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "手段",
@@ -1532,14 +1658,16 @@
         "band": 3000,
         "meaning_en": "means; way; measure",
         "meaning_hira": "しゅだん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "手がける",
         "reading": "てがける",
         "band": 15000,
         "meaning_en": "to handle; to manage; to deal with",
-        "meaning_hira": "てがける"
+        "meaning_hira": "てがける",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -1564,7 +1692,8 @@
         "reading": "じゅう",
         "band": 1000,
         "meaning_en": "ten; 10; 拾 is used in legal documents",
-        "meaning_hira": "じゅう"
+        "meaning_hira": "じゅう",
+        "age_min": 12
       },
       {
         "word": "十分",
@@ -1572,7 +1701,8 @@
         "band": 1000,
         "meaning_en": "ten minutes",
         "meaning_hira": "じっぷん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "不十分",
@@ -1580,7 +1710,8 @@
         "band": 7000,
         "meaning_en": "insufficient; inadequate; imperfect",
         "meaning_hira": "ふじゅうぶん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -1607,14 +1738,16 @@
         "reading": "だす",
         "band": 1000,
         "meaning_en": "to take out; to get out",
-        "meaning_hira": "だす"
+        "meaning_hira": "だす",
+        "age_min": 3
       },
       {
         "word": "出る",
         "reading": "でる",
         "band": 1000,
         "meaning_en": "to leave; to exit; to go out; antonym:; 入る; （; はいる; 1. to enter; to come in; to go in; to get in; to arrive",
-        "meaning_hira": "でる"
+        "meaning_hira": "でる",
+        "age_min": 3
       },
       {
         "word": "出版",
@@ -1622,7 +1755,8 @@
         "band": 1000,
         "meaning_en": "publication",
         "meaning_hira": "しゅっぱん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "出来る",
@@ -1630,21 +1764,24 @@
         "band": 1000,
         "meaning_en": "to be able to do; to be possible; to be permitted (to do)",
         "meaning_hira": "できる",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "出かける",
         "reading": "でかける",
         "band": 3000,
         "meaning_en": "to go out (e.g. on an excursion or outing); to leave; to depart",
-        "meaning_hira": "でかける"
+        "meaning_hira": "でかける",
+        "age_min": 5
       },
       {
         "word": "出",
         "reading": "しゅつ",
         "band": 15000,
         "meaning_en": "coming out; emerging",
-        "meaning_hira": "しゅつ"
+        "meaning_hira": "しゅつ",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -1669,7 +1806,8 @@
         "reading": "おみな",
         "band": 1000,
         "meaning_en": "woman",
-        "meaning_hira": "おみな"
+        "meaning_hira": "おみな",
+        "age_min": 3
       },
       {
         "word": "彼女",
@@ -1677,7 +1815,8 @@
         "band": 1000,
         "meaning_en": "she; her; see:; 彼; （; かれ; 1. he; him",
         "meaning_hira": "かのじょ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "女子",
@@ -1685,7 +1824,8 @@
         "band": 3000,
         "meaning_en": "woman; girl; see:; 女子; （; じょし; woman; girl",
         "meaning_hira": "おなご",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "女の子",
@@ -1693,7 +1833,8 @@
         "band": 3000,
         "meaning_en": "woman; girl; see:; 男; （; おのこ; man; boy",
         "meaning_hira": "めのこ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -1718,7 +1859,8 @@
         "reading": "こ",
         "band": 1000,
         "meaning_en": "small; little; slight; see:; 小皿; small plate; small dish",
-        "meaning_hira": "こ"
+        "meaning_hira": "こ",
+        "age_min": 3
       },
       {
         "word": "小説",
@@ -1726,21 +1868,24 @@
         "band": 3000,
         "meaning_en": "novel; story; (work of) fiction",
         "meaning_hira": "しょうせつ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "小さい",
         "reading": "ちいさい",
         "band": 3000,
         "meaning_en": "small; little; tiny",
-        "meaning_hira": "ちいさい"
+        "meaning_hira": "ちいさい",
+        "age_min": 5
       },
       {
         "word": "小さな",
         "reading": "ちいさな",
         "band": 3000,
         "meaning_en": "small; little; tiny; see:; 大きな; big; large; great",
-        "meaning_hira": "ちいさな"
+        "meaning_hira": "ちいさな",
+        "age_min": 5
       },
       {
         "word": "小学校",
@@ -1748,7 +1893,8 @@
         "band": 3000,
         "meaning_en": "primary school; elementary school; grade school",
         "meaning_hira": "しょうがっこう",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -1777,14 +1923,16 @@
         "reading": "うえ",
         "band": 1000,
         "meaning_en": "above; over; up",
-        "meaning_hira": "うえ"
+        "meaning_hira": "うえ",
+        "age_min": 3
       },
       {
         "word": "上げる",
         "reading": "あげる",
         "band": 1000,
         "meaning_en": "to raise; to elevate; antonym:; 下げる; 2. to lower; to reduce; to bring down; see:; 手を上げる; 1. to raise one's hand; see:; 挙げる; 9. to raise; to elevate",
-        "meaning_hira": "あげる"
+        "meaning_hira": "あげる",
+        "age_min": 3
       },
       {
         "word": "申し上げる",
@@ -1792,7 +1940,8 @@
         "band": 1000,
         "meaning_en": "to say; to tell; to state",
         "meaning_hira": "もうしあげる",
-        "grade": 3
+        "grade": 3,
+        "age_min": 3
       },
       {
         "word": "上昇",
@@ -1800,7 +1949,8 @@
         "band": 3000,
         "meaning_en": "rising; ascending; climbing",
         "meaning_hira": "じょうしょう",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "取り上げる",
@@ -1808,7 +1958,8 @@
         "band": 3000,
         "meaning_en": "to pick up",
         "meaning_hira": "とりあげる",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -1831,7 +1982,8 @@
         "reading": "もり",
         "band": 3000,
         "meaning_en": "forest",
-        "meaning_hira": "もり"
+        "meaning_hira": "もり",
+        "age_min": 5
       },
       {
         "word": "森林",
@@ -1839,7 +1991,8 @@
         "band": 7000,
         "meaning_en": "forest; woods",
         "meaning_hira": "しんりん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "青森",
@@ -1847,7 +2000,8 @@
         "band": 7000,
         "meaning_en": "Aomori (city, prefecture)",
         "meaning_hira": "あおもり",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -1871,7 +2025,8 @@
         "reading": "にん",
         "band": 1000,
         "meaning_en": "counter for people",
-        "meaning_hira": "にん"
+        "meaning_hira": "にん",
+        "age_min": 3
       },
       {
         "word": "人気",
@@ -1879,7 +2034,8 @@
         "band": 1000,
         "meaning_en": "prevailing mood of a locality; emotional climate of a district",
         "meaning_hira": "じんき",
-        "grade": 1
+        "grade": 1,
+        "age_min": 3
       },
       {
         "word": "人生",
@@ -1887,7 +2043,8 @@
         "band": 1000,
         "meaning_en": "(one's) life",
         "meaning_hira": "じんせい",
-        "grade": 1
+        "grade": 1,
+        "age_min": 3
       },
       {
         "word": "人間",
@@ -1895,7 +2052,8 @@
         "band": 1000,
         "meaning_en": "the world",
         "meaning_hira": "じんかん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "友人",
@@ -1903,7 +2061,8 @@
         "band": 1000,
         "meaning_en": "friend; more formal than 友達; see:; 友達; friend; companion",
         "meaning_hira": "ゆうじん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "日本人",
@@ -1911,14 +2070,16 @@
         "band": 1000,
         "meaning_en": "Japanese person",
         "meaning_hira": "にほんじん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "人びと",
         "reading": "ひとびと",
         "band": 15000,
         "meaning_en": "people; men and women",
-        "meaning_hira": "ひとびと"
+        "meaning_hira": "ひとびと",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -1941,7 +2102,8 @@
         "reading": "すい",
         "band": 1000,
         "meaning_en": "Wednesday; see:; 水曜日; Wednesday",
-        "meaning_hira": "すい"
+        "meaning_hira": "すい",
+        "age_min": 3
       },
       {
         "word": "水準",
@@ -1949,7 +2111,8 @@
         "band": 3000,
         "meaning_en": "level; standard",
         "meaning_hira": "すいじゅん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "清水",
@@ -1957,7 +2120,8 @@
         "band": 7000,
         "meaning_en": "spring water",
         "meaning_hira": "しみず",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "水曜日",
@@ -1965,7 +2129,8 @@
         "band": 7000,
         "meaning_en": "Wednesday",
         "meaning_hira": "すいようび",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -1990,14 +2155,16 @@
         "reading": "ただしい",
         "band": 1000,
         "meaning_en": "right; correct",
-        "meaning_hira": "ただしい"
+        "meaning_hira": "ただしい",
+        "age_min": 3
       },
       {
         "word": "正",
         "reading": "しょう",
         "band": 3000,
         "meaning_en": "exactly; precisely; before a number",
-        "meaning_hira": "しょう"
+        "meaning_hira": "しょう",
+        "age_min": 5
       },
       {
         "word": "修正",
@@ -2005,7 +2172,8 @@
         "band": 3000,
         "meaning_en": "amendment; correction; revision",
         "meaning_hira": "しゅうせい",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "正式",
@@ -2013,7 +2181,8 @@
         "band": 3000,
         "meaning_en": "formal; official; regular",
         "meaning_hira": "せいしき",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       },
       {
         "word": "正直",
@@ -2021,14 +2190,16 @@
         "band": 3000,
         "meaning_en": "honest; frank; candid",
         "meaning_hira": "しょうじき",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "正に",
         "reading": "まさに",
         "band": 15000,
         "meaning_en": "exactly; just; precisely",
-        "meaning_hira": "まさに"
+        "meaning_hira": "まさに",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -2057,7 +2228,8 @@
         "reading": "いく",
         "band": 1000,
         "meaning_en": "vital; virile; lively",
-        "meaning_hira": "いく"
+        "meaning_hira": "いく",
+        "age_min": 3
       },
       {
         "word": "人生",
@@ -2065,7 +2237,8 @@
         "band": 1000,
         "meaning_en": "(one's) life",
         "meaning_hira": "じんせい",
-        "grade": 1
+        "grade": 1,
+        "age_min": 3
       },
       {
         "word": "先生",
@@ -2073,7 +2246,8 @@
         "band": 1000,
         "meaning_en": "man; boy; Chinese:; xiānshēng",
         "meaning_hira": "しーさん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 3
       },
       {
         "word": "生活",
@@ -2081,28 +2255,32 @@
         "band": 1000,
         "meaning_en": "life; living",
         "meaning_hira": "せいかつ",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "生きる",
         "reading": "いきる",
         "band": 1000,
         "meaning_en": "to live; to exist",
-        "meaning_hira": "いきる"
+        "meaning_hira": "いきる",
+        "age_min": 3
       },
       {
         "word": "生まれる",
         "reading": "うまれる",
         "band": 1000,
         "meaning_en": "to be born",
-        "meaning_hira": "うまれる"
+        "meaning_hira": "うまれる",
+        "age_min": 3
       },
       {
         "word": "生じる",
         "reading": "しょうじる",
         "band": 3000,
         "meaning_en": "to produce; to yield; to cause; see:; 生ずる; 1. to produce; to yield; to cause",
-        "meaning_hira": "しょうじる"
+        "meaning_hira": "しょうじる",
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -2127,7 +2305,8 @@
         "reading": "あお",
         "band": 3000,
         "meaning_en": "blue; azure",
-        "meaning_hira": "あお"
+        "meaning_hira": "あお",
+        "age_min": 5
       },
       {
         "word": "青年",
@@ -2135,14 +2314,16 @@
         "band": 3000,
         "meaning_en": "youth; young man",
         "meaning_hira": "せいねん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "青い",
         "reading": "あおい",
         "band": 7000,
         "meaning_en": "blue; azure",
-        "meaning_hira": "あおい"
+        "meaning_hira": "あおい",
+        "age_min": 8
       },
       {
         "word": "青春",
@@ -2150,7 +2331,8 @@
         "band": 7000,
         "meaning_en": "youth; adolescence; springtime of life",
         "meaning_hira": "せいしゅん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -2174,7 +2356,8 @@
         "band": 3000,
         "meaning_en": "early evening (usu. from 3pm to 6pm); dusk",
         "meaning_hira": "ゆうがた",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "夕食",
@@ -2182,21 +2365,24 @@
         "band": 7000,
         "meaning_en": "evening meal; supper; dinner",
         "meaning_hira": "ゆうげ",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       },
       {
         "word": "夕",
         "reading": "ゆうべ",
         "band": 15000,
         "meaning_en": "evening; see:; 朝; （; あした; morning",
-        "meaning_hira": "ゆうべ"
+        "meaning_hira": "ゆうべ",
+        "age_min": 5
       },
       {
         "word": "夕べ",
         "reading": "ゆうべ",
         "band": 15000,
         "meaning_en": "evening; see:; 朝; （; あした; morning",
-        "meaning_hira": "ゆうべ"
+        "meaning_hira": "ゆうべ",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -2220,7 +2406,8 @@
         "reading": "せき",
         "band": 3000,
         "meaning_en": "counter for jewels in a watch",
-        "meaning_hira": "せき"
+        "meaning_hira": "せき",
+        "age_min": 5
       },
       {
         "word": "石油",
@@ -2228,7 +2415,8 @@
         "band": 3000,
         "meaning_en": "oil; petroleum",
         "meaning_hira": "せきゆ",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "石川",
@@ -2236,7 +2424,8 @@
         "band": 7000,
         "meaning_en": "Ishikawa (prefecture)",
         "meaning_hira": "いしかわ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "石炭",
@@ -2244,7 +2433,8 @@
         "band": 7000,
         "meaning_en": "coal",
         "meaning_hira": "せきたん",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -2269,14 +2459,16 @@
         "reading": "あか",
         "band": 3000,
         "meaning_en": "red; crimson; scarlet",
-        "meaning_hira": "あか"
+        "meaning_hira": "あか",
+        "age_min": 5
       },
       {
         "word": "赤い",
         "reading": "あかい",
         "band": 3000,
         "meaning_en": "red; crimson; scarlet; esp. 紅い for scarlet, 朱い for vermilion",
-        "meaning_hira": "あかい"
+        "meaning_hira": "あかい",
+        "age_min": 5
       },
       {
         "word": "赤字",
@@ -2284,14 +2476,16 @@
         "band": 3000,
         "meaning_en": "(being in) the red; deficit; antonym:; 黒字; 1. (being in) the black; surplus",
         "meaning_hira": "あかじ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "赤ちゃん",
         "reading": "あかちゃん",
         "band": 7000,
         "meaning_en": "baby; infant",
-        "meaning_hira": "あかちゃん"
+        "meaning_hira": "あかちゃん",
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -2314,7 +2508,8 @@
         "reading": "せん",
         "band": 1000,
         "meaning_en": "thousand; 1,000; 阡 and 仟 are used in legal documents",
-        "meaning_hira": "せん"
+        "meaning_hira": "せん",
+        "age_min": 12
       },
       {
         "word": "千葉",
@@ -2322,7 +2517,8 @@
         "band": 3000,
         "meaning_en": "Chiba (city, prefecture)",
         "meaning_hira": "ちば",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -2345,7 +2541,8 @@
         "reading": "かわ",
         "band": 3000,
         "meaning_en": "river; stream",
-        "meaning_hira": "かわ"
+        "meaning_hira": "かわ",
+        "age_min": 5
       },
       {
         "word": "川崎",
@@ -2353,7 +2550,8 @@
         "band": 7000,
         "meaning_en": "Kawasaki (city)",
         "meaning_hira": "かわさき",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "石川",
@@ -2361,7 +2559,8 @@
         "band": 7000,
         "meaning_en": "Ishikawa (prefecture)",
         "meaning_hira": "いしかわ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "神奈川",
@@ -2369,7 +2568,8 @@
         "band": 7000,
         "meaning_en": "Kanagawa (prefecture)",
         "meaning_hira": "かながわ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -2392,7 +2592,8 @@
         "reading": "さっき",
         "band": 1000,
         "meaning_en": "a short while ago; a moment ago; just now",
-        "meaning_hira": "さっき"
+        "meaning_hira": "さっき",
+        "age_min": 3
       },
       {
         "word": "先生",
@@ -2400,14 +2601,16 @@
         "band": 1000,
         "meaning_en": "man; boy; Chinese:; xiānshēng",
         "meaning_hira": "しーさん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 3
       },
       {
         "word": "先ほど",
         "reading": "さきほど",
         "band": 1000,
         "meaning_en": "a short while ago; a moment ago; just now",
-        "meaning_hira": "さきほど"
+        "meaning_hira": "さきほど",
+        "age_min": 3
       },
       {
         "word": "先日",
@@ -2415,7 +2618,8 @@
         "band": 3000,
         "meaning_en": "the other day; a few days ago",
         "meaning_hira": "せんじつ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "先週",
@@ -2423,7 +2627,8 @@
         "band": 3000,
         "meaning_en": "last week; the week before",
         "meaning_hira": "せんしゅう",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -2450,7 +2655,8 @@
         "reading": "はやい",
         "band": 1000,
         "meaning_en": "fast; quick; rapid; esp. 速い",
-        "meaning_hira": "はやい"
+        "meaning_hira": "はやい",
+        "age_min": 3
       },
       {
         "word": "早速",
@@ -2458,28 +2664,32 @@
         "band": 3000,
         "meaning_en": "at once; immediately; without delay",
         "meaning_hira": "さっそく",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "早々",
         "reading": "そうそう",
         "band": 7000,
         "meaning_en": "as soon as ...; just after ...; immediately after ...",
-        "meaning_hira": "そうそう"
+        "meaning_hira": "そうそう",
+        "age_min": 8
       },
       {
         "word": "早め",
         "reading": "はやめ",
         "band": 7000,
         "meaning_en": "early; a little earlier than usual; esp. 早め",
-        "meaning_hira": "はやめ"
+        "meaning_hira": "はやめ",
+        "age_min": 8
       },
       {
         "word": "早",
         "reading": "はや",
         "band": 15000,
         "meaning_en": "already; now; by this time",
-        "meaning_hira": "はや"
+        "meaning_hira": "はや",
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -2502,7 +2712,8 @@
         "reading": "くさ",
         "band": 7000,
         "meaning_en": "grass; weed; herb",
-        "meaning_hira": "くさ"
+        "meaning_hira": "くさ",
+        "age_min": 5
       },
       {
         "word": "草原",
@@ -2510,7 +2721,8 @@
         "band": 15000,
         "meaning_en": "grassy field; grassland; meadow",
         "meaning_hira": "そうげん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 12
       },
       {
         "word": "草案",
@@ -2518,7 +2730,8 @@
         "band": 15000,
         "meaning_en": "draft (for a speech, bill, etc.)",
         "meaning_hira": "そうあん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -2543,7 +2756,8 @@
         "reading": "あし",
         "band": 1000,
         "meaning_en": "foot; paw; arm (of an octopus, squid, etc.); esp. 足",
-        "meaning_hira": "あし"
+        "meaning_hira": "あし",
+        "age_min": 3
       },
       {
         "word": "不足",
@@ -2551,7 +2765,8 @@
         "band": 3000,
         "meaning_en": "insufficiency; deficiency; shortage",
         "meaning_hira": "ふそく",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "満足",
@@ -2559,21 +2774,24 @@
         "band": 3000,
         "meaning_en": "satisfaction; contentment; gratification",
         "meaning_hira": "まんぞく",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "足りる",
         "reading": "たりる",
         "band": 3000,
         "meaning_en": "to be sufficient; to be enough",
-        "meaning_hira": "たりる"
+        "meaning_hira": "たりる",
+        "age_min": 5
       },
       {
         "word": "足す",
         "reading": "たす",
         "band": 7000,
         "meaning_en": "to add (numbers)",
-        "meaning_hira": "たす"
+        "meaning_hira": "たす",
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -2596,7 +2814,8 @@
         "reading": "むら",
         "band": 3000,
         "meaning_en": "village",
-        "meaning_hira": "むら"
+        "meaning_hira": "むら",
+        "age_min": 8
       },
       {
         "word": "市町村",
@@ -2604,7 +2823,8 @@
         "band": 3000,
         "meaning_en": "cities, towns and villages; municipalities",
         "meaning_hira": "しちょうそん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       },
       {
         "word": "農村",
@@ -2612,7 +2832,8 @@
         "band": 7000,
         "meaning_en": "agricultural community; farm village",
         "meaning_hira": "のうそん",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -2637,7 +2858,8 @@
         "reading": "おおき",
         "band": 1000,
         "meaning_en": "great; grand; large",
-        "meaning_hira": "おおき"
+        "meaning_hira": "おおき",
+        "age_min": 3
       },
       {
         "word": "大変",
@@ -2645,7 +2867,8 @@
         "band": 1000,
         "meaning_en": "very; greatly; terribly",
         "meaning_hira": "たいへん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "大学",
@@ -2653,28 +2876,32 @@
         "band": 1000,
         "meaning_en": "university; college",
         "meaning_hira": "だいがく",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "大きい",
         "reading": "おおきい",
         "band": 1000,
         "meaning_en": "big; large; great",
-        "meaning_hira": "おおきい"
+        "meaning_hira": "おおきい",
+        "age_min": 3
       },
       {
         "word": "大きな",
         "reading": "おおきな",
         "band": 1000,
         "meaning_en": "big; large; great; see:; 小さな; small; little; tiny",
-        "meaning_hira": "おおきな"
+        "meaning_hira": "おおきな",
+        "age_min": 3
       },
       {
         "word": "大いに",
         "reading": "おおいに",
         "band": 7000,
         "meaning_en": "very; very much; greatly",
-        "meaning_hira": "おおいに"
+        "meaning_hira": "おおいに",
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -2698,7 +2925,8 @@
         "reading": "おとこ",
         "band": 1000,
         "meaning_en": "man; male; see:; 女; （; おんな; 1. woman; female",
-        "meaning_hira": "おとこ"
+        "meaning_hira": "おとこ",
+        "age_min": 3
       },
       {
         "word": "男性",
@@ -2706,7 +2934,8 @@
         "band": 1000,
         "meaning_en": "man; male",
         "meaning_hira": "だんせい",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "男女",
@@ -2714,14 +2943,16 @@
         "band": 3000,
         "meaning_en": "men and women; man and woman; both sexes",
         "meaning_hira": "だんじょ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "男らしい",
         "reading": "おとこらしい",
         "band": 15000,
         "meaning_en": "manly; masculine; like a man",
-        "meaning_hira": "おとこらしい"
+        "meaning_hira": "おとこらしい",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -2744,7 +2975,8 @@
         "reading": "たけ",
         "band": 7000,
         "meaning_en": "bamboo (any grass of subfamily Bambusoideae)",
-        "meaning_hira": "たけ"
+        "meaning_hira": "たけ",
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -2767,7 +2999,8 @@
         "reading": "ちゅん",
         "band": 1000,
         "meaning_en": "red dragon tile; see:; 紅中; red dragon tile",
-        "meaning_hira": "ちゅん"
+        "meaning_hira": "ちゅん",
+        "age_min": 3
       },
       {
         "word": "中国",
@@ -2775,7 +3008,8 @@
         "band": 1000,
         "meaning_en": "China; see:; 中華人民共和国; People's Republic of China",
         "meaning_hira": "ちゅうごく",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "中心",
@@ -2783,7 +3017,8 @@
         "band": 1000,
         "meaning_en": "core",
         "meaning_hira": "なかご",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "途中",
@@ -2791,14 +3026,16 @@
         "band": 3000,
         "meaning_en": "on the way; en route",
         "meaning_hira": "とちゅう",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "中でも",
         "reading": "なかでも",
         "band": 15000,
         "meaning_en": "among (other things); especially; particularly",
-        "meaning_hira": "なかでも"
+        "meaning_hira": "なかでも",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -2821,7 +3058,8 @@
         "reading": "むし",
         "band": 7000,
         "meaning_en": "insect; bug; cricket",
-        "meaning_hira": "むし"
+        "meaning_hira": "むし",
+        "age_min": 5
       },
       {
         "word": "昆虫",
@@ -2829,7 +3067,8 @@
         "band": 15000,
         "meaning_en": "insect; bug",
         "meaning_hira": "こんちゅう",
-        "grade": 9
+        "grade": 9,
+        "age_min": 12
       },
       {
         "word": "虫歯",
@@ -2837,7 +3076,8 @@
         "band": 15000,
         "meaning_en": "tooth decay; decayed tooth; dental cavity",
         "meaning_hira": "むしば",
-        "grade": 3
+        "grade": 3,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -2860,7 +3100,8 @@
         "reading": "ちょう",
         "band": 1000,
         "meaning_en": "town; block; neighbourhood; see:; 町; （; まち; 1. town; block; neighbourhood; neighborhood",
-        "meaning_hira": "ちょう"
+        "meaning_hira": "ちょう",
+        "age_min": 8
       },
       {
         "word": "市町村",
@@ -2868,7 +3109,8 @@
         "band": 3000,
         "meaning_en": "cities, towns and villages; municipalities",
         "meaning_hira": "しちょうそん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       },
       {
         "word": "町村",
@@ -2876,7 +3118,8 @@
         "band": 7000,
         "meaning_en": "towns and villages",
         "meaning_hira": "ちょうそん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -2900,7 +3143,8 @@
         "reading": "てん",
         "band": 3000,
         "meaning_en": "sky",
-        "meaning_hira": "てん"
+        "meaning_hira": "てん",
+        "age_min": 5
       },
       {
         "word": "天気",
@@ -2908,7 +3152,8 @@
         "band": 3000,
         "meaning_en": "weather",
         "meaning_hira": "てんき",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "天皇",
@@ -2916,7 +3161,8 @@
         "band": 3000,
         "meaning_en": "Emperor of Japan",
         "meaning_hira": "てんのう",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "楽天",
@@ -2924,14 +3170,16 @@
         "band": 7000,
         "meaning_en": "optimism",
         "meaning_hira": "らくてん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       },
       {
         "word": "天ぷら",
         "reading": "てんぷら",
         "band": 15000,
         "meaning_en": "tempura; deep-fried fish and vegetables in a light batter; Portuguese:; tempero",
-        "meaning_hira": "てんぷら"
+        "meaning_hira": "てんぷら",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -2954,7 +3202,8 @@
         "reading": "た",
         "band": 7000,
         "meaning_en": "rice field",
-        "meaning_hira": "た"
+        "meaning_hira": "た",
+        "age_min": 8
       },
       {
         "word": "本田",
@@ -2962,7 +3211,8 @@
         "band": 7000,
         "meaning_en": "rice paddy",
         "meaning_hira": "ほんでん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "秋田",
@@ -2970,14 +3220,16 @@
         "band": 7000,
         "meaning_en": "Akita (city, prefecture)",
         "meaning_hira": "あきた",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       },
       {
         "word": "田んぼ",
         "reading": "たんぼ",
         "band": 15000,
         "meaning_en": "rice field; rice paddy; paddy field",
-        "meaning_hira": "たんぼ"
+        "meaning_hira": "たんぼ",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -3001,7 +3253,8 @@
         "reading": "に",
         "band": 1000,
         "meaning_en": "soil (esp. reddish soil)",
-        "meaning_hira": "に"
+        "meaning_hira": "に",
+        "age_min": 3
       },
       {
         "word": "土地",
@@ -3009,7 +3262,8 @@
         "band": 3000,
         "meaning_en": "plot of land; lot; soil",
         "meaning_hira": "とち",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       },
       {
         "word": "土曜日",
@@ -3017,7 +3271,8 @@
         "band": 3000,
         "meaning_en": "Saturday",
         "meaning_hira": "どようび",
-        "grade": 2
+        "grade": 2,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -3041,14 +3296,16 @@
         "reading": "りゃん",
         "band": 1000,
         "meaning_en": "two; Chinese:; liǎng",
-        "meaning_hira": "りゃん"
+        "meaning_hira": "りゃん",
+        "age_min": 3
       },
       {
         "word": "二つ",
         "reading": "ふたつ",
         "band": 3000,
         "meaning_en": "two",
-        "meaning_hira": "ふたつ"
+        "meaning_hira": "ふたつ",
+        "age_min": 5
       },
       {
         "word": "二度と",
@@ -3056,7 +3313,8 @@
         "band": 7000,
         "meaning_en": "never again; with a verb in the negative",
         "meaning_hira": "にどと",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -3081,7 +3339,8 @@
         "reading": "んち",
         "band": 1000,
         "meaning_en": "nth day (of the month); see:; 日; （; にち; 2. nth day (of the month)",
-        "meaning_hira": "んち"
+        "meaning_hira": "んち",
+        "age_min": 3
       },
       {
         "word": "日本",
@@ -3089,7 +3348,8 @@
         "band": 1000,
         "meaning_en": "Japan",
         "meaning_hira": "にほん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "日記",
@@ -3097,7 +3357,8 @@
         "band": 1000,
         "meaning_en": "diary; journal",
         "meaning_hira": "にっき",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "毎日",
@@ -3105,7 +3366,8 @@
         "band": 1000,
         "meaning_en": "every day; daily",
         "meaning_hira": "まいにち",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "日本人",
@@ -3113,14 +3375,16 @@
         "band": 1000,
         "meaning_en": "Japanese person",
         "meaning_hira": "にほんじん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "日ごろ",
         "reading": "ひごろ",
         "band": 15000,
         "meaning_en": "usually; habitually; always",
-        "meaning_hira": "ひごろ"
+        "meaning_hira": "ひごろ",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -3147,7 +3411,8 @@
         "reading": "いる",
         "band": 1000,
         "meaning_en": "to enter; to go in; to get in; mainly used in fixed expressions and literary language; see:; 入る; （; はいる; 1. to enter; to come in; to go in; to get in; to arrive",
-        "meaning_hira": "いる"
+        "meaning_hira": "いる",
+        "age_min": 3
       },
       {
         "word": "購入",
@@ -3155,14 +3420,16 @@
         "band": 1000,
         "meaning_en": "purchase; buying",
         "meaning_hira": "こうにゅう",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "入れる",
         "reading": "いれる",
         "band": 1000,
         "meaning_en": "to put in; to let in; to take in",
-        "meaning_hira": "いれる"
+        "meaning_hira": "いれる",
+        "age_min": 3
       },
       {
         "word": "入力",
@@ -3170,7 +3437,8 @@
         "band": 3000,
         "meaning_en": "input; (data) entry",
         "meaning_hira": "にゅうりょく",
-        "grade": 1
+        "grade": 1,
+        "age_min": 5
       },
       {
         "word": "導入",
@@ -3178,14 +3446,16 @@
         "band": 3000,
         "meaning_en": "introduction; bringing in; installation",
         "meaning_hira": "どうにゅう",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "入",
         "reading": "いり",
         "band": 7000,
         "meaning_en": "entering; entrance; entry",
-        "meaning_hira": "いり"
+        "meaning_hira": "いり",
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -3208,7 +3478,8 @@
         "reading": "とせ",
         "band": 1000,
         "meaning_en": "counter for years; following a number in the hito-futa-mi counting system",
-        "meaning_hira": "とせ"
+        "meaning_hira": "とせ",
+        "age_min": 12
       },
       {
         "word": "今年",
@@ -3216,7 +3487,8 @@
         "band": 1000,
         "meaning_en": "this year",
         "meaning_hira": "ことし",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "年間",
@@ -3224,7 +3496,8 @@
         "band": 1000,
         "meaning_en": "(period of) a year",
         "meaning_hira": "ねんかん",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "昨年",
@@ -3232,7 +3505,8 @@
         "band": 1000,
         "meaning_en": "last year",
         "meaning_hira": "さくねん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "年代",
@@ -3240,7 +3514,8 @@
         "band": 3000,
         "meaning_en": "age; era; period",
         "meaning_hira": "ねんだい",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -3266,21 +3541,24 @@
         "band": 1000,
         "meaning_en": "interesting; fascinating; intriguing",
         "meaning_hira": "おもしろい",
-        "grade": 3
+        "grade": 3,
+        "age_min": 3
       },
       {
         "word": "白",
         "reading": "しら",
         "band": 3000,
         "meaning_en": "white",
-        "meaning_hira": "しら"
+        "meaning_hira": "しら",
+        "age_min": 5
       },
       {
         "word": "白い",
         "reading": "しろい",
         "band": 3000,
         "meaning_en": "white",
-        "meaning_hira": "しろい"
+        "meaning_hira": "しろい",
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -3307,7 +3585,8 @@
         "reading": "はち",
         "band": 1000,
         "meaning_en": "eight; 8; 捌 is used in legal documents",
-        "meaning_hira": "はち"
+        "meaning_hira": "はち",
+        "age_min": 12
       },
       {
         "word": "八幡",
@@ -3315,7 +3594,8 @@
         "band": 15000,
         "meaning_en": "Hachiman (god of war); see:; 八幡神; Hachiman (god of war)",
         "meaning_hira": "はちまん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 12
       },
       {
         "word": "八王子",
@@ -3323,7 +3603,8 @@
         "band": 15000,
         "meaning_en": "Hachiōji (city)",
         "meaning_hira": "はちおうじ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -3344,7 +3625,8 @@
         "reading": "もも",
         "band": 1000,
         "meaning_en": "hundred; 100",
-        "meaning_hira": "もも"
+        "meaning_hira": "もも",
+        "age_min": 3
       },
       {
         "word": "百科",
@@ -3352,7 +3634,8 @@
         "band": 15000,
         "meaning_en": "many objects (for study)",
         "meaning_hira": "ひゃっか",
-        "grade": 2
+        "grade": 2,
+        "age_min": 12
       },
       {
         "word": "百貨店",
@@ -3360,7 +3643,8 @@
         "band": 15000,
         "meaning_en": "department store",
         "meaning_hira": "ひゃっかてん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -3385,14 +3669,16 @@
         "band": 1000,
         "meaning_en": "letter (of an alphabet); character",
         "meaning_hira": "もじ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 3
       },
       {
         "word": "文",
         "reading": "もん",
         "band": 3000,
         "meaning_en": "mon; one-thousandth of a kan (unit of currency 1336-1870)",
-        "meaning_hira": "もん"
+        "meaning_hira": "もん",
+        "age_min": 5
       },
       {
         "word": "文章",
@@ -3400,7 +3686,8 @@
         "band": 3000,
         "meaning_en": "writing; composition; essay",
         "meaning_hira": "ぶんしょう",
-        "grade": 3
+        "grade": 3,
+        "age_min": 12
       },
       {
         "word": "注文",
@@ -3408,7 +3695,8 @@
         "band": 3000,
         "meaning_en": "order (for an item)",
         "meaning_hira": "ちゅうもん",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "論文",
@@ -3416,7 +3704,8 @@
         "band": 3000,
         "meaning_en": "thesis; essay; treatise",
         "meaning_hira": "ろんぶん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -3441,7 +3730,8 @@
         "reading": "き",
         "band": 1000,
         "meaning_en": "tree; shrub; bush",
-        "meaning_hira": "き"
+        "meaning_hira": "き",
+        "age_min": 3
       },
       {
         "word": "青木",
@@ -3449,7 +3739,8 @@
         "band": 7000,
         "meaning_en": "Japanese laurel (Aucuba japonica); spotted laurel",
         "meaning_hira": "あおき",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "木曜日",
@@ -3457,7 +3748,8 @@
         "band": 7000,
         "meaning_en": "Thursday",
         "meaning_hira": "もくようび",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       }
     ],
     "meaning_en": "",
@@ -3480,7 +3772,8 @@
         "reading": "もと",
         "band": 1000,
         "meaning_en": "origin; source; beginning; esp. 元",
-        "meaning_hira": "もと"
+        "meaning_hira": "もと",
+        "age_min": 3
       },
       {
         "word": "基本",
@@ -3488,7 +3781,8 @@
         "band": 1000,
         "meaning_en": "basics; fundamentals; basis",
         "meaning_hira": "きほん",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "日本",
@@ -3496,7 +3790,8 @@
         "band": 1000,
         "meaning_en": "Japan",
         "meaning_hira": "にほん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "日本人",
@@ -3504,7 +3799,8 @@
         "band": 1000,
         "meaning_en": "Japanese person",
         "meaning_hira": "にほんじん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "日本語",
@@ -3512,7 +3808,8 @@
         "band": 1000,
         "meaning_en": "Japanese (language)",
         "meaning_hira": "にほんご",
-        "grade": 2
+        "grade": 2,
+        "age_min": 8
       },
       {
         "word": "本当に",
@@ -3520,7 +3817,8 @@
         "band": 1000,
         "meaning_en": "really; truly",
         "meaning_hira": "ほんとうに",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       }
     ],
     "meaning_en": "",
@@ -3544,7 +3842,8 @@
         "reading": "めい",
         "band": 1000,
         "meaning_en": "counter for people (usu. seating, reservations and such)",
-        "meaning_hira": "めい"
+        "meaning_hira": "めい",
+        "age_min": 3
       },
       {
         "word": "名前",
@@ -3552,7 +3851,8 @@
         "band": 1000,
         "meaning_en": "name",
         "meaning_hira": "なまえ",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "有名",
@@ -3560,7 +3860,8 @@
         "band": 3000,
         "meaning_en": "famous; well-known",
         "meaning_hira": "ゆうめい",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "名古屋",
@@ -3568,7 +3869,8 @@
         "band": 3000,
         "meaning_en": "Nagoya (city)",
         "meaning_hira": "なごや",
-        "grade": 3
+        "grade": 3,
+        "age_min": 8
       },
       {
         "word": "名無し",
@@ -3576,14 +3878,16 @@
         "band": 3000,
         "meaning_en": "being without a name; being nameless; namelessness",
         "meaning_hira": "ななし",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "名づける",
         "reading": "なづける",
         "band": 15000,
         "meaning_en": "to name; to call; to christen",
-        "meaning_hira": "なづける"
+        "meaning_hira": "なづける",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -3607,7 +3911,8 @@
         "reading": "もく",
         "band": 1000,
         "meaning_en": "order",
-        "meaning_hira": "もく"
+        "meaning_hira": "もく",
+        "age_min": 3
       },
       {
         "word": "目的",
@@ -3615,7 +3920,8 @@
         "band": 1000,
         "meaning_en": "purpose; goal; aim",
         "meaning_hira": "もくてき",
-        "grade": 9
+        "grade": 9,
+        "age_min": 8
       },
       {
         "word": "注目",
@@ -3623,7 +3929,8 @@
         "band": 3000,
         "meaning_en": "notice; attention; observation",
         "meaning_hira": "ちゅうもく",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "目指す",
@@ -3631,14 +3938,16 @@
         "band": 3000,
         "meaning_en": "to aim at (for, to do, to become); to try for; to have an eye on",
         "meaning_hira": "めざす",
-        "grade": 3
+        "grade": 3,
+        "age_min": 5
       },
       {
         "word": "お目にかかる",
         "reading": "おめにかかる",
         "band": 15000,
         "meaning_en": "to meet (someone of higher status); see:; 会う; 1. to meet; to encounter; to see; see:; 目にかかる; 1. to meet (someone of higher status)",
-        "meaning_hira": "おめにかかる"
+        "meaning_hira": "おめにかかる",
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -3664,7 +3973,8 @@
         "reading": "たつ",
         "band": 1000,
         "meaning_en": "to stand (up); to rise; to get to one's feet",
-        "meaning_hira": "たつ"
+        "meaning_hira": "たつ",
+        "age_min": 3
       },
       {
         "word": "立場",
@@ -3672,7 +3982,8 @@
         "band": 1000,
         "meaning_en": "position; situation",
         "meaning_hira": "たちば",
-        "grade": 2
+        "grade": 2,
+        "age_min": 3
       },
       {
         "word": "成立",
@@ -3680,7 +3991,8 @@
         "band": 3000,
         "meaning_en": "formation; establishment; materialization",
         "meaning_hira": "せいりつ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "独立",
@@ -3688,7 +4000,8 @@
         "band": 3000,
         "meaning_en": "independence; self-reliance; supporting oneself",
         "meaning_hira": "どくりつ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       },
       {
         "word": "設立",
@@ -3696,7 +4009,8 @@
         "band": 3000,
         "meaning_en": "establishment; founding",
         "meaning_hira": "せつりつ",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -3720,7 +4034,8 @@
         "reading": "ちから",
         "band": 1000,
         "meaning_en": "force; strength; might",
-        "meaning_hira": "ちから"
+        "meaning_hira": "ちから",
+        "age_min": 3
       },
       {
         "word": "努力",
@@ -3728,7 +4043,8 @@
         "band": 1000,
         "meaning_en": "effort; exertion; endeavour",
         "meaning_hira": "どりょく",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "能力",
@@ -3736,7 +4052,8 @@
         "band": 1000,
         "meaning_en": "ability; faculty",
         "meaning_hira": "のうりょく",
-        "grade": 9
+        "grade": 9,
+        "age_min": 3
       },
       {
         "word": "魅力",
@@ -3744,7 +4061,8 @@
         "band": 3000,
         "meaning_en": "charm; fascination; glamour",
         "meaning_hira": "みりょく",
-        "grade": 9
+        "grade": 9,
+        "age_min": 5
       }
     ],
     "meaning_en": "",
@@ -3767,7 +4085,8 @@
         "reading": "はやし",
         "band": 3000,
         "meaning_en": "wood; woods; forest",
-        "meaning_hira": "はやし"
+        "meaning_hira": "はやし",
+        "age_min": 5
       },
       {
         "word": "森林",
@@ -3775,7 +4094,8 @@
         "band": 7000,
         "meaning_en": "forest; woods",
         "meaning_hira": "しんりん",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       },
       {
         "word": "農林",
@@ -3783,7 +4103,8 @@
         "band": 7000,
         "meaning_en": "agriculture and forestry",
         "meaning_hira": "のうりん",
-        "grade": 3
+        "grade": 3,
+        "age_min": 12
       }
     ],
     "meaning_en": "",
@@ -3810,7 +4131,8 @@
         "reading": "ろく",
         "band": 1000,
         "meaning_en": "six; 6; 陸 is used in legal documents",
-        "meaning_hira": "ろく"
+        "meaning_hira": "ろく",
+        "age_min": 12
       },
       {
         "word": "六月",
@@ -3818,7 +4140,8 @@
         "band": 7000,
         "meaning_en": "June",
         "meaning_hira": "ろくがつ",
-        "grade": 1
+        "grade": 1,
+        "age_min": 8
       }
     ],
     "meaning_en": "",

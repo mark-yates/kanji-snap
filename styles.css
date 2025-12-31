@@ -1,0 +1,394 @@
+@font-face{
+  font-family:"KanjiFont";
+  src:url("./fonts/my-font.ttf") format("truetype");
+  font-display:swap;
+}
+
+:root{
+  --bg:#0b1220;
+  --border:rgba(233,238,252,.14);
+  --text:#e9eefc;
+  --muted:#a8b3cf;
+
+  --paper:#ffffff;
+  --paperBorder:rgba(0,0,0,.16);
+  --ink:#000000;
+  --inkMuted:rgba(0,0,0,.62);
+
+  --goodBg:#d1fae5;
+  --goodBorder:#22c55e;
+  --badBg:#fee2e2;
+  --badBorder:#ef4444;
+
+  --focus:#60a5fa;
+  --chip:rgba(233,238,252,.06);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(96,165,250,.18), transparent 55%),
+    radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.12), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans";
+  display:flex;
+  justify-content:center;
+  padding:16px;
+}
+
+.wrap{width:min(900px,100%)}
+.card{
+  background: linear-gradient(180deg, rgba(17,26,46,.95), rgba(17,26,46,.78));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:10px;
+}
+.title{font-weight:900; letter-spacing:.2px}
+.sub{color:var(--muted); font-size:12.5px; margin-top:2px}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:6px;
+  background:rgba(11,18,32,.35);
+  user-select:none;
+}
+.tab{
+  appearance:none;
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:900;
+  cursor:pointer;
+}
+.tab.active{
+  background:rgba(233,238,252,.07);
+  color:var(--text);
+  border:1px solid var(--border);
+}
+
+.view{display:none}
+.view.active{display:block}
+
+.row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:1px solid var(--border);
+  background:rgba(233,238,252,.04);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:900;
+}
+.btn:active{transform:scale(.995)}
+.btn:focus-visible{outline:3px solid rgba(96,165,250,.35); outline-offset:2px}
+
+.btnSmall{padding:8px 10px; border-radius:10px; font-weight:900}
+
+.pill{
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:8px 10px;
+  background:rgba(11,18,32,.35);
+  color:var(--muted);
+  font-size:12.5px;
+  white-space:nowrap;
+}
+
+.sectionTitle{font-weight:900; margin:10px 0 6px 0}
+.muted{color:var(--muted); font-size:13px; line-height:1.35}
+
+.settingsCard{
+  border:1px solid var(--border);
+  background: rgba(11,18,32,.25);
+  border-radius:16px;
+  padding:12px;
+  margin-top:10px;
+}
+.checks{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+label.check{
+  display:flex; gap:8px; align-items:center;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: var(--chip);
+  cursor:pointer;
+  user-select:none;
+  font-weight:900;
+}
+input[type="checkbox"]{
+  width:18px; height:18px;
+  accent-color: var(--focus);
+}
+
+.input{
+  width:100%;
+  border:1px solid var(--border);
+  background:rgba(11,18,32,.35);
+  color:var(--text);
+  padding:12px 12px;
+  border-radius:12px;
+  font-weight:800;
+}
+.input::placeholder{color:rgba(168,179,207,.85)}
+.input:focus{outline:3px solid rgba(96,165,250,.35); border-color:rgba(96,165,250,.45)}
+
+/* GAME */
+.hud{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; margin-bottom:10px;}
+
+.prompt{
+  border:2px solid var(--paperBorder);
+  background:var(--paper);
+  border-radius:16px;
+  min-height:170px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition: background-color .12s, border-color .12s;
+  user-select:none;
+}
+.prompt.correct{ background:var(--goodBg); border-color:var(--goodBorder); }
+.prompt.wrong{ background:var(--badBg); border-color:var(--badBorder); }
+
+.kanjiText{
+  font-family:"KanjiFont", system-ui, sans-serif;
+  font-size:96px;
+  line-height:1;
+  color:var(--ink);
+}
+
+.choices{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+button.choice{
+  border:2px solid var(--paperBorder);
+  background:var(--paper);
+  color:var(--ink);
+  border-radius:16px;
+  min-height:140px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  transition: background-color .12s, border-color .12s;
+  padding:12px;
+  text-align:center;
+  font-weight:900;
+  font-size:22px;
+}
+button.choice:disabled{cursor:default; opacity:1}
+button.choice.correct{ background:var(--goodBg); border-color:var(--goodBorder); }
+button.choice.wrong{ background:var(--badBg); border-color:var(--badBorder); }
+
+.badge{
+  position:absolute;
+  top:8px; right:8px;
+  font-size:12px;
+  color:var(--inkMuted);
+  border:1px solid var(--paperBorder);
+  background:rgba(255,255,255,.78);
+  border-radius:999px;
+  padding:5px 8px;
+}
+
+.meaningImg{max-width:100%; max-height:115px; width:auto; height:auto; display:block;}
+
+.meaningFallback{
+  width:100%;
+  aspect-ratio:1/1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+  border-radius:12px;
+  background:rgba(0,0,0,.03);
+  border:1px dashed rgba(0,0,0,.18);
+}
+
+/* bracket-colored rich fallback text */
+.fallbackRich{
+  font-size:22px;
+  font-weight:900;
+  line-height:1.15;
+  text-align:center;
+  word-break:break-word;
+  color:var(--ink);
+}
+.fg-strong{ color: var(--ink); }
+.fg-dim{ color: rgba(0,0,0,.50); }
+
+/* Dictionary */
+.dictTop{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  margin-top:10px;
+}
+.dictTop .input{flex:1}
+.dictLayout{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:12px;
+  margin-top:12px;
+}
+@media (min-width: 860px){
+  .dictLayout{grid-template-columns: 360px 1fr;}
+}
+.dictListPane, .dictDetailPane{
+  border:1px solid var(--border);
+  background: rgba(11,18,32,.25);
+  border-radius:16px;
+  padding:12px;
+}
+.dictListHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.dictList{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  max-height: 520px;
+  overflow:auto;
+  padding-right:4px;
+}
+.dictRowBtn{
+  width:100%;
+  text-align:left;
+  border:1px solid var(--border);
+  background: rgba(233,238,252,.04);
+  color: var(--text);
+  padding:10px 12px;
+  border-radius:14px;
+  cursor:pointer;
+}
+.dictRowBtn:active{transform:scale(.995)}
+.dictRowTop{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+}
+.dictRowKanji{
+  font-family:"KanjiFont", system-ui, sans-serif;
+  font-size:28px;
+  color: var(--text);
+}
+.dictRowMeta{
+  color: var(--muted);
+  font-size:12px;
+  white-space:nowrap;
+}
+.dictRowSub{
+  margin-top:4px;
+  color: var(--muted);
+  font-size:12.5px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.dictDetailEmpty{
+  color: var(--muted);
+  font-size:13px;
+  line-height:1.4;
+  padding:8px;
+}
+.dictDetailHeader{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+.dictBigKanji{
+  font-family:"KanjiFont", system-ui, sans-serif;
+  font-size:72px;
+  line-height:1;
+  color: var(--text);
+}
+.chips{display:flex; gap:6px; flex-wrap:wrap}
+.chipLight{
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:6px 10px;
+  color: var(--muted);
+  background: rgba(233,238,252,.05);
+  font-weight:800;
+  font-size:12.5px;
+}
+
+.dictRows{margin-top:10px; display:grid; gap:8px;}
+.rowKV{display:grid; grid-template-columns:110px 1fr; gap:8px; align-items:start;}
+.k{color: var(--muted); font-weight:900}
+.v{word-break:break-word}
+
+.mono{
+  margin-top:8px;
+  background:rgba(0,0,0,.12);
+  border:1px dashed rgba(233,238,252,.18);
+  border-radius:10px;
+  padding:10px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono";
+  white-space:pre-wrap;
+  font-size:12px;
+  max-height:260px;
+  overflow:auto;
+}
+
+/* Modal */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  z-index:50;
+}
+.overlay.show{display:flex}
+.modal{
+  width:min(520px,100%);
+  background:linear-gradient(180deg, rgba(17,26,46,.98), rgba(17,26,46,.92));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 18px 60px rgba(0,0,0,.45);
+  color:var(--text);
+}
+.modal h2{margin:0 0 8px 0; font-size:18px}
+.modal p{margin:0 0 12px 0; color:var(--muted); line-height:1.35}
+.modal .actions{display:flex; justify-content:flex-end; gap:10px}
