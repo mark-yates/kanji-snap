@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -18,12 +19,11 @@
 
     :root{
       --bg:#0b1220;
-      --card:#111a2e;
       --border:rgba(233,238,252,.14);
       --text:#e9eefc;
       --muted:#a8b3cf;
 
-      /* game surfaces */
+      /* light surfaces */
       --paper:#ffffff;
       --paperBorder:rgba(0,0,0,.16);
       --ink:#000000;
@@ -131,7 +131,6 @@
       white-space:nowrap;
     }
 
-    /* Home cards */
     .sectionTitle{font-weight:900; margin:10px 0 6px 0}
     .muted{color:var(--muted); font-size:13px; line-height:1.35}
 
@@ -236,6 +235,7 @@
       height:auto;
       display:block;
     }
+
     .meaningFallback{
       width:100%;
       aspect-ratio:1/1;
@@ -246,11 +246,19 @@
       border-radius:12px;
       background:rgba(0,0,0,.03);
       border:1px dashed rgba(0,0,0,.18);
+    }
+
+    /* bracket-colored rich fallback text */
+    .fallbackRich{
       font-size:22px;
       font-weight:900;
-      color:var(--ink);
       line-height:1.15;
+      text-align:center;
+      word-break:break-word;
+      color:var(--ink);
     }
+    .fg-strong{ color: var(--ink); }
+    .fg-dim{ color: rgba(0,0,0,.50); }
 
     /* Dictionary tile */
     .dictTile{
@@ -340,7 +348,7 @@
       <header>
         <div>
           <div class="title">Kanji Snap</div>
-          <div class="sub">Lives: start 10. Wrong: -3. Sneak Peek: -1 (once per question).</div>
+          <div class="sub">Lives: 10 • Wrong: -3 • Sneak Peek: -1 (once per question)</div>
         </div>
         <div class="tabs" role="tablist">
           <button class="tab active" id="tabHome" type="button">Home</button>
@@ -378,7 +386,7 @@
             <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
           </div>
           <div class="muted" style="margin-top:8px;">
-            Future grades (4–6) can be added later without changing the game logic.
+            Future grades (4–6) can be added later.
           </div>
         </div>
 
@@ -492,8 +500,39 @@
     return MEANING_IMG_DIR + encodeURIComponent(kanjiChar) + ".png";
   }
 
+  // --- Bracket-colored rendering ---
+  // If there are NO brackets at all -> render everything black (fg-strong)
+  // If there are brackets -> inside brackets black, outside brackets 50% grey
+  function renderBracketColored(container, s){
+    container.innerHTML = "";
+    const str = String(s ?? "");
+
+    if(!str.includes("[")){
+      const span = document.createElement("span");
+      span.className = "fg-strong";
+      span.textContent = str;
+      container.appendChild(span);
+      return;
+    }
+
+    const tokens = str.match(/\[[^\]]*\]|[^\[]+/g) || [str];
+    for(const t of tokens){
+      if(t.startsWith("[") && t.endsWith("]")){
+        const span = document.createElement("span");
+        span.className = "fg-strong";
+        span.textContent = t.slice(1, -1);
+        container.appendChild(span);
+      } else {
+        const span = document.createElement("span");
+        span.className = "fg-dim";
+        span.textContent = t;
+        container.appendChild(span);
+      }
+    }
+  }
+
   // --- Settings ---
-  const SETTINGS_KEY = "kanjiSnap.settings.v3";
+  const SETTINGS_KEY = "kanjiSnap.settings.v4";
   const DEFAULT_SETTINGS = {
     enabledGrades: { 1:true, 2:false, 3:false, 4:false, 5:false, 6:false },
   };
@@ -606,9 +645,9 @@
 
   function updateHomeSummary(){
     const enabled = getEnabledGrades();
-    const label = enabled.length ? enabled.map(g => "G"+g).join("+") : "none";
-    // pool size only known once loaded; show best effort
-    homePill.textContent = `Active grades: ${label}`;
+    homePill.textContent = enabled.length
+      ? `Active grades: ${enabled.map(g=>"G"+g).join("+")}`
+      : "Active grades: none";
   }
 
   function endGame(){
@@ -626,16 +665,21 @@
   }
   gameOverOk.addEventListener("click", backToHome);
 
-  function renderMeaningChoiceContent(btn, kanjiChar, hiraganaText){
+  function renderMeaningChoiceContent(btn, kanjiChar, fallbackText){
     const img = document.createElement("img");
     img.className = "meaningImg";
-    img.alt = hiraganaText;
+    img.alt = fallbackText;
 
     const fallback = () => {
       img.remove();
       const div = document.createElement("div");
       div.className = "meaningFallback";
-      div.textContent = hiraganaText;
+
+      const inner = document.createElement("div");
+      inner.className = "fallbackRich";
+      renderBracketColored(inner, fallbackText);
+
+      div.appendChild(inner);
       btn.appendChild(div);
     };
 
