@@ -2084,7 +2084,10 @@
     ],
     "meaning_en": "",
     "meaning_hira": "",
-    "label": "にん"
+    "label": "にん",
+    "visual_exclusion": [
+      "男"
+    ]
   },
   {
     "kanji": "水",
@@ -2135,7 +2138,10 @@
     ],
     "meaning_en": "",
     "meaning_hira": "",
-    "label": "すい"
+    "label": "すい",
+    "visual_exclusion": [
+      "川"
+    ]
   },
   {
     "kanji": "正",
@@ -2957,7 +2963,10 @@
     ],
     "meaning_en": "",
     "meaning_hira": "",
-    "label": "おとこ"
+    "label": "おとこ",
+    "visual_exclusion": [
+      "人"
+    ]
   },
   {
     "kanji": "竹",

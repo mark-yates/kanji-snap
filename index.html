@@ -35,15 +35,17 @@
           <button class="btn" id="startBtn" type="button">Start game</button>
         </div>
 
-        <div class="sectionTitle">Meaning quiz rules</div>
+        <div class="sectionTitle">Game rules</div>
         <div class="muted">
           Start with <b>10 lives</b>. Wrong answer: <b>-3 lives</b>. Sneak Peek: <b>-1 life</b> (charged once per question).
-          Tap the kanji tile to toggle Sneak Peek.
+          <br>
+          Some questions are <b>compound</b> questions (word in hiragana). You must select <b>two kanji</b>.
+          First pick turns <b>blue</b> (selection). Second pick reveals correct (green) and incorrect (red).
         </div>
 
         <div class="sectionTitle">Dictionary</div>
         <div class="muted">
-          Use Dictionary to look up kanji outside of a game. Search by kanji or reading text.
+          Look up kanji outside the game. Search by kanji or reading fields.
         </div>
 
         <div class="row" style="margin-top:12px;">
@@ -70,7 +72,7 @@
             <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
           </div>
           <div class="muted" style="margin-top:8px;">
-            (Later you can add grade-4..6 files without changing the app structure.)
+            Later you can add grade-4..6 files without changing the structure.
           </div>
         </div>
 
@@ -137,7 +139,9 @@
         </div>
 
         <div class="prompt" id="prompt" title="Tap to Sneak Peek">
-          <div class="kanjiText" id="kanjiPrompt">？</div>
+          <div class="promptInner" id="promptInner">
+            <div class="kanjiText" id="kanjiPrompt">？</div>
+          </div>
         </div>
 
         <div class="choices" id="choices"></div>
@@ -147,7 +151,7 @@
         </div>
 
         <div class="muted" style="margin-top:10px;">
-          Keyboard (desktop): 1–4 choose • P = peek • Space = skip
+          Keyboard (desktop): 1–4 pick • P = peek • Space = skip
         </div>
       </section>
     </div>
