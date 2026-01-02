@@ -204,12 +204,12 @@ function renderPeekCompound(q){
 
   const chips = document.createElement("div");
   chips.className = "chips";
+
   const chipKana = document.createElement("div");
   chipKana.className = "chipLight";
   chipKana.textContent = `かな: ${q.kana}`;
   chips.appendChild(chipKana);
 
-  // Show the effective grade (derived from word.grade or container kanji grade)
   const eg = q.meta?.__effectiveGrade;
   if(Number.isFinite(Number(eg))){
     const chipG = document.createElement("div");
@@ -239,7 +239,6 @@ function renderPeekCompound(q){
   addKV("Kanji 1", k1);
   addKV("Kanji 2", k2);
 
-  // Optional metadata fields if present
   if(q.meta){
     if(q.meta.band != null) addKV("band", String(q.meta.band));
     if(q.meta.age_min != null) addKV("age_min", String(q.meta.age_min));
@@ -364,19 +363,27 @@ function handleSingleAnswer(btn){
 
 function evaluateCompoundSecondPick(){
   const q = state.currentQuestion;
-  const correctSet = new Set(q.kanjiChars);
-  const pickedSet = new Set(state.compoundPicks);
-  const allCorrectPicked = q.kanjiChars.every(k => pickedSet.has(k)) && pickedSet.size === 2;
+
+  const correctSet = new Set(q.kanjiChars);      // the two correct kanji
+  const pickedSet = new Set(state.compoundPicks); // exactly two picks (second pick triggers evaluation)
+
+  const allCorrectPicked =
+    q.kanjiChars.every(k => pickedSet.has(k)) && pickedSet.size === 2;
 
   const buttons = [...document.querySelectorAll("button.choice")];
 
+  // NEW RULE:
+  // - correct answers: always green (even if not selected)
+  // - incorrect answers: red ONLY if the user selected them
   for(const b of buttons){
     const k = b.dataset.kanji;
-    b.classList.remove("selected");
+    b.classList.remove("selected", "correct", "wrong");
 
-    if(correctSet.has(k)) b.classList.add("correct");
-    else b.classList.add("wrong");
-
+    if(correctSet.has(k)){
+      b.classList.add("correct");
+    } else if(pickedSet.has(k)){
+      b.classList.add("wrong");
+    }
     b.disabled = true;
   }
 
@@ -486,7 +493,6 @@ export async function startQuizGame(){
     return;
   }
 
-  // Build compound candidates from embedded words arrays
   rebuildWordIndexForGrades(enabledGrades);
 
   state.score = 0;
