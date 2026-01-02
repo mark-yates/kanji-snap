@@ -11,7 +11,6 @@
   --muted:#a8b3cf;
 
   --paper:#ffffff;
-  --paperBorder:rgba(0,0,0,.16);
   --ink:#000000;
 
   --focus:#60a5fa;
@@ -82,7 +81,7 @@ body{
   border:1px solid var(--border);
 }
 
-/* ---------- Views ---------- */
+/* ---------- Views / Common ---------- */
 
 .view{display:none}
 .view.active{display:block}
@@ -122,7 +121,6 @@ body{
 .hud{display:flex; gap:10px; flex-wrap:wrap; margin:8px 0}
 
 .prompt{
-  border:2px solid var(--paperBorder);
   background:var(--paper);
   border-radius:16px;
   min-height:170px;
@@ -130,8 +128,11 @@ body{
   align-items:center;
   justify-content:center;
   cursor:pointer;
+
+  /* keep overlays clean */
   isolation:isolate;
   position:relative;
+  overflow:hidden;
 }
 
 .promptInner{
@@ -158,47 +159,57 @@ body{
   gap:10px;
 }
 
+/* Single clean tile: no border, no nested box look */
 button.choice{
-  border:2px solid var(--paperBorder);
+  border:0;
   background:var(--paper);
   border-radius:16px;
   min-height:140px;
+  padding:0;
+  cursor:pointer;
+
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:12px;
-  cursor:pointer;
+
   isolation:isolate;
   position:relative;
+  overflow:hidden;
 }
 
 .choiceKanji{
   font-family:"KanjiFont", sans-serif;
   font-size:72px;
   color:var(--ink);
+  position:relative;
+  z-index:1;
 }
 
+/* Images fill the entire tile */
 .meaningImg{
-  max-width:100%;
-  max-height:115px;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
-/* ---------- Fallback text ---------- */
-
+/* Fallback fills the entire tile (no inner borders) */
 .meaningFallback{
   width:100%;
-  aspect-ratio:1/1;
+  height:100%;
   display:flex;
   align-items:center;
   justify-content:center;
+  padding:14px;
   background:rgba(0,0,0,.03);
-  border:1px dashed rgba(0,0,0,.18);
-  border-radius:12px;
 }
 
 .fallbackRich{
   font-size:22px;
   font-weight:900;
+  line-height:1.15;
+  text-align:center;
+  word-break:break-word;
 }
 
 .fg-strong{color:#000}
@@ -240,7 +251,7 @@ button.choice.wrong::after,
   opacity:1;
 }
 
-/* ---------- Dictionary ---------- */
+/* ---------- Dictionary (unchanged styling baseline) ---------- */
 
 .dictTop{display:flex; gap:10px; margin-top:10px}
 .dictTop .input{flex:1}
