@@ -53,17 +53,12 @@ function renderChoices(options){
   choicesEl.innerHTML = "";
   choicesEl.style.display = "grid";
 
-  options.forEach((opt, idx) => {
+  options.forEach((opt) => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "choice";
     btn.dataset.ok = opt.ok ? "1" : "0";
     btn.dataset.kanji = opt.kanji;
-
-    const badge = document.createElement("span");
-    badge.className = "badge";
-    badge.textContent = String(idx + 1);
-    btn.appendChild(badge);
 
     renderMeaningChoiceContent(btn, opt.kanji, opt.meaning);
 
@@ -255,7 +250,6 @@ export async function startMeaningGame(){
 
 export function wireGameUI(){
   document.getElementById("exitBtn").addEventListener("click", () => {
-    // exit immediately back to home
     setActiveTab("home");
   });
 
@@ -266,7 +260,6 @@ export function wireGameUI(){
 
   document.getElementById("prompt").addEventListener("click", togglePeek);
 
-  // keyboard helpers
   window.addEventListener("keydown", (e) => {
     const viewGame = document.getElementById("viewGame");
     if(!viewGame.classList.contains("active")) return;
