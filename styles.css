@@ -163,7 +163,7 @@ body{
 button.choice{
   border:0;
   background:var(--paper);
-  border-radius:10px;
+  border-radius:6px;
   min-height:140px;
   padding:0;
   cursor:pointer;
@@ -320,5 +320,6 @@ button.choice.wrong::after,
   padding:16px;
   width:min(520px,100%);
 }
+
 
 
