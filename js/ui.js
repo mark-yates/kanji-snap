@@ -1,9 +1,10 @@
 import { constants } from "./state.js";
 
 export function registerServiceWorker(){
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js"));
-  }
+  if(!("serviceWorker" in navigator)) return;
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(() => {});
+  });
 }
 
 export function setActiveTab(which){
@@ -17,28 +18,30 @@ export function setActiveTab(which){
   const viewDictionary = document.getElementById("viewDictionary");
   const viewGame = document.getElementById("viewGame");
 
-  tabHome.classList.toggle("active", which === "home");
-  tabSettings.classList.toggle("active", which === "settings");
-  tabDictionary.classList.toggle("active", which === "dictionary");
-  tabGame.classList.toggle("active", which === "game");
+  tabHome?.classList.toggle("active", which === "home");
+  tabSettings?.classList.toggle("active", which === "settings");
+  tabDictionary?.classList.toggle("active", which === "dictionary");
+  tabGame?.classList.toggle("active", which === "game");
 
-  viewHome.classList.toggle("active", which === "home");
-  viewSettings.classList.toggle("active", which === "settings");
-  viewDictionary.classList.toggle("active", which === "dictionary");
-  viewGame.classList.toggle("active", which === "game");
+  viewHome?.classList.toggle("active", which === "home");
+  viewSettings?.classList.toggle("active", which === "settings");
+  viewDictionary?.classList.toggle("active", which === "dictionary");
+  viewGame?.classList.toggle("active", which === "game");
 
-  tabGame.style.display = (which === "game") ? "" : "none";
+  if(tabGame){
+    tabGame.style.display = (which === "game") ? "" : "none";
+  }
 }
 
 export function showGameOverModal(finalScore){
   const overlay = document.getElementById("overlay");
   const gameOverText = document.getElementById("gameOverText");
-  gameOverText.textContent = `Final score: ${finalScore}`;
-  overlay.classList.add("show");
+  if(gameOverText) gameOverText.textContent = `Final score: ${finalScore}`;
+  overlay?.classList.add("show");
 }
 
 export function hideGameOverModal(){
-  document.getElementById("overlay").classList.remove("show");
+  document.getElementById("overlay")?.classList.remove("show");
 }
 
 export function meaningImgUrlForKanji(kanjiChar){

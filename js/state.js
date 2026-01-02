@@ -1,20 +1,27 @@
 export const state = {
-  // settings (loaded by settings.js)
+  // settings
   settings: null,
 
-  // loaded data
+  // loaded kanji data
   loadedGrades: new Set(),
   kanjiById: new Map(),
 
+  // derived word/compound index built from kanji raw data
+  wordsIndexBuiltForGradesKey: "",  // e.g. "1,2,3"
+  compoundWords: [],                // [{kana, kanji, kanjiChars, meta}]
+  compoundByKanji: new Map(),       // kanjiChar -> list of compoundWord entries
+
   // game state
   pool: [],
-  current: null,
-  currentOptions: null,
+  currentQuestion: null,
   locked: false,
   score: 0,
   lives: 10,
   peekMode: false,
   peekChargedThisQuestion: false,
+
+  // compound selection state
+  compoundPicks: [],
 };
 
 export const constants = {
@@ -26,4 +33,7 @@ export const constants = {
   PAUSE_ENDGAME_MS: 700,
 
   MEANING_IMG_DIR: "./images/meaning/",
+
+  // probability that a new question is a compound (if eligible)
+  COMPOUND_PROBABILITY: 0.35
 };

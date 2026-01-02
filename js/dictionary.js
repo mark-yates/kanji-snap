@@ -1,4 +1,3 @@
-import { state } from "./state.js";
 import { ensureGradesLoaded, buildPoolForGrades } from "./data.js";
 import { getEnabledGrades } from "./settings.js";
 import { setActiveTab, el, addKV } from "./ui.js";
@@ -10,7 +9,7 @@ function normalizeQuery(q){
 function matches(record, q){
   if(!q) return true;
 
-  // basic search fields (expand later)
+  // Keep it simple + fast: direct substring match (Japanese text is case-less anyway)
   const hay = [
     record.id,
     record.meaningKey,
@@ -18,6 +17,7 @@ function matches(record, q){
     ...(record.kun || []),
     record.raw?.label || "",
     record.raw?.meaning_hira || "",
+    record.raw?.meaning_en || ""
   ].join(" ");
 
   return hay.includes(q);
@@ -28,12 +28,10 @@ function renderListItem(record, onSelect){
   btn.type = "button";
 
   const top = el("div", "dictRowTop");
-
-  const left = el("div", "dictRowKanji", record.id);
-  const right = el("div", "dictRowMeta", `G${record.grade}`);
-
-  top.appendChild(left);
-  top.appendChild(right);
+  const k = el("div", "dictRowKanji", record.id);
+  const meta = el("div", "dictRowMeta", `G${record.grade}`);
+  top.appendChild(k);
+  top.appendChild(meta);
 
   const sub = el("div", "dictRowSub", record.meaningKey);
 
@@ -47,26 +45,37 @@ function renderListItem(record, onSelect){
 function renderDetail(record){
   const empty = document.getElementById("dictEmpty");
   const detail = document.getElementById("dictDetail");
-  empty.style.display = "none";
-  detail.style.display = "";
+  if(empty) empty.style.display = "none";
+  if(detail) detail.style.display = "";
 
-  document.getElementById("dictBigKanji").textContent = record.id;
+  const big = document.getElementById("dictBigKanji");
+  if(big) big.textContent = record.id;
 
   const chips = document.getElementById("dictChips");
-  chips.innerHTML = "";
-  chips.appendChild(el("div", "chipLight", `Grade G${record.grade}`));
-  if(record.on?.length) chips.appendChild(el("div", "chipLight", `音: ${record.on.join("、")}`));
-  if(record.kun?.length) chips.appendChild(el("div", "chipLight", `訓: ${record.kun.join("、")}`));
+  if(chips){
+    chips.innerHTML = "";
+    chips.appendChild(el("div", "chipLight", `Grade G${record.grade}`));
+    if(record.on?.length) chips.appendChild(el("div", "chipLight", `音: ${record.on.join("、")}`));
+    if(record.kun?.length) chips.appendChild(el("div", "chipLight", `訓: ${record.kun.join("、")}`));
+  }
 
   const rows = document.getElementById("dictRows");
-  rows.innerHTML = "";
-  addKV(rows, "Meaning", record.meaningKey);
-  if(record.raw?.label) addKV(rows, "Label", String(record.raw.label));
-  if(record.raw?.meaning_hira) addKV(rows, "meaning_hira", String(record.raw.meaning_hira));
-  if(record.on?.length) addKV(rows, "onyomi", record.on.join("、"));
-  if(record.kun?.length) addKV(rows, "kunyomi", record.kun.join("、"));
+  if(rows){
+    rows.innerHTML = "";
+    addKV(rows, "Meaning (hira)", record.meaningKey);
 
-  document.getElementById("dictRaw").textContent = JSON.stringify(record.raw, null, 2);
+    if(record.raw?.meaning_en) addKV(rows, "Meaning (en)", String(record.raw.meaning_en));
+    if(record.raw?.label) addKV(rows, "Label", String(record.raw.label));
+    if(record.raw?.meaning_hira) addKV(rows, "meaning_hira", String(record.raw.meaning_hira));
+    if(record.on?.length) addKV(rows, "onyomi", record.on.join("、"));
+    if(record.kun?.length) addKV(rows, "kunyomi", record.kun.join("、"));
+
+    // A couple of useful metadata fields if present
+    if(record.raw?.kyoiku_index != null) addKV(rows, "kyoiku_index", String(record.raw.kyoiku_index));
+  }
+
+  const rawPre = document.getElementById("dictRaw");
+  if(rawPre) rawPre.textContent = JSON.stringify(record.raw, null, 2);
 }
 
 export function wireDictionaryUI(){
@@ -75,72 +84,62 @@ export function wireDictionaryUI(){
   const countEl = document.getElementById("dictCount");
   const statusPill = document.getElementById("dictStatusPill");
 
-  let currentResults = [];
-
   async function refresh(){
     const enabledGrades = getEnabledGrades();
+
     if(enabledGrades.length === 0){
-      statusPill.textContent = "Enable grades in Settings";
-      listEl.innerHTML = "";
-      countEl.textContent = "0 results";
-      document.getElementById("dictEmpty").style.display = "";
-      document.getElementById("dictDetail").style.display = "none";
+      if(statusPill) statusPill.textContent = "Enable grades in Settings";
+      if(listEl) listEl.innerHTML = "";
+      if(countEl) countEl.textContent = "0 results";
+      const empty = document.getElementById("dictEmpty");
+      const detail = document.getElementById("dictDetail");
+      if(empty) empty.style.display = "";
+      if(detail) detail.style.display = "none";
       return;
     }
 
-    statusPill.textContent = "Loading…";
+    if(statusPill) statusPill.textContent = "Loading…";
     await ensureGradesLoaded(enabledGrades);
 
     const pool = buildPoolForGrades(enabledGrades);
-    const q = normalizeQuery(searchEl.value);
-    const q2 = q; // intentionally simple; kana/katakana normalization later
+    const q = normalizeQuery(searchEl?.value);
 
-    currentResults = pool.filter(r => matches(r, q2));
+    const results = pool.filter(r => matches(r, q));
 
-    // If query looks like kanji and is 1 char, prefer exact-first
-    if(q2.length === 1){
-      currentResults.sort((a,b) => (a.id === q2 ? -1 : 0) - (b.id === q2 ? -1 : 0));
+    if(listEl){
+      listEl.innerHTML = "";
+      results.forEach(rec => listEl.appendChild(renderListItem(rec, renderDetail)));
     }
 
-    listEl.innerHTML = "";
-    currentResults.forEach(rec => {
-      listEl.appendChild(renderListItem(rec, renderDetail));
-    });
+    if(countEl) countEl.textContent = `${results.length} results`;
+    if(statusPill) statusPill.textContent = `Grades: ${enabledGrades.map(g => "G" + g).join("+")}`;
 
-    countEl.textContent = `${currentResults.length} results`;
-    statusPill.textContent = `Grades: ${enabledGrades.map(g=>"G"+g).join("+")}`;
-
-    // If exactly one result and the query is non-empty, auto-open it
-    if(q2 && currentResults.length === 1){
-      renderDetail(currentResults[0]);
-    } else if(!document.getElementById("dictDetail").style.display || document.getElementById("dictDetail").style.display === "none"){
-      // keep empty state
-      document.getElementById("dictEmpty").style.display = "";
+    // Auto-open if there's exactly one result and a query exists
+    if(q && results.length === 1){
+      renderDetail(results[0]);
     }
   }
 
-  // public hooks
   async function openDictionary(){
     setActiveTab("dictionary");
-    searchEl.focus();
+    searchEl?.focus();
     await refresh();
   }
 
-  // wire UI
-  document.getElementById("dictBackBtn").addEventListener("click", () => setActiveTab("home"));
-  document.getElementById("goDictionaryBtn")?.addEventListener("click", openDictionary);
-
-  searchEl.addEventListener("input", () => refresh().catch(err => alert(String(err))));
-  document.getElementById("dictClearBtn").addEventListener("click", () => {
-    searchEl.value = "";
-    refresh().catch(err => alert(String(err)));
-    searchEl.focus();
-  });
-
-  // expose method via window for app.js (simple, no framework)
+  // Expose for app.js and the Home button
   window.__openDictionary = openDictionary;
 
-  // initial status
-  statusPill.textContent = "…";
-  countEl.textContent = "0 results";
+  document.getElementById("dictBackBtn")?.addEventListener("click", () => setActiveTab("home"));
+
+  searchEl?.addEventListener("input", () => refresh().catch(err => alert(String(err))));
+
+  document.getElementById("dictClearBtn")?.addEventListener("click", () => {
+    if(searchEl) searchEl.value = "";
+    refresh().catch(err => alert(String(err)));
+    searchEl?.focus();
+  });
+
+  // Initial UI state
+  if(statusPill) statusPill.textContent = "…";
+  if(countEl) countEl.textContent = "0 results";
 }

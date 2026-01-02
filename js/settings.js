@@ -1,10 +1,10 @@
 import { state } from "./state.js";
 import { GRADE_FILES } from "./data.js";
 
-const SETTINGS_KEY = "kanjiSnap.settings.v5";
+const SETTINGS_KEY = "kanjiSnap.settings.v7";
 
 export const DEFAULT_SETTINGS = {
-  enabledGrades: { 1:true, 2:false, 3:false, 4:false, 5:false, 6:false },
+  enabledGrades: { 1:true, 2:false, 3:false, 4:false, 5:false, 6:false }
 };
 
 export function loadSettings(){
@@ -25,8 +25,10 @@ export function loadSettings(){
 export function saveSettings(){
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(state.settings));
   const savedPill = document.getElementById("savedPill");
-  savedPill.textContent = "Saved ✓";
-  setTimeout(() => savedPill.textContent = "Saved", 900);
+  if(savedPill){
+    savedPill.textContent = "Saved ✓";
+    setTimeout(() => savedPill.textContent = "Saved", 900);
+  }
 }
 
 export function getEnabledGrades(){
@@ -42,16 +44,16 @@ export function initSettingsUI(onSettingsChanged){
   const resetBtn = document.getElementById("resetSettingsBtn");
 
   function sync(){
-    chkG1.checked = !!state.settings.enabledGrades[1];
-    chkG2.checked = !!state.settings.enabledGrades[2];
-    chkG3.checked = !!state.settings.enabledGrades[3];
+    if(chkG1) chkG1.checked = !!state.settings.enabledGrades[1];
+    if(chkG2) chkG2.checked = !!state.settings.enabledGrades[2];
+    if(chkG3) chkG3.checked = !!state.settings.enabledGrades[3];
   }
 
-  chkG1.addEventListener("change", () => { state.settings.enabledGrades[1]=chkG1.checked; saveSettings(); onSettingsChanged?.(); });
-  chkG2.addEventListener("change", () => { state.settings.enabledGrades[2]=chkG2.checked; saveSettings(); onSettingsChanged?.(); });
-  chkG3.addEventListener("change", () => { state.settings.enabledGrades[3]=chkG3.checked; saveSettings(); onSettingsChanged?.(); });
+  chkG1?.addEventListener("change", () => { state.settings.enabledGrades[1]=chkG1.checked; saveSettings(); onSettingsChanged?.(); });
+  chkG2?.addEventListener("change", () => { state.settings.enabledGrades[2]=chkG2.checked; saveSettings(); onSettingsChanged?.(); });
+  chkG3?.addEventListener("change", () => { state.settings.enabledGrades[3]=chkG3.checked; saveSettings(); onSettingsChanged?.(); });
 
-  resetBtn.addEventListener("click", () => {
+  resetBtn?.addEventListener("click", () => {
     state.settings = structuredClone(DEFAULT_SETTINGS);
     saveSettings();
     sync();

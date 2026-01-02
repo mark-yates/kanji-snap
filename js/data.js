@@ -3,7 +3,7 @@ import { state } from "./state.js";
 export const GRADE_FILES = {
   1: "./grade-1.json",
   2: "./grade-2.json",
-  3: "./grade-3.json",
+  3: "./grade-3.json"
   // 4: "./grade-4.json",
   // 5: "./grade-5.json",
   // 6: "./grade-6.json",
