@@ -297,7 +297,6 @@ function buildCompoundQuestion(eligibleWords){
 async function pickNextQuestion(){
   const eligible = getEligibleCompoundWords(state.pool);
   const wantCompound = (Math.random() < constants.COMPOUND_PROBABILITY) && eligible.length > 0;
-
   if(wantCompound) return buildCompoundQuestion(eligible);
   return buildSingleQuestion();
 }
@@ -364,17 +363,15 @@ function handleSingleAnswer(btn){
 function evaluateCompoundSecondPick(){
   const q = state.currentQuestion;
 
-  const correctSet = new Set(q.kanjiChars);      // the two correct kanji
-  const pickedSet = new Set(state.compoundPicks); // exactly two picks (second pick triggers evaluation)
+  const correctSet = new Set(q.kanjiChars);
+  const pickedSet = new Set(state.compoundPicks);
 
   const allCorrectPicked =
     q.kanjiChars.every(k => pickedSet.has(k)) && pickedSet.size === 2;
 
   const buttons = [...document.querySelectorAll("button.choice")];
 
-  // NEW RULE:
-  // - correct answers: always green (even if not selected)
-  // - incorrect answers: red ONLY if the user selected them
+  // Correct always green; incorrect only red if selected
   for(const b of buttons){
     const k = b.dataset.kanji;
     b.classList.remove("selected", "correct", "wrong");
@@ -384,6 +381,7 @@ function evaluateCompoundSecondPick(){
     } else if(pickedSet.has(k)){
       b.classList.add("wrong");
     }
+
     b.disabled = true;
   }
 
@@ -415,7 +413,7 @@ function handleCompoundPick(btn){
   state.compoundPicks.push(k);
 
   if(state.compoundPicks.length === 1){
-    btn.classList.add("selected"); // blue overlay
+    btn.classList.add("selected");
     return;
   }
 
@@ -461,7 +459,6 @@ function togglePeek(){
     } else {
       renderChoicesKanji(state.currentQuestion.answers);
 
-      // Restore blue selection if the user already made the first pick
       if(state.compoundPicks.length === 1){
         const picked = state.compoundPicks[0];
         const btns = [...document.querySelectorAll("button.choice")];
@@ -513,11 +510,6 @@ export function wireGameUI(){
     setActiveTab("home");
   });
 
-  document.getElementById("skipBtn")?.addEventListener("click", () => {
-    if(state.locked || state.peekMode) return;
-    newQuestion().catch(err => alert(String(err)));
-  });
-
   document.getElementById("prompt")?.addEventListener("click", () => togglePeek());
 
   window.addEventListener("keydown", (e) => {
@@ -526,12 +518,6 @@ export function wireGameUI(){
 
     const overlay = document.getElementById("overlay");
     if(overlay?.classList.contains("show")) return;
-
-    if(e.key === " "){
-      e.preventDefault();
-      if(!state.locked && !state.peekMode) newQuestion().catch(() => {});
-      return;
-    }
 
     if(e.key.toLowerCase() === "p"){
       togglePeek();
