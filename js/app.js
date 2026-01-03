@@ -1,9 +1,10 @@
 import { state } from "./state.js";
 import { registerServiceWorker, setActiveTab, hideGameOverModal } from "./ui.js";
-import { loadSettings, initSettingsUI, getEnabledGrades } from "./settings.js";
-import { ensureGradesLoaded, buildPoolForGrades } from "./data.js";
+import { loadSettings, initSettingsUI, getEnabledGrades, getOverrideCount } from "./settings.js";
+import { ensureGradesLoaded } from "./data.js";
 import { startQuizGame, wireGameUI } from "./game-quiz.js";
 import { wireDictionaryUI } from "./dictionary.js";
+import { wireKanjiPickerUI, openKanjiPicker } from "./kanji-picker.js";
 
 function updateHomePill(){
   const enabled = getEnabledGrades();
@@ -11,16 +12,14 @@ function updateHomePill(){
   if(!homePill) return;
 
   homePill.textContent = enabled.length
-    ? `Active grades: ${enabled.map(g => "G" + g).join("+")}`
-    : "Active grades: none";
+    ? `Active grades: ${enabled.map(g => "G" + g).join("+")} • Overrides: ${getOverrideCount()}`
+    : `Active grades: none • Overrides: ${getOverrideCount()}`;
 }
 
 async function warmLoadForUX(){
   const enabled = getEnabledGrades();
-  // Optional: preload Grade 1 to make first interaction snappy
   if(enabled.includes(1)){
     await ensureGradesLoaded([1]);
-    buildPoolForGrades(enabled);
   }
 }
 
@@ -28,6 +27,7 @@ function wireTabs(){
   document.getElementById("tabHome")?.addEventListener("click", () => setActiveTab("home"));
   document.getElementById("tabSettings")?.addEventListener("click", () => setActiveTab("settings"));
   document.getElementById("tabDictionary")?.addEventListener("click", () => setActiveTab("dictionary"));
+  document.getElementById("tabKanji")?.addEventListener("click", () => openKanjiPicker().catch(err => alert(String(err))));
   document.getElementById("tabGame")?.addEventListener("click", () => setActiveTab("game"));
 
   document.getElementById("goSettingsBtn")?.addEventListener("click", () => setActiveTab("settings"));
@@ -43,6 +43,10 @@ function wireHome(){
   document.getElementById("goDictionaryBtn")?.addEventListener("click", () => {
     if(window.__openDictionary) window.__openDictionary();
     else setActiveTab("dictionary");
+  });
+
+  document.getElementById("goKanjiBtn")?.addEventListener("click", () => {
+    openKanjiPicker().catch(err => alert(String(err)));
   });
 }
 
@@ -61,6 +65,10 @@ async function onSettingsChanged(){
   if(viewDict?.classList.contains("active") && window.__openDictionary){
     await window.__openDictionary();
   }
+
+  // Update override pill on settings
+  const overridePill = document.getElementById("overridePill");
+  if(overridePill) overridePill.textContent = `Overrides: ${getOverrideCount()}`;
 }
 
 (async function main(){
@@ -72,6 +80,7 @@ async function onSettingsChanged(){
   wireHome();
   wireGameUI();
   wireDictionaryUI();
+  wireKanjiPickerUI();
   wireModal();
 
   initSettingsUI(onSettingsChanged);

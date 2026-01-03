@@ -1,12 +1,11 @@
 import { state } from "./state.js";
+import { isKanjiEnabled } from "./settings.js";
 
 export const GRADE_FILES = {
   1: "./grade-1.json",
   2: "./grade-2.json",
   3: "./grade-3.json"
-  // 4: "./grade-4.json",
-  // 5: "./grade-5.json",
-  // 6: "./grade-6.json",
+  // add 4..6 later
 };
 
 export function normalizeKanjiEntry(raw){
@@ -17,7 +16,6 @@ export function normalizeKanjiEntry(raw){
   const kun = Array.isArray(raw.kunyomi) ? raw.kunyomi : [];
 
   // Placeholder meaning fallback:
-  // meaning_hira > label > kunyomi[0] (sanitized) > みてい
   let meaningKey = (raw.meaning_hira || "").trim();
   if(!meaningKey){
     const label = (raw.label || "").trim();
@@ -54,7 +52,27 @@ export async function ensureGradesLoaded(grades){
   for(const g of grades) await loadGrade(g);
 }
 
+/**
+ * Pool now respects individual overrides:
+ * - include if isKanjiEnabled(id, grade) is true
+ */
 export function buildPoolForGrades(grades){
-  const enabled = new Set(grades);
-  return [...state.kanjiById.values()].filter(k => enabled.has(k.grade));
+  const enabledGrades = new Set(grades);
+  return [...state.kanjiById.values()].filter(k =>
+    enabledGrades.has(k.grade) && isKanjiEnabled(k.id, k.grade)
+  );
+}
+
+/**
+ * Utility for kanji picker: get all kanji for a grade, ordered by kyoiku_index then kanji.
+ */
+export function getKanjiForGradeSorted(grade){
+  const items = [...state.kanjiById.values()].filter(k => k.grade === grade);
+  items.sort((a,b) => {
+    const ai = Number(a.raw?.kyoiku_index ?? 1e9);
+    const bi = Number(b.raw?.kyoiku_index ?? 1e9);
+    if(ai !== bi) return ai - bi;
+    return a.id.localeCompare(b.id);
+  });
+  return items;
 }
