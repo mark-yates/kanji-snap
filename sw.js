@@ -1,4 +1,4 @@
-const CACHE_NAME = "kanji-snap-v18";
+const CACHE_NAME = "kanji-snap-v18.1";
 
 const ASSETS = [
   "./",
@@ -51,3 +51,4 @@ self.addEventListener("fetch", event => {
     )
   );
 });
+
