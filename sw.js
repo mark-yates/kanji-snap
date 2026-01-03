@@ -1,4 +1,4 @@
-const CACHE_NAME = "kanji-snap-v20";
+const CACHE_NAME = "kanji-snap-v21";
 
 const ASSETS = [
   "./",
