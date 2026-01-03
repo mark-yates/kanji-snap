@@ -51,7 +51,6 @@ body{
 }
 
 .title{font-weight:900}
-.sub{color:var(--muted); font-size:12.5px}
 
 .tabs{
   display:flex;
@@ -148,7 +147,7 @@ body{
 
 .prompt{
   background:var(--paper);
-  border-radius:6px;  /* you set this */
+  border-radius:6px;
   min-height:170px;
   display:flex;
   align-items:center;
@@ -177,13 +176,13 @@ body{
   margin-top:12px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:6px; /* you set this */
+  gap:6px;
 }
 
 button.choice{
   border:0;
   background:var(--paper);
-  border-radius:6px;  /* you set this */
+  border-radius:6px;
   min-height:140px;
   padding:0;
   cursor:pointer;
@@ -258,83 +257,84 @@ button.choice.correct::after,
 button.choice.wrong::after,
 .prompt.wrong::after{ background:rgba(239,68,68,.5); opacity:1; }
 
-/* ---------- Kanji Picker ---------- */
+/* ---------- NEW: History ---------- */
 
-.kanjiGroup{
-  margin-top:14px;
+.history{
+  margin-top:12px;
   border:1px solid var(--border);
-  border-radius:16px;
-  padding:12px;
-  background:rgba(11,18,32,.25);
+  border-radius:14px;
+  padding:10px;
+  background:rgba(11,18,32,.20);
 }
 
-.kanjiGroupHeader{
+.historyHeader{
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  align-items:baseline;
   gap:10px;
   flex-wrap:wrap;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
-.kanjiGroupTitle{
+.historyTitle{
   font-weight:900;
-  display:flex;
-  gap:10px;
-  align-items:baseline;
 }
 
-.kanjiGroupSub{
+.historyHint{
   color:var(--muted);
   font-size:12.5px;
-  font-weight:700;
 }
 
-.kanjiGroupActions{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.kanjiGrid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(48px, 1fr));
-  gap:8px;
-}
-
-.kanjiBtn{
+.historyRow{
+  width:100%;
+  text-align:left;
   border:1px solid var(--border);
   background:rgba(233,238,252,.04);
   color:var(--text);
   border-radius:12px;
-  height:48px;
+  padding:10px;
   cursor:pointer;
-  font-family:"KanjiFont", sans-serif;
-  font-size:22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:8px;
+}
+
+.historyRow:last-child{ margin-bottom:0; }
+
+.historyLeft{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+
+.historyMark{
+  width:22px;
+  height:22px;
+  border-radius:6px;
   display:flex;
   align-items:center;
   justify-content:center;
-  position:relative;
+  font-weight:900;
+  flex:0 0 auto;
 }
 
-.kanjiBtn.on{
-  background:rgba(34,197,94,.14);
-  border-color:rgba(34,197,94,.35);
+.historyMark.ok{ background:rgba(34,197,94,.20); border:1px solid rgba(34,197,94,.35); }
+.historyMark.bad{ background:rgba(239,68,68,.20); border:1px solid rgba(239,68,68,.35); }
+
+.historyQ{
+  font-weight:900;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-.kanjiBtn.off{
-  opacity:.55;
-}
-
-.kanjiBtn.override::after{
-  content:"";
-  position:absolute;
-  top:6px;
-  right:6px;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:rgba(96,165,250,.9);
+.historyRight{
+  color:var(--muted);
+  font-size:12.5px;
+  flex:0 0 auto;
 }
 
 /* ---------- Dictionary ---------- */
