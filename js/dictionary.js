@@ -9,7 +9,6 @@ function normalizeQuery(q){
 function matches(record, q){
   if(!q) return true;
 
-  // Keep it simple + fast: direct substring match (Japanese text is case-less anyway)
   const hay = [
     record.id,
     record.meaningKey,
@@ -70,7 +69,6 @@ function renderDetail(record){
     if(record.on?.length) addKV(rows, "onyomi", record.on.join("、"));
     if(record.kun?.length) addKV(rows, "kunyomi", record.kun.join("、"));
 
-    // A couple of useful metadata fields if present
     if(record.raw?.kyoiku_index != null) addKV(rows, "kyoiku_index", String(record.raw.kyoiku_index));
   }
 
@@ -95,7 +93,7 @@ export function wireDictionaryUI(){
       const detail = document.getElementById("dictDetail");
       if(empty) empty.style.display = "";
       if(detail) detail.style.display = "none";
-      return;
+      return [];
     }
 
     if(statusPill) statusPill.textContent = "Loading…";
@@ -114,10 +112,11 @@ export function wireDictionaryUI(){
     if(countEl) countEl.textContent = `${results.length} results`;
     if(statusPill) statusPill.textContent = `Grades: ${enabledGrades.map(g => "G" + g).join("+")}`;
 
-    // Auto-open if there's exactly one result and a query exists
     if(q && results.length === 1){
       renderDetail(results[0]);
     }
+
+    return results;
   }
 
   async function openDictionary(){
@@ -126,8 +125,22 @@ export function wireDictionaryUI(){
     await refresh();
   }
 
-  // Expose for app.js and the Home button
+  async function openDictionaryWithQuery(query){
+    setActiveTab("dictionary");
+    if(searchEl) searchEl.value = String(query ?? "");
+    searchEl?.focus();
+    const results = await refresh();
+
+    // If query is exactly a single kanji and it exists in results, auto-open it
+    const q = normalizeQuery(query);
+    if(q.length === 1){
+      const hit = results.find(r => r.id === q);
+      if(hit) renderDetail(hit);
+    }
+  }
+
   window.__openDictionary = openDictionary;
+  window.__openDictionaryWithQuery = openDictionaryWithQuery;
 
   document.getElementById("dictBackBtn")?.addEventListener("click", () => setActiveTab("home"));
 
@@ -139,7 +152,6 @@ export function wireDictionaryUI(){
     searchEl?.focus();
   });
 
-  // Initial UI state
   if(statusPill) statusPill.textContent = "…";
   if(countEl) countEl.textContent = "0 results";
 }

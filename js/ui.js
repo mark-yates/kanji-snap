@@ -1,4 +1,4 @@
-import { constants } from "./state.js";
+import { state, constants } from "./state.js";
 
 export function registerServiceWorker(){
   if(!("serviceWorker" in navigator)) return;
@@ -11,30 +11,31 @@ export function setActiveTab(which){
   const tabHome = document.getElementById("tabHome");
   const tabSettings = document.getElementById("tabSettings");
   const tabDictionary = document.getElementById("tabDictionary");
-  const tabKanji = document.getElementById("tabKanji");           // NEW
+  const tabKanji = document.getElementById("tabKanji");
   const tabGame = document.getElementById("tabGame");
 
   const viewHome = document.getElementById("viewHome");
   const viewSettings = document.getElementById("viewSettings");
   const viewDictionary = document.getElementById("viewDictionary");
-  const viewKanji = document.getElementById("viewKanji");          // NEW
+  const viewKanji = document.getElementById("viewKanji");
   const viewGame = document.getElementById("viewGame");
 
   tabHome?.classList.toggle("active", which === "home");
   tabSettings?.classList.toggle("active", which === "settings");
   tabDictionary?.classList.toggle("active", which === "dictionary");
-  tabKanji?.classList.toggle("active", which === "kanji");         // NEW
+  tabKanji?.classList.toggle("active", which === "kanji");
   tabGame?.classList.toggle("active", which === "game");
 
   viewHome?.classList.toggle("active", which === "home");
   viewSettings?.classList.toggle("active", which === "settings");
   viewDictionary?.classList.toggle("active", which === "dictionary");
-  viewKanji?.classList.toggle("active", which === "kanji");        // NEW
+  viewKanji?.classList.toggle("active", which === "kanji");
   viewGame?.classList.toggle("active", which === "game");
 
-  // Only show the Game tab button when actually in the game view
+  // Show the Game tab while a game is active (so you can return after opening Dictionary)
   if(tabGame){
-    tabGame.style.display = (which === "game") ? "" : "none";
+    const gameActive = !!state.currentQuestion && state.lives > 0;
+    tabGame.style.display = gameActive ? "" : "none";
   }
 }
 

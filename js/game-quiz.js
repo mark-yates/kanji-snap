@@ -9,6 +9,8 @@ import {
   showGameOverModal
 } from "./ui.js";
 
+const MAX_HISTORY = 8;
+
 function rand(n){ return Math.floor(Math.random() * n); }
 function shuffle(arr){
   for(let i = arr.length - 1; i > 0; i--){
@@ -52,6 +54,70 @@ function setPromptKana(text){
   div.className = "kanaText";
   div.textContent = text;
   inner.appendChild(div);
+}
+
+/* ---------- History ---------- */
+
+function ensureHistory(){
+  if(!Array.isArray(state.history)) state.history = [];
+}
+
+function addHistoryEntry(entry){
+  ensureHistory();
+  state.history.unshift(entry);
+  if(state.history.length > MAX_HISTORY) state.history.length = MAX_HISTORY;
+  renderHistory();
+}
+
+function renderHistory(){
+  ensureHistory();
+  const host = document.getElementById("historyList");
+  if(!host) return;
+
+  host.innerHTML = "";
+
+  for(const h of state.history){
+    const row = document.createElement("button");
+    row.type = "button";
+    row.className = "historyRow";
+
+    const left = document.createElement("div");
+    left.className = "historyLeft";
+
+    const mark = document.createElement("div");
+    mark.className = "historyMark " + (h.ok ? "ok" : "bad");
+    mark.textContent = h.ok ? "✓" : "✕";
+
+    const q = document.createElement("div");
+    q.className = "historyQ";
+    q.textContent = h.display;
+
+    left.appendChild(mark);
+    left.appendChild(q);
+
+    const right = document.createElement("div");
+    right.className = "historyRight";
+    right.textContent = "Dictionary";
+
+    row.appendChild(left);
+    row.appendChild(right);
+
+    row.addEventListener("click", () => {
+      // No penalty. Just open dictionary.
+      if(window.__openDictionaryWithQuery){
+        window.__openDictionaryWithQuery(h.dictQuery);
+      } else if(window.__openDictionary){
+        window.__openDictionary();
+        const search = document.getElementById("dictSearch");
+        if(search){
+          search.value = String(h.dictQuery ?? "");
+          search.dispatchEvent(new Event("input"));
+        }
+      }
+    });
+
+    host.appendChild(row);
+  }
 }
 
 /* ---------- Rendering (meaning choices) ---------- */
@@ -326,6 +392,7 @@ async function newQuestion(){
   }
 
   updateHUD();
+  renderHistory();
 }
 
 function handleSingleAnswer(btn){
@@ -349,6 +416,14 @@ function handleSingleAnswer(btn){
     const right = buttons.find(b => b.dataset.ok === "1");
     if(right) right.classList.add("correct");
   }
+
+  // history entry (most recent first)
+  addHistoryEntry({
+    type: "single",
+    display: state.currentQuestion.record.id,
+    ok: isOk,
+    dictQuery: state.currentQuestion.record.id
+  });
 
   updateHUD();
 
@@ -381,7 +456,6 @@ function evaluateCompoundSecondPick(){
     } else if(pickedSet.has(k)){
       b.classList.add("wrong");
     }
-
     b.disabled = true;
   }
 
@@ -393,6 +467,14 @@ function evaluateCompoundSecondPick(){
     state.lives -= constants.COST_WRONG;
     promptEl.classList.add("wrong");
   }
+
+  addHistoryEntry({
+    type: "compound",
+    display: q.kana,
+    ok: allCorrectPicked,
+    // use the kanji word as the dictionary query; dictionary will show both kanji matches
+    dictQuery: q.kanji
+  });
 
   updateHUD();
 
@@ -499,6 +581,9 @@ export async function startQuizGame(){
   state.peekChargedThisQuestion = false;
   state.currentQuestion = null;
   state.compoundPicks = [];
+
+  state.history = [];
+  renderHistory();
 
   setActiveTab("game");
   updateHUD();
