@@ -1,6 +1,6 @@
 @font-face{
   font-family:"KanjiFont";
-  src:url("./fonts/Aiharahudemojikaisho_free305.ttf") format("truetype");
+  src:url("./fonts/my-font.ttf") format("truetype");
   font-display:swap;
 }
 
@@ -12,9 +12,6 @@
 
   --paper:#ffffff;
   --ink:#000000;
-
-  --focus:#60a5fa;
-  --chip:rgba(233,238,252,.06);
 }
 
 *{box-sizing:border-box}
@@ -104,6 +101,12 @@ body{
   font-weight:900;
 }
 
+.btnSmall{
+  padding:8px 10px;
+  border-radius:10px;
+  font-weight:900;
+}
+
 .pill{
   border:1px solid var(--border);
   border-radius:999px;
@@ -116,29 +119,47 @@ body{
 .sectionTitle{font-weight:900; margin:10px 0 6px}
 .muted{color:var(--muted); font-size:13px; line-height:1.35}
 
+.settingsCard{
+  margin-top:12px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:12px;
+  background:rgba(11,18,32,.25);
+}
+
+.checks{display:flex; gap:12px; flex-wrap:wrap}
+.check{color:var(--text); font-weight:800}
+.check input{transform:translateY(1px)}
+
+/* ---------- Inputs ---------- */
+.input{
+  width:100%;
+  border:1px solid var(--border);
+  background:rgba(233,238,252,.04);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:12px;
+  outline:none;
+}
+
 /* ---------- Game ---------- */
 
 .hud{display:flex; gap:10px; flex-wrap:wrap; margin:8px 0}
 
 .prompt{
   background:var(--paper);
-  border-radius:6px;
+  border-radius:6px;  /* you set this */
   min-height:170px;
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
-
-  /* keep overlays clean */
   isolation:isolate;
   position:relative;
   overflow:hidden;
 }
 
-.promptInner{
-  position:relative;
-  z-index:1;
-}
+.promptInner{position:relative; z-index:1}
 
 .kanjiText{
   font-family:"KanjiFont", sans-serif;
@@ -156,25 +177,24 @@ body{
   margin-top:12px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:6px;
+  gap:6px; /* you set this */
 }
 
-/* Single clean tile: no border, no nested box look */
 button.choice{
   border:0;
   background:var(--paper);
-  border-radius:6px;
+  border-radius:6px;  /* you set this */
   min-height:140px;
   padding:0;
   cursor:pointer;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   isolation:isolate;
   position:relative;
   overflow:hidden;
+  outline:none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .choiceKanji{
@@ -185,7 +205,6 @@ button.choice{
   z-index:1;
 }
 
-/* Images fill the entire tile */
 .meaningImg{
   width:100%;
   height:100%;
@@ -193,7 +212,6 @@ button.choice{
   display:block;
 }
 
-/* Fallback fills the entire tile (no inner borders) */
 .meaningFallback{
   width:100%;
   height:100%;
@@ -234,24 +252,92 @@ button.choice > *,
   z-index:1;
 }
 
-button.choice.selected::after{
-  background:rgba(59,130,246,.45);
-  opacity:1;
-}
-
+button.choice.selected::after{ background:rgba(59,130,246,.45); opacity:1; }
 button.choice.correct::after,
-.prompt.correct::after{
-  background:rgba(34,197,94,.5);
-  opacity:1;
-}
-
+.prompt.correct::after{ background:rgba(34,197,94,.5); opacity:1; }
 button.choice.wrong::after,
-.prompt.wrong::after{
-  background:rgba(239,68,68,.5);
-  opacity:1;
+.prompt.wrong::after{ background:rgba(239,68,68,.5); opacity:1; }
+
+/* ---------- Kanji Picker ---------- */
+
+.kanjiGroup{
+  margin-top:14px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:12px;
+  background:rgba(11,18,32,.25);
 }
 
-/* ---------- Dictionary (unchanged styling baseline) ---------- */
+.kanjiGroupHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.kanjiGroupTitle{
+  font-weight:900;
+  display:flex;
+  gap:10px;
+  align-items:baseline;
+}
+
+.kanjiGroupSub{
+  color:var(--muted);
+  font-size:12.5px;
+  font-weight:700;
+}
+
+.kanjiGroupActions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.kanjiGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(48px, 1fr));
+  gap:8px;
+}
+
+.kanjiBtn{
+  border:1px solid var(--border);
+  background:rgba(233,238,252,.04);
+  color:var(--text);
+  border-radius:12px;
+  height:48px;
+  cursor:pointer;
+  font-family:"KanjiFont", sans-serif;
+  font-size:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.kanjiBtn.on{
+  background:rgba(34,197,94,.14);
+  border-color:rgba(34,197,94,.35);
+}
+
+.kanjiBtn.off{
+  opacity:.55;
+}
+
+.kanjiBtn.override::after{
+  content:"";
+  position:absolute;
+  top:6px;
+  right:6px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(96,165,250,.9);
+}
+
+/* ---------- Dictionary ---------- */
 
 .dictTop{display:flex; gap:10px; margin-top:10px}
 .dictTop .input{flex:1}
@@ -275,6 +361,14 @@ button.choice.wrong::after,
   background:rgba(11,18,32,.25);
 }
 
+.dictListHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+
 .dictRowBtn{
   width:100%;
   text-align:left;
@@ -284,6 +378,7 @@ button.choice.wrong::after,
   padding:10px;
   border-radius:14px;
   cursor:pointer;
+  margin-bottom:8px;
 }
 
 .dictBigKanji{
@@ -297,6 +392,15 @@ button.choice.wrong::after,
   padding:6px 10px;
   font-size:12.5px;
   color:var(--muted);
+}
+
+.mono{
+  background:rgba(0,0,0,.25);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px;
+  overflow:auto;
+  max-height:260px;
 }
 
 /* ---------- Modal ---------- */
@@ -320,6 +424,3 @@ button.choice.wrong::after,
   padding:16px;
   width:min(520px,100%);
 }
-
-
-

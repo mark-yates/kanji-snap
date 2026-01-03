@@ -24,6 +24,7 @@
           <button class="tab active" id="tabHome" type="button">Home</button>
           <button class="tab" id="tabSettings" type="button">Settings</button>
           <button class="tab" id="tabDictionary" type="button">Dictionary</button>
+          <button class="tab" id="tabKanji" type="button">Kanji</button>
           <button class="tab" id="tabGame" type="button" style="display:none;">Game</button>
         </nav>
       </header>
@@ -44,13 +45,12 @@
         </div>
 
         <div class="sectionTitle">Dictionary</div>
-        <div class="muted">
-          Look up kanji outside the game. Search by kanji or reading fields.
-        </div>
+        <div class="muted">Look up kanji outside the game.</div>
 
         <div class="row" style="margin-top:12px;">
           <button class="btn" id="goDictionaryBtn" type="button">Open dictionary</button>
           <button class="btn" id="goSettingsBtn" type="button">Open settings</button>
+          <button class="btn" id="goKanjiBtn" type="button">Pick kanji</button>
         </div>
       </section>
 
@@ -59,7 +59,7 @@
         <div class="row">
           <div>
             <div class="sectionTitle">Kanji selection</div>
-            <div class="muted">Select which grade lists are included.</div>
+            <div class="muted">Select which grade lists are included, then optionally refine by individual kanji.</div>
           </div>
           <button class="btn" id="backHomeBtn" type="button">Back</button>
         </div>
@@ -71,8 +71,12 @@
             <label class="check"><input id="chkG2" type="checkbox"> Grade 2</label>
             <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
           </div>
+          <div class="row" style="margin-top:10px;">
+            <button class="btn" id="openKanjiPickerBtn" type="button">Select individual kanji…</button>
+            <div class="pill" id="overridePill">Overrides: …</div>
+          </div>
           <div class="muted" style="margin-top:8px;">
-            Later you can add grade-4..6 files without changing the structure.
+            Individual selection uses overrides: a tap can force-include or force-exclude a kanji even if its grade is on/off.
           </div>
         </div>
 
@@ -80,9 +84,28 @@
           <div class="sectionTitle">Storage</div>
           <div class="row" style="margin-top:8px;">
             <button class="btn" id="resetSettingsBtn" type="button">Reset settings</button>
+            <button class="btn" id="clearOverridesBtn" type="button">Clear all overrides</button>
             <div class="pill" id="savedPill">Saved</div>
           </div>
         </div>
+      </section>
+
+      <!-- KANJI PICKER -->
+      <section class="view" id="viewKanji" aria-labelledby="tabKanji">
+        <div class="row">
+          <div>
+            <div class="sectionTitle">Kanji picker</div>
+            <div class="muted">Tap kanji to toggle. Ordered by kyoiku_index within each grade.</div>
+          </div>
+          <button class="btn" id="kanjiBackBtn" type="button">Back</button>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="pill" id="kanjiPickerStatus">Loading…</div>
+          <button class="btn" id="kanjiPickerRefreshBtn" type="button">Refresh</button>
+        </div>
+
+        <div id="kanjiGroups"></div>
       </section>
 
       <!-- DICTIONARY -->
@@ -140,7 +163,7 @@
 
         <div class="prompt" id="prompt" title="Tap to Sneak Peek">
           <div class="promptInner" id="promptInner">
-            <div class="kanjiText" id="kanjiPrompt">？</div>
+            <div class="kanjiText">？</div>
           </div>
         </div>
 

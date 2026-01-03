@@ -1,4 +1,4 @@
-const CACHE_NAME = "kanji-snap-v17.2";
+const CACHE_NAME = "kanji-snap-v18";
 
 const ASSETS = [
   "./",
@@ -21,6 +21,7 @@ const ASSETS = [
   "./js/ui.js",
   "./js/game-quiz.js",
   "./js/dictionary.js",
+  "./js/kanji-picker.js",
 
   "./grade-1.json",
   "./grade-2.json",
@@ -50,7 +51,3 @@ self.addEventListener("fetch", event => {
     )
   );
 });
-
-
-
-
