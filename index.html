@@ -39,7 +39,7 @@
         <div class="muted">
           Start with <b>10 lives</b>. Wrong answer: <b>-3 lives</b>. Sneak Peek: <b>-1 life</b> (charged once per question).
           <br>
-          Some questions are <b>compound</b> questions (word in hiragana). You must select <b>two kanji</b>.
+          Some questions can be <b>compound</b> questions (word in hiragana). You must select <b>two kanji</b>.
           First pick turns <b>blue</b> (selection). Second pick reveals correct (green) and incorrect (red).
         </div>
 
@@ -57,8 +57,8 @@
       <section class="view" id="viewSettings" aria-labelledby="tabSettings">
         <div class="row">
           <div>
-            <div class="sectionTitle">Kanji selection</div>
-            <div class="muted">Select which grade lists are included, then optionally refine by individual kanji.</div>
+            <div class="sectionTitle">Settings</div>
+            <div class="muted">Select grades, individual kanji overrides, and quiz options.</div>
           </div>
           <button class="btn" id="backHomeBtn" type="button">Back</button>
         </div>
@@ -76,6 +76,17 @@
           </div>
           <div class="muted" style="margin-top:8px;">
             Individual selection uses overrides: a tap can force-include or force-exclude a kanji even if its grade is on/off.
+          </div>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Quiz options</div>
+          <label class="check">
+            <input id="chkCompound" type="checkbox">
+            Include compound word questions
+          </label>
+          <div class="muted" style="margin-top:8px;">
+            If disabled, the quiz will only show single kanji questions.
           </div>
         </div>
 
@@ -151,6 +162,29 @@
         </div>
       </section>
 
+      <!-- WORD DETAIL (for compound history) -->
+      <section class="view" id="viewWord">
+        <div class="row">
+          <div>
+            <div class="sectionTitle">Word detail</div>
+            <div class="muted">From the word block in the kanji JSON.</div>
+          </div>
+          <button class="btn" id="wordBackBtn" type="button">Back</button>
+        </div>
+
+        <div class="settingsCard">
+          <div class="row" style="justify-content:flex-start;">
+            <div class="dictBigKanji" id="wordBig">学校</div>
+            <div class="chips" id="wordChips"></div>
+          </div>
+
+          <div class="dictRows" id="wordRows" style="margin-top:10px;"></div>
+
+          <div class="sectionTitle" style="margin-top:10px;">Raw word JSON</div>
+          <pre class="mono" id="wordRaw"></pre>
+        </div>
+      </section>
+
       <!-- GAME -->
       <section class="view" id="viewGame" aria-labelledby="tabGame">
         <div class="row">
@@ -168,11 +202,10 @@
 
         <div class="choices" id="choices"></div>
 
-        <!-- NEW: History -->
         <div class="history">
           <div class="historyHeader">
             <div class="historyTitle">History</div>
-            <div class="historyHint">Tap a row to open Dictionary (no penalty).</div>
+            <div class="historyHint">Tap a row to view details (no penalty).</div>
           </div>
           <div id="historyList"></div>
         </div>

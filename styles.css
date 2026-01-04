@@ -40,7 +40,7 @@ body{
   box-shadow:0 18px 50px rgba(0,0,0,.35);
 }
 
-/* ---------- Header & Tabs ---------- */
+/* Header & Tabs */
 
 .header{
   display:flex;
@@ -77,7 +77,7 @@ body{
   border:1px solid var(--border);
 }
 
-/* ---------- Views / Common ---------- */
+/* Common */
 
 .view{display:none}
 .view.active{display:block}
@@ -130,7 +130,7 @@ body{
 .check{color:var(--text); font-weight:800}
 .check input{transform:translateY(1px)}
 
-/* ---------- Inputs ---------- */
+/* Inputs */
 .input{
   width:100%;
   border:1px solid var(--border);
@@ -141,9 +141,7 @@ body{
   outline:none;
 }
 
-/* ---------- Game ---------- */
-
-.hud{display:flex; gap:10px; flex-wrap:wrap; margin:8px 0}
+/* Game */
 
 .prompt{
   background:var(--paper);
@@ -166,9 +164,10 @@ body{
   color:var(--ink);
 }
 
+/* Item #6: compound (hiragana) uses my-font too */
 .kanaText{
-  font-size:52px;
-  font-weight:900;
+  font-family:"KanjiFont", sans-serif;
+  font-size:56px;
   color:var(--ink);
 }
 
@@ -232,7 +231,7 @@ button.choice{
 .fg-strong{color:#000}
 .fg-dim{color:rgba(0,0,0,.5)}
 
-/* ---------- Overlays ---------- */
+/* Overlays */
 
 button.choice::after,
 .prompt::after{
@@ -257,7 +256,7 @@ button.choice.correct::after,
 button.choice.wrong::after,
 .prompt.wrong::after{ background:rgba(239,68,68,.5); opacity:1; }
 
-/* ---------- NEW: History ---------- */
+/* History */
 
 .history{
   margin-top:12px;
@@ -276,14 +275,8 @@ button.choice.wrong::after,
   margin-bottom:8px;
 }
 
-.historyTitle{
-  font-weight:900;
-}
-
-.historyHint{
-  color:var(--muted);
-  font-size:12.5px;
-}
+.historyTitle{font-weight:900}
+.historyHint{color:var(--muted); font-size:12.5px}
 
 .historyRow{
   width:100%;
@@ -337,7 +330,86 @@ button.choice.wrong::after,
   flex:0 0 auto;
 }
 
-/* ---------- Dictionary ---------- */
+/* Kanji Picker (restored indicators + 8 per row) */
+
+.kanjiGroup{
+  margin-top:14px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:12px;
+  background:rgba(11,18,32,.25);
+}
+
+.kanjiGroupHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.kanjiGroupTitle{
+  font-weight:900;
+  display:flex;
+  gap:10px;
+  align-items:baseline;
+}
+
+.kanjiGroupSub{
+  color:var(--muted);
+  font-size:12.5px;
+  font-weight:700;
+}
+
+.kanjiGroupActions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.kanjiGrid{
+  display:grid;
+  grid-template-columns:repeat(8, 1fr); /* Item #4 */
+  gap:8px;
+}
+
+.kanjiBtn{
+  border:1px solid var(--border);
+  background:rgba(233,238,252,.04);
+  color:var(--text);
+  border-radius:12px;
+  height:46px;
+  cursor:pointer;
+  font-family:"KanjiFont", sans-serif;
+  font-size:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.kanjiBtn.on{
+  background:rgba(34,197,94,.14);
+  border-color:rgba(34,197,94,.35);
+}
+
+.kanjiBtn.off{
+  opacity:.55;
+}
+
+.kanjiBtn.override::after{
+  content:"";
+  position:absolute;
+  top:6px;
+  right:6px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:rgba(96,165,250,.9);
+}
+
+/* Dictionary / Word detail helpers */
 
 .dictTop{display:flex; gap:10px; margin-top:10px}
 .dictTop .input{flex:1}
@@ -386,6 +458,8 @@ button.choice.wrong::after,
   font-size:72px;
 }
 
+.chips{display:flex; gap:8px; flex-wrap:wrap}
+
 .chipLight{
   border:1px solid var(--border);
   border-radius:999px;
@@ -394,16 +468,27 @@ button.choice.wrong::after,
   color:var(--muted);
 }
 
+.rowKV{
+  display:grid;
+  grid-template-columns:140px 1fr;
+  gap:10px;
+  padding:8px 0;
+  border-bottom:1px solid rgba(233,238,252,.08);
+}
+.rowKV:last-child{border-bottom:0}
+.rowKV .k{color:var(--muted); font-weight:800}
+.rowKV .v{color:var(--text); font-weight:700; word-break:break-word}
+
 .mono{
   background:rgba(0,0,0,.25);
   border:1px solid var(--border);
   border-radius:12px;
   padding:10px;
   overflow:auto;
-  max-height:260px;
+  max-height:320px;
 }
 
-/* ---------- Modal ---------- */
+/* Modal */
 
 .overlay{
   position:fixed;

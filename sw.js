@@ -1,4 +1,4 @@
-const CACHE_NAME = "kanji-snap-v21";
+const CACHE_NAME = "kanji-snap-v30";
 
 const ASSETS = [
   "./",
@@ -23,9 +23,9 @@ const ASSETS = [
   "./js/dictionary.js",
   "./js/kanji-picker.js",
 
-  "./grade-1.json",
-  "./grade-2.json",
-  "./grade-3.json"
+  "./data/grade-1.json",
+  "./data/grade-2.json",
+  "./data/grade-3.json"
 ];
 
 self.addEventListener("install", event => {
