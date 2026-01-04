@@ -1,39 +1,35 @@
-export const state = {
-  // settings
-  settings: null,
-
-  // loaded kanji data
-  loadedGrades: new Set(),
-  kanjiById: new Map(),
-
-  // derived word/compound index built from kanji raw data
-  wordsIndexBuiltForGradesKey: "",  // e.g. "1,2,3"
-  compoundWords: [],                // [{kana, kanji, kanjiChars, meta}]
-  compoundByKanji: new Map(),       // kanjiChar -> list of compoundWord entries
-
-  // game state
-  pool: [],
-  currentQuestion: null,
-  locked: false,
-  score: 0,
-  lives: 10,
-  peekMode: false,
-  peekChargedThisQuestion: false,
-
-  // compound selection state
-  compoundPicks: [],
-};
-
 export const constants = {
   START_LIVES: 10,
   COST_WRONG: 3,
   COST_PEEK: 1,
 
-  PAUSE_AFTER_ANSWER_MS: 900,
-  PAUSE_ENDGAME_MS: 700,
+  PAUSE_AFTER_ANSWER_MS: 1100,
+  PAUSE_ENDGAME_MS: 500,
 
-  MEANING_IMG_DIR: "./images/meaning/",
+  COMPOUND_PROBABILITY: 0.35,
 
-  // probability that a new question is a compound (if eligible)
-  COMPOUND_PROBABILITY: 0.35
+  MEANING_IMG_DIR: "./meaning-img/" // you can change later
+};
+
+export const state = {
+  settings: null,
+
+  loadedGrades: new Set(),
+  kanjiById: new Map(),
+  pool: [],
+
+  // game state
+  score: 0,
+  lives: constants.START_LIVES,
+  locked: false,
+  peekMode: false,
+  peekChargedThisQuestion: false,
+  currentQuestion: null,
+  compoundPicks: [],
+  history: [],
+
+  // navigation helpers
+  gameActive: false,        // true while you’re mid-game
+  returnTo: null,           // "game" or null
+  lastWordDetail: null      // last word block shown on word page
 };

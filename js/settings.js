@@ -1,13 +1,12 @@
 import { state } from "./state.js";
 import { GRADE_FILES } from "./data.js";
 
-const SETTINGS_KEY = "kanjiSnap.settings.v8";
+const SETTINGS_KEY = "kanjiSnap.settings.v9";
 
 export const DEFAULT_SETTINGS = {
   enabledGrades: { 1:true, 2:false, 3:false, 4:false, 5:false, 6:false },
-  // kanjiOverrides: { "学": true, "雨": false, ... }
-  // meaning: explicit include/exclude overriding grade defaults
-  kanjiOverrides: {}
+  kanjiOverrides: {},
+  compoundEnabled: true
 };
 
 export function loadSettings(){
@@ -23,6 +22,8 @@ export function loadSettings(){
     }
 
     if(!obj.kanjiOverrides || typeof obj.kanjiOverrides !== "object") obj.kanjiOverrides = {};
+    if(typeof obj.compoundEnabled !== "boolean") obj.compoundEnabled = true;
+
     return obj;
   } catch {
     return structuredClone(DEFAULT_SETTINGS);
@@ -46,6 +47,10 @@ export function getEnabledGrades(){
 
 export function getOverrideCount(){
   return Object.keys(state.settings.kanjiOverrides || {}).length;
+}
+
+export function isCompoundEnabled(){
+  return !!state.settings.compoundEnabled;
 }
 
 /**
@@ -77,6 +82,8 @@ export function initSettingsUI(onSettingsChanged){
   const chkG1 = document.getElementById("chkG1");
   const chkG2 = document.getElementById("chkG2");
   const chkG3 = document.getElementById("chkG3");
+  const chkCompound = document.getElementById("chkCompound");
+
   const resetBtn = document.getElementById("resetSettingsBtn");
   const clearOverridesBtn = document.getElementById("clearOverridesBtn");
   const openPickerBtn = document.getElementById("openKanjiPickerBtn");
@@ -85,6 +92,7 @@ export function initSettingsUI(onSettingsChanged){
     if(chkG1) chkG1.checked = !!state.settings.enabledGrades[1];
     if(chkG2) chkG2.checked = !!state.settings.enabledGrades[2];
     if(chkG3) chkG3.checked = !!state.settings.enabledGrades[3];
+    if(chkCompound) chkCompound.checked = !!state.settings.compoundEnabled;
     updateOverridePill();
   }
 
@@ -97,6 +105,13 @@ export function initSettingsUI(onSettingsChanged){
   chkG1?.addEventListener("change", () => { state.settings.enabledGrades[1]=chkG1.checked; saveSettings(); sync(); onSettingsChanged?.(); });
   chkG2?.addEventListener("change", () => { state.settings.enabledGrades[2]=chkG2.checked; saveSettings(); sync(); onSettingsChanged?.(); });
   chkG3?.addEventListener("change", () => { state.settings.enabledGrades[3]=chkG3.checked; saveSettings(); sync(); onSettingsChanged?.(); });
+
+  chkCompound?.addEventListener("change", () => {
+    state.settings.compoundEnabled = chkCompound.checked;
+    saveSettings();
+    sync();
+    onSettingsChanged?.();
+  });
 
   resetBtn?.addEventListener("click", () => {
     state.settings = structuredClone(DEFAULT_SETTINGS);

@@ -19,6 +19,7 @@ export function setActiveTab(which){
   const viewDictionary = document.getElementById("viewDictionary");
   const viewKanji = document.getElementById("viewKanji");
   const viewGame = document.getElementById("viewGame");
+  const viewWord = document.getElementById("viewWord");
 
   tabHome?.classList.toggle("active", which === "home");
   tabSettings?.classList.toggle("active", which === "settings");
@@ -31,11 +32,11 @@ export function setActiveTab(which){
   viewDictionary?.classList.toggle("active", which === "dictionary");
   viewKanji?.classList.toggle("active", which === "kanji");
   viewGame?.classList.toggle("active", which === "game");
+  viewWord?.classList.toggle("active", which === "word");
 
-  // Show the Game tab while a game is active (so you can return after opening Dictionary)
+  // Keep Game tab visible while a game is active
   if(tabGame){
-    const gameActive = !!state.currentQuestion && state.lives > 0;
-    tabGame.style.display = gameActive ? "" : "none";
+    tabGame.style.display = state.gameActive ? "" : "none";
   }
 }
 

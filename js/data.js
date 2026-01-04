@@ -2,10 +2,9 @@ import { state } from "./state.js";
 import { isKanjiEnabled } from "./settings.js";
 
 export const GRADE_FILES = {
-  1: "./grade-1.json",
-  2: "./grade-2.json",
-  3: "./grade-3.json"
-  // add 4..6 later
+  1: "./data/grade-1.json",
+  2: "./data/grade-2.json",
+  3: "./data/grade-3.json"
 };
 
 export function normalizeKanjiEntry(raw){
@@ -52,10 +51,6 @@ export async function ensureGradesLoaded(grades){
   for(const g of grades) await loadGrade(g);
 }
 
-/**
- * Pool now respects individual overrides:
- * - include if isKanjiEnabled(id, grade) is true
- */
 export function buildPoolForGrades(grades){
   const enabledGrades = new Set(grades);
   return [...state.kanjiById.values()].filter(k =>
@@ -63,9 +58,6 @@ export function buildPoolForGrades(grades){
   );
 }
 
-/**
- * Utility for kanji picker: get all kanji for a grade, ordered by kyoiku_index then kanji.
- */
 export function getKanjiForGradeSorted(grade){
   const items = [...state.kanjiById.values()].filter(k => k.grade === grade);
   items.sort((a,b) => {

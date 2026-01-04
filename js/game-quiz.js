@@ -1,7 +1,7 @@
 import { state, constants } from "./state.js";
 import { ensureGradesLoaded, buildPoolForGrades } from "./data.js";
 import { rebuildWordIndexForGrades, getEligibleCompoundWords } from "./words.js";
-import { getEnabledGrades } from "./settings.js";
+import { getEnabledGrades, isCompoundEnabled } from "./settings.js";
 import {
   meaningImgUrlForKanji,
   renderBracketColored,
@@ -29,6 +29,7 @@ function updateHUD(){
 function endGame(){
   state.locked = true;
   state.peekMode = false;
+  state.gameActive = false;
   updateHUD();
   showGameOverModal(state.score);
 }
@@ -51,7 +52,7 @@ function setPromptKana(text){
   const inner = document.getElementById("promptInner");
   inner.innerHTML = "";
   const div = document.createElement("div");
-  div.className = "kanaText";
+  div.className = "kanaText"; // CSS uses KanjiFont (item #6)
   div.textContent = text;
   inner.appendChild(div);
 }
@@ -97,22 +98,18 @@ function renderHistory(){
 
     const right = document.createElement("div");
     right.className = "historyRight";
-    right.textContent = "Dictionary";
+    right.textContent = "Details";
 
     row.appendChild(left);
     row.appendChild(right);
 
     row.addEventListener("click", () => {
-      // No penalty. Just open dictionary.
-      if(window.__openDictionaryWithQuery){
-        window.__openDictionaryWithQuery(h.dictQuery);
-      } else if(window.__openDictionary){
-        window.__openDictionary();
-        const search = document.getElementById("dictSearch");
-        if(search){
-          search.value = String(h.dictQuery ?? "");
-          search.dispatchEvent(new Event("input"));
-        }
+      // item #7
+      if(h.type === "compound"){
+        if(window.__openWordDetail) window.__openWordDetail(h.wordMeta);
+      } else {
+        // item #1: dictionary back returns to game
+        if(window.__openDictionaryWithQuery) window.__openDictionaryWithQuery(h.dictQuery, true);
       }
     });
 
@@ -189,7 +186,7 @@ function renderChoicesKanji(kanjiOptions){
   });
 }
 
-/* ---------- Peek tiles (single) ---------- */
+/* ---------- Peek tiles ---------- */
 
 function renderPeekSingle(record){
   const choicesEl = document.getElementById("choices");
@@ -197,42 +194,7 @@ function renderPeekSingle(record){
   choicesEl.style.display = "block";
 
   const tile = document.createElement("div");
-  tile.className = "dictTile";
-
-  const header = document.createElement("div");
-  header.className = "dictHeader";
-
-  const big = document.createElement("div");
-  big.className = "dictKanji";
-  big.textContent = record.id;
-
-  const chips = document.createElement("div");
-  chips.className = "chips";
-  const chipG = document.createElement("div");
-  chipG.className = "chipLight";
-  chipG.textContent = `Grade G${record.grade}`;
-  chips.appendChild(chipG);
-
-  header.appendChild(big);
-  header.appendChild(chips);
-
-  const rows = document.createElement("div");
-  rows.className = "dictRows";
-
-  const addKV = (k, v) => {
-    const row = document.createElement("div");
-    row.className = "rowKV";
-    const kk = document.createElement("div");
-    kk.className = "k"; kk.textContent = k;
-    const vv = document.createElement("div");
-    vv.className = "v"; vv.textContent = v;
-    row.appendChild(kk); row.appendChild(vv);
-    rows.appendChild(row);
-  };
-
-  if(record.on?.length) addKV("音読み", record.on.join("、"));
-  if(record.kun?.length) addKV("訓読み", record.kun.join("、"));
-  addKV("fallback", record.meaningKey);
+  tile.className = "settingsCard";
 
   const pre = document.createElement("pre");
   pre.className = "mono";
@@ -243,15 +205,11 @@ function renderPeekSingle(record){
   hint.style.marginTop = "8px";
   hint.textContent = "Tap the prompt tile again to return to the choices.";
 
-  tile.appendChild(header);
-  tile.appendChild(rows);
   tile.appendChild(pre);
   tile.appendChild(hint);
 
   choicesEl.appendChild(tile);
 }
-
-/* ---------- Peek tiles (compound) ---------- */
 
 function renderPeekCompound(q){
   const choicesEl = document.getElementById("choices");
@@ -259,66 +217,18 @@ function renderPeekCompound(q){
   choicesEl.style.display = "block";
 
   const tile = document.createElement("div");
-  tile.className = "dictTile";
+  tile.className = "settingsCard";
 
-  const header = document.createElement("div");
-  header.className = "dictHeader";
-
-  const big = document.createElement("div");
-  big.className = "dictKanji";
-  big.textContent = q.kanji;
-
-  const chips = document.createElement("div");
-  chips.className = "chips";
-
-  const chipKana = document.createElement("div");
-  chipKana.className = "chipLight";
-  chipKana.textContent = `かな: ${q.kana}`;
-  chips.appendChild(chipKana);
-
-  const eg = q.meta?.__effectiveGrade;
-  if(Number.isFinite(Number(eg))){
-    const chipG = document.createElement("div");
-    chipG.className = "chipLight";
-    chipG.textContent = `word grade: G${eg}`;
-    chips.appendChild(chipG);
-  }
-
-  header.appendChild(big);
-  header.appendChild(chips);
-
-  const rows = document.createElement("div");
-  rows.className = "dictRows";
-
-  const addKV = (k, v) => {
-    const row = document.createElement("div");
-    row.className = "rowKV";
-    const kk = document.createElement("div");
-    kk.className = "k"; kk.textContent = k;
-    const vv = document.createElement("div");
-    vv.className = "v"; vv.textContent = v;
-    row.appendChild(kk); row.appendChild(vv);
-    rows.appendChild(row);
-  };
-
-  const [k1, k2] = q.kanjiChars;
-  addKV("Kanji 1", k1);
-  addKV("Kanji 2", k2);
-
-  if(q.meta){
-    if(q.meta.band != null) addKV("band", String(q.meta.band));
-    if(q.meta.age_min != null) addKV("age_min", String(q.meta.age_min));
-    if(q.meta.meaning_hira) addKV("meaning_hira", String(q.meta.meaning_hira));
-    if(q.meta.meaning_en) addKV("meaning_en", String(q.meta.meaning_en));
-  }
+  const pre = document.createElement("pre");
+  pre.className = "mono";
+  pre.textContent = JSON.stringify(q.meta || {}, null, 2);
 
   const hint = document.createElement("div");
   hint.className = "muted";
   hint.style.marginTop = "8px";
   hint.textContent = "Tap the prompt tile again to return to the choices.";
 
-  tile.appendChild(header);
-  tile.appendChild(rows);
+  tile.appendChild(pre);
   tile.appendChild(hint);
 
   choicesEl.appendChild(tile);
@@ -361,6 +271,9 @@ function buildCompoundQuestion(eligibleWords){
 }
 
 async function pickNextQuestion(){
+  const compoundAllowed = isCompoundEnabled();
+  if(!compoundAllowed) return buildSingleQuestion();
+
   const eligible = getEligibleCompoundWords(state.pool);
   const wantCompound = (Math.random() < constants.COMPOUND_PROBABILITY) && eligible.length > 0;
   if(wantCompound) return buildCompoundQuestion(eligible);
@@ -417,7 +330,6 @@ function handleSingleAnswer(btn){
     if(right) right.classList.add("correct");
   }
 
-  // history entry (most recent first)
   addHistoryEntry({
     type: "single",
     display: state.currentQuestion.record.id,
@@ -446,7 +358,6 @@ function evaluateCompoundSecondPick(){
 
   const buttons = [...document.querySelectorAll("button.choice")];
 
-  // Correct always green; incorrect only red if selected
   for(const b of buttons){
     const k = b.dataset.kanji;
     b.classList.remove("selected", "correct", "wrong");
@@ -472,8 +383,7 @@ function evaluateCompoundSecondPick(){
     type: "compound",
     display: q.kana,
     ok: allCorrectPicked,
-    // use the kanji word as the dictionary query; dictionary will show both kanji matches
-    dictQuery: q.kanji
+    wordMeta: q.meta || { word: q.kanji, reading: q.kana }
   });
 
   updateHUD();
@@ -583,6 +493,8 @@ export async function startQuizGame(){
   state.compoundPicks = [];
 
   state.history = [];
+  state.gameActive = true;
+
   renderHistory();
 
   setActiveTab("game");
@@ -592,29 +504,9 @@ export async function startQuizGame(){
 
 export function wireGameUI(){
   document.getElementById("exitBtn")?.addEventListener("click", () => {
+    state.gameActive = false;
     setActiveTab("home");
   });
 
   document.getElementById("prompt")?.addEventListener("click", () => togglePeek());
-
-  window.addEventListener("keydown", (e) => {
-    const viewGame = document.getElementById("viewGame");
-    if(!viewGame?.classList.contains("active")) return;
-
-    const overlay = document.getElementById("overlay");
-    if(overlay?.classList.contains("show")) return;
-
-    if(e.key.toLowerCase() === "p"){
-      togglePeek();
-      return;
-    }
-
-    if(state.peekMode || state.locked) return;
-
-    const n = Number(e.key);
-    if(Number.isFinite(n) && n >= 1 && n <= 4){
-      const btn = document.querySelectorAll("button.choice")[n - 1];
-      if(btn) btn.click();
-    }
-  });
 }
