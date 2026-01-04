@@ -1,5 +1,4 @@
 import { state } from "./state.js";
-import { isKanjiEnabled } from "./settings.js";
 
 export const GRADE_FILES = {
   1: "./data/grade-1.json",
@@ -31,7 +30,7 @@ export function normalizeKanjiEntry(raw){
 export async function loadGrade(grade){
   if(state.loadedGrades.has(grade)) return;
   const url = GRADE_FILES[grade];
-  if(!url) return;
+  if(!url) return; // grade not available yet (4-6)
 
   const res = await fetch(url);
   if(!res.ok) throw new Error(`Fetch failed: ${url} (HTTP ${res.status})`);
@@ -51,10 +50,21 @@ export async function ensureGradesLoaded(grades){
   for(const g of grades) await loadGrade(g);
 }
 
+// Local helper (avoids importing settings.js -> no circular deps)
+function isEnabledByCurrentSettings(kanjiId, grade){
+  const s = state.settings;
+  if(!s) return true;
+
+  const ov = s.kanjiOverrides?.[kanjiId];
+  if(typeof ov === "boolean") return ov;
+
+  return !!s.enabledGrades?.[grade];
+}
+
 export function buildPoolForGrades(grades){
   const enabledGrades = new Set(grades);
   return [...state.kanjiById.values()].filter(k =>
-    enabledGrades.has(k.grade) && isKanjiEnabled(k.id, k.grade)
+    enabledGrades.has(k.grade) && isEnabledByCurrentSettings(k.id, k.grade)
   );
 }
 

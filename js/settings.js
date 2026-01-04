@@ -1,7 +1,6 @@
 import { state } from "./state.js";
-import { GRADE_FILES } from "./data.js";
 
-const SETTINGS_KEY = "kanjiSnap.settings.v9";
+const SETTINGS_KEY = "kanjiSnap.settings.v10";
 
 export const DEFAULT_SETTINGS = {
   enabledGrades: { 1:true, 2:false, 3:false, 4:false, 5:false, 6:false },
@@ -39,10 +38,12 @@ export function saveSettings(){
   }
 }
 
+// NOTE: no dependency on data.js anymore.
+// We return whichever grades are enabled; data.js will simply skip grades it has no file for.
 export function getEnabledGrades(){
   return Object.keys(state.settings.enabledGrades)
     .map(Number)
-    .filter(g => state.settings.enabledGrades[g] && !!GRADE_FILES[g]);
+    .filter(g => state.settings.enabledGrades[g] === true);
 }
 
 export function getOverrideCount(){
@@ -51,27 +52,6 @@ export function getOverrideCount(){
 
 export function isCompoundEnabled(){
   return !!state.settings.compoundEnabled;
-}
-
-/**
- * Effective enabled rule:
- * - if override exists => use it
- * - else => inherits grade checkbox
- */
-export function isKanjiEnabled(kanjiId, grade){
-  const ov = state.settings.kanjiOverrides?.[kanjiId];
-  if(typeof ov === "boolean") return ov;
-  return !!state.settings.enabledGrades[grade];
-}
-
-export function setKanjiOverride(kanjiId, value){
-  if(!state.settings.kanjiOverrides) state.settings.kanjiOverrides = {};
-  state.settings.kanjiOverrides[kanjiId] = !!value;
-}
-
-export function clearKanjiOverride(kanjiId){
-  if(!state.settings.kanjiOverrides) return;
-  delete state.settings.kanjiOverrides[kanjiId];
 }
 
 export function clearAllOverrides(){
@@ -88,6 +68,11 @@ export function initSettingsUI(onSettingsChanged){
   const clearOverridesBtn = document.getElementById("clearOverridesBtn");
   const openPickerBtn = document.getElementById("openKanjiPickerBtn");
 
+  function updateOverridePill(){
+    const pill = document.getElementById("overridePill");
+    if(pill) pill.textContent = `Overrides: ${getOverrideCount()}`;
+  }
+
   function sync(){
     if(chkG1) chkG1.checked = !!state.settings.enabledGrades[1];
     if(chkG2) chkG2.checked = !!state.settings.enabledGrades[2];
@@ -96,35 +81,32 @@ export function initSettingsUI(onSettingsChanged){
     updateOverridePill();
   }
 
-  function updateOverridePill(){
-    const pill = document.getElementById("overridePill");
-    if(!pill) return;
-    pill.textContent = `Overrides: ${getOverrideCount()}`;
-  }
-
-  chkG1?.addEventListener("change", () => { state.settings.enabledGrades[1]=chkG1.checked; saveSettings(); sync(); onSettingsChanged?.(); });
-  chkG2?.addEventListener("change", () => { state.settings.enabledGrades[2]=chkG2.checked; saveSettings(); sync(); onSettingsChanged?.(); });
-  chkG3?.addEventListener("change", () => { state.settings.enabledGrades[3]=chkG3.checked; saveSettings(); sync(); onSettingsChanged?.(); });
+  chkG1?.addEventListener("change", () => {
+    state.settings.enabledGrades[1] = chkG1.checked;
+    saveSettings(); sync(); onSettingsChanged?.();
+  });
+  chkG2?.addEventListener("change", () => {
+    state.settings.enabledGrades[2] = chkG2.checked;
+    saveSettings(); sync(); onSettingsChanged?.();
+  });
+  chkG3?.addEventListener("change", () => {
+    state.settings.enabledGrades[3] = chkG3.checked;
+    saveSettings(); sync(); onSettingsChanged?.();
+  });
 
   chkCompound?.addEventListener("change", () => {
     state.settings.compoundEnabled = chkCompound.checked;
-    saveSettings();
-    sync();
-    onSettingsChanged?.();
+    saveSettings(); sync(); onSettingsChanged?.();
   });
 
   resetBtn?.addEventListener("click", () => {
     state.settings = structuredClone(DEFAULT_SETTINGS);
-    saveSettings();
-    sync();
-    onSettingsChanged?.();
+    saveSettings(); sync(); onSettingsChanged?.();
   });
 
   clearOverridesBtn?.addEventListener("click", () => {
     clearAllOverrides();
-    saveSettings();
-    sync();
-    onSettingsChanged?.();
+    saveSettings(); sync(); onSettingsChanged?.();
   });
 
   openPickerBtn?.addEventListener("click", () => {
