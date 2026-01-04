@@ -1,10 +1,10 @@
 import { state } from "./state.js";
 
-const SETTINGS_KEY = "kanjiSnap.settings.v10";
+const SETTINGS_KEY = "kanjiSnap.settings.v11";
 
 export const DEFAULT_SETTINGS = {
   enabledGrades: { 1:true, 2:false, 3:false, 4:false, 5:false, 6:false },
-  kanjiOverrides: {},
+  kanjiOverrides: {},        // { "本": true/false }
   compoundEnabled: true
 };
 
@@ -38,8 +38,6 @@ export function saveSettings(){
   }
 }
 
-// NOTE: no dependency on data.js anymore.
-// We return whichever grades are enabled; data.js will simply skip grades it has no file for.
 export function getEnabledGrades(){
   return Object.keys(state.settings.enabledGrades)
     .map(Number)
@@ -52,6 +50,27 @@ export function getOverrideCount(){
 
 export function isCompoundEnabled(){
   return !!state.settings.compoundEnabled;
+}
+
+/**
+ * Re-added for kanji-picker and pool filtering:
+ * - If override exists => use it
+ * - Else => inherit grade checkbox
+ */
+export function isKanjiEnabled(kanjiId, grade){
+  const ov = state.settings?.kanjiOverrides?.[kanjiId];
+  if(typeof ov === "boolean") return ov;
+  return !!state.settings?.enabledGrades?.[grade];
+}
+
+export function setKanjiOverride(kanjiId, value){
+  if(!state.settings.kanjiOverrides) state.settings.kanjiOverrides = {};
+  state.settings.kanjiOverrides[kanjiId] = !!value;
+}
+
+export function clearKanjiOverride(kanjiId){
+  if(!state.settings.kanjiOverrides) return;
+  delete state.settings.kanjiOverrides[kanjiId];
 }
 
 export function clearAllOverrides(){
