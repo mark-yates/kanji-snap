@@ -1,70 +1,133 @@
-import { state } from "./state.js";
-import { isKanjiEnabled } from "./settings.js";
+// js/app.js
 
-export const GRADE_FILES = {
-  1: "./data/grade-1.json",
-  2: "./data/grade-2.json",
-  3: "./data/grade-3.json"
-};
+function showFatal(err){
+  console.error(err);
+  const msg = (err && (err.stack || err.message)) ? (err.stack || err.message) : String(err);
 
-export function normalizeKanjiEntry(raw){
-  const id = raw.kanji;
-  const grade = Number(raw.grade);
+  let box = document.getElementById("fatalBox");
+  if(!box){
+    box = document.createElement("div");
+    box.id = "fatalBox";
+    box.style.position = "fixed";
+    box.style.left = "12px";
+    box.style.right = "12px";
+    box.style.bottom = "12px";
+    box.style.zIndex = "9999";
+    box.style.padding = "12px";
+    box.style.borderRadius = "12px";
+    box.style.border = "1px solid rgba(233,238,252,.25)";
+    box.style.background = "rgba(239,68,68,.18)";
+    box.style.color = "#e9eefc";
+    box.style.fontFamily = "system-ui, -apple-system, Segoe UI, Roboto, Arial";
+    box.style.whiteSpace = "pre-wrap";
 
-  const on  = Array.isArray(raw.onyomi) ? raw.onyomi : [];
-  const kun = Array.isArray(raw.kunyomi) ? raw.kunyomi : [];
+    const title = document.createElement("div");
+    title.textContent = "App error (tap to dismiss)";
+    title.style.fontWeight = "900";
+    title.style.marginBottom = "6px";
 
-  // Placeholder meaning fallback:
-  let meaningKey = (raw.meaning_hira || "").trim();
-  if(!meaningKey){
-    const label = (raw.label || "").trim();
-    if(label) meaningKey = label;
+    const body = document.createElement("div");
+    body.id = "fatalBody";
+    body.style.fontSize = "12.5px";
+    body.textContent = msg;
+
+    box.appendChild(title);
+    box.appendChild(body);
+    box.addEventListener("click", () => box.remove());
+
+    document.body.appendChild(box);
+  } else {
+    const body = document.getElementById("fatalBody");
+    if(body) body.textContent = msg;
   }
-  if(!meaningKey && kun.length){
-    meaningKey = String(kun[0]).replace(/\[|\]/g, "").replace(/\./g, "").trim();
-  }
-  if(!meaningKey) meaningKey = "みてい";
-
-  return { id, grade, on, kun, meaningKey, raw };
 }
 
-export async function loadGrade(grade){
-  if(state.loadedGrades.has(grade)) return;
-  const url = GRADE_FILES[grade];
-  if(!url) return;
+function byId(id){ return document.getElementById(id); }
 
-  const res = await fetch(url);
-  if(!res.ok) throw new Error(`Fetch failed: ${url} (HTTP ${res.status})`);
+async function boot(){
+  const [{ state }, ui] = await Promise.all([
+    import("./state.js"),
+    import("./ui.js")
+  ]);
 
-  const arr = await res.json();
-  if(!Array.isArray(arr)) throw new Error(`${url} is not a JSON array`);
+  const settingsMod = await import("./settings.js");
 
-  for(const raw of arr){
-    if(!raw || !raw.kanji) continue;
-    const norm = normalizeKanjiEntry(raw);
-    state.kanjiById.set(norm.id, norm);
-  }
-  state.loadedGrades.add(grade);
-}
+  ui.registerServiceWorker();
+  state.settings = settingsMod.loadSettings();
 
-export async function ensureGradesLoaded(grades){
-  for(const g of grades) await loadGrade(g);
-}
+  // IMPORTANT: wire dictionary at startup so history taps always work
+  try{
+    const dict = await import("./dictionary.js");
+    dict.wireDictionaryUI?.();
+  } catch(e){ showFatal(e); }
 
-export function buildPoolForGrades(grades){
-  const enabledGrades = new Set(grades);
-  return [...state.kanjiById.values()].filter(k =>
-    enabledGrades.has(k.grade) && isKanjiEnabled(k.id, k.grade)
-  );
-}
+  // Optional: wire kanji-picker at startup too (safe & avoids “blank page” issues)
+  try{
+    const picker = await import("./kanji-picker.js");
+    picker.wireKanjiPickerUI?.();
+  } catch(e){ /* keep silent; not required for game */ }
 
-export function getKanjiForGradeSorted(grade){
-  const items = [...state.kanjiById.values()].filter(k => k.grade === grade);
-  items.sort((a,b) => {
-    const ai = Number(a.raw?.kyoiku_index ?? 1e9);
-    const bi = Number(b.raw?.kyoiku_index ?? 1e9);
-    if(ai !== bi) return ai - bi;
-    return a.id.localeCompare(b.id);
+  function go(tab){ ui.setActiveTab(tab); }
+
+  // Tabs
+  byId("tabHome")?.addEventListener("click", () => go("home"));
+  byId("tabSettings")?.addEventListener("click", () => go("settings"));
+  byId("tabDictionary")?.addEventListener("click", () => {
+    if(window.__openDictionary) window.__openDictionary();
+    else go("dictionary");
   });
-  return items;
+  byId("tabKanji")?.addEventListener("click", () => {
+    if(window.__openKanjiPicker) window.__openKanjiPicker();
+    else go("kanji");
+  });
+  byId("tabGame")?.addEventListener("click", () => go("game"));
+
+  // Home buttons
+  byId("goSettingsBtn")?.addEventListener("click", () => go("settings"));
+  byId("goDictionaryBtn")?.addEventListener("click", () => window.__openDictionary?.() || go("dictionary"));
+  byId("goKanjiBtn")?.addEventListener("click", () => window.__openKanjiPicker?.() || go("kanji"));
+
+  // Back buttons
+  byId("backHomeBtn")?.addEventListener("click", () => go("home"));
+  byId("kanjiBackBtn")?.addEventListener("click", () => go("settings"));
+
+  // Start game
+  byId("startBtn")?.addEventListener("click", async () => {
+    try{
+      const game = await import("./game-quiz.js");
+      game.wireGameUI?.();
+      await game.startQuizGame?.();
+    } catch(e){ showFatal(e); }
+  });
+
+  // Game over modal
+  byId("gameOverOk")?.addEventListener("click", async () => {
+    try{
+      const ui2 = await import("./ui.js");
+      ui2.hideGameOverModal?.();
+      go("home");
+    } catch(e){ showFatal(e); }
+  });
+
+  function updateHomePill(){
+    const pill = byId("homePill");
+    if(!pill) return;
+    const enabled = settingsMod.getEnabledGrades().filter(g => g >= 1 && g <= 6);
+    const gTxt = enabled.length ? enabled.map(g => `G${g}`).join("+") : "none";
+    const ovCount = settingsMod.getOverrideCount?.() ?? 0;
+    const comp = settingsMod.isCompoundEnabled?.() ? "compound:on" : "compound:off";
+    pill.textContent = `Active: ${gTxt} • overrides:${ovCount} • ${comp}`;
+  }
+
+  // Wire settings (do NOT change tabs)
+  try{
+    settingsMod.initSettingsUI?.(() => {
+      updateHomePill();
+    });
+  } catch(e){ showFatal(e); }
+
+  updateHomePill();
+  go("home");
 }
+
+boot().catch(showFatal);

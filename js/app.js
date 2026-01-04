@@ -1,6 +1,4 @@
 // js/app.js
-// Robust bootloader: uses dynamic imports so one failing module can't break all buttons.
-// Also shows a visible on-screen error if something goes wrong.
 
 function showFatal(err){
   console.error(err);
@@ -47,102 +45,69 @@ function showFatal(err){
 function byId(id){ return document.getElementById(id); }
 
 async function boot(){
-  // Load ui + state first (small core)
   const [{ state }, ui] = await Promise.all([
     import("./state.js"),
     import("./ui.js")
   ]);
 
-  // Settings (dynamic)
   const settingsMod = await import("./settings.js");
 
-  // Register SW early
   ui.registerServiceWorker();
-
-  // Init settings state
   state.settings = settingsMod.loadSettings();
 
-  // --- Navigation helpers ---
-  function go(tab){
-    ui.setActiveTab(tab);
-  }
+  // IMPORTANT: wire dictionary at startup so history taps always work
+  try{
+    const dict = await import("./dictionary.js");
+    dict.wireDictionaryUI?.();
+  } catch(e){ showFatal(e); }
+
+  // Optional: wire kanji-picker at startup too (safe & avoids “blank page” issues)
+  try{
+    const picker = await import("./kanji-picker.js");
+    picker.wireKanjiPickerUI?.();
+  } catch(e){ /* keep silent; not required for game */ }
+
+  function go(tab){ ui.setActiveTab(tab); }
 
   // Tabs
   byId("tabHome")?.addEventListener("click", () => go("home"));
   byId("tabSettings")?.addEventListener("click", () => go("settings"));
-  byId("tabDictionary")?.addEventListener("click", async () => {
-    try{
-      // Dictionary module is optional until needed
-      const dict = await import("./dictionary.js");
-      dict.wireDictionaryUI?.();
-      // open dictionary
-      if(window.__openDictionary) window.__openDictionary();
-      else go("dictionary");
-    } catch(e){ showFatal(e); }
+  byId("tabDictionary")?.addEventListener("click", () => {
+    if(window.__openDictionary) window.__openDictionary();
+    else go("dictionary");
   });
-  byId("tabKanji")?.addEventListener("click", async () => {
-    try{
-      const picker = await import("./kanji-picker.js");
-      picker.wireKanjiPickerUI?.();
-      if(window.__openKanjiPicker) window.__openKanjiPicker();
-      else go("kanji");
-    } catch(e){ showFatal(e); }
+  byId("tabKanji")?.addEventListener("click", () => {
+    if(window.__openKanjiPicker) window.__openKanjiPicker();
+    else go("kanji");
   });
   byId("tabGame")?.addEventListener("click", () => go("game"));
 
   // Home buttons
   byId("goSettingsBtn")?.addEventListener("click", () => go("settings"));
-  byId("goDictionaryBtn")?.addEventListener("click", async () => {
-    try{
-      const dict = await import("./dictionary.js");
-      dict.wireDictionaryUI?.();
-      if(window.__openDictionary) window.__openDictionary();
-      else go("dictionary");
-    } catch(e){ showFatal(e); }
-  });
-  byId("goKanjiBtn")?.addEventListener("click", async () => {
-    try{
-      const picker = await import("./kanji-picker.js");
-      picker.wireKanjiPickerUI?.();
-      if(window.__openKanjiPicker) window.__openKanjiPicker();
-      else go("kanji");
-    } catch(e){ showFatal(e); }
-  });
+  byId("goDictionaryBtn")?.addEventListener("click", () => window.__openDictionary?.() || go("dictionary"));
+  byId("goKanjiBtn")?.addEventListener("click", () => window.__openKanjiPicker?.() || go("kanji"));
 
   // Back buttons
   byId("backHomeBtn")?.addEventListener("click", () => go("home"));
-  byId("kanjiBackBtn")?.addEventListener("click", () => go("settings")); // typical flow
-  // dictBackBtn + wordBackBtn are wired inside dictionary.js; but keep safe fallbacks:
-  byId("dictBackBtn")?.addEventListener("click", () => go("home"));
-  byId("wordBackBtn")?.addEventListener("click", () => go("game"));
+  byId("kanjiBackBtn")?.addEventListener("click", () => go("settings"));
 
   // Start game
   byId("startBtn")?.addEventListener("click", async () => {
     try{
       const game = await import("./game-quiz.js");
-      game.wireGameUI?.();      // safe if called multiple times
+      game.wireGameUI?.();
       await game.startQuizGame?.();
     } catch(e){ showFatal(e); }
   });
 
-  // Game over modal button (basic)
+  // Game over modal
   byId("gameOverOk")?.addEventListener("click", async () => {
     try{
       const ui2 = await import("./ui.js");
       ui2.hideGameOverModal?.();
-      // reset tab vis will happen via setActiveTab + game state
       go("home");
     } catch(e){ showFatal(e); }
   });
-
-  // Wire settings UI
-  try{
-    settingsMod.initSettingsUI?.(() => {
-      // update home pill and game tab visibility
-      updateHomePill();
-      ui.setActiveTab(document.querySelector(".view.active")?.id === "viewGame" ? "game" : "home");
-    });
-  } catch(e){ showFatal(e); }
 
   function updateHomePill(){
     const pill = byId("homePill");
@@ -154,9 +119,14 @@ async function boot(){
     pill.textContent = `Active: ${gTxt} • overrides:${ovCount} • ${comp}`;
   }
 
-  updateHomePill();
+  // Wire settings (do NOT change tabs)
+  try{
+    settingsMod.initSettingsUI?.(() => {
+      updateHomePill();
+    });
+  } catch(e){ showFatal(e); }
 
-  // Default view
+  updateHomePill();
   go("home");
 }
 
