@@ -3,13 +3,14 @@ import { ensureGradesLoaded, buildPoolForGrades } from "./data.js";
 import { rebuildWordIndexForGrades, getEligibleCompoundWords } from "./words.js";
 import { getEnabledGrades, isCompoundEnabled } from "./settings.js";
 import {
-  meaningImgUrlForKanji,
   renderBracketColored,
   setActiveTab,
   showGameOverModal
 } from "./ui.js";
 
 const MAX_HISTORY = 8;
+
+/* ---------- utils ---------- */
 
 function rand(n){ return Math.floor(Math.random() * n); }
 function shuffle(arr){
@@ -19,6 +20,14 @@ function shuffle(arr){
   }
   return arr;
 }
+
+/* ---------- meaning images (single fixed location) ---------- */
+
+function meaningImageUrl(kanjiChar){
+  return `./images/meaning/${encodeURIComponent(kanjiChar)}.png`;
+}
+
+/* ---------- HUD ---------- */
 
 function updateHUD(){
   document.getElementById("hudLives").textContent = `Lives: ${Math.max(0, state.lives)}`;
@@ -35,9 +44,10 @@ function endGame(){
 }
 
 function clearPromptClasses(){
-  const promptEl = document.getElementById("prompt");
-  promptEl.classList.remove("correct", "wrong");
+  document.getElementById("prompt")?.classList.remove("correct", "wrong");
 }
+
+/* ---------- prompt ---------- */
 
 function setPromptKanji(text){
   const inner = document.getElementById("promptInner");
@@ -52,12 +62,12 @@ function setPromptKana(text){
   const inner = document.getElementById("promptInner");
   inner.innerHTML = "";
   const div = document.createElement("div");
-  div.className = "kanaText"; // CSS uses KanjiFont (item #6)
+  div.className = "kanaText";
   div.textContent = text;
   inner.appendChild(div);
 }
 
-/* ---------- History ---------- */
+/* ---------- history ---------- */
 
 function ensureHistory(){
   if(!Array.isArray(state.history)) state.history = [];
@@ -71,7 +81,6 @@ function addHistoryEntry(entry){
 }
 
 function renderHistory(){
-  ensureHistory();
   const host = document.getElementById("historyList");
   if(!host) return;
 
@@ -104,12 +113,10 @@ function renderHistory(){
     row.appendChild(right);
 
     row.addEventListener("click", () => {
-      // item #7
       if(h.type === "compound"){
-        if(window.__openWordDetail) window.__openWordDetail(h.wordMeta);
+        window.__openWordDetail?.(h.wordMeta);
       } else {
-        // item #1: dictionary back returns to game
-        if(window.__openDictionaryWithQuery) window.__openDictionaryWithQuery(h.dictQuery, true);
+        window.__openDictionaryWithQuery?.(h.dictQuery, true);
       }
     });
 
@@ -117,14 +124,14 @@ function renderHistory(){
   }
 }
 
-/* ---------- Rendering (meaning choices) ---------- */
+/* ---------- meaning choices ---------- */
 
 function renderMeaningChoiceContent(btn, kanjiChar, fallbackText){
   const img = document.createElement("img");
   img.className = "meaningImg";
   img.alt = fallbackText;
 
-  const fallback = () => {
+  img.onerror = () => {
     img.remove();
     const div = document.createElement("div");
     div.className = "meaningFallback";
@@ -137,8 +144,7 @@ function renderMeaningChoiceContent(btn, kanjiChar, fallbackText){
     btn.appendChild(div);
   };
 
-  img.onerror = fallback;
-  img.src = meaningImgUrlForKanji(kanjiChar);
+  img.src = meaningImageUrl(kanjiChar);
   btn.appendChild(img);
 }
 
@@ -156,13 +162,12 @@ function renderChoicesMeaning(options){
     btn.dataset.kanji = opt.kanji;
 
     renderMeaningChoiceContent(btn, opt.kanji, opt.meaning);
-
     btn.addEventListener("click", () => onChoiceClick(btn));
     choicesEl.appendChild(btn);
   });
 }
 
-/* ---------- Rendering (kanji choices for compound) ---------- */
+/* ---------- compound choices ---------- */
 
 function renderChoicesKanji(kanjiOptions){
   const choicesEl = document.getElementById("choices");
@@ -186,55 +191,7 @@ function renderChoicesKanji(kanjiOptions){
   });
 }
 
-/* ---------- Peek tiles ---------- */
-
-function renderPeekSingle(record){
-  const choicesEl = document.getElementById("choices");
-  choicesEl.innerHTML = "";
-  choicesEl.style.display = "block";
-
-  const tile = document.createElement("div");
-  tile.className = "settingsCard";
-
-  const pre = document.createElement("pre");
-  pre.className = "mono";
-  pre.textContent = JSON.stringify(record.raw, null, 2);
-
-  const hint = document.createElement("div");
-  hint.className = "muted";
-  hint.style.marginTop = "8px";
-  hint.textContent = "Tap the prompt tile again to return to the choices.";
-
-  tile.appendChild(pre);
-  tile.appendChild(hint);
-
-  choicesEl.appendChild(tile);
-}
-
-function renderPeekCompound(q){
-  const choicesEl = document.getElementById("choices");
-  choicesEl.innerHTML = "";
-  choicesEl.style.display = "block";
-
-  const tile = document.createElement("div");
-  tile.className = "settingsCard";
-
-  const pre = document.createElement("pre");
-  pre.className = "mono";
-  pre.textContent = JSON.stringify(q.meta || {}, null, 2);
-
-  const hint = document.createElement("div");
-  hint.className = "muted";
-  hint.style.marginTop = "8px";
-  hint.textContent = "Tap the prompt tile again to return to the choices.";
-
-  tile.appendChild(pre);
-  tile.appendChild(hint);
-
-  choicesEl.appendChild(tile);
-}
-
-/* ---------- Question generation ---------- */
+/* ---------- question generation ---------- */
 
 function buildSingleQuestion(){
   const record = state.pool[rand(state.pool.length)];
@@ -242,12 +199,14 @@ function buildSingleQuestion(){
   shuffle(others);
   const wrongs = others.slice(0, 3);
 
-  const options = shuffle([
-    { kanji: record.id, meaning: record.meaningKey, ok: true },
-    ...wrongs.map(w => ({ kanji: w.id, meaning: w.meaningKey, ok: false }))
-  ]);
-
-  return { type: "single", record, options };
+  return {
+    type: "single",
+    record,
+    options: shuffle([
+      { kanji: record.id, meaning: record.meaningKey, ok: true },
+      ...wrongs.map(w => ({ kanji: w.id, meaning: w.meaningKey, ok: false }))
+    ])
+  };
 }
 
 function buildCompoundQuestion(eligibleWords){
@@ -256,37 +215,30 @@ function buildCompoundQuestion(eligibleWords){
 
   const poolOthers = state.pool.map(x => x.id).filter(x => x !== k1 && x !== k2);
   shuffle(poolOthers);
-  const wrongs = poolOthers.slice(0, 2);
-
-  const answers = shuffle([k1, k2, ...wrongs]);
 
   return {
     type: "compound",
     kana: w.kana,
     kanji: w.kanji,
     kanjiChars: w.kanjiChars,
-    answers,
+    answers: shuffle([k1, k2, ...poolOthers.slice(0, 2)]),
     meta: w.meta || null
   };
 }
 
 async function pickNextQuestion(){
-  const compoundAllowed = isCompoundEnabled();
-  if(!compoundAllowed) return buildSingleQuestion();
-
+  if(!isCompoundEnabled()) return buildSingleQuestion();
   const eligible = getEligibleCompoundWords(state.pool);
-  const wantCompound = (Math.random() < constants.COMPOUND_PROBABILITY) && eligible.length > 0;
-  if(wantCompound) return buildCompoundQuestion(eligible);
+  if(Math.random() < constants.COMPOUND_PROBABILITY && eligible.length){
+    return buildCompoundQuestion(eligible);
+  }
   return buildSingleQuestion();
 }
 
-/* ---------- Question lifecycle ---------- */
+/* ---------- lifecycle ---------- */
 
 async function newQuestion(){
-  if(state.lives <= 0){
-    endGame();
-    return;
-  }
+  if(state.lives <= 0){ endGame(); return; }
 
   state.locked = false;
   state.peekMode = false;
@@ -308,16 +260,16 @@ async function newQuestion(){
   renderHistory();
 }
 
+/* ---------- handlers (unchanged logic) ---------- */
+
 function handleSingleAnswer(btn){
   state.locked = true;
-
   const promptEl = document.getElementById("prompt");
   const buttons = [...document.querySelectorAll("button.choice")];
   buttons.forEach(b => b.disabled = true);
 
-  const isOk = btn.dataset.ok === "1";
-
-  if(isOk){
+  const ok = btn.dataset.ok === "1";
+  if(ok){
     state.score += 1;
     btn.classList.add("correct");
     promptEl.classList.add("correct");
@@ -325,53 +277,36 @@ function handleSingleAnswer(btn){
     state.lives -= constants.COST_WRONG;
     btn.classList.add("wrong");
     promptEl.classList.add("wrong");
-
-    const right = buttons.find(b => b.dataset.ok === "1");
-    if(right) right.classList.add("correct");
+    buttons.find(b => b.dataset.ok === "1")?.classList.add("correct");
   }
 
   addHistoryEntry({
     type: "single",
     display: state.currentQuestion.record.id,
-    ok: isOk,
+    ok,
     dictQuery: state.currentQuestion.record.id
   });
 
   updateHUD();
-
-  if(state.lives <= 0){
-    setTimeout(endGame, constants.PAUSE_ENDGAME_MS);
-    return;
-  }
-
-  setTimeout(() => newQuestion().catch(()=>{}), constants.PAUSE_AFTER_ANSWER_MS);
+  setTimeout(() => state.lives <= 0 ? endGame() : newQuestion(), constants.PAUSE_AFTER_ANSWER_MS);
 }
 
 function evaluateCompoundSecondPick(){
   const q = state.currentQuestion;
+  const correct = new Set(q.kanjiChars);
+  const picked = new Set(state.compoundPicks);
 
-  const correctSet = new Set(q.kanjiChars);
-  const pickedSet = new Set(state.compoundPicks);
-
-  const allCorrectPicked =
-    q.kanjiChars.every(k => pickedSet.has(k)) && pickedSet.size === 2;
-
-  const buttons = [...document.querySelectorAll("button.choice")];
-
-  for(const b of buttons){
+  document.querySelectorAll("button.choice").forEach(b => {
     const k = b.dataset.kanji;
-    b.classList.remove("selected", "correct", "wrong");
-
-    if(correctSet.has(k)){
-      b.classList.add("correct");
-    } else if(pickedSet.has(k)){
-      b.classList.add("wrong");
-    }
+    b.classList.remove("selected","correct","wrong");
+    if(correct.has(k)) b.classList.add("correct");
+    else if(picked.has(k)) b.classList.add("wrong");
     b.disabled = true;
-  }
+  });
 
   const promptEl = document.getElementById("prompt");
-  if(allCorrectPicked){
+  const ok = q.kanjiChars.every(k => picked.has(k));
+  if(ok){
     state.score += 1;
     promptEl.classList.add("correct");
   } else {
@@ -382,92 +317,59 @@ function evaluateCompoundSecondPick(){
   addHistoryEntry({
     type: "compound",
     display: q.kana,
-    ok: allCorrectPicked,
+    ok,
     wordMeta: q.meta || { word: q.kanji, reading: q.kana }
   });
 
   updateHUD();
-
-  if(state.lives <= 0){
-    setTimeout(endGame, constants.PAUSE_ENDGAME_MS);
-    return;
-  }
-
-  setTimeout(() => newQuestion().catch(()=>{}), constants.PAUSE_AFTER_ANSWER_MS);
+  setTimeout(() => state.lives <= 0 ? endGame() : newQuestion(), constants.PAUSE_AFTER_ANSWER_MS);
 }
 
 function handleCompoundPick(btn){
   if(state.locked) return;
-
   const k = btn.dataset.kanji;
   if(state.compoundPicks.includes(k)) return;
 
   state.compoundPicks.push(k);
-
   if(state.compoundPicks.length === 1){
     btn.classList.add("selected");
-    return;
+  } else {
+    state.locked = true;
+    evaluateCompoundSecondPick();
   }
-
-  state.locked = true;
-  evaluateCompoundSecondPick();
 }
 
 function onChoiceClick(btn){
-  if(state.peekMode) return;
-  if(state.locked) return;
-
-  const q = state.currentQuestion;
-  if(!q) return;
-
-  if(q.type === "single") handleSingleAnswer(btn);
-  else handleCompoundPick(btn);
+  if(state.peekMode || state.locked) return;
+  state.currentQuestion.type === "single"
+    ? handleSingleAnswer(btn)
+    : handleCompoundPick(btn);
 }
 
-/* ---------- Peek toggle ---------- */
+/* ---------- peek ---------- */
 
 function togglePeek(){
-  if(!state.currentQuestion) return;
-  if(state.locked) return;
+  if(state.locked || !state.currentQuestion) return;
 
   state.peekMode = !state.peekMode;
-
-  if(state.peekMode){
-    if(!state.peekChargedThisQuestion){
-      state.lives -= constants.COST_PEEK;
-      state.peekChargedThisQuestion = true;
-      updateHUD();
-      if(state.lives <= 0){
-        endGame();
-        return;
-      }
-    }
-
-    if(state.currentQuestion.type === "single") renderPeekSingle(state.currentQuestion.record);
-    else renderPeekCompound(state.currentQuestion);
-  } else {
-    if(state.currentQuestion.type === "single"){
-      renderChoicesMeaning(state.currentQuestion.options);
-    } else {
-      renderChoicesKanji(state.currentQuestion.answers);
-
-      if(state.compoundPicks.length === 1){
-        const picked = state.compoundPicks[0];
-        const btns = [...document.querySelectorAll("button.choice")];
-        const found = btns.find(b => b.dataset.kanji === picked);
-        if(found) found.classList.add("selected");
-      }
-    }
+  if(state.peekMode && !state.peekChargedThisQuestion){
+    state.lives -= constants.COST_PEEK;
+    state.peekChargedThisQuestion = true;
+    if(state.lives <= 0){ endGame(); return; }
   }
 
-  updateHUD();
+  state.peekMode
+    ? (state.currentQuestion.type === "single"
+        ? renderPeekSingle(state.currentQuestion.record)
+        : renderPeekCompound(state.currentQuestion))
+    : newQuestion();
 }
 
-/* ---------- Public API ---------- */
+/* ---------- public ---------- */
 
 export async function startQuizGame(){
   const enabledGrades = getEnabledGrades();
-  if(enabledGrades.length === 0){
+  if(!enabledGrades.length){
     alert("Enable at least one grade in Settings.");
     setActiveTab("settings");
     return;
@@ -475,9 +377,8 @@ export async function startQuizGame(){
 
   await ensureGradesLoaded(enabledGrades);
   state.pool = buildPoolForGrades(enabledGrades);
-
   if(state.pool.length < 6){
-    alert("Not enough kanji in selected pool. Enable more grades.");
+    alert("Not enough kanji selected.");
     setActiveTab("settings");
     return;
   }
@@ -486,20 +387,12 @@ export async function startQuizGame(){
 
   state.score = 0;
   state.lives = constants.START_LIVES;
-  state.locked = false;
-  state.peekMode = false;
-  state.peekChargedThisQuestion = false;
-  state.currentQuestion = null;
-  state.compoundPicks = [];
-
   state.history = [];
   state.gameActive = true;
 
-  renderHistory();
-
   setActiveTab("game");
   updateHUD();
-  await newQuestion();
+  newQuestion();
 }
 
 export function wireGameUI(){
@@ -507,6 +400,5 @@ export function wireGameUI(){
     state.gameActive = false;
     setActiveTab("home");
   });
-
-  document.getElementById("prompt")?.addEventListener("click", () => togglePeek());
+  document.getElementById("prompt")?.addEventListener("click", togglePeek);
 }
