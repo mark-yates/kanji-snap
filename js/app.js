@@ -1,92 +1,163 @@
-import { state } from "./state.js";
-import { registerServiceWorker, setActiveTab, hideGameOverModal } from "./ui.js";
-import { loadSettings, initSettingsUI, getEnabledGrades, getOverrideCount } from "./settings.js";
-import { ensureGradesLoaded } from "./data.js";
-import { startQuizGame, wireGameUI } from "./game-quiz.js";
-import { wireDictionaryUI } from "./dictionary.js";
-import { wireKanjiPickerUI, openKanjiPicker } from "./kanji-picker.js";
+// js/app.js
+// Robust bootloader: uses dynamic imports so one failing module can't break all buttons.
+// Also shows a visible on-screen error if something goes wrong.
 
-function updateHomePill(){
-  const enabled = getEnabledGrades();
-  const homePill = document.getElementById("homePill");
-  if(!homePill) return;
+function showFatal(err){
+  console.error(err);
+  const msg = (err && (err.stack || err.message)) ? (err.stack || err.message) : String(err);
 
-  homePill.textContent = enabled.length
-    ? `Active grades: ${enabled.map(g => "G" + g).join("+")} • Overrides: ${getOverrideCount()}`
-    : `Active grades: none • Overrides: ${getOverrideCount()}`;
-}
+  let box = document.getElementById("fatalBox");
+  if(!box){
+    box = document.createElement("div");
+    box.id = "fatalBox";
+    box.style.position = "fixed";
+    box.style.left = "12px";
+    box.style.right = "12px";
+    box.style.bottom = "12px";
+    box.style.zIndex = "9999";
+    box.style.padding = "12px";
+    box.style.borderRadius = "12px";
+    box.style.border = "1px solid rgba(233,238,252,.25)";
+    box.style.background = "rgba(239,68,68,.18)";
+    box.style.color = "#e9eefc";
+    box.style.fontFamily = "system-ui, -apple-system, Segoe UI, Roboto, Arial";
+    box.style.whiteSpace = "pre-wrap";
 
-async function warmLoadForUX(){
-  const enabled = getEnabledGrades();
-  if(enabled.includes(1)){
-    await ensureGradesLoaded([1]);
+    const title = document.createElement("div");
+    title.textContent = "App error (tap to dismiss)";
+    title.style.fontWeight = "900";
+    title.style.marginBottom = "6px";
+
+    const body = document.createElement("div");
+    body.id = "fatalBody";
+    body.style.fontSize = "12.5px";
+    body.textContent = msg;
+
+    box.appendChild(title);
+    box.appendChild(body);
+    box.addEventListener("click", () => box.remove());
+
+    document.body.appendChild(box);
+  } else {
+    const body = document.getElementById("fatalBody");
+    if(body) body.textContent = msg;
   }
 }
 
-function wireTabs(){
-  document.getElementById("tabHome")?.addEventListener("click", () => setActiveTab("home"));
-  document.getElementById("tabSettings")?.addEventListener("click", () => setActiveTab("settings"));
-  document.getElementById("tabDictionary")?.addEventListener("click", () => setActiveTab("dictionary"));
-  document.getElementById("tabKanji")?.addEventListener("click", () => openKanjiPicker().catch(err => alert(String(err))));
-  document.getElementById("tabGame")?.addEventListener("click", () => setActiveTab("game"));
+function byId(id){ return document.getElementById(id); }
 
-  document.getElementById("goSettingsBtn")?.addEventListener("click", () => setActiveTab("settings"));
-  document.getElementById("backHomeBtn")?.addEventListener("click", () => setActiveTab("home"));
-  document.getElementById("dictBackBtn")?.addEventListener("click", () => setActiveTab("home"));
-}
+async function boot(){
+  // Load ui + state first (small core)
+  const [{ state }, ui] = await Promise.all([
+    import("./state.js"),
+    import("./ui.js")
+  ]);
 
-function wireHome(){
-  document.getElementById("startBtn")?.addEventListener("click", () => {
-    startQuizGame().catch(err => alert(String(err)));
-  });
+  // Settings (dynamic)
+  const settingsMod = await import("./settings.js");
 
-  document.getElementById("goDictionaryBtn")?.addEventListener("click", () => {
-    if(window.__openDictionary) window.__openDictionary();
-    else setActiveTab("dictionary");
-  });
+  // Register SW early
+  ui.registerServiceWorker();
 
-  document.getElementById("goKanjiBtn")?.addEventListener("click", () => {
-    openKanjiPicker().catch(err => alert(String(err)));
-  });
-}
+  // Init settings state
+  state.settings = settingsMod.loadSettings();
 
-function wireModal(){
-  document.getElementById("gameOverOk")?.addEventListener("click", () => {
-    hideGameOverModal();
-    setActiveTab("home");
-  });
-}
-
-async function onSettingsChanged(){
-  updateHomePill();
-
-  // If dictionary is open, refresh it
-  const viewDict = document.getElementById("viewDictionary");
-  if(viewDict?.classList.contains("active") && window.__openDictionary){
-    await window.__openDictionary();
+  // --- Navigation helpers ---
+  function go(tab){
+    ui.setActiveTab(tab);
   }
 
-  // Update override pill on settings
-  const overridePill = document.getElementById("overridePill");
-  if(overridePill) overridePill.textContent = `Overrides: ${getOverrideCount()}`;
-}
+  // Tabs
+  byId("tabHome")?.addEventListener("click", () => go("home"));
+  byId("tabSettings")?.addEventListener("click", () => go("settings"));
+  byId("tabDictionary")?.addEventListener("click", async () => {
+    try{
+      // Dictionary module is optional until needed
+      const dict = await import("./dictionary.js");
+      dict.wireDictionaryUI?.();
+      // open dictionary
+      if(window.__openDictionary) window.__openDictionary();
+      else go("dictionary");
+    } catch(e){ showFatal(e); }
+  });
+  byId("tabKanji")?.addEventListener("click", async () => {
+    try{
+      const picker = await import("./kanji-picker.js");
+      picker.wireKanjiPickerUI?.();
+      if(window.__openKanjiPicker) window.__openKanjiPicker();
+      else go("kanji");
+    } catch(e){ showFatal(e); }
+  });
+  byId("tabGame")?.addEventListener("click", () => go("game"));
 
-(async function main(){
-  registerServiceWorker();
+  // Home buttons
+  byId("goSettingsBtn")?.addEventListener("click", () => go("settings"));
+  byId("goDictionaryBtn")?.addEventListener("click", async () => {
+    try{
+      const dict = await import("./dictionary.js");
+      dict.wireDictionaryUI?.();
+      if(window.__openDictionary) window.__openDictionary();
+      else go("dictionary");
+    } catch(e){ showFatal(e); }
+  });
+  byId("goKanjiBtn")?.addEventListener("click", async () => {
+    try{
+      const picker = await import("./kanji-picker.js");
+      picker.wireKanjiPickerUI?.();
+      if(window.__openKanjiPicker) window.__openKanjiPicker();
+      else go("kanji");
+    } catch(e){ showFatal(e); }
+  });
 
-  state.settings = loadSettings();
+  // Back buttons
+  byId("backHomeBtn")?.addEventListener("click", () => go("home"));
+  byId("kanjiBackBtn")?.addEventListener("click", () => go("settings")); // typical flow
+  // dictBackBtn + wordBackBtn are wired inside dictionary.js; but keep safe fallbacks:
+  byId("dictBackBtn")?.addEventListener("click", () => go("home"));
+  byId("wordBackBtn")?.addEventListener("click", () => go("game"));
 
-  wireTabs();
-  wireHome();
-  wireGameUI();
-  wireDictionaryUI();
-  wireKanjiPickerUI();
-  wireModal();
+  // Start game
+  byId("startBtn")?.addEventListener("click", async () => {
+    try{
+      const game = await import("./game-quiz.js");
+      game.wireGameUI?.();      // safe if called multiple times
+      await game.startQuizGame?.();
+    } catch(e){ showFatal(e); }
+  });
 
-  initSettingsUI(onSettingsChanged);
+  // Game over modal button (basic)
+  byId("gameOverOk")?.addEventListener("click", async () => {
+    try{
+      const ui2 = await import("./ui.js");
+      ui2.hideGameOverModal?.();
+      // reset tab vis will happen via setActiveTab + game state
+      go("home");
+    } catch(e){ showFatal(e); }
+  });
+
+  // Wire settings UI
+  try{
+    settingsMod.initSettingsUI?.(() => {
+      // update home pill and game tab visibility
+      updateHomePill();
+      ui.setActiveTab(document.querySelector(".view.active")?.id === "viewGame" ? "game" : "home");
+    });
+  } catch(e){ showFatal(e); }
+
+  function updateHomePill(){
+    const pill = byId("homePill");
+    if(!pill) return;
+    const enabled = settingsMod.getEnabledGrades().filter(g => g >= 1 && g <= 6);
+    const gTxt = enabled.length ? enabled.map(g => `G${g}`).join("+") : "none";
+    const ovCount = settingsMod.getOverrideCount?.() ?? 0;
+    const comp = settingsMod.isCompoundEnabled?.() ? "compound:on" : "compound:off";
+    pill.textContent = `Active: ${gTxt} • overrides:${ovCount} • ${comp}`;
+  }
+
   updateHomePill();
 
-  setActiveTab("home");
+  // Default view
+  go("home");
+}
 
-  await warmLoadForUX().catch(() => {});
-})();
+boot().catch(showFatal);
