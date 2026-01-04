@@ -1,70 +1,66 @@
 import { state } from "./state.js";
-import { isKanjiEnabled } from "./settings.js";
 
-export const GRADE_FILES = {
-  1: "./data/grade-1.json",
-  2: "./data/grade-2.json",
-  3: "./data/grade-3.json"
-};
+/**
+ * Build eligible 2-kanji compounds from words embedded in kanji entries.
+ * Word block format example:
+ *  { word:"学校", reading:"がっこう", band:1000, meaning_hira:"がっこう", grade:1, age_min:8, ... }
+ *
+ * Grade is optional in the word block:
+ * - if absent, inherit grade from containing kanji entry
+ * - if present, use that
+ */
 
-export function normalizeKanjiEntry(raw){
-  const id = raw.kanji;
-  const grade = Number(raw.grade);
+let wordIndex = []; // rebuilt per enabled grades
 
-  const on  = Array.isArray(raw.onyomi) ? raw.onyomi : [];
-  const kun = Array.isArray(raw.kunyomi) ? raw.kunyomi : [];
-
-  // Placeholder meaning fallback:
-  let meaningKey = (raw.meaning_hira || "").trim();
-  if(!meaningKey){
-    const label = (raw.label || "").trim();
-    if(label) meaningKey = label;
-  }
-  if(!meaningKey && kun.length){
-    meaningKey = String(kun[0]).replace(/\[|\]/g, "").replace(/\./g, "").trim();
-  }
-  if(!meaningKey) meaningKey = "みてい";
-
-  return { id, grade, on, kun, meaningKey, raw };
+function isTwoKanji(s){
+  if(typeof s !== "string") return false;
+  if(s.length !== 2) return false;
+  // crude: exclude kana/ascii/numbers
+  return !/[ぁ-んァ-ヶa-zA-Z0-9]/.test(s);
 }
 
-export async function loadGrade(grade){
-  if(state.loadedGrades.has(grade)) return;
-  const url = GRADE_FILES[grade];
-  if(!url) return;
+export function rebuildWordIndexForGrades(enabledGrades){
+  const enabledSet = new Set(enabledGrades);
+  const out = [];
+  const seen = new Set(); // dedupe by word+reading
 
-  const res = await fetch(url);
-  if(!res.ok) throw new Error(`Fetch failed: ${url} (HTTP ${res.status})`);
+  for(const k of state.kanjiById.values()){
+    if(!enabledSet.has(k.grade)) continue;
 
-  const arr = await res.json();
-  if(!Array.isArray(arr)) throw new Error(`${url} is not a JSON array`);
+    const words = k.raw?.words;
+    if(!Array.isArray(words)) continue;
 
-  for(const raw of arr){
-    if(!raw || !raw.kanji) continue;
-    const norm = normalizeKanjiEntry(raw);
-    state.kanjiById.set(norm.id, norm);
+    for(const w of words){
+      if(!w || typeof w.word !== "string" || typeof w.reading !== "string") continue;
+      if(!isTwoKanji(w.word)) continue;
+
+      const effectiveGrade = Number.isFinite(Number(w.grade)) ? Number(w.grade) : k.grade;
+      if(!enabledSet.has(effectiveGrade)) continue;
+
+      const key = `${w.word}::${w.reading}`;
+      if(seen.has(key)) continue;
+      seen.add(key);
+
+      out.push({
+        kanji: w.word,
+        kana: w.reading,
+        kanjiChars: [w.word[0], w.word[1]],
+        // keep the original block + our derived grade for word-detail screen
+        meta: { ...w, __effectiveGrade: effectiveGrade }
+      });
+    }
   }
-  state.loadedGrades.add(grade);
+
+  wordIndex = out;
 }
 
-export async function ensureGradesLoaded(grades){
-  for(const g of grades) await loadGrade(g);
-}
-
-export function buildPoolForGrades(grades){
-  const enabledGrades = new Set(grades);
-  return [...state.kanjiById.values()].filter(k =>
-    enabledGrades.has(k.grade) && isKanjiEnabled(k.id, k.grade)
+/**
+ * Filter compound words down to those whose two kanji are currently present in the selected pool.
+ * pool is the *active* kanji list for the current game.
+ */
+export function getEligibleCompoundWords(pool){
+  const poolSet = new Set((pool || []).map(k => k.id));
+  return wordIndex.filter(w =>
+    poolSet.has(w.kanjiChars[0]) && poolSet.has(w.kanjiChars[1])
   );
-}
-
-export function getKanjiForGradeSorted(grade){
-  const items = [...state.kanjiById.values()].filter(k => k.grade === grade);
-  items.sort((a,b) => {
-    const ai = Number(a.raw?.kyoiku_index ?? 1e9);
-    const bi = Number(b.raw?.kyoiku_index ?? 1e9);
-    if(ai !== bi) return ai - bi;
-    return a.id.localeCompare(b.id);
-  });
-  return items;
 }
