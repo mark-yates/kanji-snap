@@ -58,24 +58,48 @@
         <div class="row">
           <div>
             <div class="sectionTitle">Settings</div>
-            <div class="muted">Select grades, individual kanji overrides, and quiz options.</div>
+            <div class="muted">Select grades, download images per grade, and choose quiz options.</div>
           </div>
           <button class="btn" id="backHomeBtn" type="button">Back</button>
         </div>
 
         <div class="settingsCard">
           <div class="sectionTitle">Select by grade</div>
-          <div class="checks">
-            <label class="check"><input id="chkG1" type="checkbox"> Grade 1</label>
-            <label class="check"><input id="chkG2" type="checkbox"> Grade 2</label>
-            <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
+
+          <!-- Each grade is its own line, with optional download -->
+          <div class="gradeLines">
+            <div class="gradeLine">
+              <label class="check"><input id="chkG1" type="checkbox"> Grade 1</label>
+              <span class="gradeRight">
+                <span class="pill pillTiny" id="dlStatusG1">…</span>
+                <button class="btn btnSmall" id="btnDlG1" type="button">Download</button>
+              </span>
+            </div>
+
+            <div class="gradeLine">
+              <label class="check"><input id="chkG2" type="checkbox"> Grade 2</label>
+              <span class="gradeRight">
+                <span class="pill pillTiny" id="dlStatusG2">…</span>
+                <button class="btn btnSmall" id="btnDlG2" type="button">Download</button>
+              </span>
+            </div>
+
+            <div class="gradeLine">
+              <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
+              <span class="gradeRight">
+                <span class="pill pillTiny" id="dlStatusG3">…</span>
+                <button class="btn btnSmall" id="btnDlG3" type="button">Download</button>
+              </span>
+            </div>
           </div>
+
           <div class="row" style="margin-top:10px;">
             <button class="btn" id="openKanjiPickerBtn" type="button">Select individual kanji…</button>
             <div class="pill" id="overridePill">Overrides: …</div>
           </div>
+
           <div class="muted" style="margin-top:8px;">
-            Individual selection uses overrides: a tap can force-include or force-exclude a kanji even if its grade is on/off.
+            Downloading a grade stores its meaning images locally for offline use. The game will only use cached images.
           </div>
         </div>
 
@@ -85,9 +109,6 @@
             <input id="chkCompound" type="checkbox">
             Include compound word questions
           </label>
-          <div class="muted" style="margin-top:8px;">
-            If disabled, the quiz will only show single kanji questions.
-          </div>
         </div>
 
         <div class="settingsCard">
@@ -162,7 +183,7 @@
         </div>
       </section>
 
-      <!-- WORD DETAIL (for compound history) -->
+      <!-- WORD DETAIL -->
       <section class="view" id="viewWord">
         <div class="row">
           <div>
@@ -225,12 +246,5 @@
   </div>
 
   <script type="module" src="./js/app.js"></script>
-
-<script>
-  alert("INLINE SCRIPT RAN");
-</script>
-
-  
 </body>
 </html>
-

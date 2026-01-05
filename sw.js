@@ -1,4 +1,5 @@
-const CACHE_NAME = "kanji-snap-v30.8";
+const CACHE_NAME = "kanji-snap-v41";
+const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 const ASSETS = [
   "./",
@@ -35,23 +36,59 @@ self.addEventListener("install", event => {
 });
 
 self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k)))
-    )
-  );
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(
+      keys.filter(k => k !== CACHE_NAME && k !== RUNTIME_CACHE).map(k => caches.delete(k))
+    );
+    await self.clients.claim();
+  })());
 });
+
+function isMeaningImage(url){
+  return url.origin === location.origin &&
+         url.pathname.includes("/images/meaning/") &&
+         url.pathname.endsWith(".png");
+}
 
 self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(cached => cached || fetch(event.request))
-  );
+  const req = event.request;
+  const url = new URL(req.url);
+
+  // Same-origin only
+  if(url.origin !== location.origin) return;
+
+  // App shell: cache-first
+  if(req.mode === "navigate"){
+    event.respondWith((async () => {
+      const cached = await caches.match("./index.html");
+      return cached || fetch(req);
+    })());
+    return;
+  }
+
+  // Meaning images: CACHE-ONLY (never go online)
+  if(isMeaningImage(url)){
+    event.respondWith((async () => {
+      const cache = await caches.open(RUNTIME_CACHE);
+      const hit = await cache.match(req) || await cache.match(url.pathname) || await cache.match(url.href);
+      return hit || new Response("", { status: 404 });
+    })());
+    return;
+  }
+
+  // Everything else: cache-first, then network, and store in runtime cache
+  event.respondWith((async () => {
+    const cached = await caches.match(req);
+    if(cached) return cached;
+
+    try{
+      const res = await fetch(req);
+      const cache = await caches.open(RUNTIME_CACHE);
+      cache.put(req, res.clone());
+      return res;
+    } catch {
+      return new Response("", { status: 504 });
+    }
+  })());
 });
-
-
-
-
-
-
-
-
