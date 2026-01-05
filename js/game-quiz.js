@@ -112,13 +112,14 @@ function renderHistory(){
     row.appendChild(left);
     row.appendChild(right);
 
-    row.addEventListener("click", () => {
-      if(h.type === "compound"){
-        window.__openWordDetail?.(h.wordMeta);
-      } else {
-        window.__openDictionaryWithQuery?.(h.dictQuery, true);
-      }
-    });
+	row.addEventListener("click", async () => {
+	  if(h.type === "compound"){
+		await window.__openWordDetail?.(h.wordMeta);
+	  } else {
+		await window.__openDictionaryWithQuery?.(h.dictQuery, true);
+	  }
+	});
+
 
     host.appendChild(row);
   }
