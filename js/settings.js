@@ -1,10 +1,10 @@
 import { state } from "./state.js";
 import { ensureGradesLoaded } from "./data.js";
 
-const SETTINGS_KEY = "kanjiSnap.settings.v12";
+const SETTINGS_KEY = "kanjiSnap.settings.v13";
 const DL_KEY = "kanjiSnap.downloadedGrades.v1";
 
-// Must match sw.js runtime cache name
+// Must match sw.js
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 export const DEFAULT_SETTINGS = {
@@ -86,24 +86,23 @@ export function isGradeDownloaded(grade){
 
 /* ---------------- Download logic ---------------- */
 
-function meaningUrl(kanjiChar){
-  return `./images/meaning/${encodeURIComponent(kanjiChar)}.png`;
+function meaningUrlForDownload(kanjiChar){
+  // IMPORTANT: ?dl=1 allows SW to fetch from network + store canonical URL in cache
+  return `./images/meaning/${encodeURIComponent(kanjiChar)}.png?dl=1`;
 }
 
 async function cacheGradeImages(grade, { onProgress } = {}){
-  // Ensure data is loaded so we know which kanji are in the grade
   await ensureGradesLoaded([grade]);
 
-  // Read the grade file indirectly via the loaded kanji map
   const chars = [...state.kanjiById.values()]
     .filter(k => k.grade === grade)
     .map(k => k.id);
 
-  const urls = chars.map(meaningUrl);
+  const urls = chars.map(meaningUrlForDownload);
 
-  const cache = await caches.open(RUNTIME_CACHE);
+  // Open cache just to ensure it's available (SW will put canonical entries here)
+  await caches.open(RUNTIME_CACHE);
 
-  // Batch fetch+put so we can tolerate missing images and show progress
   let done = 0;
   let ok = 0;
   let fail = 0;
@@ -118,12 +117,8 @@ async function cacheGradeImages(grade, { onProgress } = {}){
 
       try{
         const res = await fetch(url, { cache: "no-store" });
-        if(res.ok){
-          await cache.put(url, res.clone());
-          ok++;
-        } else {
-          fail++;
-        }
+        if(res.ok) ok++;
+        else fail++;
       } catch {
         fail++;
       }
@@ -133,9 +128,7 @@ async function cacheGradeImages(grade, { onProgress } = {}){
     }
   }
 
-  const workers = Array.from({ length: CONCURRENCY }, () => worker());
-  await Promise.all(workers);
-
+  await Promise.all(Array.from({ length: CONCURRENCY }, worker));
   return { total: urls.length, ok, fail };
 }
 
@@ -153,12 +146,14 @@ function refreshDownloadUI(){
   const set = loadDownloadedGrades();
 
   for(const g of [1,2,3]){
+    const btn = document.getElementById(`btnDlG${g}`);
     if(set.has(g)){
       setDlStatus(g, "Downloaded");
       setDlButtonVisible(g, false);
     } else {
       setDlStatus(g, "Not downloaded");
       setDlButtonVisible(g, true);
+      if(btn) btn.disabled = false;
     }
   }
 }
@@ -183,6 +178,7 @@ export function initSettingsUI(onSettingsChanged){
     if(chkG2) chkG2.checked = !!state.settings.enabledGrades[2];
     if(chkG3) chkG3.checked = !!state.settings.enabledGrades[3];
     if(chkCompound) chkCompound.checked = !!state.settings.compoundEnabled;
+
     updateOverridePill();
     refreshDownloadUI();
   }
@@ -208,7 +204,6 @@ export function initSettingsUI(onSettingsChanged){
 
   openPickerBtn?.addEventListener("click", () => window.__openKanjiPicker?.());
 
-  // Download buttons
   for(const g of [1,2,3]){
     document.getElementById(`btnDlG${g}`)?.addEventListener("click", async () => {
       const btn = document.getElementById(`btnDlG${g}`);
@@ -230,8 +225,7 @@ export function initSettingsUI(onSettingsChanged){
         setDlStatus(g, `Downloaded (ok:${result.ok} fail:${result.fail})`);
         setDlButtonVisible(g, false);
       } catch (e){
-        setDlStatus(g, `ERROR`);
-      } finally {
+        setDlStatus(g, "ERROR");
         if(btn) btn.disabled = false;
       }
     });
