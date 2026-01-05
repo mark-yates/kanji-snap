@@ -2,15 +2,12 @@ import { state, constants } from "./state.js";
 import { ensureGradesLoaded, buildPoolForGrades } from "./data.js";
 import { rebuildWordIndexForGrades, getEligibleCompoundWords } from "./words.js";
 import { getEnabledGrades, isCompoundEnabled } from "./settings.js";
-import {
-  renderBracketColored,
-  setActiveTab,
-  showGameOverModal
-} from "./ui.js";
+import { renderBracketColored, setActiveTab, showGameOverModal } from "./ui.js";
 
 const MAX_HISTORY = 8;
 
-/* ---------- utils ---------- */
+// Must match sw.js runtime cache name
+const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 function rand(n){ return Math.floor(Math.random() * n); }
 function shuffle(arr){
@@ -21,13 +18,9 @@ function shuffle(arr){
   return arr;
 }
 
-/* ---------- meaning images (single fixed location) ---------- */
-
 function meaningImageUrl(kanjiChar){
   return `./images/meaning/${encodeURIComponent(kanjiChar)}.png`;
 }
-
-/* ---------- HUD ---------- */
 
 function updateHUD(){
   document.getElementById("hudLives").textContent = `Lives: ${Math.max(0, state.lives)}`;
@@ -47,8 +40,6 @@ function clearPromptClasses(){
   document.getElementById("prompt")?.classList.remove("correct", "wrong");
 }
 
-/* ---------- prompt ---------- */
-
 function setPromptKanji(text){
   const inner = document.getElementById("promptInner");
   inner.innerHTML = "";
@@ -67,7 +58,7 @@ function setPromptKana(text){
   inner.appendChild(div);
 }
 
-/* ---------- history ---------- */
+/* ---------- History ---------- */
 
 function ensureHistory(){
   if(!Array.isArray(state.history)) state.history = [];
@@ -83,7 +74,6 @@ function addHistoryEntry(entry){
 function renderHistory(){
   const host = document.getElementById("historyList");
   if(!host) return;
-
   host.innerHTML = "";
 
   for(const h of state.history){
@@ -112,41 +102,75 @@ function renderHistory(){
     row.appendChild(left);
     row.appendChild(right);
 
-	row.addEventListener("click", async () => {
-	  if(h.type === "compound"){
-		await window.__openWordDetail?.(h.wordMeta);
-	  } else {
-		await window.__openDictionaryWithQuery?.(h.dictQuery, true);
-	  }
-	});
-
+    row.addEventListener("click", async () => {
+      if(h.type === "compound"){
+        await window.__openWordDetail?.(h.wordMeta);
+      } else {
+        await window.__openDictionaryWithQuery?.(h.dictQuery, true);
+      }
+    });
 
     host.appendChild(row);
   }
 }
 
-/* ---------- meaning choices ---------- */
+/* ---------- Meaning tiles: CACHE ONLY ---------- */
 
-function renderMeaningChoiceContent(btn, kanjiChar, fallbackText){
-  const img = document.createElement("img");
-  img.className = "meaningImg";
-  img.alt = fallbackText;
+function renderFallback(btn, fallbackText){
+  btn.innerHTML = "";
+  const fallback = document.createElement("div");
+  fallback.className = "meaningFallback";
 
-  img.onerror = () => {
-    img.remove();
-    const div = document.createElement("div");
-    div.className = "meaningFallback";
+  const inner = document.createElement("div");
+  inner.className = "fallbackRich";
+  renderBracketColored(inner, fallbackText);
 
-    const inner = document.createElement("div");
-    inner.className = "fallbackRich";
-    renderBracketColored(inner, fallbackText);
+  fallback.appendChild(inner);
+  btn.appendChild(fallback);
+}
 
-    div.appendChild(inner);
-    btn.appendChild(div);
-  };
+async function setMeaningFromCache(btn, kanjiChar, fallbackText){
+  // Always show fallback immediately (never blank)
+  renderFallback(btn, fallbackText);
 
-  img.src = meaningImageUrl(kanjiChar);
-  btn.appendChild(img);
+  // Try cache only
+  const url = meaningImageUrl(kanjiChar);
+  const cache = await caches.open(RUNTIME_CACHE);
+  const hit = await cache.match(url);
+
+  if(!hit) return; // not downloaded -> keep fallback
+
+  try{
+    const blob = await hit.blob();
+    const objectUrl = URL.createObjectURL(blob);
+
+    const img = document.createElement("img");
+    img.className = "meaningImg";
+    img.alt = fallbackText;
+
+    img.style.position = "absolute";
+    img.style.inset = "0";
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "cover";
+
+    img.onload = () => {
+      // revoke shortly after load
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 5000);
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      img.remove();
+    };
+
+    img.src = objectUrl;
+
+    // Remove fallback once image is in place
+    btn.innerHTML = "";
+    btn.appendChild(img);
+  } catch {
+    // keep fallback
+  }
 }
 
 function renderChoicesMeaning(options){
@@ -162,13 +186,15 @@ function renderChoicesMeaning(options){
     btn.dataset.ok = opt.ok ? "1" : "0";
     btn.dataset.kanji = opt.kanji;
 
-    renderMeaningChoiceContent(btn, opt.kanji, opt.meaning);
+    // cache-only
+    setMeaningFromCache(btn, opt.kanji, opt.meaning);
+
     btn.addEventListener("click", () => onChoiceClick(btn));
     choicesEl.appendChild(btn);
   });
 }
 
-/* ---------- compound choices ---------- */
+/* ---------- Compound tiles ---------- */
 
 function renderChoicesKanji(kanjiOptions){
   const choicesEl = document.getElementById("choices");
@@ -192,7 +218,53 @@ function renderChoicesKanji(kanjiOptions){
   });
 }
 
-/* ---------- question generation ---------- */
+/* ---------- Peek tiles ---------- */
+
+function renderPeekSingle(record){
+  const choicesEl = document.getElementById("choices");
+  choicesEl.innerHTML = "";
+  choicesEl.style.display = "block";
+
+  const tile = document.createElement("div");
+  tile.className = "settingsCard";
+
+  const pre = document.createElement("pre");
+  pre.className = "mono";
+  pre.textContent = JSON.stringify(record.raw, null, 2);
+
+  const hint = document.createElement("div");
+  hint.className = "muted";
+  hint.style.marginTop = "8px";
+  hint.textContent = "Tap the prompt tile again to return to the choices.";
+
+  tile.appendChild(pre);
+  tile.appendChild(hint);
+  choicesEl.appendChild(tile);
+}
+
+function renderPeekCompound(q){
+  const choicesEl = document.getElementById("choices");
+  choicesEl.innerHTML = "";
+  choicesEl.style.display = "block";
+
+  const tile = document.createElement("div");
+  tile.className = "settingsCard";
+
+  const pre = document.createElement("pre");
+  pre.className = "mono";
+  pre.textContent = JSON.stringify(q.meta || {}, null, 2);
+
+  const hint = document.createElement("div");
+  hint.className = "muted";
+  hint.style.marginTop = "8px";
+  hint.textContent = "Tap the prompt tile again to return to the choices.";
+
+  tile.appendChild(pre);
+  tile.appendChild(hint);
+  choicesEl.appendChild(tile);
+}
+
+/* ---------- Question generation ---------- */
 
 function buildSingleQuestion(){
   const record = state.pool[rand(state.pool.length)];
@@ -200,14 +272,12 @@ function buildSingleQuestion(){
   shuffle(others);
   const wrongs = others.slice(0, 3);
 
-  return {
-    type: "single",
-    record,
-    options: shuffle([
-      { kanji: record.id, meaning: record.meaningKey, ok: true },
-      ...wrongs.map(w => ({ kanji: w.id, meaning: w.meaningKey, ok: false }))
-    ])
-  };
+  const options = shuffle([
+    { kanji: record.id, meaning: record.meaningKey, ok: true },
+    ...wrongs.map(w => ({ kanji: w.id, meaning: w.meaningKey, ok: false }))
+  ]);
+
+  return { type: "single", record, options };
 }
 
 function buildCompoundQuestion(eligibleWords){
@@ -216,13 +286,16 @@ function buildCompoundQuestion(eligibleWords){
 
   const poolOthers = state.pool.map(x => x.id).filter(x => x !== k1 && x !== k2);
   shuffle(poolOthers);
+  const wrongs = poolOthers.slice(0, 2);
+
+  const answers = shuffle([k1, k2, ...wrongs]);
 
   return {
     type: "compound",
     kana: w.kana,
     kanji: w.kanji,
     kanjiChars: w.kanjiChars,
-    answers: shuffle([k1, k2, ...poolOthers.slice(0, 2)]),
+    answers,
     meta: w.meta || null
   };
 }
@@ -236,7 +309,7 @@ async function pickNextQuestion(){
   return buildSingleQuestion();
 }
 
-/* ---------- lifecycle ---------- */
+/* ---------- Lifecycle ---------- */
 
 async function newQuestion(){
   if(state.lives <= 0){ endGame(); return; }
@@ -261,8 +334,6 @@ async function newQuestion(){
   renderHistory();
 }
 
-/* ---------- handlers (unchanged logic) ---------- */
-
 function handleSingleAnswer(btn){
   state.locked = true;
   const promptEl = document.getElementById("prompt");
@@ -281,12 +352,7 @@ function handleSingleAnswer(btn){
     buttons.find(b => b.dataset.ok === "1")?.classList.add("correct");
   }
 
-  addHistoryEntry({
-    type: "single",
-    display: state.currentQuestion.record.id,
-    ok,
-    dictQuery: state.currentQuestion.record.id
-  });
+  addHistoryEntry({ type:"single", display: state.currentQuestion.record.id, ok, dictQuery: state.currentQuestion.record.id });
 
   updateHUD();
   setTimeout(() => state.lives <= 0 ? endGame() : newQuestion(), constants.PAUSE_AFTER_ANSWER_MS);
@@ -315,12 +381,7 @@ function evaluateCompoundSecondPick(){
     promptEl.classList.add("wrong");
   }
 
-  addHistoryEntry({
-    type: "compound",
-    display: q.kana,
-    ok,
-    wordMeta: q.meta || { word: q.kanji, reading: q.kana }
-  });
+  addHistoryEntry({ type:"compound", display:q.kana, ok, wordMeta: q.meta || { word:q.kanji, reading:q.kana } });
 
   updateHUD();
   setTimeout(() => state.lives <= 0 ? endGame() : newQuestion(), constants.PAUSE_AFTER_ANSWER_MS);
@@ -342,12 +403,8 @@ function handleCompoundPick(btn){
 
 function onChoiceClick(btn){
   if(state.peekMode || state.locked) return;
-  state.currentQuestion.type === "single"
-    ? handleSingleAnswer(btn)
-    : handleCompoundPick(btn);
+  state.currentQuestion.type === "single" ? handleSingleAnswer(btn) : handleCompoundPick(btn);
 }
-
-/* ---------- peek ---------- */
 
 function togglePeek(){
   if(state.locked || !state.currentQuestion) return;
@@ -359,14 +416,21 @@ function togglePeek(){
     if(state.lives <= 0){ endGame(); return; }
   }
 
-  state.peekMode
-    ? (state.currentQuestion.type === "single"
-        ? renderPeekSingle(state.currentQuestion.record)
-        : renderPeekCompound(state.currentQuestion))
-    : newQuestion();
+  if(state.peekMode){
+    state.currentQuestion.type === "single" ? renderPeekSingle(state.currentQuestion.record) : renderPeekCompound(state.currentQuestion);
+  } else {
+    // Re-render current question
+    if(state.currentQuestion.type === "single"){
+      renderChoicesMeaning(state.currentQuestion.options);
+    } else {
+      renderChoicesKanji(state.currentQuestion.answers);
+    }
+  }
+
+  updateHUD();
 }
 
-/* ---------- public ---------- */
+/* ---------- Public ---------- */
 
 export async function startQuizGame(){
   const enabledGrades = getEnabledGrades();
