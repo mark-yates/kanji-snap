@@ -1,4 +1,4 @@
-const CACHE_NAME = "kanji-snap-v41";
+const CACHE_NAME = "kanji-snap-v42";
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 const ASSETS = [
@@ -55,10 +55,9 @@ self.addEventListener("fetch", event => {
   const req = event.request;
   const url = new URL(req.url);
 
-  // Same-origin only
   if(url.origin !== location.origin) return;
 
-  // App shell: cache-first
+  // Navigations -> cached index.html
   if(req.mode === "navigate"){
     event.respondWith((async () => {
       const cached = await caches.match("./index.html");
@@ -67,12 +66,37 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  // Meaning images: CACHE-ONLY (never go online)
+  // Meaning images:
+  // - normal requests: CACHE ONLY (game never goes online)
+  // - download requests (?dl=1): allow network, but store under canonical URL (no query)
   if(isMeaningImage(url)){
+    const isDownload = url.searchParams.get("dl") === "1";
+
+    if(!isDownload){
+      event.respondWith((async () => {
+        const cache = await caches.open(RUNTIME_CACHE);
+        const canonical = url.pathname; // no query
+        const hit = (await cache.match(canonical)) || (await cache.match(url.pathname)) || (await cache.match(url.href));
+        return hit || new Response("", { status: 404 });
+      })());
+      return;
+    }
+
+    // Download mode
     event.respondWith((async () => {
       const cache = await caches.open(RUNTIME_CACHE);
-      const hit = await cache.match(req) || await cache.match(url.pathname) || await cache.match(url.href);
-      return hit || new Response("", { status: 404 });
+      const canonicalReq = new Request(url.pathname, { method: "GET" });
+
+      try{
+        const res = await fetch(req);
+        if(res && res.ok){
+          await cache.put(canonicalReq, res.clone());
+          return res;
+        }
+        return new Response("", { status: res?.status || 500 });
+      } catch {
+        return new Response("", { status: 504 });
+      }
     })());
     return;
   }
