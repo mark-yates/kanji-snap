@@ -1,157 +1,148 @@
-import { ensureGradesLoaded, getKanjiForGradeSorted } from "./data.js";
-import { getEnabledGrades, isKanjiEnabled, setKanjiOverride, clearKanjiOverride, saveSettings, getOverrideCount } from "./settings.js";
+import { state } from "./state.js";
+import { ensureGradesLoaded } from "./data.js";
 import { setActiveTab } from "./ui.js";
+import { isKanjiEnabled, hasKanjiOverride, setKanjiOverride, clearKanjiOverride, saveSettings, getOverrideCount } from "./settings.js";
 
-function updateStatus(){
-  const pill = document.getElementById("kanjiPickerStatus");
-  if(!pill) return;
+let WIRED = false;
 
-  const enabledGrades = getEnabledGrades();
-  pill.textContent = enabledGrades.length
-    ? `Grades enabled: ${enabledGrades.map(g => "G" + g).join("+")} • Overrides: ${getOverrideCount()}`
-    : `Grades enabled: none • Overrides: ${getOverrideCount()}`;
+function setStatus(text){
+  const el = document.getElementById("kanjiPickerStatus");
+  if(el) el.textContent = text;
 }
 
-function renderKanjiButton(rec){
-  const btn = document.createElement("button");
-  btn.type = "button";
-  btn.className = "kanjiBtn";
-  btn.textContent = rec.id;
-
-  const effectiveOn = isKanjiEnabled(rec.id, rec.grade);
-  btn.classList.add(effectiveOn ? "on" : "off");
-
-  const ov = window.__settings?.kanjiOverrides?.[rec.id];
-  if(typeof ov === "boolean") btn.classList.add("override");
-
-  btn.addEventListener("click", () => {
-    // Toggle behavior:
-    // - if currently enabled => create/keep override false
-    // - if currently disabled => create/keep override true
-    const nowOn = isKanjiEnabled(rec.id, rec.grade);
-    setKanjiOverride(rec.id, !nowOn);
-    saveSettings();
-    render(); // re-render to update styling
-  });
-
-  return btn;
+function updateOverridePill(){
+  const pill = document.getElementById("overridePill");
+  if(pill) pill.textContent = `Overrides: ${getOverrideCount()}`;
 }
 
-function renderGroup(grade){
-  const group = document.createElement("div");
-  group.className = "kanjiGroup";
-
-  const header = document.createElement("div");
-  header.className = "kanjiGroupHeader";
-
-  const title = document.createElement("div");
-  title.className = "kanjiGroupTitle";
-  title.textContent = `Grade ${grade}`;
-
-  const sub = document.createElement("div");
-  sub.className = "kanjiGroupSub";
-  sub.textContent = "Tap to toggle • Blue dot = override";
-
-  const left = document.createElement("div");
-  left.appendChild(title);
-  left.appendChild(sub);
-
-  const actions = document.createElement("div");
-  actions.className = "kanjiGroupActions";
-
-  const selectAll = document.createElement("button");
-  selectAll.type = "button";
-  selectAll.className = "btn btnSmall";
-  selectAll.textContent = "Select all";
-  selectAll.addEventListener("click", () => {
-    const list = getKanjiForGradeSorted(grade);
-    for(const rec of list) setKanjiOverride(rec.id, true);
-    saveSettings();
-    render();
-  });
-
-  const selectNone = document.createElement("button");
-  selectNone.type = "button";
-  selectNone.className = "btn btnSmall";
-  selectNone.textContent = "Select none";
-  selectNone.addEventListener("click", () => {
-    const list = getKanjiForGradeSorted(grade);
-    for(const rec of list) setKanjiOverride(rec.id, false);
-    saveSettings();
-    render();
-  });
-
-  const clearOverrides = document.createElement("button");
-  clearOverrides.type = "button";
-  clearOverrides.className = "btn btnSmall";
-  clearOverrides.textContent = "Clear overrides";
-  clearOverrides.addEventListener("click", () => {
-    const list = getKanjiForGradeSorted(grade);
-    for(const rec of list) clearKanjiOverride(rec.id);
-    saveSettings();
-    render();
-  });
-
-  actions.appendChild(selectAll);
-  actions.appendChild(selectNone);
-  actions.appendChild(clearOverrides);
-
-  header.appendChild(left);
-  header.appendChild(actions);
-
-  const grid = document.createElement("div");
-  grid.className = "kanjiGrid";
-
-  const list = getKanjiForGradeSorted(grade);
-  for(const rec of list){
-    grid.appendChild(renderKanjiButton(rec));
-  }
-
-  group.appendChild(header);
-  group.appendChild(grid);
-  return group;
-}
-
-export async function openKanjiPicker(){
-  setActiveTab("kanji");
-
-  // Store settings ref for quick override lookup in render
-  // (kept simple for this draft)
-  window.__settings = window.__settings || {};
-  window.__settings.kanjiOverrides = (JSON.parse(localStorage.getItem("kanjiSnap.settings.v8")) || {}).kanjiOverrides || {};
-
-  document.getElementById("kanjiPickerStatus").textContent = "Loading…";
-
-  // Load all grades we have in the project (1–3 for now)
-  await ensureGradesLoaded([1,2,3]);
-
-  render();
-}
-
-export function wireKanjiPickerUI(){
-  window.__openKanjiPicker = openKanjiPicker;
-
-  document.getElementById("kanjiBackBtn")?.addEventListener("click", () => {
-    setActiveTab("settings");
-  });
-
-  document.getElementById("kanjiPickerRefreshBtn")?.addEventListener("click", () => {
-    render();
-  });
+function sortByKyoiku(a, b){
+  const ai = a.raw?.kyoiku_index ?? 9999;
+  const bi = b.raw?.kyoiku_index ?? 9999;
+  if(ai !== bi) return ai - bi;
+  return a.id.localeCompare(b.id);
 }
 
 function render(){
-  updateStatus();
-
-  // refresh cached overrides reference
-  window.__settings = window.__settings || {};
-  window.__settings.kanjiOverrides = (JSON.parse(localStorage.getItem("kanjiSnap.settings.v8")) || {}).kanjiOverrides || {};
-
   const host = document.getElementById("kanjiGroups");
   if(!host) return;
 
   host.innerHTML = "";
-  host.appendChild(renderGroup(1));
-  host.appendChild(renderGroup(2));
-  host.appendChild(renderGroup(3));
+
+  const grades = [1,2,3];
+  for(const g of grades){
+    const items = [...state.kanjiById.values()].filter(k => k.grade === g).sort(sortByKyoiku);
+
+    const section = document.createElement("div");
+    section.className = "settingsCard";
+
+    const header = document.createElement("div");
+    header.className = "row";
+    header.style.justifyContent = "space-between";
+    header.style.alignItems = "center";
+
+    const left = document.createElement("div");
+    left.innerHTML = `<div class="sectionTitle">Grade ${g}</div><div class="muted">${items.length} kanji</div>`;
+
+    const right = document.createElement("div");
+    right.style.display = "flex";
+    right.style.gap = "8px";
+    right.style.alignItems = "center";
+
+    const btnAllOn = document.createElement("button");
+    btnAllOn.type = "button";
+    btnAllOn.className = "btn btnSmall";
+    btnAllOn.textContent = "Select all";
+    btnAllOn.addEventListener("click", () => {
+      for(const k of items) setKanjiOverride(k.id, true);
+      saveSettings();
+      updateOverridePill();
+      render();
+    });
+
+    const btnAllOff = document.createElement("button");
+    btnAllOff.type = "button";
+    btnAllOff.className = "btn btnSmall";
+    btnAllOff.textContent = "Deselect all";
+    btnAllOff.addEventListener("click", () => {
+      for(const k of items) setKanjiOverride(k.id, false);
+      saveSettings();
+      updateOverridePill();
+      render();
+    });
+
+    right.appendChild(btnAllOn);
+    right.appendChild(btnAllOff);
+
+    header.appendChild(left);
+    header.appendChild(right);
+    section.appendChild(header);
+
+    const grid = document.createElement("div");
+    grid.style.display = "grid";
+    grid.style.gridTemplateColumns = "repeat(8, 1fr)";
+    grid.style.gap = "6px";
+    grid.style.marginTop = "10px";
+
+    for(const k of items){
+      const enabled = isKanjiEnabled(k.id, k.grade);
+      const overridden = hasKanjiOverride(k.id);
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "choice";
+      btn.style.minHeight = "56px";
+      btn.style.borderRadius = "6px";
+
+      // Show selection state clearly:
+      // enabled => light green tint; disabled => light red tint
+      btn.style.background = enabled ? "rgba(34,197,94,.18)" : "rgba(239,68,68,.18)";
+      btn.style.border = overridden ? "2px solid rgba(233,238,252,.25)" : "1px solid rgba(233,238,252,.10)";
+
+      const t = document.createElement("div");
+      t.className = "choiceKanji";
+      t.textContent = k.id;
+      t.style.fontSize = "28px";
+      btn.appendChild(t);
+
+      btn.addEventListener("click", () => {
+        const newVal = !enabled;
+        setKanjiOverride(k.id, newVal);
+        saveSettings();
+        updateOverridePill();
+        // update just this tile (fast) by rerendering whole section for now
+        render();
+      });
+
+      grid.appendChild(btn);
+    }
+
+    section.appendChild(grid);
+    host.appendChild(section);
+  }
+}
+
+export function wireKanjiPickerUI(){
+  if(WIRED) return;
+  WIRED = true;
+
+  // Define global opener used by Settings button
+  window.__openKanjiPicker = async () => {
+    setActiveTab("kanji");
+    try{
+      setStatus("Loading…");
+      await ensureGradesLoaded([1,2,3]);
+      setStatus("Ready");
+      render();
+    } catch (e){
+      console.error(e);
+      setStatus("ERROR loading kanji data");
+    }
+  };
+
+  document.getElementById("kanjiPickerRefreshBtn")?.addEventListener("click", async () => {
+    await window.__openKanjiPicker?.();
+  });
+
+  // If user directly taps the Kanji tab, open as well
+  // (tab is wired in app.js, but this ensures we still work if not)
 }

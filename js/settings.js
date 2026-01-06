@@ -54,6 +54,20 @@ export function isCompoundEnabled(){
   return !!state.settings.compoundEnabled;
 }
 
+export function hasKanjiOverride(kanjiId){
+  return typeof state.settings?.kanjiOverrides?.[kanjiId] === "boolean";
+}
+
+export function setKanjiOverride(kanjiId, value){
+  if(!state.settings.kanjiOverrides) state.settings.kanjiOverrides = {};
+  state.settings.kanjiOverrides[kanjiId] = !!value;
+}
+
+export function clearKanjiOverride(kanjiId){
+  if(!state.settings.kanjiOverrides) return;
+  delete state.settings.kanjiOverrides[kanjiId];
+}
+
 export function isKanjiEnabled(kanjiId, grade){
   const ov = state.settings?.kanjiOverrides?.[kanjiId];
   if(typeof ov === "boolean") return ov;
@@ -100,7 +114,7 @@ async function cacheGradeImages(grade, { onProgress } = {}){
 
   const urls = chars.map(meaningUrlForDownload);
 
-  // Open cache just to ensure it's available (SW will put canonical entries here)
+  // Ensure cache exists
   await caches.open(RUNTIME_CACHE);
 
   let done = 0;
@@ -224,7 +238,7 @@ export function initSettingsUI(onSettingsChanged){
 
         setDlStatus(g, `Downloaded (ok:${result.ok} fail:${result.fail})`);
         setDlButtonVisible(g, false);
-      } catch (e){
+      } catch {
         setDlStatus(g, "ERROR");
         if(btn) btn.disabled = false;
       }
