@@ -18,7 +18,7 @@ function shuffle(arr){
   return arr;
 }
 
-// IMPORTANT: cache keys are stored by SW under url.pathname (leading slash)
+// IMPORTANT: the SW stores cached meaning images under url.pathname (leading slash)
 function meaningImagePath(kanjiChar){
   return `/root/images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp`;
 }
@@ -131,10 +131,9 @@ function renderFallback(btn, fallbackText){
 }
 
 async function setMeaningFromCache(btn, kanjiChar, fallbackText){
-  // Always show fallback immediately (never blank)
+  // Always show fallback immediately
   renderFallback(btn, fallbackText);
 
-  // Match the exact key used by the SW (pathname only)
   const path = meaningImagePath(kanjiChar);
 
   try{
@@ -183,7 +182,6 @@ function renderChoicesMeaning(options){
     btn.dataset.ok = opt.ok ? "1" : "0";
     btn.dataset.kanji = opt.kanji;
 
-    // cache-only
     setMeaningFromCache(btn, opt.kanji, opt.meaning);
 
     btn.addEventListener("click", () => onChoiceClick(btn));
@@ -364,7 +362,7 @@ function evaluateCompoundSecondPick(){
     const k = b.dataset.kanji;
     b.classList.remove("selected","correct","wrong");
     if(correct.has(k)) b.classList.add("correct");
-    else if(picked.has(k)) b.classList.add("wrong");
+    else if(picked.has(k)) b.classList.add("wrong"); // only picked wrong goes red
     b.disabled = true;
   });
 
@@ -414,14 +412,12 @@ function togglePeek(){
   }
 
   if(state.peekMode){
-    state.currentQuestion.type === "single" ? renderPeekSingle(state.currentQuestion.record) : renderPeekCompound(state.currentQuestion);
+    state.currentQuestion.type === "single"
+      ? renderPeekSingle(state.currentQuestion.record)
+      : renderPeekCompound(state.currentQuestion);
   } else {
-    // Re-render current question
-    if(state.currentQuestion.type === "single"){
-      renderChoicesMeaning(state.currentQuestion.options);
-    } else {
-      renderChoicesKanji(state.currentQuestion.answers);
-    }
+    if(state.currentQuestion.type === "single") renderChoicesMeaning(state.currentQuestion.options);
+    else renderChoicesKanji(state.currentQuestion.answers);
   }
 
   updateHUD();
