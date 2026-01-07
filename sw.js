@@ -1,4 +1,4 @@
-const CACHE_NAME = "kanji-snap-v44.2";
+const CACHE_NAME = "kanji-snap-v44.3";
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 const ASSETS = [
@@ -48,7 +48,7 @@ self.addEventListener("activate", event => {
 function isMeaningImage(url){
   // Your new location + webp extension
   return url.origin === location.origin &&
-         url.pathname.includes("/images/meaning/cartoon/") &&
+         url.pathname.includes("/root/images/meaning/cartoon/") &&
          url.pathname.endsWith(".webp");
 }
 
@@ -117,5 +117,6 @@ self.addEventListener("fetch", event => {
     }
   })());
 });
+
 
 
