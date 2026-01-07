@@ -1,6 +1,5 @@
 import { state } from "./state.js";
-import { loadSettings } from "./settings.js";
-import { initSettingsUI } from "./settings.js";
+import { loadSettings, initSettingsUI } from "./settings.js";
 import { startQuizGame, wireGameUI } from "./game-quiz.js";
 import { initDictionaryUI } from "./dictionary.js";
 import { initKanjiPickerUI } from "./kanji-picker.js";
@@ -13,50 +12,121 @@ async function registerServiceWorker() {
 
   try {
     const swUrl = new URL("./sw.js", location.href);
+    const reg = await navigator.serviceWorker.register(swUrl.href);
 
-    const reg = await navigator.serviceWorker.register(swUrl.href, {
-      scope: swUrl.pathname.replace(/sw\.js$/, "")
-    });
-
-    // If a newer SW is waiting, activate it immediately
+    // If a newer SW is waiting, activate it immediately.
     if (reg.waiting) {
       reg.waiting.postMessage({ type: "SKIP_WAITING" });
     }
 
-    // Wait until the SW is ready and controlling
     await navigator.serviceWorker.ready;
-
-    console.log("Service worker registered and ready");
   } catch (err) {
-    console.error("Service worker registration failed:", err);
+    console.error("SW registration failed:", err);
   }
+}
+
+/* ---------------- UI Wiring (robust) ---------------- */
+
+function wireStartGameButtons() {
+  // Preferred: data-action="start-quiz"
+  document.querySelectorAll('[data-action="start-quiz"]').forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      startQuizGame();
+    });
+  });
+
+  // Common legacy IDs (covers most earlier versions)
+  const ids = [
+    "btnPlay",
+    "btnStart",
+    "btnStartGame",
+    "startBtn",
+    "startGameBtn",
+    "playBtn",
+    "playGameBtn",
+    "startQuizBtn",
+    "btnStartQuiz"
+  ];
+
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      startQuizGame();
+    });
+  }
+}
+
+function wireTabButtons() {
+  // Preferred: data-tab="home|settings|dictionary|game"
+  document.querySelectorAll("[data-tab]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tab = el.getAttribute("data-tab");
+      if (tab) setActiveTab(tab);
+    });
+  });
+
+  // Common legacy IDs
+  const map = [
+    ["btnHome", "home"],
+    ["btnSettings", "settings"],
+    ["btnDictionary", "dictionary"],
+    ["btnGame", "game"],
+    ["tabHome", "home"],
+    ["tabSettings", "settings"],
+    ["tabDictionary", "dictionary"],
+    ["tabGame", "game"]
+  ];
+
+  for (const [id, tab] of map) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      setActiveTab(tab);
+    });
+  }
+}
+
+function wireGlobalDebugTap() {
+  // Optional: if you have an on-screen error box, keep it dismissible
+  const err = document.getElementById("appErrorBox");
+  err?.addEventListener("click", () => (err.style.display = "none"));
 }
 
 /* ---------------- App Init ---------------- */
 
 async function initApp() {
-  // Load persisted settings
+  // Load settings into global state
   state.settings = loadSettings();
 
-  // Wire UI modules
-  initSettingsUI();
-  initDictionaryUI();
-  initKanjiPickerUI();
-  wireGameUI();
+  // Initialize modules (these should be no-ops if their DOM isn’t present)
+  initSettingsUI?.();
+  initDictionaryUI?.();
+  initKanjiPickerUI?.();
+  wireGameUI?.();
 
-  // Navigation buttons
-  document.getElementById("btnPlay")?.addEventListener("click", startQuizGame);
-  document.getElementById("btnHome")?.addEventListener("click", () => setActiveTab("home"));
-  document.getElementById("btnSettings")?.addEventListener("click", () => setActiveTab("settings"));
-  document.getElementById("btnDictionary")?.addEventListener("click", () => setActiveTab("dictionary"));
+  // Wire navigation + actions
+  wireTabButtons();
+  wireStartGameButtons();
+  wireGlobalDebugTap();
 
-  // Default tab
+  // Default
   setActiveTab("home");
 }
 
 /* ---------------- Boot ---------------- */
 
 (async () => {
-  await registerServiceWorker();
-  await initApp();
+  try {
+    await registerServiceWorker();
+    await initApp();
+  } catch (e) {
+    console.error("App init failed:", e);
+    // Fail-safe visible error
+    alert(`App init failed:\n${e?.message || e}`);
+  }
 })();
