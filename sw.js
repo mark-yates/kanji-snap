@@ -1,5 +1,7 @@
-const CACHE_NAME = "kanji-snap-v49";
+const CACHE_NAME = "kanji-snap-shell-v50";
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
+
+/* ---------------- Install Assets ---------------- */
 
 const ASSETS = [
   "./",
@@ -35,17 +37,29 @@ self.addEventListener("install", (event) => {
   );
 });
 
+/* ---------------- Activate ---------------- */
+
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
     await Promise.all(
       keys
-        .filter((k) => k !== CACHE_NAME && k !== RUNTIME_CACHE)
-        .map((k) => caches.delete(k))
+        .filter(k => k !== CACHE_NAME && k !== RUNTIME_CACHE)
+        .map(k => caches.delete(k))
     );
     await self.clients.claim();
   })());
 });
+
+/* ---------------- Messages ---------------- */
+
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
+
+/* ---------------- Helpers ---------------- */
 
 function isMeaningImage(url) {
   return (
@@ -55,27 +69,27 @@ function isMeaningImage(url) {
   );
 }
 
+/* ---------------- Fetch ---------------- */
+
 self.addEventListener("fetch", (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
   if (url.origin !== location.origin) return;
 
-  // Navigations -> cached app shell
+  // App shell navigation
   if (req.mode === "navigate") {
-    event.respondWith((async () => {
-      const cached = await caches.match("./index.html");
-      return cached || fetch(req);
-    })());
+    event.respondWith(
+      caches.match("./index.html").then(r => r || fetch(req))
+    );
     return;
   }
 
-  // Meaning images:
-  // - normal requests: CACHE ONLY (game never goes online for images)
-  // - download requests (?dl=1): allow network, store under canonical key = url.pathname
+  // Meaning images
   if (isMeaningImage(url)) {
     const isDownload = url.searchParams.get("dl") === "1";
 
+    // Gameplay: cache-only
     if (!isDownload) {
       event.respondWith((async () => {
         const cache = await caches.open(RUNTIME_CACHE);
@@ -85,17 +99,18 @@ self.addEventListener("fetch", (event) => {
       return;
     }
 
+    // Download mode: network + store under canonical pathname
     event.respondWith((async () => {
       const cache = await caches.open(RUNTIME_CACHE);
       const canonicalReq = new Request(url.pathname, { method: "GET" });
 
       try {
         const res = await fetch(req);
-        if (res && res.ok) {
+        if (res.ok) {
           await cache.put(canonicalReq, res.clone());
           return res;
         }
-        return new Response("", { status: res?.status || 500 });
+        return new Response("", { status: res.status });
       } catch {
         return new Response("", { status: 504 });
       }
@@ -103,7 +118,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Everything else: cache-first; if network succeeds, store in runtime cache
+  // Everything else: cache-first, then network
   event.respondWith((async () => {
     const cached = await caches.match(req);
     if (cached) return cached;
