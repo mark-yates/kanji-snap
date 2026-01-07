@@ -1,4 +1,4 @@
-const CACHE_NAME = "kanji-snap-v42.3";
+const CACHE_NAME = "kanji-snap-v44";
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 const ASSETS = [
@@ -46,9 +46,10 @@ self.addEventListener("activate", event => {
 });
 
 function isMeaningImage(url){
+  // Your new location + webp extension
   return url.origin === location.origin &&
-         url.pathname.includes("/images/meaning/") &&
-         url.pathname.endsWith(".png");
+         url.pathname.includes("/images/meaning/cartoon/") &&
+         url.pathname.endsWith(".webp");
 }
 
 self.addEventListener("fetch", event => {
@@ -75,8 +76,8 @@ self.addEventListener("fetch", event => {
     if(!isDownload){
       event.respondWith((async () => {
         const cache = await caches.open(RUNTIME_CACHE);
-        const canonical = url.pathname; // no query
-        const hit = (await cache.match(canonical)) || (await cache.match(url.pathname)) || (await cache.match(url.href));
+        // Canonical key: pathname only (no query)
+        const hit = await cache.match(url.pathname);
         return hit || new Response("", { status: 404 });
       })());
       return;
@@ -116,5 +117,3 @@ self.addEventListener("fetch", event => {
     }
   })());
 });
-
-
