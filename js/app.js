@@ -1,8 +1,6 @@
 import { state } from "./state.js";
 import { loadSettings, initSettingsUI } from "./settings.js";
 import { startQuizGame, wireGameUI } from "./game-quiz.js";
-import { initDictionaryUI } from "./dictionary.js";
-import { initKanjiPickerUI } from "./kanji-picker.js";
 import { setActiveTab } from "./ui.js";
 
 /* ---------------- Service Worker ---------------- */
@@ -15,11 +13,10 @@ async function registerServiceWorker() {
     const reg = await navigator.serviceWorker.register(swUrl.href);
 
     // If a newer SW is waiting, activate it immediately.
-    if (reg.waiting) {
-      reg.waiting.postMessage({ type: "SKIP_WAITING" });
-    }
+    if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
 
     await navigator.serviceWorker.ready;
+    // console.log("SW ready");
   } catch (err) {
     console.error("SW registration failed:", err);
   }
@@ -28,7 +25,7 @@ async function registerServiceWorker() {
 /* ---------------- UI Wiring (robust) ---------------- */
 
 function wireStartGameButtons() {
-  // Preferred: data-action="start-quiz"
+  // Preferred data attribute
   document.querySelectorAll('[data-action="start-quiz"]').forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
@@ -36,19 +33,11 @@ function wireStartGameButtons() {
     });
   });
 
-  // Common legacy IDs (covers most earlier versions)
+  // Common legacy IDs
   const ids = [
-    "btnPlay",
-    "btnStart",
-    "btnStartGame",
-    "startBtn",
-    "startGameBtn",
-    "playBtn",
-    "playGameBtn",
-    "startQuizBtn",
-    "btnStartQuiz"
+    "btnPlay","btnStart","btnStartGame","startBtn","startGameBtn",
+    "playBtn","playGameBtn","startQuizBtn","btnStartQuiz"
   ];
-
   for (const id of ids) {
     const el = document.getElementById(id);
     if (!el) continue;
@@ -60,7 +49,7 @@ function wireStartGameButtons() {
 }
 
 function wireTabButtons() {
-  // Preferred: data-tab="home|settings|dictionary|game"
+  // Preferred data attribute
   document.querySelectorAll("[data-tab]").forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
@@ -69,18 +58,13 @@ function wireTabButtons() {
     });
   });
 
-  // Common legacy IDs
+  // Legacy IDs
   const map = [
-    ["btnHome", "home"],
-    ["btnSettings", "settings"],
-    ["btnDictionary", "dictionary"],
-    ["btnGame", "game"],
-    ["tabHome", "home"],
-    ["tabSettings", "settings"],
-    ["tabDictionary", "dictionary"],
-    ["tabGame", "game"]
+    ["btnHome","home"],["btnSettings","settings"],
+    ["btnDictionary","dictionary"],["btnGame","game"],
+    ["tabHome","home"],["tabSettings","settings"],
+    ["tabDictionary","dictionary"],["tabGame","game"]
   ];
-
   for (const [id, tab] of map) {
     const el = document.getElementById(id);
     if (!el) continue;
@@ -92,7 +76,6 @@ function wireTabButtons() {
 }
 
 function wireGlobalDebugTap() {
-  // Optional: if you have an on-screen error box, keep it dismissible
   const err = document.getElementById("appErrorBox");
   err?.addEventListener("click", () => (err.style.display = "none"));
 }
@@ -103,18 +86,30 @@ async function initApp() {
   // Load settings into global state
   state.settings = loadSettings();
 
-  // Initialize modules (these should be no-ops if their DOM isn’t present)
+  // Initialize core modules
   initSettingsUI?.();
-  initDictionaryUI?.();
-  initKanjiPickerUI?.();
   wireGameUI?.();
+
+  // Optional modules (don’t crash if the export name differs / file missing)
+  try {
+    const dict = await import("./dictionary.js");
+    dict.initDictionaryUI?.();
+  } catch (e) {
+    // console.warn("dictionary.js not initialized:", e);
+  }
+  try {
+    const picker = await import("./kanji-picker.js");
+    picker.initKanjiPickerUI?.();
+  } catch (e) {
+    // console.warn("kanji-picker.js not initialized:", e);
+  }
 
   // Wire navigation + actions
   wireTabButtons();
   wireStartGameButtons();
   wireGlobalDebugTap();
 
-  // Default
+  // Default tab
   setActiveTab("home");
 }
 
@@ -126,7 +121,6 @@ async function initApp() {
     await initApp();
   } catch (e) {
     console.error("App init failed:", e);
-    // Fail-safe visible error
     alert(`App init failed:\n${e?.message || e}`);
   }
 })();
