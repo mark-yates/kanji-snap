@@ -3,8 +3,8 @@ import { ensureGradesLoaded } from "./data.js";
 
 const SETTINGS_KEY = "kanjiSnap.settings.v13";
 
-// Versioned download flags for THIS image set/path
-const DL_KEY = "kanjiSnap.downloadedGrades.rootMeaningCartoonWebp.v1";
+// Versioned flags for this specific image set/path
+const DL_KEY = "kanjiSnap.downloadedGrades.imagesMeaningCartoonWebp.v2";
 
 // Must match sw.js
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
@@ -21,12 +21,10 @@ export function loadSettings() {
     if (!raw) return structuredClone(DEFAULT_SETTINGS);
 
     const obj = JSON.parse(raw);
-    obj.enabledGrades = obj.enabledGrades || structuredClone(DEFAULT_SETTINGS.enabledGrades);
 
+    obj.enabledGrades = obj.enabledGrades || structuredClone(DEFAULT_SETTINGS.enabledGrades);
     for (const g of Object.keys(DEFAULT_SETTINGS.enabledGrades)) {
-      if (typeof obj.enabledGrades[g] !== "boolean") {
-        obj.enabledGrades[g] = DEFAULT_SETTINGS.enabledGrades[g];
-      }
+      if (typeof obj.enabledGrades[g] !== "boolean") obj.enabledGrades[g] = DEFAULT_SETTINGS.enabledGrades[g];
     }
 
     if (!obj.kanjiOverrides || typeof obj.kanjiOverrides !== "object") obj.kanjiOverrides = {};
@@ -111,9 +109,16 @@ export function isGradeDownloaded(grade) {
 
 /* ---------------- Download logic ---------------- */
 
+/**
+ * IMPORTANT:
+ * - Images are hosted under: ./images/meaning/cartoon/<KANJI>.webp
+ * - We add ?dl=1 so sw.js can allow network + cache the canonical (no-query) URL
+ * - We build an absolute URL using location.href so it works on GitHub Pages subpaths.
+ */
 function meaningUrlForDownload(kanjiChar) {
-  // Must match sw.js meaning path matcher
-  return `./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp?dl=1`;
+  const u = new URL(`./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp`, location.href);
+  u.searchParams.set("dl", "1");
+  return u.toString();
 }
 
 async function cacheGradeImages(grade, { onProgress } = {}) {
@@ -125,7 +130,7 @@ async function cacheGradeImages(grade, { onProgress } = {}) {
 
   const urls = chars.map(meaningUrlForDownload);
 
-  // Ensure cache exists
+  // Ensure cache exists (SW writes into this during dl=1 fetches)
   await caches.open(RUNTIME_CACHE);
 
   let done = 0;
@@ -280,5 +285,3 @@ export function initSettingsUI(onSettingsChanged) {
 
   sync();
 }
-
-
