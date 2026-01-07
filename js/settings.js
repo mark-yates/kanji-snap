@@ -101,8 +101,8 @@ export function isGradeDownloaded(grade){
 /* ---------------- Download logic ---------------- */
 
 function meaningUrlForDownload(kanjiChar){
-  // IMPORTANT: ?dl=1 allows SW to fetch from network + store canonical URL in cache
-  return `./images/meaning/${encodeURIComponent(kanjiChar)}.png?dl=1`;
+  // IMPORTANT: ?dl=1 allows SW to fetch from network + store canonical URL (no query) in runtime cache
+  return `./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp?dl=1`;
 }
 
 async function cacheGradeImages(grade, { onProgress } = {}){
