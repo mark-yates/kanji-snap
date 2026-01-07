@@ -1,4 +1,4 @@
-const CACHE_NAME = "kanji-snap-v47.4";
+const CACHE_NAME = "kanji-snap-v49";
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 const ASSETS = [
@@ -50,7 +50,7 @@ self.addEventListener("activate", (event) => {
 function isMeaningImage(url) {
   return (
     url.origin === location.origin &&
-    url.pathname.includes("/root/images/meaning/cartoon/") &&
+    url.pathname.includes("/images/meaning/cartoon/") &&
     url.pathname.endsWith(".webp")
   );
 }
@@ -72,7 +72,7 @@ self.addEventListener("fetch", (event) => {
 
   // Meaning images:
   // - normal requests: CACHE ONLY (game never goes online for images)
-  // - download requests (?dl=1): allow network + store under canonical url.pathname
+  // - download requests (?dl=1): allow network, store under canonical key = url.pathname
   if (isMeaningImage(url)) {
     const isDownload = url.searchParams.get("dl") === "1";
 
@@ -103,7 +103,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Everything else: cache-first; if network succeeds, save to runtime cache
+  // Everything else: cache-first; if network succeeds, store in runtime cache
   event.respondWith((async () => {
     const cached = await caches.match(req);
     if (cached) return cached;
@@ -118,7 +118,3 @@ self.addEventListener("fetch", (event) => {
     }
   })());
 });
-
-
-
-
