@@ -5,8 +5,6 @@ import { getEnabledGrades, isCompoundEnabled } from "./settings.js";
 import { renderBracketColored, setActiveTab, showGameOverModal } from "./ui.js";
 
 const MAX_HISTORY = 8;
-
-// Must match sw.js runtime cache name
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 function rand(n){ return Math.floor(Math.random() * n); }
@@ -18,9 +16,9 @@ function shuffle(arr){
   return arr;
 }
 
-// IMPORTANT: the SW stores cached meaning images under url.pathname (leading slash)
+// IMPORTANT: compute the SW cache key (url.pathname) for GitHub Pages base paths
 function meaningImagePath(kanjiChar){
-  return `/root/images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp`;
+  return new URL(`./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp`, location.href).pathname;
 }
 
 function updateHUD(){
@@ -131,7 +129,6 @@ function renderFallback(btn, fallbackText){
 }
 
 async function setMeaningFromCache(btn, kanjiChar, fallbackText){
-  // Always show fallback immediately
   renderFallback(btn, fallbackText);
 
   const path = meaningImagePath(kanjiChar);
@@ -155,10 +152,7 @@ async function setMeaningFromCache(btn, kanjiChar, fallbackText){
     img.style.objectFit = "cover";
 
     img.onload = () => setTimeout(() => URL.revokeObjectURL(objectUrl), 5000);
-    img.onerror = () => {
-      URL.revokeObjectURL(objectUrl);
-      img.remove();
-    };
+    img.onerror = () => { URL.revokeObjectURL(objectUrl); img.remove(); };
 
     img.src = objectUrl;
 
@@ -362,7 +356,7 @@ function evaluateCompoundSecondPick(){
     const k = b.dataset.kanji;
     b.classList.remove("selected","correct","wrong");
     if(correct.has(k)) b.classList.add("correct");
-    else if(picked.has(k)) b.classList.add("wrong"); // only picked wrong goes red
+    else if(picked.has(k)) b.classList.add("wrong");
     b.disabled = true;
   });
 
