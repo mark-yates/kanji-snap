@@ -1,7 +1,5 @@
-const CACHE_NAME = "kanji-snap-shell-v50";
+const CACHE_NAME = "kanji-snap-shell-v51";
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
-
-/* ---------------- Install Assets ---------------- */
 
 const ASSETS = [
   "./",
@@ -32,34 +30,20 @@ const ASSETS = [
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
-  );
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
 });
-
-/* ---------------- Activate ---------------- */
 
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(
-      keys
-        .filter(k => k !== CACHE_NAME && k !== RUNTIME_CACHE)
-        .map(k => caches.delete(k))
-    );
+    await Promise.all(keys.filter(k => k !== CACHE_NAME && k !== RUNTIME_CACHE).map(k => caches.delete(k)));
     await self.clients.claim();
   })());
 });
 
-/* ---------------- Messages ---------------- */
-
 self.addEventListener("message", (event) => {
-  if (event.data?.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+  if (event.data?.type === "SKIP_WAITING") self.skipWaiting();
 });
-
-/* ---------------- Helpers ---------------- */
 
 function isMeaningImage(url) {
   return (
@@ -69,27 +53,24 @@ function isMeaningImage(url) {
   );
 }
 
-/* ---------------- Fetch ---------------- */
-
 self.addEventListener("fetch", (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
   if (url.origin !== location.origin) return;
 
-  // App shell navigation
+  // Navigations -> cached app shell
   if (req.mode === "navigate") {
-    event.respondWith(
-      caches.match("./index.html").then(r => r || fetch(req))
-    );
+    event.respondWith(caches.match("./index.html").then(r => r || fetch(req)));
     return;
   }
 
-  // Meaning images
+  // Meaning images:
+  // - normal: cache-only
+  // - ?dl=1: allow network + store under url.pathname
   if (isMeaningImage(url)) {
     const isDownload = url.searchParams.get("dl") === "1";
 
-    // Gameplay: cache-only
     if (!isDownload) {
       event.respondWith((async () => {
         const cache = await caches.open(RUNTIME_CACHE);
@@ -99,18 +80,17 @@ self.addEventListener("fetch", (event) => {
       return;
     }
 
-    // Download mode: network + store under canonical pathname
     event.respondWith((async () => {
       const cache = await caches.open(RUNTIME_CACHE);
       const canonicalReq = new Request(url.pathname, { method: "GET" });
 
       try {
         const res = await fetch(req);
-        if (res.ok) {
+        if (res && res.ok) {
           await cache.put(canonicalReq, res.clone());
           return res;
         }
-        return new Response("", { status: res.status });
+        return new Response("", { status: res?.status || 500 });
       } catch {
         return new Response("", { status: 504 });
       }
