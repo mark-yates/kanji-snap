@@ -66,7 +66,6 @@
         <div class="settingsCard">
           <div class="sectionTitle">Select by grade</div>
 
-          <!-- Each grade is its own line, with optional download -->
           <div class="gradeLines">
             <div class="gradeLine">
               <label class="check"><input id="chkG1" type="checkbox"> Grade 1</label>
@@ -116,7 +115,11 @@
           <div class="row" style="margin-top:8px;">
             <button class="btn" id="resetSettingsBtn" type="button">Reset settings</button>
             <button class="btn" id="clearOverridesBtn" type="button">Clear all overrides</button>
+            <button class="btn" id="resetDownloadsBtn" type="button">Reset downloads</button>
             <div class="pill" id="savedPill">Saved</div>
+          </div>
+          <div class="muted" style="margin-top:8px;">
+            “Reset downloads” only resets the download flags so you can re-download updated images.
           </div>
         </div>
       </section>
