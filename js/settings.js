@@ -108,7 +108,7 @@ export function isGradeDownloaded(grade){
 
 function meaningUrlForDownload(kanjiChar){
   // IMPORTANT: ?dl=1 allows SW to fetch from network + store canonical URL in runtime cache
-  return `./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp?dl=1`;
+  return `/root/images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp?dl=1`;
 }
 
 async function cacheGradeImages(grade, { onProgress } = {}){
@@ -265,3 +265,4 @@ export function initSettingsUI(onSettingsChanged){
 
   sync();
 }
+
