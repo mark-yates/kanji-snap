@@ -2,7 +2,9 @@ import { state } from "./state.js";
 import { ensureGradesLoaded } from "./data.js";
 
 const SETTINGS_KEY = "kanjiSnap.settings.v13";
-const DL_KEY = "kanjiSnap.downloadedGrades.v1";
+
+// IMPORTANT: versioned download flags for *this* image set/path
+const DL_KEY = "kanjiSnap.downloadedGrades.cartoonWebp.v1";
 
 // Must match sw.js
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
@@ -94,6 +96,10 @@ function saveDownloadedGrades(set){
   localStorage.setItem(DL_KEY, JSON.stringify([...set].sort((a,b)=>a-b)));
 }
 
+export function resetDownloadedGrades(){
+  localStorage.removeItem(DL_KEY);
+}
+
 export function isGradeDownloaded(grade){
   return loadDownloadedGrades().has(Number(grade));
 }
@@ -101,7 +107,7 @@ export function isGradeDownloaded(grade){
 /* ---------------- Download logic ---------------- */
 
 function meaningUrlForDownload(kanjiChar){
-  // IMPORTANT: ?dl=1 allows SW to fetch from network + store canonical URL (no query) in runtime cache
+  // IMPORTANT: ?dl=1 allows SW to fetch from network + store canonical URL in runtime cache
   return `./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp?dl=1`;
 }
 
@@ -180,6 +186,7 @@ export function initSettingsUI(onSettingsChanged){
 
   const resetBtn = document.getElementById("resetSettingsBtn");
   const clearOverridesBtn = document.getElementById("clearOverridesBtn");
+  const resetDownloadsBtn = document.getElementById("resetDownloadsBtn");
   const openPickerBtn = document.getElementById("openKanjiPickerBtn");
 
   function updateOverridePill(){
@@ -214,6 +221,17 @@ export function initSettingsUI(onSettingsChanged){
   clearOverridesBtn?.addEventListener("click", () => {
     clearAllOverrides();
     saveSettings(); sync(); onSettingsChanged?.();
+  });
+
+  resetDownloadsBtn?.addEventListener("click", () => {
+    resetDownloadedGrades();
+    // show buttons again
+    refreshDownloadUI();
+    const savedPill = document.getElementById("savedPill");
+    if(savedPill){
+      savedPill.textContent = "Downloads reset ✓";
+      setTimeout(() => savedPill.textContent = "Saved", 900);
+    }
   });
 
   openPickerBtn?.addEventListener("click", () => window.__openKanjiPicker?.());
