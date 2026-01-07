@@ -113,7 +113,7 @@ export function isGradeDownloaded(grade) {
 
 function meaningUrlForDownload(kanjiChar) {
   // Must match sw.js meaning path matcher
-  return `./root/images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp?dl=1`;
+  return `./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp?dl=1`;
 }
 
 async function cacheGradeImages(grade, { onProgress } = {}) {
@@ -280,4 +280,5 @@ export function initSettingsUI(onSettingsChanged) {
 
   sync();
 }
+
 
