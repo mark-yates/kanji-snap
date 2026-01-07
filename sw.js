@@ -1,4 +1,4 @@
-const CACHE_NAME = "kanji-snap-v44.3";
+const CACHE_NAME = "kanji-snap-v47";
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 const ASSETS = [
@@ -29,37 +29,40 @@ const ASSETS = [
   "./data/grade-3.json"
 ];
 
-self.addEventListener("install", event => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
   );
 });
 
-self.addEventListener("activate", event => {
+self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
     await Promise.all(
-      keys.filter(k => k !== CACHE_NAME && k !== RUNTIME_CACHE).map(k => caches.delete(k))
+      keys
+        .filter((k) => k !== CACHE_NAME && k !== RUNTIME_CACHE)
+        .map((k) => caches.delete(k))
     );
     await self.clients.claim();
   })());
 });
 
-function isMeaningImage(url){
-  // Your new location + webp extension
-  return url.origin === location.origin &&
-         url.pathname.includes("/root/images/meaning/cartoon/") &&
-         url.pathname.endsWith(".webp");
+function isMeaningImage(url) {
+  return (
+    url.origin === location.origin &&
+    url.pathname.includes("/root/images/meaning/cartoon/") &&
+    url.pathname.endsWith(".webp")
+  );
 }
 
-self.addEventListener("fetch", event => {
+self.addEventListener("fetch", (event) => {
   const req = event.request;
   const url = new URL(req.url);
 
-  if(url.origin !== location.origin) return;
+  if (url.origin !== location.origin) return;
 
-  // Navigations -> cached index.html
-  if(req.mode === "navigate"){
+  // Navigations -> cached app shell
+  if (req.mode === "navigate") {
     event.respondWith((async () => {
       const cached = await caches.match("./index.html");
       return cached || fetch(req);
@@ -68,29 +71,27 @@ self.addEventListener("fetch", event => {
   }
 
   // Meaning images:
-  // - normal requests: CACHE ONLY (game never goes online)
-  // - download requests (?dl=1): allow network, but store under canonical URL (no query)
-  if(isMeaningImage(url)){
+  // - normal requests: CACHE ONLY (game never goes online for images)
+  // - download requests (?dl=1): allow network + store under canonical url.pathname
+  if (isMeaningImage(url)) {
     const isDownload = url.searchParams.get("dl") === "1";
 
-    if(!isDownload){
+    if (!isDownload) {
       event.respondWith((async () => {
         const cache = await caches.open(RUNTIME_CACHE);
-        // Canonical key: pathname only (no query)
         const hit = await cache.match(url.pathname);
         return hit || new Response("", { status: 404 });
       })());
       return;
     }
 
-    // Download mode
     event.respondWith((async () => {
       const cache = await caches.open(RUNTIME_CACHE);
       const canonicalReq = new Request(url.pathname, { method: "GET" });
 
-      try{
+      try {
         const res = await fetch(req);
-        if(res && res.ok){
+        if (res && res.ok) {
           await cache.put(canonicalReq, res.clone());
           return res;
         }
@@ -102,12 +103,12 @@ self.addEventListener("fetch", event => {
     return;
   }
 
-  // Everything else: cache-first, then network, and store in runtime cache
+  // Everything else: cache-first; if network succeeds, save to runtime cache
   event.respondWith((async () => {
     const cached = await caches.match(req);
-    if(cached) return cached;
+    if (cached) return cached;
 
-    try{
+    try {
       const res = await fetch(req);
       const cache = await caches.open(RUNTIME_CACHE);
       cache.put(req, res.clone());
@@ -117,6 +118,3 @@ self.addEventListener("fetch", event => {
     }
   })());
 });
-
-
-
