@@ -18,8 +18,9 @@ function shuffle(arr){
   return arr;
 }
 
-function meaningImageUrl(kanjiChar){
-  return `./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp`;
+// IMPORTANT: cache keys are stored by SW under url.pathname (leading slash)
+function meaningImagePath(kanjiChar){
+  return `/root/images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp`;
 }
 
 function updateHUD(){
@@ -130,17 +131,17 @@ function renderFallback(btn, fallbackText){
 }
 
 async function setMeaningFromCache(btn, kanjiChar, fallbackText){
+  // Always show fallback immediately (never blank)
   renderFallback(btn, fallbackText);
 
-  const url = meaningImageUrl(kanjiChar);
-  const cache = await caches.open(RUNTIME_CACHE);
-
-  // store/match canonical key; SW stores under pathname, but match(url) works with relative too
-  const hit = await cache.match(url) || await cache.match(new Request(new URL(url, location.href).pathname));
-
-  if(!hit) return; // not downloaded -> keep fallback
+  // Match the exact key used by the SW (pathname only)
+  const path = meaningImagePath(kanjiChar);
 
   try{
+    const cache = await caches.open(RUNTIME_CACHE);
+    const hit = await cache.match(path);
+    if(!hit) return;
+
     const blob = await hit.blob();
     const objectUrl = URL.createObjectURL(blob);
 
@@ -154,9 +155,7 @@ async function setMeaningFromCache(btn, kanjiChar, fallbackText){
     img.style.height = "100%";
     img.style.objectFit = "cover";
 
-    img.onload = () => {
-      setTimeout(() => URL.revokeObjectURL(objectUrl), 5000);
-    };
+    img.onload = () => setTimeout(() => URL.revokeObjectURL(objectUrl), 5000);
     img.onerror = () => {
       URL.revokeObjectURL(objectUrl);
       img.remove();
@@ -184,6 +183,7 @@ function renderChoicesMeaning(options){
     btn.dataset.ok = opt.ok ? "1" : "0";
     btn.dataset.kanji = opt.kanji;
 
+    // cache-only
     setMeaningFromCache(btn, opt.kanji, opt.meaning);
 
     btn.addEventListener("click", () => onChoiceClick(btn));
@@ -416,8 +416,12 @@ function togglePeek(){
   if(state.peekMode){
     state.currentQuestion.type === "single" ? renderPeekSingle(state.currentQuestion.record) : renderPeekCompound(state.currentQuestion);
   } else {
-    if(state.currentQuestion.type === "single") renderChoicesMeaning(state.currentQuestion.options);
-    else renderChoicesKanji(state.currentQuestion.answers);
+    // Re-render current question
+    if(state.currentQuestion.type === "single"){
+      renderChoicesMeaning(state.currentQuestion.options);
+    } else {
+      renderChoicesKanji(state.currentQuestion.answers);
+    }
   }
 
   updateHUD();
