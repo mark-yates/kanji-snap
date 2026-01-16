@@ -22,8 +22,10 @@ function meaningImagePath(kanjiChar){
 }
 
 function updateHUD(){
-  document.getElementById("hudLives").textContent = `❤️ ${Math.max(0, state.lives)}`;
-  document.getElementById("hudScore").textContent = `${state.score}`;
+  const livesEl = document.getElementById("hudLives");
+  const scoreEl = document.getElementById("hudScore");
+  if(livesEl) livesEl.textContent = `❤️ ${Math.max(0, state.lives)}`;
+  if(scoreEl) scoreEl.textContent = `${state.score}`;
 }
 
 function endGame(){
