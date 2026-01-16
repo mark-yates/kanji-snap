@@ -22,12 +22,8 @@ function meaningImagePath(kanjiChar){
 }
 
 function updateHUD(){
-  // HUD is rendered inside the question tile to save vertical space.
-  const livesEl = document.getElementById("hudLives");
-  const scoreEl = document.getElementById("hudScore");
-
-  if(livesEl) livesEl.textContent = `❤️ ${Math.max(0, state.lives)}`;
-  if(scoreEl) scoreEl.textContent = `${state.score}`;
+  document.getElementById("hudLives").textContent = `❤️ ${Math.max(0, state.lives)}`;
+  document.getElementById("hudScore").textContent = `${state.score}`;
 }
 
 function endGame(){
