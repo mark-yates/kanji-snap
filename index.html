@@ -211,14 +211,11 @@
 
       <!-- GAME -->
       <section class="view" id="viewGame" aria-labelledby="tabGame">
-        <div class="row">
-          <div class="pill" id="hudLives">Lives: 10</div>
-          <div class="pill" id="hudScore">Score: 0</div>
-          <div class="pill" id="hudPeek">Sneak Peek: off</div>
-          <button class="btn" id="exitBtn" type="button">Exit</button>
-        </div>
-
         <div class="prompt" id="prompt" title="Tap to Sneak Peek">
+          <div class="promptHud" aria-hidden="true">
+            <div class="promptHudItem promptHudLives" id="hudLives">❤️ 10</div>
+            <div class="promptHudItem promptHudScore" id="hudScore">0</div>
+          </div>
           <div class="promptInner" id="promptInner">
             <div class="kanjiText">？</div>
           </div>

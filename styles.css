@@ -175,6 +175,32 @@ body{
   overflow:hidden;
 }
 
+/* Lives / Score overlay inside the question tile */
+.promptHud{
+  position:absolute;
+  top:8px;
+  left:8px;
+  right:8px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  z-index:2;
+  pointer-events:none; /* keep the whole tile tappable for Sneak Peek */
+}
+
+.promptHudItem{
+  font-size:14px;
+  line-height:1;
+  color:rgba(226,232,240,.95);
+  background:rgba(15,23,42,.55);
+  border:1px solid rgba(148,163,184,.25);
+  border-radius:999px;
+  padding:6px 10px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  white-space:nowrap;
+}
+
 .promptInner{position:relative; z-index:1}
 
 .kanjiText{
@@ -443,4 +469,3 @@ button.choice.wrong::after,
   padding:16px;
   width:min(520px,100%);
 }
-
