@@ -22,9 +22,12 @@ function meaningImagePath(kanjiChar){
 }
 
 function updateHUD(){
-  document.getElementById("hudLives").textContent = `Lives: ${Math.max(0, state.lives)}`;
-  document.getElementById("hudScore").textContent = `Score: ${state.score}`;
-  document.getElementById("hudPeek").textContent  = `Sneak Peek: ${state.peekMode ? "on" : "off"}`;
+  // HUD is rendered inside the question tile to save vertical space.
+  const livesEl = document.getElementById("hudLives");
+  const scoreEl = document.getElementById("hudScore");
+
+  if(livesEl) livesEl.textContent = `❤️ ${Math.max(0, state.lives)}`;
+  if(scoreEl) scoreEl.textContent = `${state.score}`;
 }
 
 function endGame(){
@@ -448,9 +451,5 @@ export async function startQuizGame(){
 }
 
 export function wireGameUI(){
-  document.getElementById("exitBtn")?.addEventListener("click", () => {
-    state.gameActive = false;
-    setActiveTab("home");
-  });
   document.getElementById("prompt")?.addEventListener("click", togglePeek);
 }
