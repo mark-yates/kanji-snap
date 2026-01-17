@@ -175,17 +175,27 @@ body{
   overflow:hidden;
 }
 
-/* Overlay HUD inside the question tile (must not affect prompt centering) */
+/* Overlay HUD (must not affect layout/centering) */
 .promptHud{
   position:absolute;
   top:8px;
   left:8px;
   right:8px;
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  z-index:2;
-  pointer-events:none; /* keep the whole tile tappable for Sneak Peek */
+  z-index:5;
+  pointer-events:none; /* keep the whole tile tappable */
+}
+
+/* Pin the pills to the corners */
+#hudLives{
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+#hudScore{
+  position:absolute;
+  top:0;
+  right:0;
 }
 
 .promptHudItem{
@@ -201,7 +211,16 @@ body{
   white-space:nowrap;
 }
 
-.promptInner{position:relative; z-index:1}
+/* Center the prompt content regardless of overlays */
+.promptInner{
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
 .kanjiText{
   font-family:"KanjiFont", sans-serif;
@@ -286,8 +305,10 @@ button.choice::after,
   pointer-events:none;
 }
 
+/* IMPORTANT FIX:
+   Do NOT apply ".prompt > * { position:relative }" because it breaks the HUD overlay. */
 button.choice > *,
-.prompt > *{
+.promptInner{
   position:relative;
   z-index:1;
 }
