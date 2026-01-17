@@ -201,15 +201,13 @@ body{
 .promptHudItem{
   font-size:14px;
   line-height:1;
-  color:rgba(226,232,240,.95);
-  background:rgba(15,23,42,.55);
-  border:1px solid rgba(148,163,184,.25);
-  border-radius:999px;
-  padding:6px 10px;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  white-space:nowrap;
+  color: var(--ink);          /* black text */
+  background: transparent;   /* no pill background */
+  border: none;              /* no outline */
+  padding: 0;                /* no pill padding */
+  white-space: nowrap;
 }
+
 
 /* Center the prompt content regardless of overlays */
 .promptInner{
@@ -490,3 +488,4 @@ button.choice.wrong::after,
   padding:16px;
   width:min(520px,100%);
 }
+
