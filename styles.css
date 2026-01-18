@@ -243,7 +243,10 @@ button.choice{
   border:0;
   background:var(--paper);
   border-radius:4px;
-  min-height:140px;
+
+  /* Make tiles square */
+  aspect-ratio: 1 / 1;
+
   padding:0;
   cursor:pointer;
   display:flex;
@@ -488,4 +491,5 @@ button.choice.wrong::after,
   padding:16px;
   width:min(520px,100%);
 }
+
 
