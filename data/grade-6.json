@@ -1,0 +1,2609 @@
+[
+  {
+    "kanji": "並",
+    "grade": 6,
+    "kyoiku_index": 836,
+    "meaning_en": "row",
+    "meaning_hira": "",
+    "onyomi": [
+      "へい",
+      "ほう"
+    ],
+    "kunyomi": [
+      "な",
+      "なみ",
+      "なら"
+    ],
+    "label": "[な]"
+  },
+  {
+    "kanji": "乱",
+    "grade": 6,
+    "kyoiku_index": 837,
+    "meaning_en": "riot",
+    "meaning_hira": "",
+    "onyomi": [
+      "らん",
+      "ろん"
+    ],
+    "kunyomi": [
+      "みだ",
+      "おさ",
+      "わた"
+    ],
+    "label": "[みだ]"
+  },
+  {
+    "kanji": "乳",
+    "grade": 6,
+    "kyoiku_index": 838,
+    "meaning_en": "milk",
+    "meaning_hira": "",
+    "onyomi": [
+      "にゅう"
+    ],
+    "kunyomi": [
+      "ちち",
+      "ち"
+    ],
+    "label": "[ちち]"
+  },
+  {
+    "kanji": "亡",
+    "grade": 6,
+    "kyoiku_index": 839,
+    "meaning_en": "deceased",
+    "meaning_hira": "",
+    "onyomi": [
+      "ぼう",
+      "もう"
+    ],
+    "kunyomi": [
+      "な",
+      "ほろ"
+    ],
+    "label": "[な]"
+  },
+  {
+    "kanji": "仁",
+    "grade": 6,
+    "kyoiku_index": 840,
+    "meaning_en": "humanity",
+    "meaning_hira": "",
+    "onyomi": [
+      "じん",
+      "に",
+      "にん"
+    ],
+    "kunyomi": [],
+    "label": "[じん]"
+  },
+  {
+    "kanji": "供",
+    "grade": 6,
+    "kyoiku_index": 841,
+    "meaning_en": "submit",
+    "meaning_hira": "",
+    "onyomi": [
+      "きょう",
+      "く",
+      "くう",
+      "ぐ"
+    ],
+    "kunyomi": [
+      "そな",
+      "とも"
+    ],
+    "label": "[そな]"
+  },
+  {
+    "kanji": "俳",
+    "grade": 6,
+    "kyoiku_index": 842,
+    "meaning_en": "haiku",
+    "meaning_hira": "",
+    "onyomi": [
+      "はい"
+    ],
+    "kunyomi": [],
+    "label": "[はい]"
+  },
+  {
+    "kanji": "俵",
+    "grade": 6,
+    "kyoiku_index": 843,
+    "meaning_en": "bag",
+    "meaning_hira": "",
+    "onyomi": [
+      "ひょう"
+    ],
+    "kunyomi": [
+      "たわら"
+    ],
+    "label": "[たわら]"
+  },
+  {
+    "kanji": "値",
+    "grade": 6,
+    "kyoiku_index": 844,
+    "meaning_en": "price",
+    "meaning_hira": "",
+    "onyomi": [
+      "ち"
+    ],
+    "kunyomi": [
+      "ね",
+      "あたい"
+    ],
+    "label": "[ね]"
+  },
+  {
+    "kanji": "傷",
+    "grade": 6,
+    "kyoiku_index": 845,
+    "meaning_en": "wound",
+    "meaning_hira": "",
+    "onyomi": [
+      "しょう"
+    ],
+    "kunyomi": [
+      "きず",
+      "いた"
+    ],
+    "label": "[きず]"
+  },
+  {
+    "kanji": "優",
+    "grade": 6,
+    "kyoiku_index": 846,
+    "meaning_en": "tenderness",
+    "meaning_hira": "",
+    "onyomi": [
+      "ゆう",
+      "う"
+    ],
+    "kunyomi": [
+      "やさ",
+      "すぐ",
+      "まさ"
+    ],
+    "label": "[やさ]"
+  },
+  {
+    "kanji": "党",
+    "grade": 6,
+    "kyoiku_index": 847,
+    "meaning_en": "party",
+    "meaning_hira": "",
+    "onyomi": [
+      "とう"
+    ],
+    "kunyomi": [
+      "なかま",
+      "むら"
+    ],
+    "label": "[なかま]"
+  },
+  {
+    "kanji": "冊",
+    "grade": 6,
+    "kyoiku_index": 848,
+    "meaning_en": "tome",
+    "meaning_hira": "",
+    "onyomi": [
+      "さつ",
+      "さく"
+    ],
+    "kunyomi": [
+      "ふみ"
+    ],
+    "label": "[ふみ]"
+  },
+  {
+    "kanji": "処",
+    "grade": 6,
+    "kyoiku_index": 849,
+    "meaning_en": "dispose",
+    "meaning_hira": "",
+    "onyomi": [
+      "しょ"
+    ],
+    "kunyomi": [
+      "ところ",
+      "お"
+    ],
+    "label": "[ところ]"
+  },
+  {
+    "kanji": "券",
+    "grade": 6,
+    "kyoiku_index": 850,
+    "meaning_en": "ticket",
+    "meaning_hira": "",
+    "onyomi": [
+      "けん"
+    ],
+    "kunyomi": [],
+    "label": "[けん]"
+  },
+  {
+    "kanji": "刻",
+    "grade": 6,
+    "kyoiku_index": 851,
+    "meaning_en": "engrave",
+    "meaning_hira": "",
+    "onyomi": [
+      "こく"
+    ],
+    "kunyomi": [
+      "きざ"
+    ],
+    "label": "[きざ]"
+  },
+  {
+    "kanji": "割",
+    "grade": 6,
+    "kyoiku_index": 852,
+    "meaning_en": "proportion",
+    "meaning_hira": "",
+    "onyomi": [
+      "かつ"
+    ],
+    "kunyomi": [
+      "わ",
+      "わり",
+      "さ"
+    ],
+    "label": "[わ]"
+  },
+  {
+    "kanji": "創",
+    "grade": 6,
+    "kyoiku_index": 853,
+    "meaning_en": "genesis",
+    "meaning_hira": "",
+    "onyomi": [
+      "そう",
+      "しょう"
+    ],
+    "kunyomi": [
+      "つく",
+      "はじ",
+      "きず",
+      "けず"
+    ],
+    "label": "[つく]"
+  },
+  {
+    "kanji": "劇",
+    "grade": 6,
+    "kyoiku_index": 854,
+    "meaning_en": "drama",
+    "meaning_hira": "",
+    "onyomi": [
+      "げき"
+    ],
+    "kunyomi": [],
+    "label": "[げき]"
+  },
+  {
+    "kanji": "勤",
+    "grade": 6,
+    "kyoiku_index": 855,
+    "meaning_en": "diligence",
+    "meaning_hira": "",
+    "onyomi": [
+      "きん",
+      "ごん"
+    ],
+    "kunyomi": [
+      "つと",
+      "いそ"
+    ],
+    "label": "[つと]"
+  },
+  {
+    "kanji": "危",
+    "grade": 6,
+    "kyoiku_index": 856,
+    "meaning_en": "dangerous",
+    "meaning_hira": "",
+    "onyomi": [
+      "き"
+    ],
+    "kunyomi": [
+      "あぶ",
+      "あや"
+    ],
+    "label": "[あぶ]"
+  },
+  {
+    "kanji": "卵",
+    "grade": 6,
+    "kyoiku_index": 857,
+    "meaning_en": "egg",
+    "meaning_hira": "",
+    "onyomi": [
+      "らん"
+    ],
+    "kunyomi": [
+      "たまご"
+    ],
+    "label": "[たまご]"
+  },
+  {
+    "kanji": "厳",
+    "grade": 6,
+    "kyoiku_index": 858,
+    "meaning_en": "stern",
+    "meaning_hira": "",
+    "onyomi": [
+      "げん",
+      "ごん"
+    ],
+    "kunyomi": [
+      "おごそ",
+      "きび",
+      "いか",
+      "いつくし"
+    ],
+    "label": "[おごそ]"
+  },
+  {
+    "kanji": "収",
+    "grade": 6,
+    "kyoiku_index": 859,
+    "meaning_en": "income",
+    "meaning_hira": "",
+    "onyomi": [
+      "しゅう"
+    ],
+    "kunyomi": [
+      "おさ"
+    ],
+    "label": "[おさ]"
+  },
+  {
+    "kanji": "后",
+    "grade": 6,
+    "kyoiku_index": 860,
+    "meaning_en": "empress",
+    "meaning_hira": "",
+    "onyomi": [
+      "こう",
+      "ご"
+    ],
+    "kunyomi": [
+      "きさき"
+    ],
+    "label": "[きさき]"
+  },
+  {
+    "kanji": "否",
+    "grade": 6,
+    "kyoiku_index": 861,
+    "meaning_en": "negate",
+    "meaning_hira": "",
+    "onyomi": [
+      "ひ"
+    ],
+    "kunyomi": [
+      "いな",
+      "いや"
+    ],
+    "label": "[いな]"
+  },
+  {
+    "kanji": "吸",
+    "grade": 6,
+    "kyoiku_index": 862,
+    "meaning_en": "suck",
+    "meaning_hira": "",
+    "onyomi": [
+      "きゅう"
+    ],
+    "kunyomi": [
+      "す"
+    ],
+    "label": "[す]"
+  },
+  {
+    "kanji": "呼",
+    "grade": 6,
+    "kyoiku_index": 863,
+    "meaning_en": "call",
+    "meaning_hira": "",
+    "onyomi": [
+      "こ"
+    ],
+    "kunyomi": [
+      "よ"
+    ],
+    "label": "[よ]"
+  },
+  {
+    "kanji": "善",
+    "grade": 6,
+    "kyoiku_index": 864,
+    "meaning_en": "virtuous",
+    "meaning_hira": "",
+    "onyomi": [
+      "ぜん"
+    ],
+    "kunyomi": [
+      "よ",
+      "い",
+      "よし"
+    ],
+    "label": "[よ]"
+  },
+  {
+    "kanji": "困",
+    "grade": 6,
+    "kyoiku_index": 865,
+    "meaning_en": "quandary",
+    "meaning_hira": "",
+    "onyomi": [
+      "こん"
+    ],
+    "kunyomi": [
+      "こま"
+    ],
+    "label": "[こま]"
+  },
+  {
+    "kanji": "垂",
+    "grade": 6,
+    "kyoiku_index": 866,
+    "meaning_en": "droop",
+    "meaning_hira": "",
+    "onyomi": [
+      "すい"
+    ],
+    "kunyomi": [
+      "た",
+      "なんなんと"
+    ],
+    "label": "[た]"
+  },
+  {
+    "kanji": "域",
+    "grade": 6,
+    "kyoiku_index": 867,
+    "meaning_en": "range",
+    "meaning_hira": "",
+    "onyomi": [
+      "いき"
+    ],
+    "kunyomi": [],
+    "label": "[いき]"
+  },
+  {
+    "kanji": "奏",
+    "grade": 6,
+    "kyoiku_index": 868,
+    "meaning_en": "play music",
+    "meaning_hira": "",
+    "onyomi": [
+      "そう"
+    ],
+    "kunyomi": [
+      "かな"
+    ],
+    "label": "[かな]"
+  },
+  {
+    "kanji": "奮",
+    "grade": 6,
+    "kyoiku_index": 869,
+    "meaning_en": "stirred up",
+    "meaning_hira": "",
+    "onyomi": [
+      "ふん"
+    ],
+    "kunyomi": [
+      "ふる"
+    ],
+    "label": "[ふる]"
+  },
+  {
+    "kanji": "姿",
+    "grade": 6,
+    "kyoiku_index": 870,
+    "meaning_en": "figure",
+    "meaning_hira": "",
+    "onyomi": [
+      "し"
+    ],
+    "kunyomi": [
+      "すがた"
+    ],
+    "label": "[すがた]"
+  },
+  {
+    "kanji": "存",
+    "grade": 6,
+    "kyoiku_index": 871,
+    "meaning_en": "exist",
+    "meaning_hira": "",
+    "onyomi": [
+      "そん",
+      "ぞん"
+    ],
+    "kunyomi": [
+      "ながら",
+      "あ",
+      "たも",
+      "と"
+    ],
+    "label": "[ながら]"
+  },
+  {
+    "kanji": "孝",
+    "grade": 6,
+    "kyoiku_index": 872,
+    "meaning_en": "filial piety",
+    "meaning_hira": "",
+    "onyomi": [
+      "こう",
+      "きょう"
+    ],
+    "kunyomi": [],
+    "label": "[こう]"
+  },
+  {
+    "kanji": "宅",
+    "grade": 6,
+    "kyoiku_index": 873,
+    "meaning_en": "home",
+    "meaning_hira": "",
+    "onyomi": [
+      "たく"
+    ],
+    "kunyomi": [],
+    "label": "[たく]"
+  },
+  {
+    "kanji": "宇",
+    "grade": 6,
+    "kyoiku_index": 874,
+    "meaning_en": "eaves",
+    "meaning_hira": "",
+    "onyomi": [
+      "う"
+    ],
+    "kunyomi": [],
+    "label": "[う]"
+  },
+  {
+    "kanji": "宗",
+    "grade": 6,
+    "kyoiku_index": 875,
+    "meaning_en": "religion",
+    "meaning_hira": "",
+    "onyomi": [
+      "しゅう",
+      "そう"
+    ],
+    "kunyomi": [
+      "むね"
+    ],
+    "label": "[むね]"
+  },
+  {
+    "kanji": "宙",
+    "grade": 6,
+    "kyoiku_index": 876,
+    "meaning_en": "mid-air",
+    "meaning_hira": "",
+    "onyomi": [
+      "ちゅう"
+    ],
+    "kunyomi": [],
+    "label": "[ちゅう]"
+  },
+  {
+    "kanji": "宝",
+    "grade": 6,
+    "kyoiku_index": 877,
+    "meaning_en": "treasure",
+    "meaning_hira": "",
+    "onyomi": [
+      "ほう"
+    ],
+    "kunyomi": [
+      "たから"
+    ],
+    "label": "[たから]"
+  },
+  {
+    "kanji": "宣",
+    "grade": 6,
+    "kyoiku_index": 878,
+    "meaning_en": "proclaim",
+    "meaning_hira": "",
+    "onyomi": [
+      "せん"
+    ],
+    "kunyomi": [
+      "のたま"
+    ],
+    "label": "[のたま]"
+  },
+  {
+    "kanji": "密",
+    "grade": 6,
+    "kyoiku_index": 879,
+    "meaning_en": "secrecy",
+    "meaning_hira": "",
+    "onyomi": [
+      "みつ"
+    ],
+    "kunyomi": [
+      "ひそ"
+    ],
+    "label": "[ひそ]"
+  },
+  {
+    "kanji": "寸",
+    "grade": 6,
+    "kyoiku_index": 880,
+    "meaning_en": "measurement",
+    "meaning_hira": "",
+    "onyomi": [
+      "すん"
+    ],
+    "kunyomi": [],
+    "label": "[すん]"
+  },
+  {
+    "kanji": "専",
+    "grade": 6,
+    "kyoiku_index": 881,
+    "meaning_en": "specialty",
+    "meaning_hira": "",
+    "onyomi": [
+      "せん"
+    ],
+    "kunyomi": [
+      "もっぱ"
+    ],
+    "label": "[もっぱ]"
+  },
+  {
+    "kanji": "射",
+    "grade": 6,
+    "kyoiku_index": 882,
+    "meaning_en": "shoot",
+    "meaning_hira": "",
+    "onyomi": [
+      "しゃ"
+    ],
+    "kunyomi": [
+      "い",
+      "さ",
+      "う"
+    ],
+    "label": "[い]"
+  },
+  {
+    "kanji": "将",
+    "grade": 6,
+    "kyoiku_index": 883,
+    "meaning_en": "leader",
+    "meaning_hira": "",
+    "onyomi": [
+      "しょう",
+      "そう"
+    ],
+    "kunyomi": [
+      "まさ",
+      "はた",
+      "ひきい",
+      "もって"
+    ],
+    "label": "[まさ]"
+  },
+  {
+    "kanji": "尊",
+    "grade": 6,
+    "kyoiku_index": 884,
+    "meaning_en": "revered",
+    "meaning_hira": "",
+    "onyomi": [
+      "そん"
+    ],
+    "kunyomi": [
+      "たっと",
+      "とうと"
+    ],
+    "label": "[たっと]"
+  },
+  {
+    "kanji": "就",
+    "grade": 6,
+    "kyoiku_index": 885,
+    "meaning_en": "concerning",
+    "meaning_hira": "",
+    "onyomi": [
+      "しゅう",
+      "じゅ"
+    ],
+    "kunyomi": [
+      "つ"
+    ],
+    "label": "[つ]"
+  },
+  {
+    "kanji": "尺",
+    "grade": 6,
+    "kyoiku_index": 886,
+    "meaning_en": "shaku",
+    "meaning_hira": "",
+    "onyomi": [
+      "しゃく",
+      "せき"
+    ],
+    "kunyomi": [
+      "さし"
+    ],
+    "label": "[さし]"
+  },
+  {
+    "kanji": "届",
+    "grade": 6,
+    "kyoiku_index": 887,
+    "meaning_en": "deliver",
+    "meaning_hira": "",
+    "onyomi": [
+      "かい"
+    ],
+    "kunyomi": [
+      "とど"
+    ],
+    "label": "[とど]"
+  },
+  {
+    "kanji": "展",
+    "grade": 6,
+    "kyoiku_index": 888,
+    "meaning_en": "unfold",
+    "meaning_hira": "",
+    "onyomi": [
+      "てん"
+    ],
+    "kunyomi": [],
+    "label": "[てん]"
+  },
+  {
+    "kanji": "層",
+    "grade": 6,
+    "kyoiku_index": 889,
+    "meaning_en": "stratum",
+    "meaning_hira": "",
+    "onyomi": [
+      "そう"
+    ],
+    "kunyomi": [],
+    "label": "[そう]"
+  },
+  {
+    "kanji": "己",
+    "grade": 6,
+    "kyoiku_index": 890,
+    "meaning_en": "self",
+    "meaning_hira": "",
+    "onyomi": [
+      "こ",
+      "き"
+    ],
+    "kunyomi": [
+      "おのれ",
+      "つちのと",
+      "な"
+    ],
+    "label": "[おのれ]"
+  },
+  {
+    "kanji": "巻",
+    "grade": 6,
+    "kyoiku_index": 891,
+    "meaning_en": "scroll",
+    "meaning_hira": "",
+    "onyomi": [
+      "かん",
+      "けん"
+    ],
+    "kunyomi": [
+      "ま",
+      "まき"
+    ],
+    "label": "[ま]"
+  },
+  {
+    "kanji": "幕",
+    "grade": 6,
+    "kyoiku_index": 892,
+    "meaning_en": "curtain",
+    "meaning_hira": "",
+    "onyomi": [
+      "まく",
+      "ばく"
+    ],
+    "kunyomi": [
+      "とばり"
+    ],
+    "label": "[とばり]"
+  },
+  {
+    "kanji": "干",
+    "grade": 6,
+    "kyoiku_index": 893,
+    "meaning_en": "dry",
+    "meaning_hira": "",
+    "onyomi": [
+      "かん"
+    ],
+    "kunyomi": [
+      "ほ",
+      "ひ"
+    ],
+    "label": "[ほ]"
+  },
+  {
+    "kanji": "幼",
+    "grade": 6,
+    "kyoiku_index": 894,
+    "meaning_en": "infancy",
+    "meaning_hira": "",
+    "onyomi": [
+      "よう"
+    ],
+    "kunyomi": [
+      "おさな"
+    ],
+    "label": "[おさな]"
+  },
+  {
+    "kanji": "庁",
+    "grade": 6,
+    "kyoiku_index": 895,
+    "meaning_en": "government office",
+    "meaning_hira": "",
+    "onyomi": [
+      "ちょう",
+      "てい"
+    ],
+    "kunyomi": [
+      "やくしょ"
+    ],
+    "label": "[やくしょ]"
+  },
+  {
+    "kanji": "座",
+    "grade": 6,
+    "kyoiku_index": 896,
+    "meaning_en": "squat",
+    "meaning_hira": "",
+    "onyomi": [
+      "ざ"
+    ],
+    "kunyomi": [
+      "すわ"
+    ],
+    "label": "[すわ]"
+  },
+  {
+    "kanji": "延",
+    "grade": 6,
+    "kyoiku_index": 897,
+    "meaning_en": "prolong",
+    "meaning_hira": "",
+    "onyomi": [
+      "えん"
+    ],
+    "kunyomi": [
+      "の"
+    ],
+    "label": "[の]"
+  },
+  {
+    "kanji": "律",
+    "grade": 6,
+    "kyoiku_index": 898,
+    "meaning_en": "rhythm",
+    "meaning_hira": "",
+    "onyomi": [
+      "りつ",
+      "りち",
+      "れつ"
+    ],
+    "kunyomi": [],
+    "label": "[りつ]"
+  },
+  {
+    "kanji": "従",
+    "grade": 6,
+    "kyoiku_index": 899,
+    "meaning_en": "accompany",
+    "meaning_hira": "",
+    "onyomi": [
+      "じゅう",
+      "しょう",
+      "じゅ"
+    ],
+    "kunyomi": [
+      "したが",
+      "より"
+    ],
+    "label": "[したが]"
+  },
+  {
+    "kanji": "忘",
+    "grade": 6,
+    "kyoiku_index": 900,
+    "meaning_en": "forget",
+    "meaning_hira": "",
+    "onyomi": [
+      "ぼう"
+    ],
+    "kunyomi": [
+      "わす"
+    ],
+    "label": "[わす]"
+  },
+  {
+    "kanji": "忠",
+    "grade": 6,
+    "kyoiku_index": 901,
+    "meaning_en": "loyalty",
+    "meaning_hira": "",
+    "onyomi": [
+      "ちゅう"
+    ],
+    "kunyomi": [],
+    "label": "[ちゅう]"
+  },
+  {
+    "kanji": "恩",
+    "grade": 6,
+    "kyoiku_index": 902,
+    "meaning_en": "grace",
+    "meaning_hira": "",
+    "onyomi": [
+      "おん"
+    ],
+    "kunyomi": [],
+    "label": "[おん]"
+  },
+  {
+    "kanji": "憲",
+    "grade": 6,
+    "kyoiku_index": 903,
+    "meaning_en": "constitution",
+    "meaning_hira": "",
+    "onyomi": [
+      "けん"
+    ],
+    "kunyomi": [],
+    "label": "[けん]"
+  },
+  {
+    "kanji": "我",
+    "grade": 6,
+    "kyoiku_index": 904,
+    "meaning_en": "ego",
+    "meaning_hira": "",
+    "onyomi": [
+      "が"
+    ],
+    "kunyomi": [
+      "われ",
+      "わ",
+      "わが"
+    ],
+    "label": "[われ]"
+  },
+  {
+    "kanji": "批",
+    "grade": 6,
+    "kyoiku_index": 905,
+    "meaning_en": "criticism",
+    "meaning_hira": "",
+    "onyomi": [
+      "ひ"
+    ],
+    "kunyomi": [],
+    "label": "[ひ]"
+  },
+  {
+    "kanji": "承",
+    "grade": 6,
+    "kyoiku_index": 906,
+    "meaning_en": "acquiesce",
+    "meaning_hira": "",
+    "onyomi": [
+      "しょう",
+      "じょう"
+    ],
+    "kunyomi": [
+      "うけたまわ",
+      "う"
+    ],
+    "label": "[うけたまわ]"
+  },
+  {
+    "kanji": "担",
+    "grade": 6,
+    "kyoiku_index": 907,
+    "meaning_en": "shouldering",
+    "meaning_hira": "",
+    "onyomi": [
+      "たん"
+    ],
+    "kunyomi": [
+      "かつ",
+      "にな"
+    ],
+    "label": "[かつ]"
+  },
+  {
+    "kanji": "拝",
+    "grade": 6,
+    "kyoiku_index": 908,
+    "meaning_en": "worship",
+    "meaning_hira": "",
+    "onyomi": [
+      "はい"
+    ],
+    "kunyomi": [
+      "おが",
+      "おろが"
+    ],
+    "label": "[おが]"
+  },
+  {
+    "kanji": "拡",
+    "grade": 6,
+    "kyoiku_index": 909,
+    "meaning_en": "broaden",
+    "meaning_hira": "",
+    "onyomi": [
+      "かく",
+      "こう"
+    ],
+    "kunyomi": [
+      "ひろ"
+    ],
+    "label": "[ひろ]"
+  },
+  {
+    "kanji": "捨",
+    "grade": 6,
+    "kyoiku_index": 910,
+    "meaning_en": "discard",
+    "meaning_hira": "",
+    "onyomi": [
+      "しゃ"
+    ],
+    "kunyomi": [
+      "す"
+    ],
+    "label": "[す]"
+  },
+  {
+    "kanji": "探",
+    "grade": 6,
+    "kyoiku_index": 911,
+    "meaning_en": "grope",
+    "meaning_hira": "",
+    "onyomi": [
+      "たん"
+    ],
+    "kunyomi": [
+      "さぐ",
+      "さが"
+    ],
+    "label": "[さぐ]"
+  },
+  {
+    "kanji": "推",
+    "grade": 6,
+    "kyoiku_index": 912,
+    "meaning_en": "conjecture",
+    "meaning_hira": "",
+    "onyomi": [
+      "すい"
+    ],
+    "kunyomi": [
+      "お"
+    ],
+    "label": "[お]"
+  },
+  {
+    "kanji": "揮",
+    "grade": 6,
+    "kyoiku_index": 913,
+    "meaning_en": "brandish",
+    "meaning_hira": "",
+    "onyomi": [
+      "き"
+    ],
+    "kunyomi": [
+      "ふる"
+    ],
+    "label": "[ふる]"
+  },
+  {
+    "kanji": "操",
+    "grade": 6,
+    "kyoiku_index": 914,
+    "meaning_en": "maneuver",
+    "meaning_hira": "",
+    "onyomi": [
+      "そう",
+      "さん"
+    ],
+    "kunyomi": [
+      "みさお",
+      "あやつ"
+    ],
+    "label": "[みさお]"
+  },
+  {
+    "kanji": "敬",
+    "grade": 6,
+    "kyoiku_index": 915,
+    "meaning_en": "awe",
+    "meaning_hira": "",
+    "onyomi": [
+      "けい",
+      "きょう"
+    ],
+    "kunyomi": [
+      "うやま"
+    ],
+    "label": "[うやま]"
+  },
+  {
+    "kanji": "敵",
+    "grade": 6,
+    "kyoiku_index": 916,
+    "meaning_en": "enemy",
+    "meaning_hira": "",
+    "onyomi": [
+      "てき"
+    ],
+    "kunyomi": [
+      "かたき",
+      "あだ",
+      "かな"
+    ],
+    "label": "[かたき]"
+  },
+  {
+    "kanji": "映",
+    "grade": 6,
+    "kyoiku_index": 917,
+    "meaning_en": "reflect",
+    "meaning_hira": "",
+    "onyomi": [
+      "えい"
+    ],
+    "kunyomi": [
+      "うつ",
+      "は"
+    ],
+    "label": "[うつ]"
+  },
+  {
+    "kanji": "晩",
+    "grade": 6,
+    "kyoiku_index": 918,
+    "meaning_en": "nightfall",
+    "meaning_hira": "",
+    "onyomi": [
+      "ばん"
+    ],
+    "kunyomi": [],
+    "label": "[ばん]"
+  },
+  {
+    "kanji": "暖",
+    "grade": 6,
+    "kyoiku_index": 919,
+    "meaning_en": "warmth",
+    "meaning_hira": "",
+    "onyomi": [
+      "だん",
+      "のん"
+    ],
+    "kunyomi": [
+      "あたた"
+    ],
+    "label": "[あたた]"
+  },
+  {
+    "kanji": "暮",
+    "grade": 6,
+    "kyoiku_index": 920,
+    "meaning_en": "evening",
+    "meaning_hira": "",
+    "onyomi": [
+      "ぼ"
+    ],
+    "kunyomi": [
+      "く"
+    ],
+    "label": "[く]"
+  },
+  {
+    "kanji": "朗",
+    "grade": 6,
+    "kyoiku_index": 921,
+    "meaning_en": "melodious",
+    "meaning_hira": "",
+    "onyomi": [
+      "ろう"
+    ],
+    "kunyomi": [
+      "ほが",
+      "あき"
+    ],
+    "label": "[ほが]"
+  },
+  {
+    "kanji": "机",
+    "grade": 6,
+    "kyoiku_index": 922,
+    "meaning_en": "desk",
+    "meaning_hira": "",
+    "onyomi": [
+      "き"
+    ],
+    "kunyomi": [
+      "つくえ"
+    ],
+    "label": "[つくえ]"
+  },
+  {
+    "kanji": "枚",
+    "grade": 6,
+    "kyoiku_index": 923,
+    "meaning_en": "sheet of...",
+    "meaning_hira": "",
+    "onyomi": [
+      "まい",
+      "ばい"
+    ],
+    "kunyomi": [],
+    "label": "[まい]"
+  },
+  {
+    "kanji": "染",
+    "grade": 6,
+    "kyoiku_index": 924,
+    "meaning_en": "dye",
+    "meaning_hira": "",
+    "onyomi": [
+      "せん"
+    ],
+    "kunyomi": [
+      "そ",
+      "し"
+    ],
+    "label": "[そ]"
+  },
+  {
+    "kanji": "株",
+    "grade": 6,
+    "kyoiku_index": 925,
+    "meaning_en": "stocks",
+    "meaning_hira": "",
+    "onyomi": [
+      "しゅ"
+    ],
+    "kunyomi": [
+      "かぶ"
+    ],
+    "label": "[かぶ]"
+  },
+  {
+    "kanji": "棒",
+    "grade": 6,
+    "kyoiku_index": 926,
+    "meaning_en": "rod",
+    "meaning_hira": "",
+    "onyomi": [
+      "ぼう"
+    ],
+    "kunyomi": [],
+    "label": "[ぼう]"
+  },
+  {
+    "kanji": "模",
+    "grade": 6,
+    "kyoiku_index": 927,
+    "meaning_en": "imitation",
+    "meaning_hira": "",
+    "onyomi": [
+      "も",
+      "ぼ"
+    ],
+    "kunyomi": [],
+    "label": "[も]"
+  },
+  {
+    "kanji": "権",
+    "grade": 6,
+    "kyoiku_index": 928,
+    "meaning_en": "authority",
+    "meaning_hira": "",
+    "onyomi": [
+      "けん",
+      "ごん"
+    ],
+    "kunyomi": [
+      "おもり",
+      "かり",
+      "はか"
+    ],
+    "label": "[おもり]"
+  },
+  {
+    "kanji": "樹",
+    "grade": 6,
+    "kyoiku_index": 929,
+    "meaning_en": "timber",
+    "meaning_hira": "",
+    "onyomi": [
+      "じゅ"
+    ],
+    "kunyomi": [
+      "き"
+    ],
+    "label": "[き]"
+  },
+  {
+    "kanji": "欲",
+    "grade": 6,
+    "kyoiku_index": 930,
+    "meaning_en": "longing",
+    "meaning_hira": "",
+    "onyomi": [
+      "よく"
+    ],
+    "kunyomi": [
+      "ほっ",
+      "ほ"
+    ],
+    "label": "[ほっ]"
+  },
+  {
+    "kanji": "段",
+    "grade": 6,
+    "kyoiku_index": 931,
+    "meaning_en": "grade",
+    "meaning_hira": "",
+    "onyomi": [
+      "だん",
+      "たん"
+    ],
+    "kunyomi": [],
+    "label": "[だん]"
+  },
+  {
+    "kanji": "沿",
+    "grade": 6,
+    "kyoiku_index": 932,
+    "meaning_en": "run alongside",
+    "meaning_hira": "",
+    "onyomi": [
+      "えん"
+    ],
+    "kunyomi": [
+      "そ"
+    ],
+    "label": "[そ]"
+  },
+  {
+    "kanji": "泉",
+    "grade": 6,
+    "kyoiku_index": 933,
+    "meaning_en": "spring",
+    "meaning_hira": "",
+    "onyomi": [
+      "せん"
+    ],
+    "kunyomi": [
+      "いずみ"
+    ],
+    "label": "[いずみ]"
+  },
+  {
+    "kanji": "洗",
+    "grade": 6,
+    "kyoiku_index": 934,
+    "meaning_en": "wash",
+    "meaning_hira": "",
+    "onyomi": [
+      "せん"
+    ],
+    "kunyomi": [
+      "あら"
+    ],
+    "label": "[あら]"
+  },
+  {
+    "kanji": "派",
+    "grade": 6,
+    "kyoiku_index": 935,
+    "meaning_en": "faction",
+    "meaning_hira": "",
+    "onyomi": [
+      "は"
+    ],
+    "kunyomi": [],
+    "label": "[は]"
+  },
+  {
+    "kanji": "済",
+    "grade": 6,
+    "kyoiku_index": 936,
+    "meaning_en": "settle (debt, etc.)",
+    "meaning_hira": "",
+    "onyomi": [
+      "さい",
+      "せい"
+    ],
+    "kunyomi": [
+      "す",
+      "すく",
+      "な",
+      "わたし",
+      "わた"
+    ],
+    "label": "[す]"
+  },
+  {
+    "kanji": "源",
+    "grade": 6,
+    "kyoiku_index": 937,
+    "meaning_en": "source",
+    "meaning_hira": "",
+    "onyomi": [
+      "げん"
+    ],
+    "kunyomi": [
+      "みなもと"
+    ],
+    "label": "[みなもと]"
+  },
+  {
+    "kanji": "潮",
+    "grade": 6,
+    "kyoiku_index": 938,
+    "meaning_en": "tide",
+    "meaning_hira": "",
+    "onyomi": [
+      "ちょう"
+    ],
+    "kunyomi": [
+      "しお",
+      "うしお"
+    ],
+    "label": "[しお]"
+  },
+  {
+    "kanji": "激",
+    "grade": 6,
+    "kyoiku_index": 939,
+    "meaning_en": "violent",
+    "meaning_hira": "",
+    "onyomi": [
+      "げき"
+    ],
+    "kunyomi": [
+      "はげ"
+    ],
+    "label": "[はげ]"
+  },
+  {
+    "kanji": "灰",
+    "grade": 6,
+    "kyoiku_index": 940,
+    "meaning_en": "ashes",
+    "meaning_hira": "",
+    "onyomi": [
+      "かい"
+    ],
+    "kunyomi": [
+      "はい"
+    ],
+    "label": "[はい]"
+  },
+  {
+    "kanji": "熟",
+    "grade": 6,
+    "kyoiku_index": 941,
+    "meaning_en": "mellow",
+    "meaning_hira": "",
+    "onyomi": [
+      "じゅく"
+    ],
+    "kunyomi": [
+      "う"
+    ],
+    "label": "[う]"
+  },
+  {
+    "kanji": "片",
+    "grade": 6,
+    "kyoiku_index": 942,
+    "meaning_en": "one-sided",
+    "meaning_hira": "",
+    "onyomi": [
+      "へん"
+    ],
+    "kunyomi": [
+      "かた"
+    ],
+    "label": "[かた]"
+  },
+  {
+    "kanji": "班",
+    "grade": 6,
+    "kyoiku_index": 943,
+    "meaning_en": "squad",
+    "meaning_hira": "",
+    "onyomi": [
+      "はん"
+    ],
+    "kunyomi": [],
+    "label": "[はん]"
+  },
+  {
+    "kanji": "異",
+    "grade": 6,
+    "kyoiku_index": 944,
+    "meaning_en": "uncommon",
+    "meaning_hira": "",
+    "onyomi": [
+      "い"
+    ],
+    "kunyomi": [
+      "こと",
+      "け"
+    ],
+    "label": "[こと]"
+  },
+  {
+    "kanji": "疑",
+    "grade": 6,
+    "kyoiku_index": 945,
+    "meaning_en": "doubt",
+    "meaning_hira": "",
+    "onyomi": [
+      "ぎ"
+    ],
+    "kunyomi": [
+      "うたが"
+    ],
+    "label": "[うたが]"
+  },
+  {
+    "kanji": "痛",
+    "grade": 6,
+    "kyoiku_index": 946,
+    "meaning_en": "pain",
+    "meaning_hira": "",
+    "onyomi": [
+      "つう"
+    ],
+    "kunyomi": [
+      "いた"
+    ],
+    "label": "[いた]"
+  },
+  {
+    "kanji": "皇",
+    "grade": 6,
+    "kyoiku_index": 947,
+    "meaning_en": "emperor",
+    "meaning_hira": "",
+    "onyomi": [
+      "こう",
+      "おう"
+    ],
+    "kunyomi": [],
+    "label": "[こう]"
+  },
+  {
+    "kanji": "盛",
+    "grade": 6,
+    "kyoiku_index": 948,
+    "meaning_en": "boom",
+    "meaning_hira": "",
+    "onyomi": [
+      "せい",
+      "じょう"
+    ],
+    "kunyomi": [
+      "も",
+      "さか"
+    ],
+    "label": "[も]"
+  },
+  {
+    "kanji": "盟",
+    "grade": 6,
+    "kyoiku_index": 949,
+    "meaning_en": "alliance",
+    "meaning_hira": "",
+    "onyomi": [
+      "めい"
+    ],
+    "kunyomi": [],
+    "label": "[めい]"
+  },
+  {
+    "kanji": "看",
+    "grade": 6,
+    "kyoiku_index": 950,
+    "meaning_en": "watch over",
+    "meaning_hira": "",
+    "onyomi": [
+      "かん"
+    ],
+    "kunyomi": [
+      "み"
+    ],
+    "label": "[み]"
+  },
+  {
+    "kanji": "砂",
+    "grade": 6,
+    "kyoiku_index": 951,
+    "meaning_en": "sand",
+    "meaning_hira": "",
+    "onyomi": [
+      "さ",
+      "しゃ"
+    ],
+    "kunyomi": [
+      "すな"
+    ],
+    "label": "[すな]"
+  },
+  {
+    "kanji": "磁",
+    "grade": 6,
+    "kyoiku_index": 952,
+    "meaning_en": "magnet",
+    "meaning_hira": "",
+    "onyomi": [
+      "じ"
+    ],
+    "kunyomi": [],
+    "label": "[じ]"
+  },
+  {
+    "kanji": "私",
+    "grade": 6,
+    "kyoiku_index": 953,
+    "meaning_en": "private",
+    "meaning_hira": "",
+    "onyomi": [
+      "し"
+    ],
+    "kunyomi": [
+      "わたくし",
+      "わたし"
+    ],
+    "label": "[わたくし]"
+  },
+  {
+    "kanji": "秘",
+    "grade": 6,
+    "kyoiku_index": 954,
+    "meaning_en": "secret",
+    "meaning_hira": "",
+    "onyomi": [
+      "ひ"
+    ],
+    "kunyomi": [
+      "ひ",
+      "ひそ",
+      "かく"
+    ],
+    "label": "[ひ]"
+  },
+  {
+    "kanji": "穀",
+    "grade": 6,
+    "kyoiku_index": 955,
+    "meaning_en": "cereals",
+    "meaning_hira": "",
+    "onyomi": [
+      "こく"
+    ],
+    "kunyomi": [],
+    "label": "[こく]"
+  },
+  {
+    "kanji": "穴",
+    "grade": 6,
+    "kyoiku_index": 956,
+    "meaning_en": "hole",
+    "meaning_hira": "",
+    "onyomi": [
+      "けつ"
+    ],
+    "kunyomi": [
+      "あな"
+    ],
+    "label": "[あな]"
+  },
+  {
+    "kanji": "窓",
+    "grade": 6,
+    "kyoiku_index": 957,
+    "meaning_en": "window",
+    "meaning_hira": "",
+    "onyomi": [
+      "そう",
+      "す"
+    ],
+    "kunyomi": [
+      "まど",
+      "てんまど",
+      "けむだし"
+    ],
+    "label": "[まど]"
+  },
+  {
+    "kanji": "筋",
+    "grade": 6,
+    "kyoiku_index": 958,
+    "meaning_en": "muscle",
+    "meaning_hira": "",
+    "onyomi": [
+      "きん"
+    ],
+    "kunyomi": [
+      "すじ"
+    ],
+    "label": "[すじ]"
+  },
+  {
+    "kanji": "策",
+    "grade": 6,
+    "kyoiku_index": 959,
+    "meaning_en": "scheme",
+    "meaning_hira": "",
+    "onyomi": [
+      "さく"
+    ],
+    "kunyomi": [],
+    "label": "[さく]"
+  },
+  {
+    "kanji": "簡",
+    "grade": 6,
+    "kyoiku_index": 960,
+    "meaning_en": "simplicity",
+    "meaning_hira": "",
+    "onyomi": [
+      "かん",
+      "けん"
+    ],
+    "kunyomi": [
+      "えら",
+      "ふだ"
+    ],
+    "label": "[えら]"
+  },
+  {
+    "kanji": "糖",
+    "grade": 6,
+    "kyoiku_index": 961,
+    "meaning_en": "sugar",
+    "meaning_hira": "",
+    "onyomi": [
+      "とう"
+    ],
+    "kunyomi": [],
+    "label": "[とう]"
+  },
+  {
+    "kanji": "系",
+    "grade": 6,
+    "kyoiku_index": 962,
+    "meaning_en": "lineage",
+    "meaning_hira": "",
+    "onyomi": [
+      "けい"
+    ],
+    "kunyomi": [],
+    "label": "[けい]"
+  },
+  {
+    "kanji": "紅",
+    "grade": 6,
+    "kyoiku_index": 963,
+    "meaning_en": "crimson",
+    "meaning_hira": "",
+    "onyomi": [
+      "こう",
+      "く"
+    ],
+    "kunyomi": [
+      "べに",
+      "くれない",
+      "あか"
+    ],
+    "label": "[べに]"
+  },
+  {
+    "kanji": "納",
+    "grade": 6,
+    "kyoiku_index": 964,
+    "meaning_en": "settlement",
+    "meaning_hira": "",
+    "onyomi": [
+      "のう",
+      "なっ",
+      "な",
+      "なん",
+      "とう"
+    ],
+    "kunyomi": [
+      "おさ"
+    ],
+    "label": "[おさ]"
+  },
+  {
+    "kanji": "純",
+    "grade": 6,
+    "kyoiku_index": 965,
+    "meaning_en": "genuine",
+    "meaning_hira": "",
+    "onyomi": [
+      "じゅん"
+    ],
+    "kunyomi": [],
+    "label": "[じゅん]"
+  },
+  {
+    "kanji": "絹",
+    "grade": 6,
+    "kyoiku_index": 966,
+    "meaning_en": "silk",
+    "meaning_hira": "",
+    "onyomi": [
+      "けん"
+    ],
+    "kunyomi": [
+      "きぬ"
+    ],
+    "label": "[きぬ]"
+  },
+  {
+    "kanji": "縦",
+    "grade": 6,
+    "kyoiku_index": 967,
+    "meaning_en": "vertical",
+    "meaning_hira": "",
+    "onyomi": [
+      "じゅう"
+    ],
+    "kunyomi": [
+      "たて"
+    ],
+    "label": "[たて]"
+  },
+  {
+    "kanji": "縮",
+    "grade": 6,
+    "kyoiku_index": 968,
+    "meaning_en": "shrink",
+    "meaning_hira": "",
+    "onyomi": [
+      "しゅく"
+    ],
+    "kunyomi": [
+      "ちぢ"
+    ],
+    "label": "[ちぢ]"
+  },
+  {
+    "kanji": "署",
+    "grade": 6,
+    "kyoiku_index": 969,
+    "meaning_en": "signature",
+    "meaning_hira": "",
+    "onyomi": [
+      "しょ"
+    ],
+    "kunyomi": [],
+    "label": "[しょ]"
+  },
+  {
+    "kanji": "翌",
+    "grade": 6,
+    "kyoiku_index": 970,
+    "meaning_en": "the following",
+    "meaning_hira": "",
+    "onyomi": [
+      "よく"
+    ],
+    "kunyomi": [],
+    "label": "[よく]"
+  },
+  {
+    "kanji": "聖",
+    "grade": 6,
+    "kyoiku_index": 971,
+    "meaning_en": "holy",
+    "meaning_hira": "",
+    "onyomi": [
+      "せい",
+      "しょう"
+    ],
+    "kunyomi": [
+      "ひじり"
+    ],
+    "label": "[ひじり]"
+  },
+  {
+    "kanji": "肺",
+    "grade": 6,
+    "kyoiku_index": 972,
+    "meaning_en": "lungs",
+    "meaning_hira": "",
+    "onyomi": [
+      "はい"
+    ],
+    "kunyomi": [],
+    "label": "[はい]"
+  },
+  {
+    "kanji": "胃",
+    "grade": 6,
+    "kyoiku_index": 973,
+    "meaning_en": "stomach",
+    "meaning_hira": "",
+    "onyomi": [
+      "い"
+    ],
+    "kunyomi": [],
+    "label": "[い]"
+  },
+  {
+    "kanji": "背",
+    "grade": 6,
+    "kyoiku_index": 974,
+    "meaning_en": "stature",
+    "meaning_hira": "",
+    "onyomi": [
+      "はい"
+    ],
+    "kunyomi": [
+      "せ",
+      "せい",
+      "そむ"
+    ],
+    "label": "[せ]"
+  },
+  {
+    "kanji": "胸",
+    "grade": 6,
+    "kyoiku_index": 975,
+    "meaning_en": "bosom",
+    "meaning_hira": "",
+    "onyomi": [
+      "きょう"
+    ],
+    "kunyomi": [
+      "むね",
+      "むな"
+    ],
+    "label": "[むね]"
+  },
+  {
+    "kanji": "脳",
+    "grade": 6,
+    "kyoiku_index": 976,
+    "meaning_en": "brain",
+    "meaning_hira": "",
+    "onyomi": [
+      "のう",
+      "どう"
+    ],
+    "kunyomi": [
+      "のうずる"
+    ],
+    "label": "[のうずる]"
+  },
+  {
+    "kanji": "腸",
+    "grade": 6,
+    "kyoiku_index": 977,
+    "meaning_en": "intestines",
+    "meaning_hira": "",
+    "onyomi": [
+      "ちょう"
+    ],
+    "kunyomi": [
+      "はらわた",
+      "わた"
+    ],
+    "label": "[はらわた]"
+  },
+  {
+    "kanji": "腹",
+    "grade": 6,
+    "kyoiku_index": 978,
+    "meaning_en": "abdomen",
+    "meaning_hira": "",
+    "onyomi": [
+      "ふく"
+    ],
+    "kunyomi": [
+      "はら"
+    ],
+    "label": "[はら]"
+  },
+  {
+    "kanji": "臓",
+    "grade": 6,
+    "kyoiku_index": 979,
+    "meaning_en": "entrails",
+    "meaning_hira": "",
+    "onyomi": [
+      "ぞう"
+    ],
+    "kunyomi": [
+      "はらわた"
+    ],
+    "label": "[はらわた]"
+  },
+  {
+    "kanji": "臨",
+    "grade": 6,
+    "kyoiku_index": 980,
+    "meaning_en": "look to",
+    "meaning_hira": "",
+    "onyomi": [
+      "りん"
+    ],
+    "kunyomi": [
+      "のぞ"
+    ],
+    "label": "[のぞ]"
+  },
+  {
+    "kanji": "至",
+    "grade": 6,
+    "kyoiku_index": 981,
+    "meaning_en": "climax",
+    "meaning_hira": "",
+    "onyomi": [
+      "し"
+    ],
+    "kunyomi": [
+      "いた"
+    ],
+    "label": "[いた]"
+  },
+  {
+    "kanji": "舌",
+    "grade": 6,
+    "kyoiku_index": 982,
+    "meaning_en": "tongue",
+    "meaning_hira": "",
+    "onyomi": [
+      "ぜつ"
+    ],
+    "kunyomi": [
+      "した"
+    ],
+    "label": "[した]"
+  },
+  {
+    "kanji": "若",
+    "grade": 6,
+    "kyoiku_index": 983,
+    "meaning_en": "young",
+    "meaning_hira": "",
+    "onyomi": [
+      "じゃく",
+      "にゃく",
+      "にゃ"
+    ],
+    "kunyomi": [
+      "わか",
+      "も",
+      "ごと"
+    ],
+    "label": "[わか]"
+  },
+  {
+    "kanji": "著",
+    "grade": 6,
+    "kyoiku_index": 984,
+    "meaning_en": "renowned",
+    "meaning_hira": "",
+    "onyomi": [
+      "ちょ",
+      "ちゃく"
+    ],
+    "kunyomi": [
+      "あらわ",
+      "いちじる"
+    ],
+    "label": "[あらわ]"
+  },
+  {
+    "kanji": "蒸",
+    "grade": 6,
+    "kyoiku_index": 985,
+    "meaning_en": "steam",
+    "meaning_hira": "",
+    "onyomi": [
+      "じょう",
+      "せい"
+    ],
+    "kunyomi": [
+      "む"
+    ],
+    "label": "[む]"
+  },
+  {
+    "kanji": "蔵",
+    "grade": 6,
+    "kyoiku_index": 986,
+    "meaning_en": "storehouse",
+    "meaning_hira": "",
+    "onyomi": [
+      "ぞう",
+      "そう"
+    ],
+    "kunyomi": [
+      "くら",
+      "おさ",
+      "かく"
+    ],
+    "label": "[くら]"
+  },
+  {
+    "kanji": "蚕",
+    "grade": 6,
+    "kyoiku_index": 987,
+    "meaning_en": "silkworm",
+    "meaning_hira": "",
+    "onyomi": [
+      "さん",
+      "てん"
+    ],
+    "kunyomi": [
+      "かいこ",
+      "こ"
+    ],
+    "label": "[かいこ]"
+  },
+  {
+    "kanji": "衆",
+    "grade": 6,
+    "kyoiku_index": 988,
+    "meaning_en": "masses",
+    "meaning_hira": "",
+    "onyomi": [
+      "しゅう",
+      "しゅ"
+    ],
+    "kunyomi": [
+      "おお"
+    ],
+    "label": "[おお]"
+  },
+  {
+    "kanji": "裁",
+    "grade": 6,
+    "kyoiku_index": 989,
+    "meaning_en": "tailor",
+    "meaning_hira": "",
+    "onyomi": [
+      "さい"
+    ],
+    "kunyomi": [
+      "た",
+      "さば"
+    ],
+    "label": "[た]"
+  },
+  {
+    "kanji": "装",
+    "grade": 6,
+    "kyoiku_index": 990,
+    "meaning_en": "attire",
+    "meaning_hira": "",
+    "onyomi": [
+      "そう",
+      "しょう"
+    ],
+    "kunyomi": [
+      "よそお"
+    ],
+    "label": "[よそお]"
+  },
+  {
+    "kanji": "裏",
+    "grade": 6,
+    "kyoiku_index": 991,
+    "meaning_en": "back",
+    "meaning_hira": "",
+    "onyomi": [
+      "り"
+    ],
+    "kunyomi": [
+      "うら"
+    ],
+    "label": "[うら]"
+  },
+  {
+    "kanji": "補",
+    "grade": 6,
+    "kyoiku_index": 992,
+    "meaning_en": "supplement",
+    "meaning_hira": "",
+    "onyomi": [
+      "ほ"
+    ],
+    "kunyomi": [
+      "おぎな"
+    ],
+    "label": "[おぎな]"
+  },
+  {
+    "kanji": "視",
+    "grade": 6,
+    "kyoiku_index": 993,
+    "meaning_en": "inspection",
+    "meaning_hira": "",
+    "onyomi": [
+      "し"
+    ],
+    "kunyomi": [
+      "み"
+    ],
+    "label": "[み]"
+  },
+  {
+    "kanji": "覧",
+    "grade": 6,
+    "kyoiku_index": 994,
+    "meaning_en": "perusal",
+    "meaning_hira": "",
+    "onyomi": [
+      "らん"
+    ],
+    "kunyomi": [
+      "み"
+    ],
+    "label": "[み]"
+  },
+  {
+    "kanji": "討",
+    "grade": 6,
+    "kyoiku_index": 995,
+    "meaning_en": "chastise",
+    "meaning_hira": "",
+    "onyomi": [
+      "とう"
+    ],
+    "kunyomi": [
+      "う"
+    ],
+    "label": "[う]"
+  },
+  {
+    "kanji": "訪",
+    "grade": 6,
+    "kyoiku_index": 996,
+    "meaning_en": "call on",
+    "meaning_hira": "",
+    "onyomi": [
+      "ほう"
+    ],
+    "kunyomi": [
+      "おとず",
+      "たず",
+      "と"
+    ],
+    "label": "[おとず]"
+  },
+  {
+    "kanji": "訳",
+    "grade": 6,
+    "kyoiku_index": 997,
+    "meaning_en": "translate",
+    "meaning_hira": "",
+    "onyomi": [
+      "やく"
+    ],
+    "kunyomi": [
+      "わけ"
+    ],
+    "label": "[わけ]"
+  },
+  {
+    "kanji": "詞",
+    "grade": 6,
+    "kyoiku_index": 998,
+    "meaning_en": "part of speech",
+    "meaning_hira": "",
+    "onyomi": [
+      "し"
+    ],
+    "kunyomi": [
+      "ことば"
+    ],
+    "label": "[ことば]"
+  },
+  {
+    "kanji": "誌",
+    "grade": 6,
+    "kyoiku_index": 999,
+    "meaning_en": "document",
+    "meaning_hira": "",
+    "onyomi": [
+      "し"
+    ],
+    "kunyomi": [],
+    "label": "[し]"
+  },
+  {
+    "kanji": "認",
+    "grade": 6,
+    "kyoiku_index": 1000,
+    "meaning_en": "acknowledge",
+    "meaning_hira": "",
+    "onyomi": [
+      "にん"
+    ],
+    "kunyomi": [
+      "みと",
+      "したた"
+    ],
+    "label": "[みと]"
+  },
+  {
+    "kanji": "誕",
+    "grade": 6,
+    "kyoiku_index": 1001,
+    "meaning_en": "nativity",
+    "meaning_hira": "",
+    "onyomi": [
+      "たん"
+    ],
+    "kunyomi": [],
+    "label": "[たん]"
+  },
+  {
+    "kanji": "誠",
+    "grade": 6,
+    "kyoiku_index": 1002,
+    "meaning_en": "sincerity",
+    "meaning_hira": "",
+    "onyomi": [
+      "せい"
+    ],
+    "kunyomi": [
+      "まこと"
+    ],
+    "label": "[まこと]"
+  },
+  {
+    "kanji": "誤",
+    "grade": 6,
+    "kyoiku_index": 1003,
+    "meaning_en": "mistake",
+    "meaning_hira": "",
+    "onyomi": [
+      "ご"
+    ],
+    "kunyomi": [
+      "あやま"
+    ],
+    "label": "[あやま]"
+  },
+  {
+    "kanji": "論",
+    "grade": 6,
+    "kyoiku_index": 1004,
+    "meaning_en": "argument",
+    "meaning_hira": "",
+    "onyomi": [
+      "ろん"
+    ],
+    "kunyomi": [
+      "あげつら"
+    ],
+    "label": "[あげつら]"
+  },
+  {
+    "kanji": "諸",
+    "grade": 6,
+    "kyoiku_index": 1005,
+    "meaning_en": "various",
+    "meaning_hira": "",
+    "onyomi": [
+      "しょ"
+    ],
+    "kunyomi": [
+      "もろ"
+    ],
+    "label": "[もろ]"
+  },
+  {
+    "kanji": "警",
+    "grade": 6,
+    "kyoiku_index": 1006,
+    "meaning_en": "admonish",
+    "meaning_hira": "",
+    "onyomi": [
+      "けい"
+    ],
+    "kunyomi": [
+      "いまし"
+    ],
+    "label": "[いまし]"
+  },
+  {
+    "kanji": "貴",
+    "grade": 6,
+    "kyoiku_index": 1007,
+    "meaning_en": "precious",
+    "meaning_hira": "",
+    "onyomi": [
+      "き"
+    ],
+    "kunyomi": [
+      "たっと",
+      "とうと"
+    ],
+    "label": "[たっと]"
+  },
+  {
+    "kanji": "賃",
+    "grade": 6,
+    "kyoiku_index": 1008,
+    "meaning_en": "fare",
+    "meaning_hira": "",
+    "onyomi": [
+      "ちん"
+    ],
+    "kunyomi": [],
+    "label": "[ちん]"
+  },
+  {
+    "kanji": "退",
+    "grade": 6,
+    "kyoiku_index": 1009,
+    "meaning_en": "retreat",
+    "meaning_hira": "",
+    "onyomi": [
+      "たい"
+    ],
+    "kunyomi": [
+      "しりぞ",
+      "ひ",
+      "の",
+      "ど"
+    ],
+    "label": "[しりぞ]"
+  },
+  {
+    "kanji": "遺",
+    "grade": 6,
+    "kyoiku_index": 1010,
+    "meaning_en": "bequeath",
+    "meaning_hira": "",
+    "onyomi": [
+      "い",
+      "ゆい"
+    ],
+    "kunyomi": [
+      "のこ"
+    ],
+    "label": "[のこ]"
+  },
+  {
+    "kanji": "郵",
+    "grade": 6,
+    "kyoiku_index": 1011,
+    "meaning_en": "mail",
+    "meaning_hira": "",
+    "onyomi": [
+      "ゆう"
+    ],
+    "kunyomi": [],
+    "label": "[ゆう]"
+  },
+  {
+    "kanji": "郷",
+    "grade": 6,
+    "kyoiku_index": 1012,
+    "meaning_en": "home town",
+    "meaning_hira": "",
+    "onyomi": [
+      "きょう",
+      "ごう"
+    ],
+    "kunyomi": [
+      "さと"
+    ],
+    "label": "[さと]"
+  },
+  {
+    "kanji": "針",
+    "grade": 6,
+    "kyoiku_index": 1013,
+    "meaning_en": "needle",
+    "meaning_hira": "",
+    "onyomi": [
+      "しん"
+    ],
+    "kunyomi": [
+      "はり"
+    ],
+    "label": "[はり]"
+  },
+  {
+    "kanji": "銭",
+    "grade": 6,
+    "kyoiku_index": 1014,
+    "meaning_en": "coin",
+    "meaning_hira": "",
+    "onyomi": [
+      "せん",
+      "ぜん"
+    ],
+    "kunyomi": [
+      "ぜに",
+      "すき"
+    ],
+    "label": "[ぜに]"
+  },
+  {
+    "kanji": "鋼",
+    "grade": 6,
+    "kyoiku_index": 1015,
+    "meaning_en": "steel",
+    "meaning_hira": "",
+    "onyomi": [
+      "こう"
+    ],
+    "kunyomi": [
+      "はがね"
+    ],
+    "label": "[はがね]"
+  },
+  {
+    "kanji": "閉",
+    "grade": 6,
+    "kyoiku_index": 1016,
+    "meaning_en": "closed",
+    "meaning_hira": "",
+    "onyomi": [
+      "へい"
+    ],
+    "kunyomi": [
+      "と",
+      "し",
+      "た"
+    ],
+    "label": "[と]"
+  }
+]
