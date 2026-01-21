@@ -1,3 +1,5 @@
+export const FILE_VERSION = "1.63";
+
 export const constants = {
   START_LIVES: 10,
   COST_WRONG: 3,
@@ -33,3 +35,4 @@ export const state = {
   returnTo: null,           // "game" or null
   lastWordDetail: null      // last word block shown on word page
 };
+
