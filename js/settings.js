@@ -1,6 +1,8 @@
 import { state } from "./state.js";
 import { ensureGradesLoaded } from "./data.js";
 
+export const FILE_VERSION = "1.63";
+
 const SETTINGS_KEY = "kanjiSnap.settings.v13";
 
 // Versioned flags for this specific image set/path
@@ -285,3 +287,4 @@ export function initSettingsUI(onSettingsChanged) {
 
   sync();
 }
+
