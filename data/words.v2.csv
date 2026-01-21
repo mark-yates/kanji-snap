@@ -1,0 +1,1654 @@
+frequency,word,reading,reading_segments,meaning_en,meaning_en_custom,part,frequency_band,age_band,grade
+1,人,ひと,人:ひと,Person,person,noun,1000.0,,1
+3,年,とし,年:とし,Year | Age,year | age,noun,1000.0,,1
+4,日,ひ,日:ひ,Sun | Day,sun | day,noun,1000.0,,1
+5,私,わたし,私:わたし,I | Me,i | me,pronoun | の adjective,,,6
+7,月,つき,月:つき,Moon | Month,moon | month,noun,1000.0,,1
+8,中,なか,中:なか,Inside | In,inside | in,noun,1000.0,,1
+9,日本,にほん,日:に | 本:ほん,Japan,japan,proper noun,1000.0,1.0,1
+10,一,いち,一:いち,One,one,numeral,1000.0,,1
+11,何,なに,何:なに,What,what,pronoun | interjection | の adjective,1000.0,,2
+13,自分,じぶん,自:じ | 分:ぶん,Oneself | Myself | Self,oneself | myself | self,pronoun | の adjective,1000.0,2.0,2
+14,方,ほう,方:ほう,Direction | Way,direction | way,noun,1000.0,,2
+15,時,とき,時:とき,Time | Hour,time | hour,noun,1000.0,,2
+16,問題,もんだい,問:もん | 題:だい,Problem | Question,problem | question,noun,1000.0,3.0,3
+18,今,いま,今:いま,Now,now,noun,1000.0,,2
+19,考え,かんがえ,考:かんが | え,Thought | A Thought,thought | a Thought,noun,1000.0,,2
+20,思う,おもう,思:おも | う,To Think,think,transitive verb | godan verb,1000.0,,2
+21,前,まえ,前:まえ,Front | Before,front | before,noun | suffix,1000.0,,2
+23,性,せい,性:せい,Gender | Nature | Sex,gender | nature | sex,noun,,,5
+25,時間,じかん,時:じ | 間:かん,Time,time,noun,1000.0,2.0,2
+26,会,かい,会:かい,Gathering | Meeting | Group | Party,gathering | meeting | group | party,noun | suffix,1000.0,,2
+28,二,に,二:に,Two,two,numeral,1000.0,,1
+29,場合,ばあい,場:ば | 合:あい,Case | Circumstance | Situation,case | circumstance | situation,noun,1000.0,2.0,2
+30,必要,ひつよう,必:ひつ | 要:よう,Necessary | Needed | Essential,necessary | needed | essential,noun | な adjective,,,4
+31,情報,じょうほう,情:じょう | 報:ほう,Information | Data,information | data,noun,,,5
+33,上,うえ,上:うえ,Above | Up | Over,above | up | over,noun | suffix,1000.0,,1
+34,事,こと,事:こと,Thing | Matter | Occurrence,thing | matter | occurrence,noun,1000.0,,3
+36,話,はなし,話:はなし,Story | Talk | Speech | Conversation,story | talk | speech | conversation,noun,1000.0,,2
+37,本,ほん,本:ほん,Book,book,noun,1000.0,,1
+38,分,ぶん,分:ぶん,Part | Portion | Content,part | portion | content,noun | prefix | suffix,1000.0,,2
+39,十,じゅう,十:じゅう,Ten,ten,numeral,1000.0,,1
+40,目,め,目:め,Eye,eye,noun,1000.0,,1
+41,感じ,かんじ,感:かん | じ,Feeling | Sense | Impression,feeling | sense | impression,noun,1000.0,,3
+43,今日,きょう,,Today,today,noun,,,2
+44,関係,かんけい,関:かん | 係:けい,Connection | Relation,connection | relation,noun | verbal noun | の adjective,1000.0,9.0,4
+45,委員,いいん,委:い | 員:いん,Member Of A Committee | Committee Member,member Of A Committee | committee Member,noun,,,3
+47,家,いえ,家:いえ,House | Home,house | home,noun | の adjective,1000.0,,2
+48,世界,せかい,世:せ | 界:かい,The World | Society | The Universe,the World | society | the Universe,noun,1000.0,3.0,3
+49,気,き,気:き,Spirit | Energy,spirit | energy,noun,1000.0,,1
+50,点,てん,点:てん,Point | Score | Decimal Point | Viewpoint,point | score | decimal Point | viewpoint,noun | suffix,1000.0,,2
+51,万,まん,万:まん,Ten Thousand,ten Thousand,numeral,1000.0,,2
+52,社会,しゃかい,社:しゃ | 会:かい,Society,society,noun,1000.0,2.0,2
+53,言う,いう,言:い | う,To Say,say,godan verb,1000.0,,2
+54,仕事,しごと,仕:し | 事:ごと,Job | Occupation | Work,job | occupation | work,noun | verbal noun | の adjective,1000.0,3.0,3
+55,同じ,おなじ,同:おな | じ,Same,same,な adjective,1000.0,,2
+56,数,かず,数:かず,Number | Count | Amount,number | count | amount,noun,1000.0,,2
+57,記事,きじ,記:き | 事:じ,Article | News Story | Report | Account | News Article,article | news Story | report | account | news Article,noun,,,3
+59,彼,かれ,,He,he,pronoun,,,9
+61,国,くに,国:くに,Country | Nation,country | nation,noun,1000.0,,2
+64,三,さん,三:さん,Three,three,numeral,1000.0,,1
+65,君,きみ,君:きみ,You | Buddy,you | buddy,pronoun,1000.0,,3
+67,意味,いみ,意:い | 味:み,Meaning,meaning,noun | verbal noun,,,3
+68,力,ちから,力:ちから,Power | Strength | Ability,power | strength | ability,noun,1000.0,,1
+70,会社,かいしゃ,会:かい | 社:しゃ,Company | Corporation | The Office,company | corporation | the Office,noun,1000.0,2.0,2
+72,人間,にんげん,人:にん | 間:げん,Human | Human Being,human | human Being,noun,1000.0,2.0,2
+75,現在,げんざい,現:げん | 在:ざい,Present | Now | Current,present | now | current,noun,,,5
+78,間,あいだ,間:あいだ,Interval | Interval Of Time | Interval Of Space,interval | interval Of Time | interval Of Space,noun,1000.0,,2
+79,可能,かのう,可:か | 能:のう,Possible,possible,な adjective,,,5
+80,研究,けんきゅう,研:けん | 究:きゅう,Research | Investigation | Study,research | investigation | study,noun | verbal noun,1000.0,3.0,3
+81,投稿,とうこう,,Submission | Post | Contribution | Submit,submission | post | contribution | submit,noun | verbal noun,,,9
+82,他,ほか,他:ほか,Other,other,noun | の adjective,1000.0,,3
+83,今回,こんかい,今:こん | 回:かい,This Time,this Time,noun,1000.0,2.0,2
+84,次,つぎ,次:つぎ,Next,next,noun | の adjective,1000.0,,3
+85,言葉,ことば,言:こと | 葉:ば,Word | Language | Manner Of Speech,word | language | manner Of Speech,noun,,,3
+87,僕,ぼく,,I | Me,i | me,pronoun | の adjective,,,9
+88,多い,おおい,多:おお | い,Many | Much | Lots Of,many | much | lots Of,い adjective,1000.0,,2
+89,経済,けいざい,経:けい | 済:ざい,Economy | Economics | The Economy,economy | economics | the Economy,noun | verbal noun,,,6
+90,手,て,手:て,Hand | Arm,hand | arm,noun,1000.0,,1
+91,最近,さいきん,最:さい | 近:きん,Recent | Latest | Lately | Recently,recent | latest | lately | recently,noun | の adjective,,,4
+92,結果,けっか,結:けっ | 果:か,Result,result,noun,,,4
+94,映画,えいが,映:えい | 画:が,Movie | Film,movie | film,noun | の adjective,1000.0,9.0,6
+95,先生,せんせい,先:せん | 生:せい,Teacher | Sensei,teacher | sensei,noun,1000.0,1.0,1
+96,生活,せいかつ,生:せい | 活:かつ,Life | Livelihood,life | livelihood,noun | verbal noun,1000.0,2.0,2
+97,金,きん,金:きん,Gold,gold,noun | suffix,1000.0,,1
+99,時代,じだい,時:じ | 代:だい,Period | Epoch | Era | Time Period,period | epoch | era | time Period,noun,1000.0,3.0,3
+100,政府,せいふ,政:せい | 府:ふ,Government,government,noun,,,5
+101,非常,ひじょう,非:ひ | 常:じょう,Emergency | Extreme | Unusual,emergency | extreme | unusual,noun | な adjective | の adjective,,,5
+103,店,みせ,店:みせ,Shop | Store,shop | store,noun,1000.0,,2
+104,良い,よい,良:よ | い,Good,good,い adjective,,,4
+105,内容,ないよう,内:ない | 容:よう,Contents | Substance,contents | substance,noun,1000.0,9.0,5
+106,一つ,ひとつ,一:ひと | つ,One Thing,one Thing,numeral,1000.0,,1
+107,心,こころ,心:こころ,Heart | Mind | Feeling,heart | mind | feeling,noun,1000.0,,2
+108,見る,みる,見:み | る,To See | To Look | To Watch,see | look | watch,transitive verb | ichidan verb,1000.0,,1
+109,説明,せつめい,説:せつ | 明:めい,Explanation | Description,explanation | description,noun | verbal noun | の adjective,1000.0,9.0,4
+110,写真,しゃしん,写:しゃ | 真:しん,Photo | Photograph | Picture,photo | photograph | picture,noun,1000.0,3.0,3
+111,教育,きょういく,教:きょう | 育:いく,Education,education,noun | verbal noun | の adjective,1000.0,3.0,3
+112,女性,じょせい,女:じょ | 性:せい,Female | Woman | Lady,female | woman | lady,noun | の adjective,,,5
+113,子供,こども,子:こ | 供:ども,Child | Kid | Children | Kids,child | kid | children | kids,noun,,,6
+114,方法,ほうほう,方:ほう | 法:ほう,Method | Way,method | way,noun,1000.0,9.0,4
+116,名,な,名:な,Name | Reputation,name | reputation,noun,1000.0,,1
+118,少し,すこし,少:すこ | し,A Little | A Few | Few | A bit,a Little | a Few | few | a bit,adverb | noun,1000.0,,2
+119,紹介,しょうかい,,Introduction,introduction,noun | verbal noun | の adjective,,,9
+120,技術,ぎじゅつ,技:ぎ | 術:じゅつ,Technique | Craft | Technology | Skill,technique | craft | technology | skill,noun,,,5
+121,名前,なまえ,名:な | 前:まえ,Name | First Name | Full Name | Given Name,name | first Name | full Name | given Name,noun,1000.0,2.0,2
+122,参加,さんか,参:さん | 加:か,Participation,participation,noun | verbal noun | の adjective,,,4
+126,好き,すき,好:す | き,Like | Love | Likable | Lovable,like | love | likable | lovable,noun | な adjective,,,4
+127,活動,かつどう,活:かつ | 動:どう,Activity,activity,noun | verbal noun,1000.0,3.0,3
+128,東京,とうきょう,東:とう | 京:きょう,Tokyo,tokyo,proper noun,1000.0,2.0,2
+129,状況,じょうきょう,,Condition | Circumstances | Situation,condition | circumstances | situation,noun | の adjective,,,9
+130,五,ご,五:ご,Five,five,numeral,1000.0,,1
+132,管理,かんり,管:かん | 理:り,Management | Administration,management | administration,noun | verbal noun,,,4
+133,特に,とくに,特:とく | に,Especially | Particularly,especially | particularly,adverb,,,4
+134,環境,かんきょう,,Environment,environment,noun | の adjective,,,9
+135,地域,ちいき,地:ち | 域:いき,Region | Area | Zone,region | area | zone,noun,1000.0,9.0,6
+136,本当に,ほんとうに,本:ほん | 当:とう | に,Really | Truly,really | truly,adverb,1000.0,2.0,2
+138,実際,じっさい,実:じっ | 際:さい,Actually | Really | Reality | Real,actually | really | reality | real,adverb | noun | の adjective,1000.0,9.0,5
+139,中国,ちゅうごく,中:ちゅう | 国:ごく,China,china,proper noun,1000.0,2.0,2
+140,市,し,市:し,City,city,noun | suffix,1000.0,,2
+141,先,さき,先:さき,Tip | Ahead | First | Future,tip | ahead | first | future,noun | prefix | suffix | の adjective,1000.0,,1
+143,誰,だれ,,Who,who,pronoun | の adjective,,,9
+144,個人,こじん,個:こ | 人:じん,Personal | Individual,personal | individual,noun | の adjective,,,5
+145,意見,いけん,意:い | 見:けん,Opinion | View,opinion | view,noun | verbal noun | の adjective,,,3
+146,状態,じょうたい,状:じょう | 態:たい,Condition | State,condition | state,noun,,,5
+148,大学,だいがく,大:だい | 学:がく,University | College | Uni,university | college | uni,noun,1000.0,1.0,1
+149,物,もの,物:もの,Thing | Object | Item,thing | object | item,noun,1000.0,,3
+150,存在,そんざい,存:そん | 在:ざい,Existence,existence,noun | verbal noun,,,6
+151,最後,さいご,最:さい | 後:ご,Last | End | Conclusion | Final,last | end | conclusion | final,noun | の adjective,,,4
+153,彼女,かのじょ,,She | Girlfriend,she | girlfriend,pronoun,1000.0,9.0,9
+154,理解,りかい,理:り | 解:かい,Understanding | Comprehension,understanding | comprehension,noun | verbal noun,1000.0,9.0,5
+155,学校,がっこう,学:がっ | 校:こう,School,school,noun,1000.0,1.0,1
+156,部分,ぶぶん,部:ぶ | 分:ぶん,Portion | Section | Part,portion | section | part,noun,1000.0,3.0,3
+157,得,とく,得:とく,Benefit | Profit | Advantage | Gain,benefit | profit | advantage | gain,な adjective | independent noun,,,5
+158,電話,でんわ,電:でん | 話:わ,Telephone | Phone,telephone | phone,noun | の adjective | verbal noun,1000.0,2.0,2
+159,考える,かんがえる,考:かんが | える,To Think About | To Consider | To Give Thought,think About | consider | give Thought,transitive verb | ichidan verb,1000.0,,2
+160,用,よう,用:よう,Task | Use | Duty | Service | Business | Purpose,task | use | duty | service | business | purpose,noun | suffix,1000.0,,2
+161,行く,いく,行:い | く,To Go,go,intransitive verb | godan verb,1000.0,,2
+164,日記,にっき,日:にっ | 記:き,Diary | Journal,diary | journal,noun,1000.0,2.0,2
+165,制度,せいど,制:せい | 度:ど,System,system,noun | の adjective,,,5
+166,使用,しよう,使:し | 用:よう,Use | Application | Employment,use | application | employment,noun | verbal noun,,,3
+168,四,よん,四:よん,Four,four,numeral,1000.0,,1
+171,基本,きほん,基:き | 本:ほん,Foundation | Basics,foundation | basics,noun | の adjective,1000.0,9.0,5
+172,関連,かんれん,関:かん | 連:れん,Relation | Connection | Relevance | Correlation,relation | connection | relevance | correlation,noun | verbal noun | の adjective,,,4
+173,一般,いっぱん,,General | Common,general | common,noun | の adjective,1000.0,9.0,9
+174,新しい,あたらしい,新:あたら | しい,New,new,い adjective,1000.0,,2
+175,開発,かいはつ,開:かい | 発:はつ,Development,development,noun | verbal noun,1000.0,3.0,3
+176,音楽,おんがく,音:おん | 楽:がく,Music,music,noun,1000.0,2.0,2
+177,一番,いちばん,一:いち | 番:ばん,Number One | The First | First | The Best | Best | The Most | Most,number One | the First | first | the Best | best | the Most | most,noun,1000.0,2.0,2
+178,内,うち,内:うち,Inside | Within,inside | within,noun | の adjective,1000.0,,2
+179,作品,さくひん,作:さく | 品:ひん,A Work | Work | Production,a Work | work | production,noun,1000.0,3.0,3
+180,側,そば,側:そば,Side | Side Of Something | Part,side | side Of Something | part,noun | suffix,,,4
+181,重要,じゅうよう,重:じゅう | 要:よう,Essential | Important | Necessary,essential | important | necessary,noun | な adjective,1000.0,9.0,4
+183,高い,たかい,高:たか | い,Tall | High | Expensive,tall | high | expensive,い adjective,1000.0,,2
+184,最初,さいしょ,最:さい | 初:しょ,The First | First | Beginning | Outset,the First | first | beginning | outset,noun | の adjective,,,4
+187,国民,こくみん,国:こく | 民:みん,The People | Citizens | National,the People | citizens | national,noun,1000.0,9.0,4
+191,水,みず,水:みず,Water,water,noun,1000.0,,1
+193,事件,じけん,事:じ | 件:けん,Incident | Case | Scandal,incident | case | scandal,noun,1000.0,9.0,5
+194,英語,えいご,英:えい | 語:ご,English Language | English,english Language | english,noun | の adjective,1000.0,9.0,4
+195,所,ところ,所:ところ,Place | Spot | Scene,place | spot | scene,noun | suffix,1000.0,,3
+196,質問,しつもん,質:しつ | 問:もん,Question,question,noun | verbal noun | の adjective,1000.0,9.0,5
+197,形,かたち,形:かたち,Shape | Form,shape | form,noun | suffix,1000.0,,2
+198,男,おとこ,男:おとこ,Man,man,noun,1000.0,,1
+199,約,やく,約:やく,About | Approximately,about | approximately,adverb,,,4
+200,主義,しゅぎ,主:しゅ | 義:ぎ,Ism | Principle | Doctrine,ism | principle | doctrine,noun | suffix,1000.0,9.0,5
+201,下,した,下:した,Below | Under | Beneath | Down,below | under | beneath | down,noun,1000.0,,1
+204,理由,りゆう,理:り | 由:ゆう,Reason | Motive | Excuse,reason | motive | excuse,noun,1000.0,3.0,3
+210,場所,ばしょ,場:ば | 所:しょ,Place | Location | Spot,place | location | spot,noun,1000.0,3.0,3
+212,米,こめ,米:こめ,Rice,rice,noun,1000.0,,2
+213,お願い,おねがい,お | 願:ねが | い,A Request | Request | Wish | Please,a Request | request | wish | please,noun | verbal noun,,,4
+214,労働,ろうどう,労:ろう | 働:どう,Manual Labor | Labor | Work,manual Labor | labor | work,noun | verbal noun | の adjective,,,4
+215,車,くるま,車:くるま,Car,car,noun,1000.0,,1
+217,相手,あいて,相:あい | 手:て,Partner | Companion | Opponent,partner | companion | opponent,noun,1000.0,3.0,3
+218,国際,こくさい,国:こく | 際:さい,International,international,noun | の adjective,,,5
+220,声,こえ,声:こえ,Voice,voice,noun,1000.0,,2
+221,計画,けいかく,計:けい | 画:かく,Plan | Planning | Project,plan | planning | project,noun | verbal noun,1000.0,2.0,2
+222,政治,せいじ,政:せい | 治:じ,Politics | Government,politics | government,noun,,,5
+223,別,べつ,別:べつ,Different | Separate,different | separate,noun | の adjective,,,4
+227,億,おく,億:おく,Hundred Million,hundred Million,numeral,,,4
+228,頃,ころ,,Approximate Time | Around | About,approximate Time | around | about,noun | suffix,,,9
+229,号,ごう,号:ごう,Number | Edition | Model,number | edition | model,noun | suffix,1000.0,,3
+233,文化,ぶんか,文:ぶん | 化:か,Culture,culture,noun,,,3
+234,体,からだ,体:からだ,Body,body,noun | の adjective,1000.0,,2
+235,違う,ちがう,,To Be Different | To Be Wrong | To Be Mistaken | To Vary | To Differ,be Different | be Wrong | be Mistaken | vary | differ,intransitive verb | godan verb,,,9
+236,大変,たいへん,大:たい | 変:へん,Serious | Terrible | Very | Difficult | Hard | Hectic,serious | terrible | very | difficult | hard | hectic,adverb | な adjective,1000.0,9.0,4
+237,彼ら,かれら,,They | Them | Those Guys,they | them | those Guys,pronoun | の adjective,,,9
+238,評価,ひょうか,評:ひょう | 価:か,Evaluation | Appraisal | Verdict | Valuation | Assessment | Rating,evaluation | appraisal | verdict | valuation | assessment | rating,noun | verbal noun,,,5
+239,百,ひゃく,百:ひゃく,Hundred | One Hundred,hundred | one Hundred,numeral,1000.0,,1
+240,対応,たいおう,対:たい | 応:おう,Dealing With | Response,dealing With | response,noun | verbal noun,1000.0,9.0,5
+242,頭,あたま,頭:あたま,Head,head,noun,1000.0,,2
+243,子,こ,子:こ,Child | Kid,child | kid,noun | suffix,1000.0,,1
+244,自由,じゆう,自:じ | 由:ゆう,Freedom | Liberty,freedom | liberty,noun | な adjective,,,3
+246,昨日,きのう,,Yesterday,yesterday,noun,,,4
+248,歴史,れきし,歴:れき | 史:し,History,history,noun | の adjective,,,5
+250,気持ち,きもち,気:き | 持:も | ち,Feeling,feeling,noun,,,3
+251,報告,ほうこく,報:ほう | 告:こく,Report | Information,report | information,noun | verbal noun,,,5
+252,程度,ていど,程:てい | 度:ど,Degree | Extent | Level,degree | extent | level,noun | suffix,1000.0,9.0,5
+253,元,もと,元:もと,Origin | Ex | Former,origin | ex | former,noun | prefix,1000.0,,2
+254,人々,ひとびと,,People,people,noun | の adjective,,,1
+256,予定,よてい,予:よ | 定:てい,Plan | Schedule | Estimate,plan | schedule | estimate,noun | verbal noun,1000.0,3.0,3
+259,経験,けいけん,経:けい | 験:けん,Experience,experience,noun | verbal noun,,,5
+260,型,かた,型:かた,Model | Type | Mold | Pattern,model | type | mold | pattern,noun,,,5
+262,以外,いがい,以:い | 外:がい,Other Than | Excepting | Except For,other Than | excepting | except For,noun,,,4
+263,今年,ことし,今:こ | 年:とし,This Year,this Year,noun,1000.0,2.0,2
+264,価格,かかく,価:か | 格:かく,Price | Value | Cost,price | value | cost,noun,,,5
+265,投資,とうし,投:とう | 資:し,Investment,investment,noun | verbal noun,1000.0,9.0,5
+268,自然,しぜん,自:し | 然:ぜん,Nature | Natural,nature | natural,noun | な adjective,1000.0,9.0,4
+269,商品,しょうひん,商:しょう | 品:ひん,Merchandise | Product | Goods,merchandise | product | goods,noun,,,3
+270,発表,はっぴょう,発:はっ | 表:ぴょう,Announcement | Presentation,announcement | presentation,noun | verbal noun,1000.0,3.0,3
+271,目的,もくてき,目:もく | 的:てき,Purpose | Goal | Motive,purpose | goal | motive,noun,1000.0,9.0,4
+272,影響,えいきょう,,Influence,influence,noun,,,9
+274,一緒,いっしょ,,Together,together,noun | の adjective,1000.0,9.0,9
+275,面,めん,面:めん,Surface | Face,surface | face,noun,1000.0,,3
+276,顔,かお,顔:かお,Face,face,noun,1000.0,,2
+277,選手,せんしゅ,選:せん | 手:しゅ,Pro Athlete | Sports Player | Professional Athlete,pro Athlete | sports Player | professional Athlete,noun,1000.0,9.0,4
+279,道,みち,道:みち,Road | Street | Path | Way,road | street | path | way,noun,1000.0,,2
+283,違い,ちがい,,Difference,difference,noun | suffix,,,9
+284,千,せん,千:せん,Thousand,thousand,numeral,1000.0,,1
+285,確認,かくにん,確:かく | 認:にん,Confirmation | Verification,confirmation | verification,noun | verbal noun,,,6
+286,下さい,ください,下:くだ | さい,Please Give Me | Please,please Give Me | please,expression,,,1
+287,夜,よる,夜:よる,Night | Evening,night | evening,noun,1000.0,,2
+288,例えば,たとえば,例:たと | えば,For Example | For Instance | Supposing That,for Example | for Instance | supposing That,adverb,,,4
+291,音,おと,音:おと,Sound | Noise,sound | noise,noun | suffix,1000.0,,1
+292,提供,ていきょう,提:てい | 供:きょう,Offering | Providing,offering | providing,noun | verbal noun,,,6
+293,事実,じじつ,事:じ | 実:じつ,Fact | Factual | In Fact,fact | factual | in Fact,noun | adverb | の adjective,1000.0,3.0,3
+294,地,ち,地:ち,Earth | Ground | Land,earth | ground | land,noun,1000.0,,2
+295,簡単,かんたん,簡:かん | 単:たん,Simple | Easy | Simply,simple | easy | simply,noun | な adjective,,,6
+296,朝,あさ,朝:あさ,Morning,morning,noun,1000.0,,2
+299,当然,とうぜん,当:とう | 然:ぜん,Natural | Obvious | Of Course | Naturally,natural | obvious | of Course | naturally,な adjective | の adjective | expression,1000.0,9.0,4
+301,責任,せきにん,責:せき | 任:にん,Responsibility,responsibility,noun,,,5
+303,六,ろく,六:ろく,Six,six,numeral,1000.0,,1
+304,通り,とおり,通:とお | り,Avenue | Street | Road | Way,avenue | street | road | way,noun,1000.0,,2
+305,議論,ぎろん,議:ぎ | 論:ろん,Argument | Discussion | Controversy,argument | discussion | controversy,noun | verbal noun,,,6
+307,以前,いぜん,以:い | 前:ぜん,Previously | Before,previously | before,noun,,,4
+310,判断,はんだん,判:はん | 断:だん,Judgment | Decision | Conclusion,judgment | decision | conclusion,noun | verbal noun,,,5
+312,専門,せんもん,専:せん | 門:もん,Specialty | Speciality | Area Of Study | Major,specialty | speciality | area Of Study | major,noun | の adjective,1000.0,9.0,6
+313,家族,かぞく,家:か | 族:ぞく,Family | Immediate Family,family | immediate Family,noun | の adjective,1000.0,3.0,3
+315,悪い,わるい,悪:わる | い,Bad | Poor | Wrong,bad | poor | wrong,い adjective,1000.0,,3
+316,初めて,はじめて,初:はじ | めて,For The First Time | First Time,for The First Time | first Time,adverb | の adjective,,,4
+317,勉強,べんきょう,勉:べん | 強:きょう,Studies | Study,studies | study,noun | verbal noun,1000.0,3.0,3
+318,期待,きたい,期:き | 待:たい,Expectation | Anticipation,expectation | anticipation,noun | verbal noun,,,3
+319,全く,まったく,全:まった | く,Completely | Entirely | Truly | Really | Wholly,completely | entirely | truly | really | wholly,adverb,1000.0,,3
+320,教え,おしえ,教:おし | え,Teaching | Instruction | Teachings | Lesson | Doctrine,teaching | instruction | teachings | lesson | doctrine,noun,7000.0,,2
+321,韓国,かんこく,,South Korea | Korea,south Korea | korea,noun,,,9
+322,外,そと,外:そと,Outside,outside,noun | の adjective,1000.0,,2
+323,効果,こうか,効:こう | 果:か,An Effect | Effect,an Effect | effect,noun | の adjective,,,5
+326,普通,ふつう,,Normal | Normally,normal | normally,adverb | noun | の adjective,1000.0,9.0,9
+327,組織,そしき,組:そ | 織:しき,Organization,organization,noun | verbal noun,1000.0,9.0,5
+328,政策,せいさく,政:せい | 策:さく,Policy | A Policy,policy | a Policy,noun,,,6
+329,町,まち,町:まち,Town,town,noun,1000.0,,1
+330,行動,こうどう,行:こう | 動:どう,Action | Behavior,action | behavior,noun | verbal noun | の adjective,,,3
+334,学生,がくせい,学:がく | 生:せい,Student,student,noun,,,1
+335,海,うみ,海:うみ,Ocean | Sea,ocean | sea,noun,1000.0,,2
+336,持つ,もつ,持:も | つ,To Hold Something | To Carry Something | To Own Something | To Keep Something,hold Something | carry Something | own Something | keep Something,godan verb,1000.0,,3
+337,販売,はんばい,,Sales | Selling | Marketing,sales | selling | marketing,noun | verbal noun,1000.0,9.0,9
+338,購入,こうにゅう,,Purchase | Purchasing,purchase | purchasing,noun | verbal noun,1000.0,9.0,9
+339,科学,かがく,科:か | 学:がく,Science,science,noun,,,2
+340,及び,および,,As Well As,as Well As,conjunction,,,9
+341,監督,かんとく,,Supervision | Head Coach | Director,supervision | head Coach | director,noun | verbal noun | の adjective,,,9
+342,意識,いしき,意:い | 識:しき,Consciousness | Awareness,consciousness | awareness,noun | verbal noun,1000.0,9.0,5
+344,九,きゅう,九:きゅう,Nine,nine,numeral,1000.0,,1
+346,表現,ひょうげん,表:ひょう | 現:げん,Expression | Figure Of Speech | Representation,expression | figure Of Speech | representation,noun | verbal noun,1000.0,9.0,5
+347,戦争,せんそう,戦:せん | 争:そう,War,war,noun | verbal noun,,,4
+349,その他,そのほか,その | 他:ほか,The Others | Other | Other Than That,the Others | other | other Than That,expression,1000.0,,3
+350,決定,けってい,決:けっ | 定:てい,Decision | Determination,decision | determination,noun | verbal noun,1000.0,3.0,3
+351,曲,きょく,曲:きょく,Tune | Piece Of Music | Song | Melody,tune | piece Of Music | song | melody,noun,1000.0,,3
+353,法律,ほうりつ,法:ほう | 律:りつ,Law,law,noun | の adjective,,,6
+356,大きく,おおきく,大:おお | きく,In A Big Way | On A Grand Scale,in A Big Way | on A Grand Scale,adverb,,,1
+357,行き,ゆき,行:ゆ | き,Train Direction | Bound For,train Direction | bound For,noun | suffix,,,2
+358,行う,おこなう,行:おこな | う,To Carry Something Out | To Perform Something,carry Something Out | perform Something,transitive verb | godan verb,,,2
+359,対象,たいしょう,対:たい | 象:しょう,Target | Subject,target | subject,noun | の adjective,,,5
+360,現実,げんじつ,現:げん | 実:じつ,Reality,reality,noun,1000.0,9.0,5
+361,読む,よむ,読:よ | む,To Read,read,transitive verb | godan verb,1000.0,,2
+362,対策,たいさく,対:たい | 策:さく,Counter Plan | Countermeasure,counter Plan | countermeasure,noun | verbal noun,,,6
+363,作業,さぎょう,作:さ | 業:ぎょう,Work | Task | Operation,work | task | operation,noun | verbal noun,1000.0,3.0,3
+364,価値,かち,価:か | 値:ち,Value | Worth | Merit,value | worth | merit,noun,,,6
+365,十分,じゅうぶん,十:じゅう | 分:ぶん,Enough | Sufficient | Plenty,enough | sufficient | plenty,な adjective | adverb,1000.0,2.0,2
+368,姿,すがた,姿:すがた,Figure | Shape | Form,figure | shape | form,noun,,,6
+369,新聞,しんぶん,新:しん | 聞:ぶん,Newspaper,newspaper,noun | の adjective,1000.0,2.0,2
+371,風,かぜ,風:かぜ,Wind,wind,noun,1000.0,,2
+372,八,はち,八:はち,Eight,eight,numeral,1000.0,,1
+373,際,きわ,際:きわ,Side | Edge | Brink,side | edge | brink,noun | suffix,,,5
+375,全て,すべて,全:すべ | て,All | Entire | Everything,all | entire | everything,noun | の adjective,1000.0,,3
+376,大臣,だいじん,大:だい | 臣:じん,Minister | Cabinet Minister | State Minister | Secretary Of State,minister | cabinet Minister | state Minister | secretary Of State,noun,,,4
+377,神,かみ,神:かみ,God | Gods,god | gods,noun,1000.0,,3
+380,毎日,まいにち,毎:まい | 日:にち,Every Day | Daily,every Day | daily,noun,1000.0,2.0,2
+381,俺,おれ,,I | Me,i | me,noun | の adjective,,,9
+382,試合,しあい,試:し | 合:あい,Game | Match,game | match,noun | verbal noun,1000.0,9.0,4
+383,七,なな,七:なな,Seven,seven,numeral,1000.0,,1
+384,会議,かいぎ,会:かい | 議:ぎ,Meeting | Conference | Assembly,meeting | conference | assembly,noun | verbal noun | の adjective,,,4
+385,使う,つかう,使:つか | う,To Use | To Spend,use | spend,transitive verb | godan verb,1000.0,,3
+386,指摘,してき,,Pointing Out | Identification,pointing Out | identification,noun | verbal noun,1000.0,9.0,9
+387,書く,かく,書:か | く,To Write,write,transitive verb | godan verb,1000.0,,2
+388,製品,せいひん,製:せい | 品:ひん,Product | Manufactured Goods,product | manufactured Goods,noun,1000.0,9.0,5
+389,変化,へんか,変:へん | 化:か,Change | Transformation,change | transformation,noun | verbal noun,1000.0,9.0,4
+390,結局,けっきょく,結:けっ | 局:きょく,After All | Eventually | In The End,after All | eventually | in The End,adverb | noun | の adjective,1000.0,9.0,4
+391,消費,しょうひ,消:しょう | 費:ひ,Consumption | Expenditure,consumption | expenditure,noun | verbal noun | の adjective,1000.0,9.0,5
+392,保険,ほけん,保:ほ | 険:けん,Insurance,insurance,noun | の adjective,,,5
+395,人生,じんせい,人:じん | 生:せい,One's Life | Human Life | Life,one's Life | human Life | life,noun,1000.0,1.0,1
+396,量,りょう,量:りょう,Quantity | Amount,quantity | amount,noun | suffix,,,4
+397,米国,べいこく,米:べい | 国:こく,United States | America | USA,united States | america | uSA,proper noun | の adjective,1000.0,2.0,2
+399,精神,せいしん,精:せい | 神:しん,Spirit | Mind,spirit | mind,noun,1000.0,9.0,5
+401,過去,かこ,過:か | 去:こ,Past | The Past,past | the Past,noun,1000.0,9.0,5
+402,我々,われわれ,,We | Us,we | us,pronoun | の adjective,,,6
+403,近く,ちかく,近:ちか | く,Near | Neighborhood | Vicinity | Nearly | Shortly,near | neighborhood | vicinity | nearly | shortly,adverb | noun,1000.0,,2
+404,能力,のうりょく,能:のう | 力:りょく,Ability | Capability,ability | capability,noun,1000.0,9.0,5
+405,指導,しどう,指:し | 導:どう,Guidance,guidance,noun | verbal noun,,,5
+406,更新,こうしん,,Renewal | Update,renewal | update,noun | verbal noun,,,9
+407,強い,つよい,強:つよ | い,Strong,strong,い adjective,1000.0,,2
+408,公開,こうかい,公:こう | 開:かい,Open To The Public | Releasing,open To The Public | releasing,noun | の adjective | verbal noun,,,3
+409,日本語,にほんご,日:に | 本:ほん | 語:ご,Japanese Language | Japanese,japanese Language | japanese,noun | の adjective,1000.0,2.0,2
+410,皆さん,みなさん,,Everyone | Everybody | All,everyone | everybody | all,noun,,,9
+412,女,おんな,女:おんな,Woman | Female,woman | female,noun,1000.0,,1
+413,昔,むかし,昔:むかし,Long Ago | Long Time Ago,long Ago | long Time Ago,noun | の adjective,1000.0,,3
+414,担当,たんとう,担:たん | 当:とう,In Charge,in Charge,noun | verbal noun,1000.0,9.0,6
+416,明日,あした,明:あ | 日:した,Tomorrow,tomorrow,noun,1000.0,2.0,2
+417,旅行,りょこう,旅:りょ | 行:こう,Trip | Travel,trip | travel,noun | verbal noun | の adjective,1000.0,3.0,3
+418,夢,ゆめ,夢:ゆめ,Dream,dream,noun,,,5
+419,明らか,あきらか,明:あき | らか,Obvious | Clear | Evident,obvious | clear | evident,な adjective,1000.0,,2
+420,木,き,木:き,Tree | Wood,tree | wood,noun,1000.0,,1
+421,機,き,機:き,Machine | Chance | Opportunity,machine | chance | opportunity,noun,,,4
+422,大切,たいせつ,大:たい | 切:せつ,Important | Precious | Valuable,important | precious | valuable,noun | な adjective,1000.0,2.0,2
+423,局,きょく,局:きょく,Bureau | Department | Station | Office,bureau | department | station | office,noun | suffix,1000.0,,3
+426,安全,あんぜん,安:あん | 全:ぜん,Safety | Safe,safety | safe,noun | な adjective,1000.0,3.0,3
+427,外国,がいこく,外:がい | 国:こく,Foreign Country | Other Countries | Overseas,foreign Country | other Countries | overseas,noun | の adjective,1000.0,2.0,2
+428,お金,おかね,お | 金:かね,Money,money,noun,1000.0,,1
+429,資料,しりょう,資:し | 料:りょう,Material | Data | Documents,material | data | documents,noun | の adjective,,,5
+430,部屋,へや,部:へ | 屋:や,Room,room,noun,1000.0,3.0,3
+431,行為,こうい,,Deed,deed,noun,,,9
+433,色,いろ,色:いろ,Color,color,noun,1000.0,,2
+434,難しい,むずかしい,,Difficult | Hard,difficult | hard,い adjective,,,9
+435,登録,とうろく,登:とう | 録:ろく,Registration,registration,noun | verbal noun,1000.0,9.0,4
+437,成功,せいこう,成:せい | 功:こう,Success,success,noun | verbal noun,,,4
+438,努力,どりょく,努:ど | 力:りょく,Great Effort | Exertion | Grueling Effort,great Effort | exertion | grueling Effort,noun | verbal noun,1000.0,9.0,4
+440,生まれ,うまれ,生:う | まれ,Birthplace | Birth,birthplace | birth,noun,,,1
+443,支援,しえん,,Support,support,noun | verbal noun,,,9
+444,最も,もっとも,最:もっと | も,The Most | Most | Extremely,the Most | most | extremely,adverb,,,4
+445,自己,じこ,自:じ | 己:こ,Self | Oneself,self | oneself,noun | の adjective,,,6
+448,運動,うんどう,運:うん | 動:どう,Exercise | Sport | Movement | Motion,exercise | sport | movement | motion,noun | verbal noun,1000.0,3.0,3
+449,構造,こうぞう,構:こう | 造:ぞう,Structure,structure,noun,,,5
+450,特別,とくべつ,特:とく | 別:べつ,Special,special,adverb | noun | な adjective | の adjective,,,4
+451,解決,かいけつ,解:かい | 決:けつ,Solving | Solution | Settlement,solving | solution | settlement,noun | verbal noun,1000.0,9.0,5
+452,完全,かんぜん,完:かん | 全:ぜん,Complete | Perfect | Perfection | Completeness,complete | perfect | perfection | completeness,noun | な adjective | の adjective,1000.0,9.0,4
+453,欲しい,ほしい,欲:ほ | しい,Wanted | Desired | Want,wanted | desired | want,い adjective,,,6
+455,品,しな,品:しな,Article | Item | Goods,article | item | goods,counter | noun,1000.0,,3
+456,訳,わけ,訳:わけ,Reason,reason,noun,,,6
+459,男性,だんせい,男:だん | 性:せい,Male | Man | Guy,male | man | guy,noun | の adjective,1000.0,9.0,5
+460,結構,けっこう,結:けっ | 構:こう,Fine | Fairly | Quite | Sufficient,fine | fairly | quite | sufficient,adverb | noun | な adjective,,,5
+461,出る,でる,出:で | る,To Exit | To Leave | To Attend | To Come Out | To Go Out,exit | leave | attend | come Out | go Out,intransitive verb | ichidan verb,1000.0,,1
+462,産業,さんぎょう,産:さん | 業:ぎょう,Industry | Heavy Industry,industry | heavy Industry,noun | の adjective,1000.0,9.0,4
+463,軍,ぐん,軍:ぐん,Army | Troops | Force,army | troops | force,noun | suffix,,,4
+464,主,ぬし,主:ぬし,Owner,owner,noun,1000.0,,3
+466,出来る,できる,出:で | 来:き | る,To Be Able To Do | To Be Ready | To Be Made,be Able To Do | be Ready | be Made,intransitive verb | ichidan verb,1000.0,2.0,2
+468,人気,にんき,人:にん | 気:き,Popular | Popularity,popular | popularity,noun | な adjective | の adjective,1000.0,1.0,1
+470,過ぎ,すぎ,過:す | ぎ,Too Much | After | Past,too Much | after | past,noun | suffix,,,5
+471,駅,えき,駅:えき,Station | Train Station,station | train Station,noun | suffix,1000.0,,3
+472,最終,さいしゅう,最:さい | 終:しゅう,Last | Final | The Last | The Final,last | final | the Last | the Final,noun | の adjective,,,4
+473,答え,こたえ,答:こた | え,Answer | Reply | Response,answer | reply | response,noun,3000.0,,2
+476,生,なま,生:なま,Fresh | Raw | Live,fresh | raw | live,noun | の adjective,1000.0,,1
+478,方向,ほうこう,方:ほう | 向:こう,Direction,direction,noun,1000.0,3.0,3
+480,検索,けんさく,,Lookup | Internet Search,lookup | internet Search,noun | verbal noun,,,9
+482,健康,けんこう,健:けん | 康:こう,Health | Healthy,health | healthy,noun | な adjective,,,4
+483,障害,しょうがい,,Disability | Handicap | Obstacle,disability | handicap | obstacle,noun | verbal noun,,,9
+486,協力,きょうりょく,協:きょう | 力:りょく,Cooperation | Collaboration | Assistance,cooperation | collaboration | assistance,noun | verbal noun | の adjective,,,4
+487,時期,じき,時:じ | 期:き,Time | Season | Period,time | season | period,noun,,,3
+488,料理,りょうり,料:りょう | 理:り,Cooking | Cuisine | Dish,cooking | cuisine | dish,noun | verbal noun,1000.0,9.0,4
+489,考え方,かんがえかた,考:かんが | え | 方:かた,Way Of Thinking | Thought Process,way Of Thinking | thought Process,noun,1000.0,2.0,2
+490,楽しみ,たのしみ,楽:たの | しみ,Looking Forward To | Hope | Expectation | Anticipation | Pleasure | Enjoyment,looking Forward To | hope | expectation | anticipation | pleasure | enjoyment,noun | な adjective,3000.0,,2
+491,医療,いりょう,,Medical Treatment,medical Treatment,noun | の adjective,,,9
+493,試験,しけん,試:し | 験:けん,Examination | Test | Experiment,examination | test | experiment,noun | verbal noun,,,4
+494,立場,たちば,立:た | 場:ちば,Standpoint | Position,standpoint | position,noun,1000.0,2.0,2
+495,契約,けいやく,,Contract | Agreement,contract | agreement,noun | verbal noun,,,9
+497,条件,じょうけん,条:じょう | 件:けん,Condition | Conditions | Terms | Requirements,condition | conditions | terms | requirements,noun,,,5
+499,全国,ぜんこく,全:ぜん | 国:こく,Nationwide | National | Countrywide,nationwide | national | countrywide,noun | の adjective,1000.0,3.0,3
+503,足,あし,足:あし,Foot | Leg,foot | leg,noun,1000.0,,1
+505,施設,しせつ,,Institution | Facilities | Facility | Establishment,institution | facilities | facility | establishment,noun | verbal noun,,,9
+506,来る,くる,来:く | る,To Come,come,intransitive verb,1000.0,,2
+508,知識,ちしき,知:ち | 識:しき,Knowledge | Information,knowledge | information,noun,1000.0,9.0,5
+509,携帯,けいたい,,Portable | Cell Phone | Mobile Phone,portable | cell Phone | mobile Phone,noun | verbal noun | の adjective,,,9
+511,友人,ゆうじん,友:ゆう | 人:じん,Friend,friend,noun,1000.0,2.0,2
+512,早く,はやく,早:はや | く,Early | Soon | Quickly | Fast,early | soon | quickly | fast,adverb,,,1
+513,海外,かいがい,海:かい | 外:がい,Overseas | Foreign | Abroad,overseas | foreign | abroad,noun | の adjective,1000.0,2.0,2
+514,原因,げんいん,原:げん | 因:いん,Cause | Origin | Source,cause | origin | source,noun | verbal noun,1000.0,9.0,5
+516,昨年,さくねん,昨:さく | 年:ねん,Last Year,last Year,noun,1000.0,9.0,4
+517,病院,びょういん,病:びょう | 院:いん,Hospital | Doctor's Office | Clinic,hospital | doctor's Office | clinic,noun | の adjective,1000.0,3.0,3
+520,夏,なつ,夏:なつ,Summer,summer,noun,1000.0,,2
+521,段階,だんかい,段:だん | 階:かい,Stage | Phase,stage | phase,noun,1000.0,9.0,6
+523,反対,はんたい,反:はん | 対:たい,Opposite | Opposition,opposite | opposition,noun | な adjective | の adjective | verbal noun,1000.0,3.0,3
+524,期間,きかん,期:き | 間:かん,Period | Term | Interval,period | term | interval,noun,,,3
+525,区,く,区:く,District | Ward,district | ward,noun,1000.0,,3
+527,午後,ごご,午:ご | 後:ご,PM | Afternoon | P.M.,pM | afternoon | p.M.,noun,1000.0,2.0,2
+530,変更,へんこう,,Alteration | Change,alteration | change,noun | verbal noun,,,9
+532,番組,ばんぐみ,番:ばん | 組:ぐみ,Program | Programme,program | programme,noun,1000.0,2.0,2
+533,今度,こんど,今:こん | 度:ど,This Time | Next Time,this Time | next Time,noun,1000.0,3.0,3
+536,準備,じゅんび,準:じゅん | 備:び,Preparation,preparation,noun | verbal noun,,,5
+538,処理,しょり,処:しょ | 理:り,Deal With | Handling | Processing,deal With | handling | processing,noun | verbal noun,1000.0,9.0,6
+539,口,くち,口:くち,Mouth,mouth,noun,1000.0,,1
+540,式,しき,式:しき,Ceremony | Ritual | Equation | Style,ceremony | ritual | equation | style,noun | suffix,1000.0,,3
+541,動き,うごき,動:うご | き,Movement | Activity | Trend | Development | Change,movement | activity | trend | development | change,noun,3000.0,,3
+542,絶対,ぜったい,絶:ぜっ | 対:たい,Absolutely | Without Fail | Unconditionally,absolutely | without Fail | unconditionally,adverb,1000.0,9.0,5
+544,結婚,けっこん,,Marriage,marriage,noun | verbal noun | の adjective,,,9
+545,社長,しゃちょう,社:しゃ | 長:ちょう,Company President | President Of A Company,company President | president Of A Company,noun | suffix,1000.0,2.0,2
+546,体験,たいけん,体:たい | 験:けん,Experience,experience,noun | verbal noun,1000.0,9.0,4
+548,基準,きじゅん,基:き | 準:じゅん,Standard | A Standard,standard | a Standard,noun | の adjective,,,5
+550,都市,とし,都:と | 市:し,City | Municipality,city | municipality,noun | の adjective,1000.0,3.0,3
+551,親,おや,親:おや,Parent,parent,noun,1000.0,,2
+552,機会,きかい,機:き | 会:かい,Opportunity | Chance,opportunity | chance,noun,,,4
+553,展開,てんかい,展:てん | 開:かい,Unfolding | Development,unfolding | development,noun | verbal noun,1000.0,9.0,6
+554,授業,じゅぎょう,授:じゅ | 業:ぎょう,Lesson | Class | Teaching,lesson | class | teaching,noun | verbal noun,1000.0,9.0,5
+555,火,ひ,火:ひ,Fire,fire,noun,1000.0,,1
+557,興味,きょうみ,興:きょう | 味:み,Interest,interest,noun,1000.0,9.0,5
+558,掲載,けいさい,,Publication | Print | Post,publication | print | post,noun | verbal noun,,,9
+559,編集,へんしゅう,編:へん | 集:しゅう,Edit,edit,noun | verbal noun | の adjective,1000.0,9.0,5
+560,選択,せんたく,,Selection | Choice,selection | choice,noun | verbal noun,,,9
+564,負担,ふたん,負:ふ | 担:たん,Burden | Responsibility,burden | responsibility,noun | verbal noun,1000.0,9.0,6
+565,文字,もじ,文:も | 字:じ,Letter (Of The Alphabet) | Character | Letter | Text,letter (Of The Alphabet) | character | letter | text,noun,1000.0,1.0,1
+567,無料,むりょう,無:む | 料:りょう,Free | Without Charge,free | without Charge,noun | の adjective,,,4
+568,相談,そうだん,相:そう | 談:だん,Consultation | Discussion | Advice,consultation | discussion | advice,noun | verbal noun,1000.0,3.0,3
+569,注意,ちゅうい,注:ちゅう | 意:い,Caution | Attention | Warning,caution | attention | warning,noun | verbal noun,1000.0,3.0,3
+571,株,かぶ,株:かぶ,Stock | Share,stock | share,counter | noun,,,6
+572,全部,ぜんぶ,全:ぜん | 部:ぶ,All | Entire | Whole,all | entire | whole,adverb | noun,1000.0,3.0,3
+573,開始,かいし,開:かい | 始:し,Start | Beginning | Opening,start | beginning | opening,noun | verbal noun,1000.0,3.0,3
+574,身,み,身:み,Body | Oneself | Animal Flesh,body | oneself | animal Flesh,noun,1000.0,,3
+575,面白い,おもしろい,面:おも | 白:しろ | い,Interesting | Amusing | Funny,interesting | amusing | funny,い adjective,1000.0,3.0,3
+576,分析,ぶんせき,,Analysis | Analyzing,analysis | analyzing,noun | verbal noun,1000.0,9.0,9
+577,入る,はいる,入:はい | る,To Enter | To Go In,enter | go In,intransitive verb | godan verb,1000.0,,1
+579,詳細,しょうさい,,Details,details,noun | な adjective,1000.0,9.0,9
+583,将来,しょうらい,将:しょう | 来:らい,Future,future,noun,1000.0,9.0,6
+585,愛,あい,愛:あい,Love,love,noun | suffix,,,4
+586,目標,もくひょう,目:もく | 標:ひょう,Goal | Target | Objective,goal | target | objective,noun,,,4
+589,長い,ながい,長:なが | い,Long,long,い adjective,1000.0,,2
+591,花,はな,花:はな,Flower,flower,noun,1000.0,,1
+594,作る,つくる,作:つく | る,To Make | To Build | To Create,make | build | create,transitive verb | godan verb,1000.0,,2
+595,土,つち,土:つち,Dirt | Soil | Earth,dirt | soil | earth,noun,1000.0,,1
+597,逆,ぎゃく,逆:ぎゃく,Reverse | Opposite,reverse | opposite,noun | な adjective,,,5
+598,発見,はっけん,発:はっ | 見:けん,Discovery,discovery,noun | verbal noun,1000.0,3.0,3
+599,最高,さいこう,最:さい | 高:こう,The Best | Best | Supreme,the Best | best | supreme,noun | な adjective | の adjective,,,4
+602,利益,りえき,利:り | 益:えき,Profit | Benefit,profit | benefit,noun | verbal noun,,,5
+604,銀行,ぎんこう,銀:ぎん | 行:こう,Bank,bank,noun | の adjective,1000.0,3.0,3
+605,終了,しゅうりょう,,End | Finish | Close,end | finish | close,noun | verbal noun,,,9
+607,出版,しゅっぱん,出:しゅっ | 版:ぱん,Publishing,publishing,noun | verbal noun,1000.0,9.0,5
+609,大会,たいかい,大:たい | 会:かい,Convention | Tournament | Event,convention | tournament | event,noun | の adjective,1000.0,2.0,2
+610,練習,れんしゅう,練:れん | 習:しゅう,Practice | Training | Drill,practice | training | drill,noun | verbal noun,1000.0,3.0,3
+611,様々,さまざま,,Various,various,noun | な adjective,3000.0,,3
+612,娘,むすめ,,Daughter | Young Woman,daughter | young Woman,noun,,,9
+613,州,しゅう,州:しゅう,State | Province | County,state | province | county,noun,3000.0,,3
+614,少ない,すくない,少:すく | ない,Few | Scarce | Not Much | Not Many,few | scarce | not Much | not Many,い adjective,1000.0,,2
+617,大阪,おおさか,大:おお | 阪:さか,Osaka | Oosaka,osaka | oosaka,proper noun,,,4
+621,被害,ひがい,,Damage | Harm | Injury,damage | harm | injury,noun,,,9
+622,住宅,じゅうたく,住:じゅう | 宅:たく,Dwelling | Residence | Housing,dwelling | residence | housing,noun,3000.0,9.0,6
+623,選挙,せんきょ,選:せん | 挙:きょ,Election,election,noun | verbal noun | の adjective,,,4
+624,新た,あらた,新:あら | た,New | Fresh | Novel | Newly | Freshly,new | fresh | novel | newly | freshly,adverb | な adjective,3000.0,,2
+626,大事,だいじ,大:だい | 事:じ,Important | Valuable,important | valuable,noun | な adjective,,,3
+627,山,やま,山:やま,Mountain,mountain,noun,3000.0,,1
+628,批判,ひはん,批:ひ | 判:はん,Criticism,criticism,noun | verbal noun,,,6
+629,報道,ほうどう,報:ほう | 道:どう,News Report,news Report,noun | verbal noun,3000.0,9.0,5
+630,心配,しんぱい,心:しん | 配:ぱい,A Worry | Concern,a Worry | concern,noun | な adjective | verbal noun,3000.0,3.0,3
+632,残念,ざんねん,残:ざん | 念:ねん,Unfortunate | Too Bad | Regrettable | Disappointing,unfortunate | too Bad | regrettable | disappointing,noun | な adjective,,,4
+633,見える,みえる,見:み | える,To Be Visible | To Be In Sight | Can See | To Seem,be Visible | be In Sight | can See | seem,intransitive verb | ichidan verb,1000.0,,1
+636,議員,ぎいん,議:ぎ | 員:いん,Member Of The Diet | Diet Member | Legislator | Assembly Member,member Of The Diet | diet Member | legislator | assembly Member,noun,3000.0,9.0,4
+639,攻撃,こうげき,,Attack | Attacking,attack | attacking,noun | verbal noun,,,9
+640,近い,ちかい,近:ちか | い,Close | Nearby | Near,close | nearby | near,い adjective,1000.0,,2
+641,世紀,せいき,世:せい | 紀:き,Century,century,noun,,,5
+642,演奏,えんそう,演:えん | 奏:そう,Musical Performance | Performance,musical Performance | performance,noun | verbal noun,,,6
+643,家庭,かてい,家:か | 庭:てい,Family | Household | Home,family | household | home,noun | の adjective,,,3
+644,直接,ちょくせつ,直:ちょく | 接:せつ,Direct,direct,の adjective | adverb | noun,3000.0,9.0,5
+645,構成,こうせい,構:こう | 成:せい,Composition | Structure,composition | structure,noun | の adjective | verbal noun,,,5
+646,文章,ぶんしょう,文:ぶん | 章:しょう,Writing | Sentence | Composition,writing | sentence | composition,noun,3000.0,3.0,3
+649,希望,きぼう,希:き | 望:ぼう,Hope | Wish | Aspiration,hope | wish | aspiration,noun | verbal noun,,,4
+651,記憶,きおく,,Memory | Recollection,memory | recollection,noun | verbal noun,3000.0,9.0,9
+658,感じる,かんじる,感:かん | じる,To Feel,feel,transitive verb | ichidan verb,1000.0,,3
+662,資金,しきん,資:し | 金:きん,Funds,funds,noun,3000.0,9.0,5
+663,友達,ともだち,友:とも | 達:だち,Friend | Companion,friend | companion,noun,,,4
+664,危険,きけん,危:き | 険:けん,Risky | Unsafe | Dangerous | Danger | Peril | Hazard,risky | unsafe | dangerous | danger | peril | hazard,noun | な adjective,,,6
+667,予想,よそう,予:よ | 想:そう,Expectation | Prediction,expectation | prediction,noun | verbal noun | の adjective,3000.0,3.0,3
+668,必ず,かならず,必:かなら | ず,Surely | Certainly | Without Exception | Always | Definitely,surely | certainly | without Exception | always | definitely,adverb,,,4
+669,発売,はつばい,発:はつ | 売:ばい,Sale | Selling,sale | selling,noun | verbal noun,3000.0,3.0,3
+670,得る,える,得:え | る,To Acquire | To Gain | To Obtain,acquire | gain | obtain,transitive verb | ichidan verb,,,5
+671,話題,わだい,話:わ | 題:だい,Topic | Subject,topic | subject,noun | の adjective,3000.0,3.0,3
+672,建築,けんちく,建:けん | 築:ちく,Architecture | Construction,architecture | construction,noun | verbal noun,,,5
+674,出す,だす,出:だ | す,To Take Out | To Hand Out | To Remove | To Turn In | To Put Out,take Out | hand Out | remove | turn In | put Out,transitive verb | godan verb,1000.0,,1
+676,事故,じこ,事:じ | 故:こ,Accident | Mishap,accident | mishap,noun,,,5
+677,大きい,おおきい,大:おお | きい,Big | Large,big | large,い adjective,1000.0,,1
+678,額,がく,額:がく,Framed Picture | Picture | Frame,framed Picture | picture | frame,noun | suffix,,,5
+679,聞く,きく,聞:き | く,To Hear | To Ask | To Listen,hear | ask | listen,transitive verb | godan verb,1000.0,,2
+680,母,はは,母:はは,Mother | My Mother,mother | my Mother,noun,3000.0,,2
+683,靴,くつ,,Shoes,shoes,noun,,,9
+685,権利,けんり,権:けん | 利:り,A Right | Right,a Right | right,noun,,,6
+687,記録,きろく,記:き | 録:ろく,Record | Document,record | document,noun | verbal noun,3000.0,9.0,4
+688,光,ひかり,光:ひかり,Light | Flash,light | flash,noun,3000.0,,2
+690,計算,けいさん,計:けい | 算:さん,Calculation,calculation,noun | verbal noun,3000.0,2.0,2
+691,雨,あめ,雨:あめ,Rain,rain,noun,3000.0,,1
+692,種類,しゅるい,種:しゅ | 類:るい,Kind | Type | Sort,kind | type | sort,noun,,,4
+695,現場,げんば,現:げん | 場:ば,On-Site Location | Scene | Workplace,on-Site Location | scene | workplace,noun | の adjective,,,5
+696,途中,とちゅう,,On The Way | En Route | In The Middle Of | Half Done,on The Way | en Route | in The Middle Of | half Done,noun,3000.0,9.0,9
+697,気分,きぶん,気:き | 分:ぶん,Feeling | Mood,feeling | mood,noun,3000.0,2.0,2
+698,昭和,しょうわ,昭:しょう | 和:わ,Showa Era | Shouwa Era | Showa | Shouwa | Showa Emperor | Shouwa Emperor,showa Era | shouwa Era | showa | shouwa | showa Emperor | shouwa Emperor,noun,3000.0,3.0,3
+699,地球,ちきゅう,地:ち | 球:きゅう,The Earth | The Globe | Earth,the Earth | the Globe | earth,noun | の adjective,3000.0,3.0,3
+700,移動,いどう,移:い | 動:どう,Movement | Transfer | Removal | Migration,movement | transfer | removal | migration,noun | verbal noun,,,5
+701,絵,え,絵:え,Picture | Painting | Drawing | Illustration,picture | painting | drawing | illustration,noun,3000.0,,2
+705,企画,きかく,,Plan | Planning | Project,plan | planning | project,noun | verbal noun,,,9
+706,宗教,しゅうきょう,宗:しゅう | 教:きょう,Religion,religion,noun,3000.0,9.0,6
+707,改正,かいせい,改:かい | 正:せい,Revision | Amendment | Alteration,revision | amendment | alteration,noun | verbal noun | の adjective,,,4
+708,間違い,まちがい,,A Mistake | Mistake,a Mistake | mistake,noun,3000.0,9.0,9
+709,数字,すうじ,数:すう | 字:じ,Numeral | Digit | Number,numeral | digit | number,noun,3000.0,2.0,2
+710,若い,わかい,若:わか | い,Young | Youthful,young | youthful,い adjective,,,6
+714,線,せん,線:せん,Line,line,noun | suffix,3000.0,,2
+715,不安,ふあん,不:ふ | 安:あん,Uneasiness | Anxiety | Unease,uneasiness | anxiety | unease,noun | な adjective,3000.0,9.0,4
+716,自ら,みずから,自:みずか | ら,Oneself | On One's Own Initiative | Personally,oneself | on One's Own Initiative | personally,noun | adverb,3000.0,,2
+718,広告,こうこく,広:こう | 告:こく,Advertisement | Ad | Advert,advertisement | ad | advert,noun | verbal noun | の adjective,3000.0,9.0,5
+719,土地,とち,土:と | 地:ち,Land,land,noun,3000.0,2.0,2
+720,有名,ゆうめい,有:ゆう | 名:めい,Famous,famous,な adjective,3000.0,3.0,3
+721,言語,げんご,言:げん | 語:ご,Language | A Language,language | a Language,noun,3000.0,2.0,2
+722,共同,きょうどう,共:きょう | 同:どう,Joint | Collaborative | Shared,joint | collaborative | shared,の adjective | noun | verbal noun,,,4
+724,要求,ようきゅう,要:よう | 求:きゅう,Demand | Requirement,demand | requirement,noun | verbal noun,,,4
+726,教授,きょうじゅ,教:きょう | 授:じゅ,Professor | Teaching,professor | teaching,noun | verbal noun | の adjective,,,5
+729,営業,えいぎょう,営:えい | 業:ぎょう,Business | Sales,business | sales,noun | verbal noun,,,5
+731,無理,むり,無:む | 理:り,Impossible | Unreasonable | Overdoing,impossible | unreasonable | overdoing,noun | verbal noun | な adjective,,,4
+732,役割,やくわり,役:やく | 割:わり,Role,role,noun,3000.0,9.0,6
+733,改善,かいぜん,改:かい | 善:ぜん,Improvement | Betterment,improvement | betterment,noun | verbal noun | の adjective,,,6
+736,撮影,さつえい,,Photography | Filming,photography | filming,noun | verbal noun,,,9
+738,楽しい,たのしい,楽:たの | しい,Fun,fun,い adjective,1000.0,,2
+739,拡大,かくだい,拡:かく | 大:だい,Zoom | Magnification | Enlargement | Expansion,zoom | magnification | enlargement | expansion,noun | verbal noun,,,6
+740,色々,いろいろ,,Various,various,adverb | noun | な adjective | の adjective,3000.0,,2
+742,終わり,おわり,終:お | わり,The End | End | The Finish | Finish,the End | end | the Finish | finish,noun,,,3
+743,道路,どうろ,道:どう | 路:ろ,Paved Road | Road | Sealed Road,paved Road | road | sealed Road,noun,3000.0,3.0,3
+744,種,たね,種:たね,Seed | Source,seed | source,noun,,,4
+745,憲法,けんぽう,憲:けん | 法:ぽう,Constitution,constitution,noun | の adjective,,,6
+747,感謝,かんしゃ,感:かん | 謝:しゃ,Thanks | Gratitude,thanks | gratitude,noun | verbal noun | な adjective,3000.0,9.0,5
+748,感覚,かんかく,感:かん | 覚:かく,Sense | The Senses | Sensation,sense | the Senses | sensation,noun | verbal noun,,,4
+749,旅,たび,旅:たび,Trip | Travel,trip | travel,noun | verbal noun,3000.0,,3
+750,紙,かみ,紙:かみ,Paper,paper,noun,3000.0,,2
+751,高校,こうこう,高:こう | 校:こう,High School | Senior High School,high School | senior High School,noun,3000.0,2.0,2
+753,仕方,しかた,仕:し | 方:かた,Method | Way | Way Of Doing,method | way | way Of Doing,noun,3000.0,3.0,3
+758,既に,すでに,,Already,already,adverb,,,9
+760,建設,けんせつ,建:けん | 設:せつ,Construction | Constructing | Establishment,construction | constructing | establishment,noun | verbal noun,,,5
+761,味,あじ,味:あじ,Taste | Flavor,taste | flavor,noun,3000.0,,3
+762,先日,せんじつ,先:せん | 日:じつ,The Other Day | A Few Days Ago | Other Day,the Other Day | a Few Days Ago | other Day,noun,3000.0,1.0,1
+764,中央,ちゅうおう,中:ちゅう | 央:おう,Center | Central | Centre,center | central | centre,noun | の adjective,3000.0,3.0,3
+765,幸せ,しあわせ,幸:しあわ | せ,Happiness,happiness,noun | な adjective,3000.0,,3
+766,犬,いぬ,犬:いぬ,Dog,dog,noun,3000.0,,1
+767,平均,へいきん,平:へい | 均:きん,Average | Mean,average | mean,noun | verbal noun,3000.0,9.0,5
+768,物語,ものがたり,物:もの | 語:がたり,Tale | Story | Legend,tale | story | legend,noun | verbal noun | の adjective,3000.0,3.0,3
+771,末,すえ,末:すえ,The End | End,the End | end,noun,,,4
+774,不思議,ふしぎ,不:ふ | 思:し | 議:ぎ,Wonder | Mystery | Marvelous,wonder | mystery | marvelous,noun | な adjective,3000.0,9.0,4
+775,警察,けいさつ,警:けい | 察:さつ,Police,police,noun | の adjective,,,6
+777,雑誌,ざっし,雑:ざっ | 誌:し,Magazine,magazine,noun,,,6
+778,提案,ていあん,提:てい | 案:あん,Proposition | Proposal | Suggestion,proposition | proposal | suggestion,noun | verbal noun,,,5
+781,大人,おとな,,Adult | Mature,adult | mature,noun | な adjective | の adjective,,,1
+783,様子,ようす,様:よう | 子:す,State Of Things | Situation | Condition,state Of Things | situation | condition,noun,,,3
+784,生徒,せいと,生:せい | 徒:と,Student | Pupil,student | pupil,noun | の adjective,,,4
+785,戻る,もどる,,To Return | To Be Returned,return | be Returned,intransitive verb | godan verb,,,9
+786,総合,そうごう,総:そう | 合:ごう,Overall | Comprehensive | Synthesis,overall | comprehensive | synthesis,noun | verbal noun | の adjective,3000.0,9.0,5
+787,値,あたい,値:あたい,Value | Price,value | price,noun | の adjective,,,6
+788,活用,かつよう,活:かつ | 用:よう,Utilizing | Conjugation | Practical Use,utilizing | conjugation | practical Use,noun | verbal noun,3000.0,2.0,2
+791,身体,しんたい,身:しん | 体:たい,The Body | Health | Body,the Body | health | body,noun | の adjective,3000.0,3.0,3
+796,左,ひだり,左:ひだり,Left Direction | Left,left Direction | left,noun | の adjective,3000.0,,1
+797,満足,まんぞく,満:まん | 足:ぞく,Satisfied | Totally Satisfied | Satisfaction,satisfied | totally Satisfied | satisfaction,noun | な adjective | verbal noun,3000.0,9.0,4
+798,規模,きぼ,規:き | 模:ぼ,Scale | Scope | Size,scale | scope | size,noun,,,6
+800,本当,ほんとう,本:ほん | 当:とう,Reality | Truth | Real | True,reality | truth | real | true,noun | な adjective,,,2
+801,以降,いこう,,Hereafter | After | Since,hereafter | after | since,noun,,,9
+802,比較,ひかく,,Comparison,comparison,noun | verbal noun | の adjective,,,9
+804,犯罪,はんざい,犯:はん | 罪:ざい,Crime,crime,noun | の adjective,,,5
+805,午前,ごぜん,午:ご | 前:ぜん,AM | Morning | A.M.,aM | morning | a.M.,noun,3000.0,2.0,2
+807,平和,へいわ,平:へい | 和:わ,Peace | Harmony,peace | harmony,noun | な adjective,3000.0,3.0,3
+808,基礎,きそ,,Foundation | Fundamentals,foundation | fundamentals,noun | の adjective,,,9
+810,画像,がぞう,画:が | 像:ぞう,Image | Picture,image | picture,noun,3000.0,9.0,5
+811,村,むら,村:むら,Village | Rural Town,village | rural Town,noun,3000.0,,1
+812,少年,しょうねん,少:しょう | 年:ねん,Boy | Young Boy | Youth,boy | young Boy | youth,noun,3000.0,2.0,2
+814,実験,じっけん,実:じっ | 験:けん,Experiment,experiment,noun | verbal noun,,,4
+816,雰囲気,ふんいき,,Atmosphere | Ambience | Ambiance | Mood,atmosphere | ambience | ambiance | mood,noun,3000.0,9.0,9
+818,患者,かんじゃ,,A Patient | Patient | Medical Patient,a Patient | patient | medical Patient,noun,3000.0,9.0,9
+819,歌,うた,歌:うた,Song,song,noun,3000.0,,2
+822,治療,ちりょう,,Medical Therapy | Medical Treatment,medical Therapy | medical Treatment,noun | verbal noun | の adjective,,,9
+824,電子,でんし,電:でん | 子:し,Electron | Electronic,electron | electronic,noun,3000.0,2.0,2
+825,小説,しょうせつ,小:しょう | 説:せつ,Novel,novel,noun | の adjective,3000.0,9.0,4
+826,箸,はし,,Chopsticks,chopsticks,noun,,,9
+827,受ける,うける,受:う | ける,To Receive Something | To Accept Something | To Take Something,receive Something | accept Something | take Something,transitive verb | ichidan verb,1000.0,,3
+828,死,し,死:し,Death,death,noun | suffix,3000.0,,3
+830,食事,しょくじ,食:しょく | 事:じ,Meal | Diet | Dining,meal | diet | dining,noun | verbal noun,3000.0,3.0,3
+834,維持,いじ,,Maintenance | Support,maintenance | support,noun | verbal noun,,,9
+836,文,ぶん,文:ぶん,Writing | Sentence,writing | sentence,noun,3000.0,,1
+837,範囲,はんい,,Extent | Scope,extent | scope,noun,,,9
+838,常に,つねに,常:つね | に,Always | Constantly | Continually,always | constantly | continually,adverb,,,5
+839,著作,ちょさく,著:ちょ | 作:さく,Writing | Authorship | A Work,writing | authorship | a Work,noun | verbal noun,3000.0,9.0,6
+840,表,おもて,表:おもて,The Front | The Surface,the Front | the Surface,independent noun,3000.0,,3
+842,夫,おっと,夫:おっと,Husband,husband,noun,,,4
+843,理論,りろん,理:り | 論:ろん,Theory,theory,noun | suffix,,,6
+844,秒,びょう,秒:びょう,Second,second,noun | suffix,3000.0,,3
+845,日常,にちじょう,日:にち | 常:じょう,Everyday Life | Normal Life | Daily Life | Ordinary | Regular | Everyday | Usual,everyday Life | normal Life | daily Life | ordinary | regular | everyday | usual,noun | の adjective,,,5
+847,回答,かいとう,回:かい | 答:とう,Answer | Response,answer | response,noun | verbal noun,,,2
+850,訴訟,そしょう,,Lawsuit | Litigation,lawsuit | litigation,noun | verbal noun | の adjective,,,9
+853,住民,じゅうみん,住:じゅう | 民:みん,Residents | Citizens,residents | citizens,noun,3000.0,9.0,4
+854,疑問,ぎもん,疑:ぎ | 問:もん,Doubt | Question,doubt | question,noun,3000.0,9.0,6
+855,失敗,しっぱい,失:しっ | 敗:ぱい,Failure | Mistake,failure | mistake,noun | verbal noun | の adjective,,,4
+856,島,しま,島:しま,Island,island,noun,3000.0,,3
+857,知る,しる,知:し | る,To Know | To Learn | To Find Out,know | learn | find Out,transitive verb | godan verb,1000.0,,2
+858,息子,むすこ,息:むす | 子:こ,Son,son,noun,3000.0,3.0,3
+859,資本,しほん,資:し | 本:ほん,Capital,capital,noun,,,5
+860,事情,じじょう,事:じ | 情:じょう,Circumstances | Reason | Situation,circumstances | reason | situation,noun,,,5
+861,応援,おうえん,,Support | Root For | Aid,support | root For | aid,noun | verbal noun,,,9
+863,感想,かんそう,感:かん | 想:そう,Impressions | One's Impressions | Thoughts,impressions | one's Impressions | thoughts,noun | verbal noun,,,3
+864,解説,かいせつ,解:かい | 説:せつ,Explanation | Commentary,explanation | commentary,noun | verbal noun | の adjective,,,5
+865,妻,つま,妻:つま,Wife | My Wife,wife | my Wife,noun,,,5
+867,公共,こうきょう,公:こう | 共:きょう,Public | Community,public | community,noun | の adjective,3000.0,9.0,4
+870,弁護士,べんごし,弁:べん | 護:ご | 士:し,Attorney | Lawyer,attorney | lawyer,noun,,,5
+871,裁判,さいばん,裁:さい | 判:ばん,Trial,trial,noun | verbal noun | の adjective,,,6
+872,建物,たてもの,建:た | 物:てもの,Building | Structure,building | structure,noun,3000.0,9.0,4
+875,措置,そち,,Measures | Steps,measures | steps,noun | verbal noun,,,9
+876,続ける,つづける,続:つづ | ける,To Continue Something | To Keep On | To Continue,continue Something | keep On | continue,transitive verb | ichidan verb,,,4
+879,父,ちち,父:ちち,Father | Dad,father | dad,noun,3000.0,,2
+880,本来,ほんらい,本:ほん | 来:らい,Originally | Primarily | Essentially | Naturally,originally | primarily | essentially | naturally,noun | の adjective,3000.0,2.0,2
+881,元気,げんき,元:げん | 気:き,Energy | Health | Energetic | Healthy,energy | health | energetic | healthy,noun | な adjective,3000.0,2.0,2
+882,一体,いったい,一:いっ | 体:たい,The Heck | In The World | On Earth,the Heck | in The World | on Earth,adverb,,,2
+883,宇宙,うちゅう,宇:う | 宙:ちゅう,Outer Space | Space | Universe,outer Space | space | universe,noun,,,6
+885,図,ず,図:ず,Diagram,diagram,noun | suffix,3000.0,,2
+891,採用,さいよう,採:さい | 用:よう,Use | Adoption | Acceptance | Employment,use | adoption | acceptance | employment,noun | verbal noun,3000.0,9.0,5
+893,二つ,ふたつ,二:ふた | つ,Two Things,two Things,numeral,3000.0,,1
+894,観光,かんこう,観:かん | 光:こう,Sightseeing | Tourism,sightseeing | tourism,noun | verbal noun | の adjective,,,4
+895,提出,ていしゅつ,提:てい | 出:しゅつ,Submission | Filing | Handing In | Presentation,submission | filing | handing In | presentation,noun | verbal noun,,,5
+897,首相,しゅしょう,首:しゅ | 相:しょう,Prime Minister,prime Minister,noun,,,3
+901,動物,どうぶつ,動:どう | 物:ぶつ,Animal,animal,noun,3000.0,3.0,3
+902,買う,かう,買:か | う,To Buy,buy,transitive verb | godan verb,1000.0,,2
+903,検査,けんさ,検:けん | 査:さ,Checkup | Inspection | Examination,checkup | inspection | examination,noun | verbal noun,,,5
+904,映像,えいぞう,映:えい | 像:ぞう,Footage | Video | Image,footage | video | image,noun | の adjective,,,6
+906,信頼,しんらい,,Reliance | Trust,reliance | trust,noun | verbal noun,,,9
+908,世,よ,世:よ,World | Society | Age | Generation,world | society | age | generation,noun,3000.0,,3
+911,空間,くうかん,空:くう | 間:かん,Space,space,noun,3000.0,2.0,2
+915,役,やく,役:やく,Role | Part | Duty | Service,role | part | duty | service,noun | suffix,3000.0,,3
+916,右,みぎ,右:みぎ,Right Direction | Right,right Direction | right,noun | の adjective,3000.0,,1
+918,競争,きょうそう,競:きょう | 争:そう,Competition,competition,noun | verbal noun | の adjective,,,4
+921,続く,つづく,続:つづ | く,To Continue,continue,intransitive verb | godan verb,,,4
+922,位置,いち,位:い | 置:ち,Position | Location | Place,position | location | place,noun | verbal noun,,,4
+923,入れる,いれる,入:い | れる,To Insert | To Put In,insert | put In,transitive verb | ichidan verb,1000.0,,1
+924,全然,ぜんぜん,全:ぜん | 然:ぜん,Entirely | Completely | Not At All,entirely | completely | not At All,adverb,,,4
+925,費用,ひよう,費:ひ | 用:よう,Expense | Cost,expense | cost,noun,,,5
+926,株式会社,かぶしきがいしゃ,株:かぶ | 式:しき | 会:がい | 社:しゃ,Corporation,corporation,noun,3000.0,9.0,6
+927,席,せき,席:せき,Seat,seat,noun,,,4
+928,大統領,だいとうりょう,大:だい | 統:とう | 領:りょう,President,president,noun,,,5
+931,事務所,じむしょ,事:じ | 務:む | 所:しょ,Office,office,noun,3000.0,9.0,5
+932,感情,かんじょう,感:かん | 情:じょう,Feeling | Emotion,feeling | emotion,noun | の adjective,,,5
+934,京都,きょうと,京:きょう | 都:と,Kyoto | Kyouto,kyoto | kyouto,proper noun,,,3
+935,空,そら,空:そら,Sky,sky,noun,3000.0,,1
+936,仲間,なかま,仲:なか | 間:ま,Comrade | Companion,comrade | companion,noun,,,4
+939,整理,せいり,整:せい | 理:り,Arrangement | Sorting | Organization | Adjustment,arrangement | sorting | organization | adjustment,noun | verbal noun,,,3
+940,協会,きょうかい,協:きょう | 会:かい,Association | Organization | Society,association | organization | society,noun,,,4
+944,耳,みみ,耳:みみ,Ear | Ears,ear | ears,noun,3000.0,,1
+947,安心,あんしん,安:あん | 心:しん,Relief | Peace Of Mind,relief | peace Of Mind,noun | な adjective | verbal noun,3000.0,3.0,3
+948,独立,どくりつ,独:どく | 立:りつ,Independence | Autonomy,independence | autonomy,noun | の adjective | verbal noun,3000.0,9.0,5
+949,読者,どくしゃ,読:どく | 者:しゃ,Reader,reader,noun,3000.0,3.0,3
+950,雇用,こよう,,Employment,employment,noun | verbal noun,,,9
+951,傾向,けいこう,,Tendency,tendency,noun | verbal noun,,,9
+953,正しい,ただしい,正:ただ | しい,Correct | True | Right,correct | true | right,い adjective,1000.0,,1
+954,誕生,たんじょう,誕:たん | 生:じょう,Birth,birth,noun | verbal noun,,,6
+956,与える,あたえる,,To Give | To Grant | To Bestow,give | grant | bestow,transitive verb | ichidan verb,,,9
+958,全員,ぜんいん,全:ぜん | 員:いん,All Members | All Hands | Everyone | Everybody,all Members | all Hands | everyone | everybody,noun,3000.0,3.0,3
+964,壁,かべ,,Wall,wall,noun,,,9
+965,是非,ぜひ,,Absolutely | By All Means | Right And Wrong,absolutely | by All Means | right And Wrong,adverb | noun,,,9
+968,特徴,とくちょう,,Characteristic | Distinctive Feature,characteristic | distinctive Feature,noun,,,9
+969,疲れ,つかれ,,Tiredness | Fatigue,tiredness | fatigue,noun,,,9
+970,皆様,みなさま,,Everyone | All | Everybody,everyone | all | everybody,noun,,,9
+971,別に,べつに,別:べつ | に,Not Particularly | Not Really | Separately | In Addition To,not Particularly | not Really | separately | in Addition To,adverb,,,4
+972,魅力,みりょく,,Allure | Charm | Attraction | Appeal,allure | charm | attraction | appeal,noun,3000.0,9.0,9
+973,人口,じんこう,人:じん | 口:こう,Population,population,noun,,,1
+974,反応,はんのう,反:はん | 応:のう,A Reaction | Reaction | A Response | Response,a Reaction | reaction | a Response | response,noun | verbal noun,3000.0,9.0,5
+979,工場,こうじょう,工:こう | 場:じょう,Factory,factory,noun,,,2
+980,入力,にゅうりょく,入:にゅう | 力:りょく,Input | Enter | Entry,input | enter | entry,noun | verbal noun,3000.0,1.0,1
+981,注文,ちゅうもん,注:ちゅう | 文:もん,Order | Request,order | request,noun | verbal noun | の adjective,3000.0,3.0,3
+982,集中,しゅうちゅう,集:しゅう | 中:ちゅう,Concentration | Focus,concentration | focus,noun | verbal noun,3000.0,3.0,3
+984,脳,のう,脳:のう,Brain,brain,noun,,,6
+985,北,きた,北:きた,North,north,noun,3000.0,,2
+986,現象,げんしょう,現:げん | 象:しょう,Phenomenon,phenomenon,noun,,,5
+990,禁止,きんし,禁:きん | 止:し,Forbidden | Prohibition | Ban,forbidden | prohibition | ban,noun | verbal noun,3000.0,9.0,5
+991,実践,じっせん,,Practice | Put Into Practice,practice | put Into Practice,noun | verbal noun | の adjective,,,9
+993,職員,しょくいん,職:しょく | 員:いん,Personnel | Staff | Employee,personnel | staff | employee,noun | の adjective,3000.0,9.0,5
+995,会員,かいいん,会:かい | 員:いん,Member | Membership,member | membership,noun,3000.0,3.0,3
+996,案内,あんない,案:あん | 内:ない,Guide | Information | Invitation,guide | information | invitation,noun | verbal noun,3000.0,9.0,4
+997,薬,くすり,薬:くすり,Medicine | Drug | Drugs,medicine | drug | drugs,noun,3000.0,,3
+998,従来,じゅうらい,従:じゅう | 来:らい,Up To Now | Conventional | Conventionally,up To Now | conventional | conventionally,noun | の adjective | adverb,,,6
+999,素晴らしい,すばらしい,素:す | 晴:ば | らしい,Wonderful | Splendid | Magnificent | The Best,wonderful | splendid | magnificent | the Best,い adjective,3000.0,9.0,5
+1001,農業,のうぎょう,農:のう | 業:ぎょう,Agriculture,agriculture,noun | の adjective,3000.0,3.0,3
+1002,用意,ようい,用:よう | 意:い,Preparation | Getting Ready,preparation | getting Ready,noun | verbal noun,,,3
+1006,納得,なっとく,納:なっ | 得:とく,Being Convinced | Consent | Understanding | Accepting,being Convinced | consent | understanding | accepting,noun | verbal noun,,,6
+1007,周り,まわり,周:まわ | り,Circumference | Perimeter | Edge | Surroundings | Locality | Neighborhood,circumference | perimeter | edge | surroundings | locality | neighborhood,noun | suffix,,,4
+1008,収入,しゅうにゅう,収:しゅう | 入:にゅう,Income,income,noun,,,6
+1009,増加,ぞうか,増:ぞう | 加:か,Increase,increase,noun | verbal noun,,,5
+1010,年齢,ねんれい,,Years Old | Age,years Old | age,noun,,,9
+1011,裏,うら,裏:うら,Backside | Reverse | Other Side,backside | reverse | other Side,noun,,,6
+1012,未来,みらい,未:み | 来:らい,Future | The Future | Distant Future | The Distant Future,future | the Future | distant Future | the Distant Future,noun | の adjective,,,4
+1013,社員,しゃいん,社:しゃ | 員:いん,Employee | Staff | Company Employee | Company Staff,employee | staff | company Employee | company Staff,noun,,,3
+1015,食べる,たべる,食:た | べる,To Eat,eat,transitive verb | ichidan verb,1000.0,,2
+1018,舞台,ぶたい,,Stage,stage,noun,,,9
+1019,前回,ぜんかい,前:ぜん | 回:かい,Last Time | Previous Time,last Time | previous Time,noun,,,2
+1022,交通,こうつう,交:こう | 通:つう,Traffic | Transport | Transit,traffic | transport | transit,noun,3000.0,2.0,2
+1024,教師,きょうし,教:きょう | 師:し,Teacher,teacher,noun | の adjective,3000.0,9.0,5
+1025,料金,りょうきん,料:りょう | 金:きん,Fee | Charge | Rate | Price,fee | charge | rate | price,noun,,,4
+1027,森,もり,森:もり,Woods | Forest,woods | forest,noun,3000.0,,1
+1028,他人,たにん,他:た | 人:にん,Another Person | Other People | Stranger,another Person | other People | stranger,noun,3000.0,3.0,3
+1030,組,くみ,組:くみ,Group | Team | Class,group | team | class,noun | suffix,3000.0,,2
+1031,株式,かぶしき,株:かぶ | 式:しき,Stock | Share,stock | share,noun,3000.0,9.0,6
+1032,求める,もとめる,求:もと | める,To Want Something | To Request Something | To Demand Something,want Something | request Something | demand Something,transitive verb | ichidan verb,,,4
+1034,否定,ひてい,否:ひ | 定:てい,Denial | Deny | Negation,denial | deny | negation,noun | verbal noun | の adjective,,,6
+1035,機械,きかい,機:き | 械:かい,Machine | Mechanism,machine | mechanism,noun,,,4
+1036,完成,かんせい,完:かん | 成:せい,Completion | Accomplishment,completion | accomplishment,noun | verbal noun,,,4
+1037,大好き,だいすき,大:だい | 好:す | き,Really Like | Love | Like A Lot | Lovable,really Like | love | like A Lot | lovable,noun | な adjective,,,4
+1040,電車,でんしゃ,電:でん | 車:しゃ,Train,train,noun,,,2
+1041,一応,いちおう,一:いち | 応:おう,For Now | To Some Extent | More Or Less | Just In Case,for Now | some Extent | more Or Less | just In Case,adverb,,,5
+1042,落ち,おち,落:お | ち,Conclusion | Final Result | The End | Punch Line | Slip | Omission | Outcome,conclusion | final Result | the End | punch Line | slip | omission | outcome,noun,15000.0,,3
+1045,野球,やきゅう,野:や | 球:きゅう,Baseball,baseball,noun,3000.0,3.0,3
+1047,姿勢,しせい,姿:し | 勢:せい,Posture | Attitude,posture | attitude,noun,,,6
+1048,訪問,ほうもん,訪:ほう | 問:もん,A Visit | Visit,a Visit | visit,noun | verbal noun | の adjective,3000.0,9.0,6
+1051,小学校,しょうがっこう,小:しょう | 学:がっ | 校:こう,Elementary School | Primary School | Grade School,elementary School | primary School | grade School,noun,3000.0,1.0,1
+1052,電気,でんき,電:でん | 気:き,Electricity | Light,electricity | light,noun,,,2
+1053,効率,こうりつ,効:こう | 率:りつ,Efficiency,efficiency,noun,,,5
+1054,芸術,げいじゅつ,芸:げい | 術:じゅつ,Art | The Arts | Fine Art,art | the Arts | fine Art,noun,,,5
+1056,会話,かいわ,会:かい | 話:わ,Conversation | Dialogue,conversation | dialogue,noun | verbal noun,3000.0,2.0,2
+1057,再び,ふたたび,再:ふたた | び,Again | Once Again,again | once Again,adverb,,,5
+1058,春,はる,春:はる,Spring,spring,noun,3000.0,,2
+1059,小さい,ちいさい,小:ちい | さい,Small | Little,small | little,い adjective,3000.0,,1
+1060,解釈,かいしゃく,,Explanation | Interpretation,explanation | interpretation,noun | verbal noun,,,9
+1061,猫,ねこ,,Cat,cat,noun,,,9
+1064,行,ぎょう,行:ぎょう,Line of Text | Line | Row,line of Text | line | row,counter | noun,3000.0,,2
+1067,大丈夫,だいじょうぶ,,Safe | All Right | Okay,safe | all Right | okay,adverb | noun | な adjective,,,9
+1068,低い,ひくい,低:ひく | い,Low | Short,low | short,い adjective,,,4
+1069,半,はん,半:はん,Half,half,prefix | suffix,3000.0,,2
+1071,製造,せいぞう,製:せい | 造:ぞう,Manufacturing,manufacturing,noun | verbal noun | の adjective,,,5
+1072,困難,こんなん,,Hardship | Difficulty | Hard | Difficult,hardship | difficulty | hard | difficult,noun | な adjective,,,9
+1074,回復,かいふく,回:かい | 復:ふく,Recovery,recovery,noun | verbal noun,3000.0,9.0,5
+1076,母親,ははおや,母:はは | 親:おや,Mother | Mom,mother | mom,noun | の adjective,3000.0,2.0,2
+1077,取材,しゅざい,取:しゅ | 材:ざい,Covering An Event | Data Collection | Interview,covering An Event | data Collection | interview,noun | verbal noun,3000.0,9.0,4
+1078,保障,ほしょう,,Security | Safeguarding,security | safeguarding,noun | verbal noun,,,9
+1079,集団,しゅうだん,集:しゅう | 団:だん,Group | Crowd,group | crowd,noun,,,5
+1080,卒業,そつぎょう,卒:そつ | 業:ぎょう,Graduation,graduation,noun | verbal noun | の adjective,,,4
+1082,雪,ゆき,雪:ゆき,Snow,snow,noun,3000.0,,2
+1083,画面,がめん,画:が | 面:めん,Screen | Monitor,screen | monitor,noun,3000.0,3.0,3
+1085,資格,しかく,資:し | 格:かく,Qualifications | Capabilities | Requirements,qualifications | capabilities | requirements,noun,,,5
+1087,病気,びょうき,病:びょう | 気:き,Sick | Illness | Sickness | Disease,sick | illness | sickness | disease,noun | の adjective,3000.0,3.0,3
+1088,更に,さらに,,Furthermore | Further | Again,furthermore | further | again,adverb | conjunction,,,9
+1089,活躍,かつやく,,Active Participation | Activity | Success | Do Great,active Participation | activity | success | do Great,noun,3000.0,9.0,9
+1090,馬,うま,馬:うま,Horse,horse,noun,3000.0,,2
+1093,命,いのち,命:いのち,Life,life,independent noun,3000.0,,3
+1095,限定,げんてい,限:げん | 定:てい,Limit,limit,noun | verbal noun | の adjective,,,5
+1096,医師,いし,医:い | 師:し,Doctor,doctor,noun | の adjective,,,5
+1098,工事,こうじ,工:こう | 事:じ,Construction | Construction Work,construction | construction Work,noun | verbal noun,,,3
+1101,正直,しょうじき,正:しょう | 直:じき,Honest | Honestly,honest | honestly,な adjective | adverb | noun,3000.0,2.0,2
+1103,自動車,じどうしゃ,自:じ | 動:どう | 車:しゃ,Automobile | Car,automobile | car,noun,3000.0,3.0,3
+1105,女の子,おんなのこ,女:おんな | の | 子:こ,Girl | Young Girl,girl | young Girl,noun,3000.0,1.0,1
+1107,民族,みんぞく,民:みん | 族:ぞく,Ethnic Group | Ethnicity | Race,ethnic Group | ethnicity | race,noun | の adjective,,,4
+1108,充実,じゅうじつ,,Fullness | Beefing Up,fullness | beefing Up,noun | verbal noun,,,9
+1110,講演,こうえん,講:こう | 演:えん,Lecture | Address,lecture | address,noun | verbal noun,,,5
+1111,瞬間,しゅんかん,,An Instant | Instant | Moment,an Instant | instant | moment,noun,,,9
+1113,大量,たいりょう,大:たい | 量:りょう,Large Quantity | Large Number | Huge Amount,large Quantity | large Number | huge Amount,noun | な adjective | の adjective,,,4
+1114,久しぶり,ひさしぶり,久:ひさ | しぶり,Long Time No See | It's Been A While,long Time No See | it's Been A While,な adjective | の adjective,,,5
+1115,美しい,うつくしい,美:うつく | しい,Beautiful,beautiful,い adjective,3000.0,,3
+1117,革命,かくめい,,Revolution,revolution,noun | の adjective,3000.0,9.0,9
+1123,輸入,ゆにゅう,輸:ゆ | 入:にゅう,Import,import,noun | verbal noun | の adjective,,,5
+1124,遊び,あそび,遊:あそ | び,Play | Playing | Games,play | playing | games,noun,3000.0,,3
+1125,背景,はいけい,背:はい | 景:けい,Background,background,noun,,,6
+1127,星,ほし,星:ほし,Star,star,noun,3000.0,,2
+1129,関心,かんしん,関:かん | 心:しん,Concern | Interest,concern | interest,noun,,,4
+1130,勝手,かって,勝:かっ | 手:て,As One Pleases | One's Own Convenience | One's Own Way | One's Way,as One Pleases | one's Own Convenience | one's Own Way | one's Way,noun | な adjective,3000.0,3.0,3
+1131,一覧,いちらん,一:いち | 覧:らん,A List | An Overview | Looking Over,a List | an Overview | looking Over,noun | verbal noun,,,6
+1133,伝統,でんとう,伝:でん | 統:とう,Tradition,tradition,noun | の adjective,,,5
+1134,横,よこ,横:よこ,Side | Beside | Next To | Horizontal,side | beside | next To | horizontal,noun,3000.0,,3
+1138,値段,ねだん,値:ね | 段:だん,Price | Cost,price | cost,noun,,,6
+1139,沖縄,おきなわ,沖:おき | 縄:なわ,Okinawa,okinawa,proper noun,,,4
+1140,川,かわ,川:かわ,River,river,noun,3000.0,,1
+1142,若者,わかもの,若:わか | 者:もの,Young Person,young Person,noun | の adjective,3000.0,9.0,6
+1143,心理,しんり,心:しん | 理:り,Mental State | Psychology,mental State | psychology,noun,,,2
+1144,大体,だいたい,大:だい | 体:たい,Generally | About | General | Gist,generally | about | general | gist,adverb | noun | の adjective,,,2
+1145,里,さと,里:さと,Hometown | Village | One's Parents' Home,hometown | village | one's Parents' Home,noun,3000.0,,2
+1146,掲示板,けいじばん,,Bulletin Board,bulletin Board,noun,3000.0,9.0,9
+1147,番号,ばんごう,番:ばん | 号:ごう,Number | Series Of Digits,number | series Of Digits,noun,3000.0,3.0,3
+1150,古い,ふるい,古:ふる | い,Old | Ancient | Out-Of-Date,old | ancient | out-Of-Date,い adjective,3000.0,,2
+1152,船,ふね,船:ふね,Boat | Ship,boat | ship,noun,3000.0,,2
+1154,突然,とつぜん,,Suddenly | Sudden,suddenly | sudden,adverb | な adjective | の adjective,,,9
+1156,半分,はんぶん,半:はん | 分:ぶん,Half,half,noun,3000.0,2.0,2
+1157,思想,しそう,思:し | 想:そう,Ideology | Thought | Idea,ideology | thought | idea,noun,3000.0,3.0,3
+1158,請求,せいきゅう,,Request | Charge | Claim,request | charge | claim,noun | verbal noun,,,9
+1159,正確,せいかく,正:せい | 確:かく,Accurate | Precise | Exact,accurate | precise | exact,noun | な adjective,,,5
+1160,教室,きょうしつ,教:きょう | 室:しつ,Classroom,classroom,noun,3000.0,2.0,2
+1163,不足,ふそく,不:ふ | 足:そく,Shortage | Insufficiency,shortage | insufficiency,noun | な adjective | verbal noun,3000.0,9.0,4
+1164,実,じつ,実:じつ,Truth | Reality,truth | reality,noun | の adjective,3000.0,,3
+1166,伺い,うかがい,,Inquiry | Enquiry | Question | Visit,inquiry | enquiry | question | visit,noun,,,9
+1167,東,ひがし,東:ひがし,East,east,noun,3000.0,,2
+1168,厳しい,きびしい,厳:きび | しい,Strict | Harsh | Severe,strict | harsh | severe,い adjective,,,6
+1169,異なる,ことなる,異:こと | なる,To Differ,differ,intransitive verb | godan verb,,,6
+1170,王,おう,王:おう,King,king,noun | suffix,3000.0,,1
+1172,含む,ふくむ,,To Include | To Contain,include | contain,transitive verb | godan verb,,,9
+1173,世の中,よのなか,世:よ | の | 中:なか,Society | The World,society | the World,noun,3000.0,3.0,3
+1175,項目,こうもく,,Item | Entry | Clause | Data Item,item | entry | clause | data Item,noun,,,9
+1177,性格,せいかく,性:せい | 格:かく,Personality | Character,personality | character,noun,,,5
+1181,多分,たぶん,多:た | 分:ぶん,Maybe | Perhaps | Probably,maybe | perhaps | probably,adverb | noun,3000.0,2.0,2
+1182,地区,ちく,地:ち | 区:く,District | Area | Zone,district | area | zone,noun | の adjective,,,3
+1186,著者,ちょしゃ,著:ちょ | 者:しゃ,Author,author,noun,,,6
+1187,示す,しめす,示:しめ | す,To Indicate | To Show Something | To Demonstrate,indicate | show Something | demonstrate,transitive verb | godan verb,,,5
+1192,福祉,ふくし,,Welfare | Well Being,welfare | well Being,noun,3000.0,9.0,9
+1193,到着,とうちゃく,,Arrival,arrival,noun | verbal noun | の adjective,3000.0,9.0,9
+1194,罪,つみ,罪:つみ,Sin | Crime,sin | crime,independent noun,,,5
+1196,楽,らく,楽:らく,Comfort | Ease | Pleasure,comfort | ease | pleasure,noun | な adjective,3000.0,,2
+1197,操作,そうさ,操:そう | 作:さ,Operation | Handling | Manipulation,operation | handling | manipulation,noun,,,6
+1199,便利,べんり,便:べん | 利:り,Convenient | Handy | Useful,convenient | handy | useful,な adjective,,,4
+1201,南,みなみ,南:みなみ,South,south,noun,3000.0,,2
+1205,態度,たいど,態:たい | 度:ど,Attitude | Manner | Behavior,attitude | manner | behavior,noun | の adjective,,,5
+1209,審査,しんさ,,Examination | Inspection | Investigation | Review,examination | inspection | investigation | review,noun | verbal noun,,,9
+1210,公園,こうえん,公:こう | 園:えん,Public Park | Park,public Park | park,noun,,,2
+1211,過程,かてい,過:か | 程:てい,Process | A Process,process | a Process,noun,,,5
+1212,研修,けんしゅう,研:けん | 修:しゅう,Training | Give Training,training | give Training,noun | verbal noun,3000.0,9.0,5
+1214,変,へん,変:へん,Strange | Weird,strange | weird,noun | な adjective,,,4
+1215,連続,れんぞく,連:れん | 続:ぞく,Serial | Consecutive | Successive | Series,serial | consecutive | successive | series,noun | verbal noun,,,4
+1217,空気,くうき,空:くう | 気:き,Air | Atmosphere | Mood,air | atmosphere | mood,noun,3000.0,1.0,1
+1218,翻訳,ほんやく,,Translation,translation,noun | verbal noun,,,9
+1220,冬,ふゆ,冬:ふゆ,Winter,winter,noun,3000.0,,2
+1221,暮らし,くらし,暮:く | らし,Life | Living | Daily Living,life | living | daily Living,noun,,,6
+1222,単純,たんじゅん,単:たん | 純:じゅん,Simple,simple,noun | な adjective,,,6
+1223,嬉しい,うれしい,,Glad | Happy | Joyful,glad | happy | joyful,い adjective,,,9
+1224,予約,よやく,予:よ | 約:やく,Reservation | Appointment,reservation | appointment,noun | verbal noun | の adjective,3000.0,9.0,4
+1227,論文,ろんぶん,論:ろん | 文:ぶん,Thesis | Paper | Article | Essay,thesis | paper | article | essay,noun,3000.0,9.0,6
+1228,地震,じしん,,Earthquake,earthquake,noun,,,9
+1234,豊か,ゆたか,豊:ゆた | か,Rich | Plentiful | Abundant | Wealthy,rich | plentiful | abundant | wealthy,な adjective,,,5
+1238,敵,てき,敵:てき,Enemy | Opponent,enemy | opponent,noun,,,6
+1240,自信,じしん,自:じ | 信:しん,Confidence | Self Confidence,confidence | self Confidence,noun | verbal noun,,,4
+1241,生きる,いきる,生:い | きる,To Live | To Be Alive | To Exist,live | be Alive | exist,intransitive verb | ichidan verb,1000.0,,1
+1242,涙,なみだ,,Tears | Tear | Teardrop,tears | tear | teardrop,noun,,,9
+1246,毎年,まいとし,毎:まい | 年:とし,Every Year | Yearly | Annually | Each Year,every Year | yearly | annually | each Year,noun,3000.0,2.0,2
+1247,距離,きょり,,Distance | Range,distance | range,noun,,,9
+1248,複数,ふくすう,複:ふく | 数:すう,Multiple | Plural,multiple | plural,noun | の adjective,3000.0,9.0,5
+1249,恋愛,れんあい,,Love | Romance,love | romance,noun | verbal noun | の adjective,,,9
+1256,早い,はやい,早:はや | い,Early | Fast | Quick,early | fast | quick,い adjective,1000.0,,1
+1257,交渉,こうしょう,,Negotiation,negotiation,noun | verbal noun | の adjective,3000.0,9.0,9
+1260,普段,ふだん,,Usual | Usually | Always,usual | usually | always,adverb | noun | の adjective,,,9
+1262,出席,しゅっせき,出:しゅっ | 席:せき,Attendance,attendance,noun | verbal noun,,,4
+1264,窓,まど,窓:まど,Window,window,noun,,,6
+1266,始める,はじめる,始:はじ | める,To Begin Something | To Start Something | To Begin | To Start,begin Something | start Something | begin | start,transitive verb | ichidan verb,1000.0,,3
+1267,安い,やすい,安:やす | い,Cheap | Inexpensive,cheap | inexpensive,い adjective,3000.0,,3
+1268,危機,きき,危:き | 機:き,Crisis,crisis,noun | の adjective,,,6
+1270,募集,ぼしゅう,,Recruiting | Solicitation,recruiting | solicitation,noun | verbal noun,,,9
+1272,休み,やすみ,休:やす | み,Rest | Break | Vacation | Holiday,rest | break | vacation | holiday,noun,3000.0,,1
+1273,自宅,じたく,自:じ | 宅:たく,One's Home | One's Own Home,one's Home | one's Own Home,noun,,,6
+1274,深い,ふかい,深:ふか | い,Deep,deep,い adjective,1000.0,,3
+1276,分かる,わかる,分:わ | かる,To Understand | To Be Understandable,understand | be Understandable,intransitive verb | godan verb,1000.0,,2
+1277,人権,じんけん,人:じん | 権:けん,Human Rights,human Rights,noun | の adjective,,,6
+1279,複雑,ふくざつ,複:ふく | 雑:ざつ,Complicated | Complex,complicated | complex,な adjective,,,5
+1280,逮捕,たいほ,,Arrest,arrest,noun | verbal noun,,,9
+1281,器,うつわ,器:うつわ,Container | Bowl | Capacity,container | bowl | capacity,noun,,,4
+1282,守る,まもる,守:まも | る,To Protect | To Defend | To Obey,protect | defend | obey,transitive verb | godan verb,1000.0,,3
+1285,取る,とる,取:と | る,To Take | To Take Something | To Get Something,take | take Something | get Something,transitive verb | godan verb,1000.0,,3
+1286,証明,しょうめい,証:しょう | 明:めい,Proof | Prove | Verify,proof | prove | verify,noun | の adjective | verbal noun,,,5
+1287,概念,がいねん,,General Idea | Concept | Notion,general Idea | concept | notion,noun,,,9
+1288,秋,あき,秋:あき,Autumn | Fall,autumn | fall,noun,3000.0,,2
+1290,単に,たんに,単:たん | に,Simply | Merely | Only,simply | merely | only,adverb,,,4
+1291,今週,こんしゅう,今:こん | 週:しゅう,This Week,this Week,noun,3000.0,2.0,2
+1292,空港,くうこう,空:くう | 港:こう,Airport,airport,noun,3000.0,3.0,3
+1296,作家,さっか,作:さっ | 家:か,Writer | Author | Creator,writer | author | creator,noun,3000.0,2.0,2
+1297,学ぶ,まなぶ,学:まな | ぶ,To Learn | To Study In Depth | To Study,learn | study In Depth | study,godan verb,1000.0,,1
+1299,迎え,むかえ,,Meeting | Welcome | Greeting | Reception,meeting | welcome | greeting | reception,noun,,,9
+1304,違反,いはん,,Violation | Transgression | Breach,violation | transgression | breach,noun | verbal noun,,,9
+1305,義務,ぎむ,義:ぎ | 務:む,Obligation | Duty,obligation | duty,noun | の adjective,,,5
+1306,仕組み,しくみ,仕:し | 組:く | み,System | Structure | Mechanism,system | structure | mechanism,noun,3000.0,3.0,3
+1308,破壊,はかい,,Destruction | Demolition,destruction | demolition,noun | verbal noun,,,9
+1309,研究所,けんきゅうしょ,研:けん | 究:きゅう | 所:しょ,Research Institute | Research Facility,research Institute | research Facility,noun,3000.0,3.0,3
+1312,白,しろ,白:しろ,White,white,noun,3000.0,,1
+1316,場面,ばめん,場:ば | 面:めん,Scene | Setting | Locale,scene | setting | locale,noun | の adjective,3000.0,3.0,3
+1317,英国,えいこく,英:えい | 国:こく,Britain | Uk | United Kingdom | England,britain | uk | united Kingdom | england,noun,,,4
+1321,石,いし,石:いし,Stone | Rock,stone | rock,noun,3000.0,,1
+1323,就職,しゅうしょく,就:しゅう | 職:しょく,Finding Employment | Getting A Job,finding Employment | getting A Job,noun | verbal noun,,,6
+1326,派遣,はけん,,Dispatch | Deployment | Temporary,dispatch | deployment | temporary,noun | verbal noun,,,9
+1330,定義,ていぎ,定:てい | 義:ぎ,Definition,definition,noun | verbal noun,,,5
+1331,素敵,すてき,素:す | 敵:てき,Lovely | Charming | Wonderful,lovely | charming | wonderful,な adjective,,,6
+1333,当たり前,あたりまえ,当:あ | たり | 前:まえ,Natural | Reasonable | Obvious | Usual | Common,natural | reasonable | obvious | usual | common,noun | な adjective | の adjective,3000.0,2.0,2
+1334,約束,やくそく,約:やく | 束:そく,Promise | Appointment | Pact,promise | appointment | pact,noun | verbal noun,,,4
+1337,出身,しゅっしん,出:しゅっ | 身:しん,One's Origin | One's Hometown | One's Birthplace,one's Origin | one's Hometown | one's Birthplace,noun,3000.0,3.0,3
+1341,事項,じこう,,Matter | Item | Subject,matter | item | subject,noun,,,9
+1343,質,しつ,質:しつ,Quality,quality,noun | suffix,,,5
+1344,趣味,しゅみ,,Hobby,hobby,noun,3000.0,9.0,9
+1345,箱,はこ,箱:はこ,Box,box,counter | noun | suffix,3000.0,,3
+1347,ご覧,ごらん,ご | 覧:らん,Looking At | Seeing | Watching,looking At | seeing | watching,noun | expression,,,6
+1348,出発,しゅっぱつ,出:しゅっ | 発:ぱつ,Departure,departure,noun | verbal noun,,,3
+1349,語る,かたる,語:かた | る,To Talk | To Tell | To Recite,talk | tell | recite,transitive verb | godan verb,1000.0,,2
+1350,魚,さかな,魚:さかな,Fish,fish,noun,3000.0,,2
+1352,残り,のこり,残:のこ | り,Remainder | Remnant | Leftover | Residue,remainder | remnant | leftover | residue,noun | の adjective,,,4
+1353,記述,きじゅつ,記:き | 述:じゅつ,Writing Down | Description | Account,writing Down | description | account,noun | verbal noun,,,5
+1367,訓練,くんれん,訓:くん | 練:れん,Training | Practice,training | practice,noun | verbal noun,3000.0,9.0,4
+1368,来年,らいねん,来:らい | 年:ねん,Next Year,next Year,noun,,,2
+1370,証拠,しょうこ,,Physical Evidence | Evidence | Proof,physical Evidence | evidence | proof,noun,,,9
+1371,変わる,かわる,変:か | わる,To Be Changed | To Be Transformed | To Be Altered,be Changed | be Transformed | be Altered,intransitive verb | godan verb,,,4
+1373,不明,ふめい,不:ふ | 明:めい,Unknown | Unclear | Uncertain | Unsure,unknown | unclear | uncertain | unsure,noun | な adjective,,,4
+1375,北海道,ほっかいどう,北:ほっ | 海:かい | 道:どう,Hokkaido,hokkaido,proper noun,3000.0,2.0,2
+1376,隣,となり,,Neighbor | Next To | Next Door Neighbor,neighbor | next To | next Door Neighbor,noun | の adjective,,,9
+1380,挑戦,ちょうせん,,A Challenge | A Try | An Attempt,a Challenge | a Try | an Attempt,noun | verbal noun,,,9
+1383,鳥,とり,鳥:とり,Bird,bird,noun,3000.0,,2
+1384,胸,むね,胸:むね,Chest | Breasts,chest | breasts,noun,,,6
+1388,保存,ほぞん,保:ほ | 存:ぞん,Preservation | Conservation | Saving,preservation | conservation | saving,noun | verbal noun,,,6
+1389,相互,そうご,,Mutual | Reciprocal,mutual | reciprocal,noun | の adjective,3000.0,9.0,9
+1391,依頼,いらい,,Request | Entrust,request | entrust,noun | verbal noun,,,9
+1392,差別,さべつ,差:さ | 別:べつ,Discrimination,discrimination,noun | verbal noun,,,4
+1400,季節,きせつ,季:き | 節:せつ,Season,season,noun | の adjective,,,4
+1404,保証,ほしょう,保:ほ | 証:しょう,Guarantee | Assurance | Warranty,guarantee | assurance | warranty,noun | verbal noun,,,5
+1408,装置,そうち,装:そう | 置:ち,Equipment | Device | Apparatus,equipment | device | apparatus,noun | verbal noun,,,6
+1409,図書館,としょかん,図:と | 書:しょ | 館:かん,Library,library,noun,3000.0,3.0,3
+1412,防止,ぼうし,防:ぼう | 止:し,Prevention,prevention,noun | verbal noun,,,5
+1416,肉,にく,肉:にく,Meat,meat,noun,3000.0,,2
+1417,需要,じゅよう,,Demand,demand,noun,,,9
+1418,始まる,はじまる,始:はじ | まる,To Begin | Something Begins | To Start | Something Starts,begin | something Begins | start | something Starts,intransitive verb | godan verb,1000.0,,3
+1421,総理,そうり,総:そう | 理:り,Prime Minister | Japanese Prime Minister,prime Minister | japanese Prime Minister,noun,,,5
+1423,自転車,じてんしゃ,自:じ | 転:てん | 車:しゃ,Bicycle | Bike | Pushbike,bicycle | bike | pushbike,noun,3000.0,3.0,3
+1425,生物,せいぶつ,生:せい | 物:ぶつ,Living Thing | Creature | Organism,living Thing | creature | organism,noun,,,3
+1429,優勝,ゆうしょう,優:ゆう | 勝:しょう,Victory | Championship,victory | championship,noun | verbal noun,3000.0,9.0,6
+1433,働く,はたらく,働:はたら | く,To Work | To Labor | To Commit,work | labor | commit,intransitive verb | godan verb,,,4
+1437,野菜,やさい,野:や | 菜:さい,Vegetable,vegetable,noun | の adjective,3000.0,9.0,4
+1438,赤,あか,赤:あか,Red,red,noun,3000.0,,1
+1440,承知,しょうち,承:しょう | 知:ち,Consent | Know | Aware,consent | know | aware,noun | verbal noun,3000.0,9.0,6
+1441,父親,ちちおや,父:ちち | 親:おや,Father | Dad,father | dad,noun,3000.0,2.0,2
+1442,供給,きょうきゅう,供:きょう | 給:きゅう,Supply | Supplying,supply | supplying,noun | verbal noun,,,6
+1443,秘密,ひみつ,秘:ひ | 密:みつ,Secret | A Secret,secret | a Secret,noun | な adjective | の adjective,,,6
+1444,誰か,だれか,,Someone,someone,noun,,,9
+1446,獲得,かくとく,,Acquisition | Possession,acquisition | possession,noun | verbal noun | の adjective,,,9
+1447,許可,きょか,許:きょ | 可:か,Permission,permission,noun | verbal noun,,,5
+1448,急,きゅう,急:きゅう,Sudden | Urgent | Emergency | Steep,sudden | urgent | emergency | steep,adverb | な adjective,3000.0,,3
+1449,嫌,いや,,Dislike | Eww | Gross | Reluctant,dislike | eww | gross | reluctant,noun | な adjective,,,9
+1450,外交,がいこう,外:がい | 交:こう,Diplomacy,diplomacy,noun,3000.0,2.0,2
+1451,論理,ろんり,論:ろん | 理:り,Logic,logic,noun,,,6
+1452,話す,はなす,話:はな | す,To Speak | To Talk,speak | talk,transitive verb | godan verb,1000.0,,2
+1453,西,にし,西:にし,West,west,noun,3000.0,,2
+1455,極めて,きわめて,極:きわ | めて,Extremely,extremely,adverb,,,4
+1456,本質,ほんしつ,本:ほん | 質:しつ,Essence | True Nature | Substance | Reality,essence | true Nature | substance | reality,noun | の adjective,,,5
+1460,手紙,てがみ,手:て | 紙:がみ,Letter,letter,noun | の adjective,3000.0,2.0,2
+1461,策,さく,策:さく,A Plan | Plan | Scheme,a Plan | plan | scheme,noun | suffix,,,6
+1462,去年,きょねん,去:きょ | 年:ねん,Last Year,last Year,noun,3000.0,3.0,3
+1465,汗,あせ,,Sweat,sweat,noun,,,9
+1466,強制,きょうせい,強:きょう | 制:せい,Forcing | Compulsion | Compulsory,forcing | compulsion | compulsory,noun | verbal noun | の adjective,,,5
+1467,宣言,せんげん,宣:せん | 言:げん,Proclamation | Declaration,proclamation | declaration,noun | verbal noun,,,6
+1469,優先,ゆうせん,優:ゆう | 先:せん,Priority,priority,noun | verbal noun | の adjective,,,6
+1473,職業,しょくぎょう,職:しょく | 業:ぎょう,Occupation | Profession,occupation | profession,noun | の adjective,,,5
+1475,援助,えんじょ,,Assistance | Aid,assistance | aid,noun | verbal noun | の adjective,3000.0,9.0,9
+1476,申請,しんせい,,Application | Applying,application | applying,noun | verbal noun,,,9
+1480,喜び,よろこび,喜:よろこ | び,Joy | Delight | Glee | Rapture,joy | delight | glee | rapture,noun,,,5
+1483,特殊,とくしゅ,,Special | Unique,special | unique,noun | な adjective | の adjective,,,9
+1484,次回,じかい,次:じ | 回:かい,Next Time,next Time,noun,3000.0,3.0,3
+1485,文学,ぶんがく,文:ぶん | 学:がく,Literature,literature,noun,,,1
+1486,お知らせ,おしらせ,お | 知:し | らせ,Notice | Notification | Flier,notice | notification | flier,noun | verbal noun,3000.0,,2
+1487,議会,ぎかい,議:ぎ | 会:かい,Diet | The Diet | Congress | Parliament | Assembly,diet | the Diet | congress | parliament | assembly,noun,,,4
+1490,唯一,ゆいつ,,Only | Sole | Unique,only | sole | unique,adverb | の adjective,,,9
+1491,削除,さくじょ,,Deletion | Elimination | Delete,deletion | elimination | delete,noun | verbal noun | の adjective,,,9
+1493,両方,りょうほう,両:りょう | 方:ほう,Both | Both Sides | Both Ways,both | both Sides | both Ways,noun | の adjective,,,3
+1497,横浜,よこはま,,Yokohama,yokohama,proper noun,3000.0,9.0,9
+1501,処分,しょぶん,処:しょ | 分:ぶん,Disposal | Punishment,disposal | punishment,noun | verbal noun,,,6
+1502,戦い,たたかい,戦:たたか | い,Battle | Fight | Conflict,battle | fight | conflict,noun,,,4
+1503,共有,きょうゆう,共:きょう | 有:ゆう,Shared | Co Ownership | Joint Ownership | Share,shared | co Ownership | joint Ownership | share,noun | verbal noun | の adjective,3000.0,9.0,4
+1504,変える,かえる,変:か | える,To Change Something | To Change,change Something | change,transitive verb | ichidan verb,,,4
+1505,学者,がくしゃ,学:がく | 者:しゃ,Scholar,scholar,noun | の adjective,,,3
+1506,夫婦,ふうふ,夫:ふう | 婦:ふ,Husband And Wife | Married Couple | Mr. And Mrs.,husband And Wife | married Couple | mr. And Mrs.,noun,,,5
+1507,買い物,かいもの,買:か | い | 物:もの,Shopping,shopping,noun | の adjective,,,3
+1516,少女,しょうじょ,少:しょう | 女:じょ,Girl | Young Girl,girl | young Girl,noun,,,2
+1518,職場,しょくば,職:しょく | 場:ば,Place Of Work | Workplace | Place Of Employment,place Of Work | workplace | place Of Employment,noun,,,5
+1519,材料,ざいりょう,材:ざい | 料:りょう,Ingredients | Material,ingredients | material,noun,,,4
+1520,考慮,こうりょ,,Consideration,consideration,noun | verbal noun,,,9
+1523,実感,じっかん,実:じっ | 感:かん,Realization | Real Feeling | Fully Realizing,realization | real Feeling | fully Realizing,noun | verbal noun,3000.0,3.0,3
+1524,代わり,かわり,代:か | わり,Substitute | Replacement,substitute | replacement,noun | の adjective,3000.0,,3
+1528,航空,こうくう,航:こう | 空:くう,Aviation,aviation,noun | の adjective,3000.0,9.0,5
+1529,一時,いちじ,一:いち | 時:じ,One O'clock,one O'clock,noun,,,2
+1530,字,じ,字:じ,Character | Kanji Character | Letter | Symbol,character | kanji Character | letter | symbol,noun,3000.0,,1
+1531,分類,ぶんるい,分:ぶん | 類:るい,Classification | Categorization,classification | categorization,noun | verbal noun,,,4
+1536,哲学,てつがく,,Philosophy,philosophy,noun,,,9
+1537,核,かく,,Nucleus | Core | Nuclear,nucleus | core | nuclear,noun | の adjective,,,9
+1538,巨大,きょだい,,Huge | Gigantic | Enormous,huge | gigantic | enormous,noun | な adjective,,,9
+1539,台湾,たいわん,,Taiwan,taiwan,noun | proper noun | の adjective,3000.0,9.0,9
+1544,条約,じょうやく,条:じょう | 約:やく,Treaty | Pact | Agreement,treaty | pact | agreement,noun,,,5
+1546,人類,じんるい,人:じん | 類:るい,Mankind | Humanity | Humankind,mankind | humanity | humankind,noun,,,4
+1551,首,くび,首:くび,Neck,neck,noun,3000.0,,2
+1553,波,なみ,波:なみ,Wave,wave,noun,3000.0,,3
+1556,血,ち,血:ち,Blood,blood,noun,3000.0,,3
+1557,捜査,そうさ,,Criminal Investigation | Manhunt,criminal Investigation | manhunt,noun | verbal noun | の adjective,,,9
+1558,死亡,しぼう,死:し | 亡:ぼう,Mortality | Death,mortality | death,noun | verbal noun,,,6
+1560,祭,まつり,祭:まつり,Festival,festival,noun,3000.0,,3
+1563,某,なにがし,,Someone Or Other | You-Know-Who | Something,someone Or Other | you-Know-Who | something,noun | pronoun | の adjective,,,9
+1565,天気,てんき,天:てん | 気:き,Weather,weather,noun,3000.0,1.0,1
+1568,挨拶,あいさつ,,Greeting | Salutation | Speech,greeting | salutation | speech,noun | verbal noun | の adjective,,,9
+1569,受験,じゅけん,受:じゅ | 験:けん,Taking An Exam | Taking A Test,taking An Exam | taking A Test,noun | verbal noun,3000.0,9.0,4
+1574,税金,ぜいきん,税:ぜい | 金:きん,Tax,tax,noun,,,5
+1575,異常,いじょう,異:い | 常:じょう,Abnormal | Abnormality,abnormal | abnormality,noun | な adjective,,,6
+1577,無事,ぶじ,無:ぶ | 事:じ,Safe And Sound | Safe | Without A Hitch,safe And Sound | safe | without A Hitch,noun | な adjective,,,4
+1581,服,ふく,服:ふく,Clothes | Clothing,clothes | clothing,noun,3000.0,,3
+1582,不可能,ふかのう,不:ふ | 可:か | 能:のう,Impossible | Not Possible,impossible | not Possible,noun | な adjective,,,5
+1583,領域,りょういき,領:りょう | 域:いき,Domain | Territory | Realm,domain | territory | realm,noun | の adjective,,,6
+1585,普及,ふきゅう,,Diffusion,diffusion,noun | verbal noun,,,9
+1587,周囲,しゅうい,周:しゅう | 囲:い,Surroundings | Perimeter | Circumference,surroundings | perimeter | circumference,noun | の adjective,,,5
+1588,お前,おまえ,お | 前:まえ,You,you,pronoun | の adjective,3000.0,,2
+1589,見事,みごと,見:み | 事:ごと,Splendid | Magnificent | Beautiful | Admirable | Praiseworthy Act,splendid | magnificent | beautiful | admirable | praiseworthy Act,noun | な adjective,,,3
+1591,素材,そざい,素:そ | 材:ざい,Raw Material | Material | Ingredient,raw Material | material | ingredient,noun,,,5
+1593,児童,じどう,児:じ | 童:どう,Children | Child | School Children,children | child | school Children,noun,3000.0,9.0,4
+1594,自民党,じみんとう,自:じ | 民:みん | 党:とう,Liberal Democratic Party | LDP,liberal Democratic Party | lDP,noun,,,6
+1595,後ろ,うしろ,後:うし | ろ,Behind | Back | Rear,behind | back | rear,noun,3000.0,,2
+1596,把握,はあく,,Grasp | Understand,grasp | understand,noun | verbal noun,,,9
+1605,女子,じょし,女:じょ | 子:し,Girl | Woman | Female,girl | woman | female,noun,3000.0,1.0,1
+1606,熱,ねつ,熱:ねつ,Fever | Heat,fever | heat,noun,,,4
+1607,扱い,あつかい,,Handling | Treatment,handling | treatment,noun | verbal noun,,,9
+1609,予測,よそく,予:よ | 測:そく,Prediction | Estimation | Forecast,prediction | estimation | forecast,noun | verbal noun,,,5
+1611,常識,じょうしき,常:じょう | 識:しき,Common Sense | Common Knowledge,common Sense | common Knowledge,noun,,,5
+1614,緊張,きんちょう,,Nervousness | Tension,nervousness | tension,noun | verbal noun,,,9
+1615,沢山,たくさん,,A Lot | Many | Much,a Lot | many | much,noun | な adjective | の adjective,3000.0,9.0,9
+1618,進む,すすむ,進:すす | む,To Advance | To Move Forward | To Progress,advance | move Forward | progress,intransitive verb | godan verb,1000.0,,3
+1619,教科書,きょうかしょ,教:きょう | 科:か | 書:しょ,Textbook,textbook,noun,3000.0,2.0,2
+1620,先週,せんしゅう,先:せん | 週:しゅう,Last Week,last Week,noun,3000.0,2.0,2
+1622,余裕,よゆう,,Leeway | Room To Spare,leeway | room To Spare,noun,,,9
+1623,品質,ひんしつ,品:ひん | 質:しつ,Material Quality | Item Quality | Product Quality | Quality,material Quality | item Quality | product Quality | quality,noun,,,5
+1624,太陽,たいよう,太:たい | 陽:よう,Sun,sun,noun,3000.0,3.0,3
+1631,進行,しんこう,進:しん | 行:こう,Advance | Progress,advance | progress,noun | verbal noun,,,3
+1632,近所,きんじょ,近:きん | 所:じょ,Neighborhood,neighborhood,noun | の adjective,3000.0,3.0,3
+1633,呼ぶ,よぶ,呼:よ | ぶ,To Call | To Call Out,call | call Out,transitive verb | godan verb,,,6
+1634,程,ほど,程:ほど,Extent | An Extent,extent | an Extent,noun,,,5
+1635,無駄,むだ,,Futility | Uselessness | Pointlessness,futility | uselessness | pointlessness,noun | な adjective,,,9
+1636,講師,こうし,講:こう | 師:し,Lecturer | Instructor,lecturer | instructor,noun,,,5
+1637,桜,さくら,桜:さくら,Sakura | Cherry Tree | Cherry Blossom,sakura | cherry Tree | cherry Blossom,noun,,,5
+1638,郵便,ゆうびん,郵:ゆう | 便:びん,Mail | Post,mail | post,noun,,,6
+1640,指示,しじ,指:し | 示:じ,Instructions | Directions | Advice,instructions | directions | advice,noun | verbal noun,,,5
+1641,留学,りゅうがく,留:りゅう | 学:がく,Study Abroad | Studying Abroad,study Abroad | studying Abroad,noun | verbal noun,,,5
+1643,返事,へんじ,返:へん | 事:じ,Reply | Response,reply | response,noun | verbal noun,3000.0,3.0,3
+1645,嫌い,きらい,,Dislike | Hate | Dislikable | Detestable,dislike | hate | dislikable | detestable,noun | な adjective,,,9
+1646,創造,そうぞう,創:そう | 造:ぞう,Creation,creation,noun | verbal noun,,,6
+1647,物価,ぶっか,物:ぶっ | 価:か,Prices | Prices of Commodities | Cost Of Living,prices | prices of Commodities | cost Of Living,noun,,,5
+1649,統一,とういつ,統:とう | 一:いつ,Unity | Uniformity,unity | uniformity,noun | verbal noun,,,5
+1651,辺,へん,辺:へん,Side,side,noun,,,4
+1652,苦労,くろう,苦:く | 労:ろう,Hardship | Troubles,hardship | troubles,noun | verbal noun | な adjective,3000.0,9.0,4
+1653,漫画,まんが,,Manga | Japanese Comics,manga | japanese Comics,noun,,,9
+1654,押し,おし,,Push | Pressure,push | pressure,noun,,,9
+1656,飛行機,ひこうき,飛:ひ | 行:こう | 機:き,Airplane | Aeroplane | Aircraft | Plane,airplane | aeroplane | aircraft | plane,noun,3000.0,9.0,4
+1657,進化,しんか,進:しん | 化:か,Evolution | Progress,evolution | progress,noun | verbal noun,3000.0,3.0,3
+1662,貿易,ぼうえき,貿:ぼう | 易:えき,Trade | Commerce,trade | commerce,noun | verbal noun,,,5
+1665,静か,しずか,静:しず | か,Quiet,quiet,な adjective,,,4
+1668,停止,ていし,停:てい | 止:し,Stoppage | Suspension,stoppage | suspension,noun | verbal noun,3000.0,9.0,5
+1677,災害,さいがい,災:さい | 害:がい,Natural Disaster | Disaster | Accident,natural Disaster | disaster | accident,noun,,,5
+1679,信用,しんよう,信:しん | 用:よう,Trust | Credibility,trust | credibility,noun | verbal noun,,,4
+1683,高度,こうど,高:こう | 度:ど,Altitude | High-level,altitude | high-level,noun | な adjective | の adjective,3000.0,3.0,3
+1688,宣伝,せんでん,宣:せん | 伝:でん,Advertising | Promotion | Propaganda,advertising | promotion | propaganda,noun | verbal noun,,,6
+1690,迷惑,めいわく,,Trouble | Troublesome | Inconvenience | Nuisance,trouble | troublesome | inconvenience | nuisance,noun | な adjective,,,9
+1691,残る,のこる,残:のこ | る,To Remain Behind | To Remain | To Stay Behind,remain Behind | remain | stay Behind,intransitive verb | godan verb,,,4
+1697,統合,とうごう,統:とう | 合:ごう,Unification | Integration | Consolidation,unification | integration | consolidation,noun | verbal noun,,,5
+1698,謎,なぞ,,Mystery | Riddle,mystery | riddle,noun,,,9
+1699,起こる,おこる,起:お | こる,To Occur | To Happen | To Take Place,occur | happen | take Place,intransitive verb | godan verb,1000.0,,3
+1701,何故,なぜ,,Why | How,why | how,adverb,3000.0,9.0,5
+1705,恋,こい,,Love,love,independent noun,,,9
+1706,笑顔,えがお,笑:え | 顔:がお,Smile | Smiling Face,smile | smiling Face,noun | verbal noun,3000.0,9.0,4
+1708,自動,じどう,自:じ | 動:どう,Automatic,automatic,noun | の adjective,,,3
+1712,緊急,きんきゅう,,Urgent | Emergency,urgent | emergency,noun | な adjective | の adjective,3000.0,9.0,9
+1713,終わる,おわる,終:お | わる,To End | To Be Over,end | be Over,intransitive verb | transitive verb | godan verb,1000.0,,3
+1716,輸出,ゆしゅつ,輸:ゆ | 出:しゅつ,Export,export,noun | verbal noun | な adjective | の adjective,,,5
+1717,先輩,せんぱい,,Senior | Older Graduate | Superior,senior | older Graduate | superior,noun,,,9
+1718,帰る,かえる,帰:かえ | る,To Return Home | To Return | To Go Home,return Home | return | go Home,intransitive verb | godan verb,1000.0,,2
+1722,反省,はんせい,反:はん | 省:せい,Reconsideration | Reflection | Regret,reconsideration | reflection | regret,noun | verbal noun,3000.0,9.0,4
+1726,製作,せいさく,製:せい | 作:さく,Manufacturing | Production,manufacturing | production,noun | verbal noun | の adjective,,,5
+1727,牛,うし,牛:うし,Cow | Bull | Ox,cow | bull | ox,noun,3000.0,,2
+1729,診断,しんだん,,Diagnosis | Diagnosing | Assessment,diagnosis | diagnosing | assessment,noun | の adjective | verbal noun,,,9
+1732,工業,こうぎょう,工:こう | 業:ぎょう,Industry,industry,noun,,,3
+1733,広い,ひろい,広:ひろ | い,Wide | Spacious,wide | spacious,い adjective,3000.0,,2
+1734,白い,しろい,白:しろ | い,White,white,い adjective,3000.0,,1
+1735,崩壊,ほうかい,,Collapse | Crumbling | Breaking Down,collapse | crumbling | breaking Down,noun | verbal noun,,,9
+1736,真実,しんじつ,真:しん | 実:じつ,Truth | Reality,truth | reality,adverb | noun | な adjective | の adjective,3000.0,3.0,3
+1737,適当,てきとう,適:てき | 当:とう,Appropriate | Proper | Suitable | Irresponsible,appropriate | proper | suitable | irresponsible,noun | な adjective,,,5
+1740,石油,せきゆ,石:せき | 油:ゆ,Oil | Petroleum | Kerosene,oil | petroleum | kerosene,noun,3000.0,3.0,3
+1742,大幅,おおはば,,Large | Substantial | Drastic | Major,large | substantial | drastic | major,noun | な adjective,,,9
+1743,天,てん,天:てん,Heaven,heaven,noun,3000.0,,1
+1745,貢献,こうけん,,Contribution,contribution,noun | verbal noun,,,9
+1746,配慮,はいりょ,,Consideration | Care,consideration | care,noun | verbal noun,3000.0,9.0,9
+1748,書類,しょるい,書:しょ | 類:るい,Document,document,noun,,,4
+1749,主催,しゅさい,,Host | Hosting | Sponsor,host | hosting | sponsor,noun | verbal noun,,,9
+1751,調子,ちょうし,調:ちょう | 子:し,Condition | Tone,condition | tone,noun,3000.0,3.0,3
+1752,単語,たんご,単:たん | 語:ご,Word | Vocabulary,word | vocabulary,noun | の adjective,,,4
+1753,表情,ひょうじょう,表:ひょう | 情:じょう,Facial Expression,facial Expression,noun,,,5
+1757,比較的,ひかくてき,,Comparatively | Relatively,comparatively | relatively,adverb,,,9
+1760,植物,しょくぶつ,植:しょく | 物:ぶつ,Plant | Vegetation,plant | vegetation,noun,3000.0,3.0,3
+1765,限界,げんかい,限:げん | 界:かい,Limit | Limitations,limit | limitations,noun | の adjective,3000.0,9.0,5
+1772,奴,やつ,,Dude | Guy,dude | guy,pronoun | の adjective,,,9
+1773,感染,かんせん,感:かん | 染:せん,Infection | Contagion,infection | contagion,noun | verbal noun | の adjective,,,6
+1774,根拠,こんきょ,,Basis | Grounds,basis | grounds,noun | verbal noun,3000.0,9.0,9
+1775,原稿,げんこう,,Manuscript | Copy,manuscript | copy,noun,,,9
+1776,悩み,なやみ,,A Worry | A Trouble,a Worry | a Trouble,noun,,,9
+1779,記載,きさい,,Record,record,noun | verbal noun,,,9
+1780,お母さん,おかあさん,お | 母:かあ | さん,Mother | Mom,mother | mom,noun,3000.0,,2
+1781,怖い,こわい,,Scary,scary,い adjective,,,9
+1783,人達,ひとたち,人:ひと | 達:たち,People,people,noun,,,4
+1785,地図,ちず,地:ち | 図:ず,Map,map,noun,3000.0,2.0,2
+1786,大学院,だいがくいん,大:だい | 学:がく | 院:いん,Graduate School | Grad School,graduate School | grad School,noun,3000.0,3.0,3
+1787,拒否,きょひ,,Refusal | Rejection,refusal | rejection,noun | の adjective | verbal noun,,,9
+1788,腕,うで,,Arm,arm,noun,,,9
+1790,最低,さいてい,最:さい | 低:てい,The Lowest | The Worst | The Minimum | Nasty | Terrible,the Lowest | the Worst | the Minimum | nasty | terrible,adverb | noun | な adjective | の adjective,,,4
+1791,微妙,びみょう,,Not So Good | Not Really | Delicate | Subtle,not So Good | not Really | delicate | subtle,noun | な adjective,,,9
+1792,見方,みかた,見:み | 方:かた,Way Of Seeing | Point Of View | Perspective | Viewpoint,way Of Seeing | point Of View | perspective | viewpoint,noun,,,2
+1793,美味しい,おいしい,,Tasty | Delicious,tasty | delicious,い adjective,3000.0,3.0,3
+1796,弱い,よわい,弱:よわ | い,Weak,weak,い adjective,3000.0,,2
+1797,遠く,とおく,遠:とお | く,Far Away | Distant | At A Distance | Distant Place,far Away | distant | at A Distance | distant Place,noun | の adjective,7000.0,,2
+1799,削減,さくげん,,Reduction | Cutback,reduction | cutback,noun | verbal noun,,,9
+1800,青年,せいねん,青:せい | 年:ねん,Youth | Young Man | Young Adult,youth | young Man | young Adult,noun,3000.0,1.0,1
+1801,我が国,わがくに,我:わ | が | 国:くに,Our Country,our Country,noun,,,6
+1804,選ぶ,えらぶ,選:えら | ぶ,To Choose,choose,transitive verb | godan verb,,,4
+1805,劇場,げきじょう,劇:げき | 場:じょう,Theater | Theatre,theater | theatre,noun | の adjective,,,6
+1806,強調,きょうちょう,強:きょう | 調:ちょう,Emphasis | Highlight | Stress,emphasis | highlight | stress,noun | verbal noun,,,3
+1813,床,ゆか,,Floor,floor,noun,,,9
+1814,真剣,しんけん,,Serious,serious,noun | な adjective,3000.0,9.0,9
+1815,講義,こうぎ,講:こう | 義:ぎ,Lecture,lecture,noun | verbal noun,,,5
+1817,隊,たい,隊:たい,Squad | Unit | Team,squad | unit | team,noun | suffix,,,4
+1820,貴重,きちょう,貴:き | 重:ちょう,Precious | Valuable,precious | valuable,noun | な adjective,,,6
+1825,幅,はば,,Width,width,noun,,,9
+1827,監視,かんし,,Surveillance | Observation | Monitoring,surveillance | observation | monitoring,noun | verbal noun,,,9
+1832,勝ち,かち,勝:か | ち,Victory | Win | A Victory | A Win,victory | win | a Victory | a Win,noun,,,3
+1837,肩,かた,,Shoulder,shoulder,noun,,,9
+1838,券,けん,券:けん,Ticket | Coupon | Pass,ticket | coupon | pass,noun | suffix,,,6
+1839,意外,いがい,意:い | 外:がい,Unexpected | Surprising,unexpected | surprising,adverb | noun | な adjective,,,3
+1840,容疑,ようぎ,容:よう | 疑:ぎ,Suspicion | Charge,suspicion | charge,noun,,,6
+1841,明治,めいじ,明:めい | 治:じ,Meiji Era | Meiji Emperor | Meiji,meiji Era | meiji Emperor | meiji,noun,,,4
+1842,命令,めいれい,命:めい | 令:れい,Order | Command,order | command,noun | verbal noun,3000.0,9.0,4
+1843,向こう,むこう,向:む | こう,Over There | Over That Way | Other Side,over There | over That Way | other Side,noun,,,3
+1844,根本,こんぽん,根:こん | 本:ぽん,Root | Basis | Foundation,root | basis | foundation,noun | の adjective,3000.0,3.0,3
+1847,時々,ときどき,,Sometimes | At Times,sometimes | at Times,adverb | noun | の adjective,,,2
+1848,指,ゆび,指:ゆび,Finger | Toe,finger | toe,noun,3000.0,,3
+1849,依存,いぞん,,Dependence | Reliance,dependence | reliance,noun | verbal noun,,,9
+1850,医学,いがく,医:い | 学:がく,Medical Science | Medicine,medical Science | medicine,noun,3000.0,3.0,3
+1853,刺激,しげき,,Stimulation | Encourage | Excite,stimulation | encourage | excite,noun | verbal noun,,,9
+1857,短い,みじかい,短:みじか | い,Short | Brief,short | brief,い adjective,3000.0,,3
+1859,名古屋,なごや,名:な | 古:ご | 屋:や,Nagoya,nagoya,proper noun,3000.0,3.0,3
+1864,笑い,わらい,笑:わら | い,A Laugh | Laugh,a Laugh | laugh,noun,,,4
+1866,上げる,あげる,上:あ | げる,To Lift Something | To Raise Something | To Increase Something,lift Something | raise Something | increase Something,transitive verb | ichidan verb,1000.0,,1
+1868,印刷,いんさつ,印:いん | 刷:さつ,Printing,printing,noun | verbal noun,,,4
+1873,規則,きそく,規:き | 則:そく,Rule | Regulation,rule | regulation,noun,,,5
+1876,奥,おく,,Far Back | In The Back,far Back | in The Back,independent noun,,,9
+1880,住む,すむ,住:す | む,To Live | To Dwell | To Reside,live | dwell | reside,intransitive verb | godan verb,1000.0,,3
+1881,歩く,あるく,歩:ある | く,To Walk,walk,intransitive verb | godan verb,1000.0,,2
+1883,習慣,しゅうかん,習:しゅう | 慣:かん,Custom | Habit,custom | habit,noun | の adjective,,,5
+1887,模様,もよう,模:も | 様:よう,Pattern,pattern,noun,3000.0,9.0,6
+1888,日曜日,にちようび,日:にち | 曜:よう | 日:び,Sunday,sunday,noun,3000.0,2.0,2
+1890,速度,そくど,速:そく | 度:ど,Speed,speed,noun,3000.0,3.0,3
+1897,混乱,こんらん,混:こん | 乱:らん,Confusion | Disorder | Chaos,confusion | disorder | chaos,noun | verbal noun,,,6
+1898,医者,いしゃ,医:い | 者:しゃ,Doctor | Physician,doctor | physician,noun,,,3
+1899,自殺,じさつ,自:じ | 殺:さつ,Suicide,suicide,noun | verbal noun,,,5
+1900,当たり,あたり,当:あ | たり,A Success | Success | Hit | Guess,a Success | success | hit | guess,noun,,,2
+1901,都合,つごう,都:つ | 合:ごう,One's Convenience | Circumstances,one's Convenience | circumstances,adverb | noun,3000.0,3.0,3
+1902,幸い,さいわい,幸:さいわ | い,Happiness | Luck | Fortune,happiness | luck | fortune,adverb | noun | な adjective,3000.0,,3
+1904,概要,がいよう,,Outline | Summary,outline | summary,noun,,,9
+1905,温泉,おんせん,温:おん | 泉:せん,Hot Springs | Onsen,hot Springs | onsen,noun,3000.0,9.0,6
+1906,神様,かみさま,神:かみ | 様:さま,God | Gods,god | gods,noun | proper noun,,,3
+1907,漢字,かんじ,漢:かん | 字:じ,Kanji | Chinese Letters | Chinese Characters,kanji | chinese Letters | chinese Characters,noun,,,3
+1910,ご飯,ごはん,ご | 飯:はん,Meal | Cooked Rice,meal | cooked Rice,noun,,,4
+1911,賛成,さんせい,賛:さん | 成:せい,Agreement | Approval | Support,agreement | approval | support,noun | verbal noun | の adjective,,,5
+1913,決める,きめる,決:き | める,To Decide,decide,transitive verb | ichidan verb,1000.0,,3
+1914,緑,みどり,緑:みどり,Green,green,noun,3000.0,,3
+1920,城,しろ,城:しろ,Castle,castle,noun,,,4
+1921,筋,すじ,筋:すじ,Tendon | Sinew,tendon | sinew,noun,,,6
+1922,天皇,てんのう,天:てん | 皇:のう,Emperor Of Japan | Emperor,emperor Of Japan | emperor,noun,3000.0,9.0,6
+1924,痛み,いたみ,痛:いた | み,A Pain | Pain,a Pain | pain,noun,,,6
+1926,死ぬ,しぬ,死:し | ぬ,To Die,die,intransitive verb | godan verb,1000.0,,3
+1927,容易,ようい,容:よう | 易:い,Ease | Easily | Easy | Simple,ease | easily | easy | simple,noun | な adjective,,,5
+1929,録音,ろくおん,録:ろく | 音:おん,Sound Recording | Audio Recording,sound Recording | audio Recording,noun | verbal noun,3000.0,9.0,4
+1930,運,うん,運:うん,Luck,luck,noun,3000.0,,3
+1931,走る,はしる,走:はし | る,To Run,run,intransitive verb | godan verb,1000.0,,2
+1933,必須,ひっす,,Indispensable | Required | Essential,indispensable | required | essential,noun | な adjective | の adjective,,,9
+1935,林,はやし,林:はやし,Forest | Grove,forest | grove,noun,3000.0,,1
+1941,嘘,うそ,,Lie,lie,noun | の adjective,,,9
+1943,想定,そうてい,想:そう | 定:てい,Assumption | Expectation,assumption | expectation,noun | verbal noun,3000.0,3.0,3
+1945,手続き,てつづき,手:て | 続:つづ | き,Procedure | Formalities | Process,procedure | formalities | process,noun | verbal noun,,,4
+1946,眺め,ながめ,,View | Scene | Prospect,view | scene | prospect,noun,,,9
+1947,要請,ようせい,,Demand | Request,demand | request,noun | verbal noun,,,9
+1948,楽器,がっき,楽:がっ | 器:き,Musical Instrument,musical Instrument,noun | の adjective,,,4
+1949,詩,し,詩:し,Poem,poem,noun,3000.0,,3
+1951,廃止,はいし,,Abolition,abolition,noun | verbal noun | の adjective,3000.0,9.0,9
+1952,詳しい,くわしい,,Detailed | Expert,detailed | expert,い adjective,,,9
+1953,魂,たましい,,Soul,soul,noun,,,9
+1954,綺麗,きれい,,Pretty | Beautiful | Clean,pretty | beautiful | clean,な adjective,,,9
+1955,今月,こんげつ,今:こん | 月:げつ,This Month | Current Month,this Month | current Month,noun,3000.0,2.0,2
+1957,各地,かくち,各:かく | 地:ち,Each Area | Various Areas,each Area | various Areas,noun | の adjective,,,4
+1958,従業,じゅうぎょう,従:じゅう | 業:ぎょう,Engaging In Work | Working | Employment,engaging In Work | working | employment,noun | verbal noun,,,6
+1962,合計,ごうけい,合:ごう | 計:けい,Total | Sum,total | sum,noun | verbal noun,,,2
+1963,伝える,つたえる,伝:つた | える,To Convey | To Tell | To Pass Down | To Transmit,convey | tell | pass Down | transmit,transitive verb | ichidan verb,,,4
+1964,怒り,いかり,,Anger | Wrath,anger | wrath,noun,,,9
+1965,香り,かおり,香:かお | り,Fragrance | Aroma,fragrance | aroma,noun,,,4
+1970,恐れ,おそれ,,Fear | Horror | Anxiety | Concern | Uneasiness | Dread,fear | horror | anxiety | concern | uneasiness | dread,noun,,,9
+1971,思い出,おもいで,思:おも | い | 出:で,A Memory | Memories | Memory,a Memory | memories | memory,noun,,,2
+1972,恐怖,きょうふ,,Terror | Fear,terror | fear,noun | verbal noun,,,9
+1974,主人,しゅじん,主:しゅ | 人:じん,Head Of Household | Husband | Master,head Of Household | husband | master,noun | の adjective,,,3
+1975,支払い,しはらい,,Payment,payment,noun,,,9
+1976,一瞬,いっしゅん,,An Instant | A Moment,an Instant | a Moment,noun,,,9
+1977,老人,ろうじん,老:ろう | 人:じん,Old Person | Elderly Person,old Person | elderly Person,noun | の adjective,,,4
+1978,頁,ぺーじ,,Page,page,counter | noun,,,9
+1980,早速,さっそく,早:さっ | 速:そく,At Once | Immediately | Without Delay | Right Away | Right Now,at Once | immediately | without Delay | right Away | right Now,adverb,3000.0,3.0,3
+1981,関西,かんさい,関:かん | 西:さい,Kansai,kansai,proper noun,3000.0,9.0,4
+1983,時計,とけい,時:と | 計:けい,Watch | Clock,watch | clock,noun,,,2
+1984,割合,わりあい,割:わり | 合:あい,Ratio | Percentage | Comparatively | Fairly,ratio | percentage | comparatively | fairly,adverb | noun,,,6
+1985,認める,みとめる,認:みと | める,To Acknowledge | To Recognize | To Perceive | To Admit | To Approve,acknowledge | recognize | perceive | admit | approve,transitive verb | ichidan verb,,,6
+1988,徹底,てってい,,Thoroughness | Completeness,thoroughness | completeness,noun | verbal noun,,,9
+1990,穴,あな,穴:あな,Hole,hole,noun | suffix,,,6
+1991,板,いた,板:いた,Board | Plank | Slab | Plate,board | plank | slab | plate,noun,3000.0,,3
+1993,動く,うごく,動:うご | く,To Move | To Function,move | function,intransitive verb | godan verb,1000.0,,3
+1994,入学,にゅうがく,入:にゅう | 学:がく,School Admission | University Admission | Entry Into School | Enrollment,school Admission | university Admission | entry Into School | enrollment,noun | verbal noun,,,1
+1995,週末,しゅうまつ,週:しゅう | 末:まつ,Weekend,weekend,noun,,,4
+1996,殺人,さつじん,殺:さつ | 人:じん,Murder,murder,noun | の adjective,,,5
+1999,掃除,そうじ,,Cleaning,cleaning,noun | verbal noun,,,9
+2000,葉,は,葉:は,Leaf | Leaves,leaf | leaves,noun,3000.0,,3
+2006,昼,ひる,昼:ひる,Noon | Lunch,noon | lunch,noun,3000.0,,2
+2007,使い方,つかいかた,使:つか | い | 方:かた,How To Use | Way Of Using,how To Use | way Of Using,noun,3000.0,3.0,3
+2010,源,みなもと,源:みなもと,Origin | Source | Ground Spring,origin | source | ground Spring,noun,,,6
+2011,店舗,てんぽ,,Shop | Store | Shop Counter | Store Counter,shop | store | shop Counter | store Counter,counter | noun,3000.0,9.0,9
+2016,回転,かいてん,回:かい | 転:てん,Revolve | Rotate | Rotation,revolve | rotate | rotation,noun | verbal noun,,,3
+2018,犠牲,ぎせい,,Victim | Sacrifice | Scapegoat,victim | sacrifice | scapegoat,noun,,,9
+2019,暴力,ぼうりょく,暴:ぼう | 力:りょく,Violence | Force,violence | force,noun,,,5
+2020,細胞,さいぼう,,Cell | Biological Cell,cell | biological Cell,noun | の adjective,3000.0,9.0,9
+2022,痛い,いたい,痛:いた | い,Painful | Sore,painful | sore,い adjective,,,6
+2023,面倒,めんどう,,Trouble | Difficulty,trouble | difficulty,noun | な adjective,3000.0,9.0,9
+2027,戦闘,せんとう,,Battle | Combat,battle | combat,noun | verbal noun | の adjective,,,9
+2028,楽しむ,たのしむ,楽:たの | しむ,To Enjoy Something | To Have Fun,enjoy Something | have Fun,godan verb | transitive verb,1000.0,,2
+2029,困る,こまる,困:こま | る,To Be Distressed | To Be Troubled | To Be Perplexed | To Be Annoyed,be Distressed | be Troubled | be Perplexed | be Annoyed,intransitive verb | godan verb,,,6
+2030,聖書,せいしょ,聖:せい | 書:しょ,Bible,bible,noun | の adjective,,,6
+2036,成績,せいせき,成:せい | 績:せき,Grades | Ranking,grades | ranking,noun,,,5
+2037,お茶,おちゃ,お | 茶:ちゃ,Tea,tea,noun,3000.0,,2
+2038,勝負,しょうぶ,勝:しょう | 負:ぶ,Match | Showdown | A Gamble,match | showdown | a Gamble,noun | verbal noun,3000.0,3.0,3
+2040,翌日,よくじつ,翌:よく | 日:じつ,The Next Day | Next Day | The Following Day,the Next Day | next Day | the Following Day,noun,,,6
+2042,票,ひょう,票:ひょう,Ballot | A Vote,ballot | a Vote,counter | noun,,,4
+2045,左右,さゆう,左:さ | 右:ゆう,Left And Right | Both Ways | Influence | Control,left And Right | both Ways | influence | control,noun | verbal noun,3000.0,1.0,1
+2046,進める,すすめる,進:すす | める,To Advance Something | To Move Something Forward,advance Something | move Something Forward,transitive verb | ichidan verb,1000.0,,3
+2048,所属,しょぞく,所:しょ | 属:ぞく,Affiliation | Belong To,affiliation | belong To,noun | verbal noun | の adjective,,,5
+2050,千葉,ちば,千:ち | 葉:ば,Chiba,chiba,proper noun,3000.0,3.0,3
+2052,弾,たま,,Bullet | Shell | Pellet,bullet | shell | pellet,noun,,,9
+2056,帯,おび,帯:おび,Obi | Belt,obi | belt,noun,,,4
+2057,至る,いたる,至:いた | る,To Arrive At,arrive At,intransitive verb | godan verb,,,6
+2060,基盤,きばん,,Base | Basis | Foundation,base | basis | foundation,noun,,,9
+2062,応募,おうぼ,,Application,application,noun | verbal noun,,,9
+2064,枠,わく,,Frame | Limit,frame | limit,noun | suffix,,,9
+2067,道具,どうぐ,道:どう | 具:ぐ,Tool,tool,noun,3000.0,3.0,3
+2068,刑事,けいじ,,Police Detective | Detective,police Detective | detective,noun,,,9
+2069,勢い,いきおい,勢:いきお | い,Force | Momentum,force | momentum,adverb | noun,,,5
+2070,対立,たいりつ,対:たい | 立:りつ,Conflict | Confrontation | Opposition,conflict | confrontation | opposition,noun | verbal noun,,,3
+2071,散歩,さんぽ,散:さん | 歩:ぽ,A Stroll | A Walk,a Stroll | a Walk,noun | verbal noun,3000.0,9.0,4
+2072,症状,しょうじょう,,Symptom,symptom,noun | の adjective,,,9
+2073,入院,にゅういん,入:にゅう | 院:いん,Hospitalization | Hospital Admission,hospitalization | hospital Admission,noun | verbal noun,3000.0,3.0,3
+2078,広島,ひろしま,広:ひろ | 島:しま,Hiroshima,hiroshima,proper noun,3000.0,3.0,3
+2081,列,れつ,列:れつ,Line | Queue | Row | Column,line | queue | row | column,independent noun,3000.0,,3
+2082,腹,はら,腹:はら,Belly | Abdomen | Stomach,belly | abdomen | stomach,noun,,,6
+2084,玉,たま,玉:たま,Ball,ball,noun,3000.0,,1
+2085,送る,おくる,送:おく | る,To Send Something | To Escort Someone,send Something | escort Someone,transitive verb | godan verb,1000.0,,3
+2088,合う,あう,合:あ | う,To Suit | To Come Together | To Meet | To Match,suit | come Together | meet | match,intransitive verb | godan verb,1000.0,,2
+2089,銘柄,めいがら,,Brand | Make,brand | make,noun,,,9
+2090,数学,すうがく,数:すう | 学:がく,Mathematics | Math | Maths,mathematics | math | maths,noun,3000.0,2.0,2
+2091,土曜日,どようび,土:ど | 曜:よう | 日:び,Saturday,saturday,noun,3000.0,2.0,2
+2093,承認,しょうにん,承:しょう | 認:にん,Approval | Recognition | Agreement,approval | recognition | agreement,noun | verbal noun,,,6
+2095,侵害,しんがい,,Infringement | Violation,infringement | violation,noun | verbal noun,,,9
+2101,腰,こし,,Waist | Lower Back,waist | lower Back,noun,,,9
+2102,凄い,すごい,,Amazing | Wonderful | Terrible | Awful,amazing | wonderful | terrible | awful,い adjective,,,9
+2105,次々,つぎつぎ,,One After Another | In Succession,one After Another | in Succession,adverb,3000.0,,3
+2109,驚く,おどろく,,To Be Surprised | To Be Shocked,be Surprised | be Shocked,intransitive verb | godan verb,,,9
+2111,重い,おもい,重:おも | い,Heavy,heavy,い adjective,3000.0,,3
+2115,作戦,さくせん,作:さく | 戦:せん,Tactics | Strategy | Operation,tactics | strategy | operation,noun,,,4
+2116,技,わざ,技:わざ,Technique | Art | Skill,technique | art | skill,noun,,,5
+2117,指揮,しき,指:し | 揮:き,Command | Lead,command | lead,noun | verbal noun | の adjective,,,6
+2118,偶然,ぐうぜん,,By Chance | Unexpectedly | Coincidence,by Chance | unexpectedly | coincidence,adverb | noun | な adjective | の adjective,,,9
+2119,誤解,ごかい,誤:ご | 解:かい,Misunderstanding,misunderstanding,noun | verbal noun,,,6
+2127,意志,いし,意:い | 志:し,Will | Volition,will | volition,noun,,,5
+2129,置く,おく,置:お | く,To Put Down | To Set Down | To Place | To Put,put Down | set Down | place | put,godan verb,,,4
+2131,高校生,こうこうせい,高:こう | 校:こう | 生:せい,High School Student | High Schooler,high School Student | high Schooler,noun,3000.0,2.0,2
+2134,勇気,ゆうき,勇:ゆう | 気:き,Courage | Bravery | Valour | Valor,courage | bravery | valour | valor,noun,,,4
+2138,飲む,のむ,飲:の | む,To Drink,drink,transitive verb | godan verb,1000.0,,3
+2144,食べ物,たべもの,食:た | べ | 物:もの,Food,food,noun,,,3
+2145,法則,ほうそく,法:ほう | 則:そく,Physical Law | Law,physical Law | law,noun,,,5
+2146,作者,さくしゃ,作:さく | 者:しゃ,Author | Writer,author | writer,noun,,,3
+2147,上手,じょうず,上:じょう | 手:ず,Good At | Skillful | Skilled At | Skilled,good At | skillful | skilled At | skilled,noun | な adjective,,,1
+2148,文句,もんく,文:もん | 句:く,Complaint,complaint,noun,,,5
+2149,馬鹿,ばか,馬:ば | 鹿:か,Idiot | Dumb | Fool | Stupid | Absurd,idiot | dumb | fool | stupid | absurd,noun | な adjective,7000.0,9.0,4
+2150,失礼,しつれい,失:しつ | 礼:れい,Rude | Rudeness | Impoliteness | Excuse Me,rude | rudeness | impoliteness | excuse Me,noun | な adjective | verbal noun,7000.0,9.0,4
+2151,立つ,たつ,立:た | つ,To Stand | To Stand Up | To Rise,stand | stand Up | rise,intransitive verb | godan verb,1000.0,,1
+2152,博物館,はくぶつかん,博:はく | 物:ぶつ | 館:かん,Museum,museum,noun,7000.0,9.0,4
+2153,神社,じんじゃ,神:じん | 社:じゃ,Shinto Shrine | Shrine,shinto Shrine | shrine,noun,7000.0,3.0,3
+2154,予防,よぼう,予:よ | 防:ぼう,Prevention | Prevent,prevention | prevent,noun | verbal noun | の adjective,,,5
+2161,確率,かくりつ,確:かく | 率:りつ,Probability | Likelihood | Chances,probability | likelihood | chances,noun,,,5
+2164,美術館,びじゅつかん,美:び | 術:じゅつ | 館:かん,Museum | Art Museum | Art Gallery,museum | art Museum | art Gallery,noun,7000.0,9.0,5
+2167,苦手,にがて,苦:にが | 手:て,Hard To Deal With | Weak Point | Poor At | Not Very Good At | Bad At,hard To Deal With | weak Point | poor At | not Very Good At | bad At,noun | な adjective,7000.0,3.0,3
+2168,爆発,ばくはつ,,Explosion,explosion,noun | verbal noun,,,9
+2169,欧米,おうべい,,Europe And America | Europe And USA | The West,europe And America | europe And USA | the West,noun | の adjective,7000.0,9.0,9
+2170,肌,はだ,,Human Skin | Skin,human Skin | skin,noun | suffix,,,9
+2171,信仰,しんこう,,Religious Faith,religious Faith,noun | verbal noun,,,9
+2178,上がる,あがる,上:あ | がる,To Go Up | To Rise | To Get Higher,go Up | rise | get Higher,intransitive verb | godan verb,,,1
+2179,損害,そんがい,損:そん | 害:がい,Damage | Injury,damage | injury,noun | verbal noun,,,5
+2180,小学生,しょうがくせい,小:しょう | 学:がく | 生:せい,Elementary School Student | Primary School Student,elementary School Student | primary School Student,noun,,,1
+2181,妹,いもうと,妹:いもうと,Younger Sister | Little Sister,younger Sister | little Sister,noun,7000.0,,2
+2184,運命,うんめい,運:うん | 命:めい,Fate | Destiny,fate | destiny,noun,,,3
+2185,噂,うわさ,,Rumor | Gossip,rumor | gossip,noun | verbal noun | の adjective,,,9
+2192,電力,でんりょく,電:でん | 力:りょく,Electric Power | Electricity,electric Power | electricity,noun,,,2
+2193,園,その,園:その,Garden,garden,noun | suffix,7000.0,,2
+2195,矛盾,むじゅん,,Contradiction | Inconsistency,contradiction | inconsistency,noun | verbal noun | の adjective,,,9
+2197,立派,りっぱ,立:りっ | 派:ぱ,Splendid | Admirable | Impressive,splendid | admirable | impressive,noun | な adjective,,,6
+2200,大いに,おおいに,大:おお | いに,Very | Much | Greatly | A Lot Of | Very Much,very | much | greatly | a Lot Of | very Much,adverb,7000.0,,1
+2201,影,かげ,,Shadow,shadow,noun,,,9
+2203,象徴,しょうちょう,,Symbol,symbol,noun | verbal noun | の adjective,,,9
+2208,圧力,あつりょく,圧:あつ | 力:りょく,Pressure | Stress,pressure | stress,noun,,,5
+2212,風邪,かぜ,,Cold | Common Cold,cold | common Cold,noun,,,9
+2214,増える,ふえる,増:ふ | える,To Increase,increase,intransitive verb | ichidan verb,,,5
+2216,得意,とくい,得:とく | 意:い,Good At | Skilled At | Strong Point | Specialty | Forte,good At | skilled At | strong Point | specialty | forte,noun | な adjective | の adjective,,,5
+2217,温度,おんど,温:おん | 度:ど,Temperature,temperature,noun,7000.0,3.0,3
+2219,一生懸命,いっしょうけんめい,,With All One's Might | All Out,with All One's Might | all Out,noun | な adjective,,,9
+2220,香港,ほんこん,,Hong Kong,hong Kong,proper noun,7000.0,9.0,4
+2221,必死,ひっし,必:ひっ | 死:し,Frantic | Desperate | Certain Death | Sure Death,frantic | desperate | certain Death | sure Death,な adjective | の adjective,,,4
+2222,具合,ぐあい,具:ぐ | 合:あい,Condition | State | Health,condition | state | health,noun,7000.0,3.0,3
+2223,橋,はし,橋:はし,Bridge,bridge,noun,7000.0,,3
+2225,作用,さよう,作:さ | 用:よう,Effect | Action | Operation,effect | action | operation,noun | verbal noun,,,2
+2226,庭,にわ,庭:にわ,Garden | Yard,garden | yard,noun,7000.0,,3
+2228,本物,ほんもの,本:ほん | 物:もの,Real Thing | Real Deal | Genuine Article,real Thing | real Deal | genuine Article,noun | の adjective,,,3
+2230,新宿,しんじゅく,新:しん | 宿:じゅく,Shinjuku,shinjuku,proper noun,,,3
+2231,延長,えんちょう,延:えん | 長:ちょう,Prolonging | Extension,prolonging | extension,noun | verbal noun,,,6
+2232,観客,かんきゃく,観:かん | 客:きゃく,Audience | Spectators,audience | spectators,noun,,,4
+2235,深刻,しんこく,深:しん | 刻:こく,Serious | Grave,serious | grave,noun | な adjective,,,6
+2238,又,また,,Again | And Also | Or,again | and Also | or,adverb | prefix,,,9
+2239,武器,ぶき,武:ぶ | 器:き,Weapon,weapon,noun,,,5
+2242,荷物,にもつ,荷:に | 物:もつ,Luggage | Baggage | Load,luggage | baggage | load,noun,7000.0,3.0,3
+2244,自立,じりつ,自:じ | 立:りつ,Independence | Self Reliance | Autonomy,independence | self Reliance | autonomy,noun | の adjective | verbal noun,,,2
+2246,直前,ちょくぜん,直:ちょく | 前:ぜん,Just Before | Immediately Prior To,just Before | immediately Prior To,noun | adverb,,,2
+2247,開く,あく,開:あ | く,To Open | To Be Open,open | be Open,intransitive verb | godan verb,1000.0,,3
+2248,既存,きそん,,Existing,existing,noun | の adjective,,,9
+2251,相変わらず,あいかわらず,相:あい | 変:か | わらず,As Usual | As Ever | The Same | As Before,as Usual | as Ever | the Same | as Before,adverb | noun,,,4
+2252,本気,ほんき,本:ほん | 気:き,Serious | Seriousness,serious | seriousness,noun | な adjective | の adjective,,,1
+2255,地下,ちか,地:ち | 下:か,Underground | Basement | Cellar,underground | basement | cellar,noun | の adjective,,,2
+2256,慎重,しんちょう,,Discreet | Careful,discreet | careful,noun | な adjective,,,9
+2258,学問,がくもん,学:がく | 問:もん,Schooling | Study | Learning | Scholarship,schooling | study | learning | scholarship,noun | verbal noun,,,3
+2259,髪,かみ,,Hair | Head Hair | Hair On Your Head,hair | head Hair | hair On Your Head,noun,,,9
+2262,為替,かわせ,,Currency Exchange,currency Exchange,noun,,,9
+2263,劇,げき,劇:げき,Drama | Play | Show,drama | play | show,noun,,,6
+2266,忙しい,いそがしい,,Busy,busy,い adjective,,,9
+2268,丁寧,ていねい,,Polite | Courteous,polite | courteous,noun | な adjective,7000.0,9.0,9
+2271,探す,さがす,探:さが | す,To Look For | To Search For,look For | search For,transitive verb | godan verb,,,6
+2273,袋,ふくろ,,Sack | Bag,sack | bag,noun,,,9
+2274,歯,は,歯:は,Tooth | Teeth,tooth | teeth,noun,7000.0,,3
+2277,塩,しお,塩:しお,Salt,salt,noun,,,4
+2278,休日,きゅうじつ,休:きゅう | 日:じつ,Holiday,holiday,noun,7000.0,1.0,1
+2280,解析,かいせき,,Analysis,analysis,noun | verbal noun,,,9
+2282,上司,じょうし,上:じょう | 司:し,Boss | Superior,boss | superior,noun,,,4
+2286,周年,しゅうねん,周:しゅう | 年:ねん,Anniversary,anniversary,noun | suffix,,,4
+2287,寒い,さむい,寒:さむ | い,Cold,cold,い adjective,3000.0,,3
+2291,兄弟,きょうだい,兄:きょう | 弟:だい,Brothers | Siblings,brothers | siblings,noun,,,2
+2293,辺り,あたり,辺:あた | り,Area | Vicinity | Neighborhood,area | vicinity | neighborhood,noun,,,4
+2295,素直,すなお,素:す | 直:なお,Honest | Upfront | Obedient,honest | upfront | obedient,な adjective,,,5
+2297,待つ,まつ,待:ま | つ,To Wait,wait,intransitive verb | transitive verb | godan verb,1000.0,,3
+2298,大衆,たいしゅう,大:たい | 衆:しゅう,General Public,general Public,noun | の adjective,,,6
+2300,不正,ふせい,不:ふ | 正:せい,Injustice | Dishonest | Unauthorized,injustice | dishonest | unauthorized,noun | な adjective,,,4
+2301,勢力,せいりょく,勢:せい | 力:りょく,Influence | Force,influence | force,noun,,,5
+2302,議長,ぎちょう,議:ぎ | 長:ちょう,Chairman | Chairperson | Speaker,chairman | chairperson | speaker,noun,,,4
+2303,報酬,ほうしゅう,,Reward | Compensation,reward | compensation,noun,,,9
+2305,丸,まる,丸:まる,Circle | Round | Circular,circle | round | circular,noun,7000.0,,2
+2309,変換,へんかん,,Conversion | Change,conversion | change,noun | verbal noun,,,9
+2310,連邦,れんぽう,,Commonwealth | Federation,commonwealth | federation,noun | の adjective,,,9
+2311,衝撃,しょうげき,,Shock | Crash | Impact,shock | crash | impact,noun | verbal noun,,,9
+2312,今朝,けさ,,This Morning,this Morning,noun,7000.0,2.0,2
+2317,搭載,とうさい,,Built In | Equipped With,built In | equipped With,noun | verbal noun,,,9
+2320,縁,ふち,,Edge | Rim | Brim,edge | rim | brim,noun,,,9
+2321,人数,にんずう,人:にん | 数:ずう,The Number Of People | The Amount Of People,the Number Of People | the Amount Of People,noun,,,2
+2323,政党,せいとう,政:せい | 党:とう,Political Party,political Party,noun | の adjective,,,6
+2324,来週,らいしゅう,来:らい | 週:しゅう,Next Week,next Week,noun,7000.0,2.0,2
+2328,骨,ほね,,Bone,bone,noun,,,9
+2329,塾,じゅく,,Cram School | Coaching School | Juku,cram School | coaching School | juku,noun,,,9
+2330,我慢,がまん,,Endurance | Perseverance | Tolerance | Patience | Self Control,endurance | perseverance | tolerance | patience | self Control,noun | verbal noun,,,9
+2331,一生,いっしょう,一:いっ | 生:しょう,Whole Life | All Through Life | Lifelong,whole Life | all Through Life | lifelong,noun | の adjective,,,1
+2332,原作,げんさく,原:げん | 作:さく,Original Work,original Work,noun | の adjective,,,2
+2333,底,そこ,底:そこ,Bottom,bottom,noun,,,4
+2334,仮に,かりに,仮:かり | に,Supposing | If,supposing | if,adverb,,,5
+2336,強力,きょうりょく,強:きょう | 力:りょく,Strong | Strength | Powerful,strong | strength | powerful,noun | な adjective,,,2
+2345,細かい,こまかい,細:こま | かい,Detailed | Fine | Small | Trivial,detailed | fine | small | trivial,い adjective,3000.0,,2
+2346,免許,めんきょ,,License | Certificate | Permit,license | certificate | permit,noun | verbal noun,,,9
+2347,伴う,ともなう,,To Accompany | To Be Accompanied By | To Go Hand In Hand With,accompany | be Accompanied By | go Hand In Hand With,intransitive verb | transitive verb | godan verb,,,9
+2349,港,みなと,港:みなと,Harbor | Port,harbor | port,noun,7000.0,,3
+2352,実力,じつりょく,実:じつ | 力:りょく,True Strength | True Ability | True Power,true Strength | true Ability | true Power,noun,,,3
+2353,恋人,こいびと,,Lover | Significant Other | Boyfriend | Girlfriend,lover | significant Other | boyfriend | girlfriend,noun,,,9
+2356,住所,じゅうしょ,住:じゅう | 所:しょ,Address,address,noun,7000.0,3.0,3
+2357,歓迎,かんげい,,Welcome | Welcoming,welcome | welcoming,noun | verbal noun | の adjective,,,9
+2367,田舎,いなか,,Countryside | Rural,countryside | rural,noun | の adjective,,,5
+2369,激しい,はげしい,激:はげ | しい,Intense | Violent | Fierce,intense | violent | fierce,い adjective,,,6
+2370,鍵,かぎ,,Key | Lock,key | lock,noun,,,9
+2371,勿論,もちろん,,Of Course | Needless To Say,of Course | needless To Say,adverb,,,9
+2373,乗る,のる,乗:の | る,To Ride | To Get On | To Board,ride | get On | board,intransitive verb | godan verb,1000.0,,3
+2377,倫理,りんり,,Ethics | Morals,ethics | morals,noun | の adjective,,,9
+2378,中古,ちゅうこ,中:ちゅう | 古:こ,Secondhand | Used,secondhand | used,noun | の adjective,7000.0,2.0,2
+2379,卵,たまご,卵:たまご,Egg,egg,noun,,,6
+2380,朝日,あさひ,朝:あさ | 日:ひ,Morning Sun | Rising Sun,morning Sun | rising Sun,noun,,,2
+2381,高級,こうきゅう,高:こう | 級:きゅう,High-Class | High Grade | High Level,high-Class | high Grade | high Level,noun | な adjective | の adjective,,,3
+2382,辞書,じしょ,辞:じ | 書:しょ,Dictionary,dictionary,noun,,,4
+2385,入門,にゅうもん,入:にゅう | 門:もん,Admission | Entrance | Introduction | Apprenticeship,admission | entrance | introduction | apprenticeship,noun | verbal noun | の adjective,7000.0,2.0,2
+2386,出張,しゅっちょう,出:しゅっ | 張:ちょう,Business Trip | Official Trip | Service Call,business Trip | official Trip | service Call,noun | verbal noun,,,5
+2388,描く,かく,,To Draw | To Paint | To Illustrate | To Depict,draw | paint | illustrate | depict,transitive verb | godan verb,,,9
+2391,深夜,しんや,深:しん | 夜:や,Middle Of The Night | Late At Night,middle Of The Night | late At Night,noun,7000.0,3.0,3
+2393,教える,おしえる,教:おし | える,To Teach | To Tell,teach | tell,transitive verb | ichidan verb,1000.0,,2
+2394,豊富,ほうふ,豊:ほう | 富:ふ,Abundant | Plentiful | Rich,abundant | plentiful | rich,noun | な adjective,,,5
+2395,息,いき,息:いき,Breath,breath,noun,7000.0,,3
+2398,優秀,ゆうしゅう,,Superior | Superiority | Excellent,superior | superiority | excellent,noun | な adjective,,,9
+2400,角,かど,角:かど,Corner | Angle,corner | angle,noun | suffix,7000.0,,2
+2401,弟,おとうと,弟:おとうと,Younger Brother | Little Brother,younger Brother | little Brother,noun,7000.0,,2
+2402,面接,めんせつ,面:めん | 接:せつ,Interview | Job Interview | Oral Examination,interview | job Interview | oral Examination,noun | verbal noun,,,5
+2404,給与,きゅうよ,,Salary | Wages | Pay | Compensation,salary | wages | pay | compensation,noun,,,9
+2405,発音,はつおん,発:はつ | 音:おん,Pronunciation,pronunciation,noun | verbal noun,7000.0,3.0,3
+2410,課長,かちょう,課:か | 長:ちょう,Section Manager | Section Chief,section Manager | section Chief,noun | suffix,,,4
+2416,悲しい,かなしい,悲:かな | しい,Sad,sad,い adjective,3000.0,,3
+2418,官僚,かんりょう,,Bureaucrat | Bureaucracy | Government Official,bureaucrat | bureaucracy | government Official,noun,,,9
+2424,陣,じん,,Army Camp | Formation | Battle | Group,army Camp | formation | battle | group,noun | suffix,,,9
+2425,説得,せっとく,説:せっ | 得:とく,Persuasion | Convince,persuasion | convince,noun | verbal noun,,,5
+2426,会う,あう,会:あ | う,To Meet | To Encounter,meet | encounter,intransitive verb | godan verb,1000.0,,2
+2431,完了,かんりょう,,Completion | Complete | Finish | Conclusion,completion | complete | finish | conclusion,noun | verbal noun | の adjective,,,9
+2434,欄,らん,,Column | Column Of Text | Field,column | column Of Text | field,noun,,,9
+2436,燃料,ねんりょう,燃:ねん | 料:りょう,Fuel,fuel,noun,,,5
+2440,排除,はいじょ,,Exclusion | Removal | Elimination,exclusion | removal | elimination,noun | verbal noun | の adjective,,,9
+2447,離婚,りこん,,Divorce | Getting A Divorce,divorce | getting A Divorce,noun | verbal noun,,,9
+2449,鏡,かがみ,鏡:かがみ,Mirror,mirror,noun,,,4
+2454,非難,ひなん,,Criticism,criticism,noun | verbal noun,,,9
+2455,修理,しゅうり,修:しゅう | 理:り,Repair,repair,noun | verbal noun | の adjective,,,5
+2461,赤い,あかい,赤:あか | い,Red,red,い adjective,3000.0,,1
+2462,施行,しこう,,Enforcement | Carrying Out | Implementation,enforcement | carrying Out | implementation,noun | verbal noun,,,9
+2467,流行,りゅうこう,流:りゅう | 行:こう,Trend | Fad | Craze | Prevalence,trend | fad | craze | prevalence,noun | verbal noun | の adjective,,,3
+2468,美術,びじゅつ,美:び | 術:じゅつ,Fine Art | Art,fine Art | art,noun | の adjective,,,5
+2469,三つ,みっつ,三:みっ | つ,Three Things,three Things,numeral,7000.0,,1
+2470,不良,ふりょう,不:ふ | 良:りょう,Bad | Substandard | Delinquent,bad | substandard | delinquent,noun | な adjective | の adjective,,,4
+2471,田,た,田:た,Rice Paddy | Rice Field,rice Paddy | rice Field,noun,7000.0,,1
+2474,名誉,めいよ,,Honor | Prestige,honor | prestige,noun | な adjective,,,9
+2478,過ぎる,すぎる,過:す | ぎる,To Pass | To Be Over | To Be Too Much,pass | be Over | be Too Much,intransitive verb | ichidan verb,,,5
+2479,伝説,でんせつ,伝:でん | 説:せつ,Legend | Legendary Story,legend | legendary Story,noun,,,4
+2480,遠い,とおい,遠:とお | い,Far | Far Away,far | far Away,い adjective,3000.0,,2
+2481,関わる,かかわる,関:かか | わる,To Be Involved | To Be Related | To Be Connected,be Involved | be Related | be Connected,intransitive verb | godan verb,,,4
+2484,再開,さいかい,再:さい | 開:かい,Reopening | Resumption,reopening | resumption,noun | verbal noun,,,5
+2485,狭い,せまい,,Narrow,narrow,い adjective,,,9
+2486,休憩,きゅうけい,,Rest | Break | Recess | Intermission,rest | break | recess | intermission,noun | verbal noun,,,9
+2490,無し,なし,無:な | し,Without | With No,without | with No,noun | suffix,,,4
+2491,江戸,えど,,Edo | Tokyo,edo | tokyo,noun,7000.0,9.0,9
+2496,遺伝子,いでんし,遺:い | 伝:でん | 子:し,Genes,genes,noun,,,6
+2498,雲,くも,雲:くも,Cloud,cloud,noun,7000.0,,2
+2500,油,あぶら,油:あぶら,Oil,oil,noun,7000.0,,3
+2501,お父さん,おとうさん,お | 父:とう | さん,Father | Dad | Papa,father | dad | papa,noun,7000.0,,2
+2505,辛い,からい,,Spicy | Hot | Difficult | Painful,spicy | hot | difficult | painful,い adjective,,,9
+2508,一杯,いっぱい,,One Cup | A Drink | Full | A Lot,one Cup | a Drink | full | a Lot,adverb | noun | な adjective | の adjective,,,9
+2509,移民,いみん,移:い | 民:みん,Immigration | Emigration | Immigrant | Emigrant,immigration | emigration | immigrant | emigrant,noun | verbal noun | の adjective,,,5
+2513,階段,かいだん,階:かい | 段:だん,Stairs | Stairway,stairs | stairway,noun,,,6
+2514,損,そん,損:そん,Disadvantage | Loss,disadvantage | loss,noun | suffix | な adjective | verbal noun,,,5
+2516,甘い,あまい,,Sweet,sweet,expression | い adjective,,,9
+2517,渋谷,しぶや,,Shibuya,shibuya,proper noun,7000.0,9.0,9
+2523,不幸,ふこう,不:ふ | 幸:こう,Unhappiness | Misfortune | Misery | Death,unhappiness | misfortune | misery | death,noun | な adjective,7000.0,9.0,4
+2524,知恵,ちえ,,Wisdom | Intelligence,wisdom | intelligence,noun,,,9
+2525,快適,かいてき,快:かい | 適:てき,Pleasant | Agreeable | Comfortable,pleasant | agreeable | comfortable,noun | な adjective,,,5
+2526,柱,はしら,柱:はしら,Pillar,pillar,noun,7000.0,,3
+2527,畑,はたけ,畑:はたけ,Field | Farmland,field | farmland,noun | suffix,7000.0,,3
+2528,軸,じく,,Axis | Pivotal Part,axis | pivotal Part,noun | suffix,,,9
+2531,金曜日,きんようび,金:きん | 曜:よう | 日:び,Friday,friday,noun,7000.0,2.0,2
+2537,例外,れいがい,例:れい | 外:がい,Exception,exception,noun | の adjective,,,4
+2538,兵器,へいき,兵:へい | 器:き,Arms | Weapons,arms | weapons,noun,,,4
+2540,眼,め,眼:め,Eye | Eyeball,eye | eyeball,noun,,,5
+2541,知り合い,しりあい,知:し | り | 合:あ | い,Acquaintance,acquaintance,noun,,,2
+2542,中止,ちゅうし,中:ちゅう | 止:し,Cancellation | Discontinuation | Suspension,cancellation | discontinuation | suspension,noun | verbal noun,,,2
+2543,債権,さいけん,,Credit | Claim | Debt | Liabilities,credit | claim | debt | liabilities,noun,,,9
+2544,主婦,しゅふ,主:しゅ | 婦:ふ,Housewife,housewife,noun,,,5
+2545,証,あかし,証:あかし,Evidence | Proof,evidence | proof,noun,,,5
+2546,賠償,ばいしょう,,Reparations | Compensation,reparations | compensation,noun | verbal noun,,,9
+2547,融資,ゆうし,,Financing | Loan | Lending Money,financing | loan | lending Money,noun | verbal noun,,,9
+2548,奥さん,おくさん,,Wife,wife,noun,,,9
+2552,給料,きゅうりょう,給:きゅう | 料:りょう,Salary | Wages | Pay,salary | wages | pay,noun,,,4
+2553,言い方,いいかた,言:い | い | 方:かた,Way Of Saying | Way Of Talking | Speaking Style,way Of Saying | way Of Talking | speaking Style,noun,,,2
+2558,暇,ひま,,Spare Time | Free Time | Not Busy,spare Time | free Time | not Busy,noun | な adjective,,,9
+2560,晴れ,はれ,晴:は | れ,Clear Weather | Sunny,clear Weather | sunny,noun | の adjective,7000.0,,2
+2561,商売,しょうばい,商:しょう | 売:ばい,Business | Commerce | Trade,business | commerce | trade,noun | verbal noun,7000.0,3.0,3
+2562,暑い,あつい,暑:あつ | い,Hot Weather | Hot,hot Weather | hot,い adjective,3000.0,,3
+2563,恐らく,おそらく,,Probably | Perhaps | Likely,probably | perhaps | likely,adverb,,,9
+2564,科目,かもく,科:か | 目:もく,Subject | Course | Curriculum,subject | course | curriculum,noun,7000.0,2.0,2
+2565,短期,たんき,短:たん | 期:き,Short Period | Short-Term,short Period | short-Term,noun | の adjective,7000.0,3.0,3
+2570,付近,ふきん,付:ふ | 近:きん,Neighborhood | Vicinity | Environs | Nearby | Locality,neighborhood | vicinity | environs | nearby | locality,noun,,,4
+2571,廃棄,はいき,,Disposal | Disposing | Scrapping,disposal | disposing | scrapping,noun | verbal noun,,,9
+2572,門,もん,門:もん,Gate,gate,noun,7000.0,,2
+2573,素人,しろうと,,Amateur | Novice,amateur | novice,noun,,,5
+2575,犯人,はんにん,犯:はん | 人:にん,Culprit | Criminal,culprit | criminal,noun,,,5
+2576,盤,ばん,,Tray | Board | Disc,tray | board | disc,noun | suffix,,,9
+2578,永遠,えいえん,永:えい | 遠:えん,Forever | Eternity | Permanence,forever | eternity | permanence,noun | な adjective | の adjective,7000.0,9.0,5
+2583,帝国,ていこく,,Empire,empire,noun,,,9
+2585,遅い,おそい,,Slow | Late,slow | late,い adjective,,,9
+2588,体重,たいじゅう,体:たい | 重:じゅう,Body Weight,body Weight,noun,,,3
+2590,随分,ずいぶん,,Very | Extremely | Surprisingly | Considerably,very | extremely | surprisingly | considerably,adverb | な adjective,,,9
+2593,通貨,つうか,通:つう | 貨:か,Currency,currency,noun | の adjective,,,4
+2596,見せる,みせる,見:み | せる,To Show,show,transitive verb | ichidan verb,,,1
+2598,明るい,あかるい,明:あか | るい,Bright | Cheerful,bright | cheerful,い adjective,3000.0,,2
+2603,人工,じんこう,人:じん | 工:こう,Artificial | Man Made | Human Made,artificial | man Made | human Made,noun | の adjective,,,2
+2605,気温,きおん,気:き | 温:おん,Temperature | Air Temperature,temperature | air Temperature,noun,7000.0,3.0,3
+2606,扱う,あつかう,,To Handle | To Treat,handle | treat,transitive verb | godan verb,,,9
+2610,台風,たいふう,台:たい | 風:ふう,Typhoon | Hurricane,typhoon | hurricane,noun,7000.0,2.0,2
+2613,受付,うけつけ,受:う | 付:けつけ,Receptionist | Reception,receptionist | reception,noun,,,4
+2616,生涯,しょうがい,,One's Lifetime | One's Career,one's Lifetime | one's Career,noun,,,9
+2617,自覚,じかく,自:じ | 覚:かく,Self-Awareness | Realization | Awareness | Consciousness,self-Awareness | realization | awareness | consciousness,noun | verbal noun,,,4
+2618,妙,みょう,,Peculiar | Unusual | Odd,peculiar | unusual | odd,noun | な adjective,,,9
+2619,聴く,きく,,To Listen To | To Hear | To Listen,listen To | hear | listen,transitive verb | godan verb,,,9
+2622,比率,ひりつ,比:ひ | 率:りつ,Ratio | Proportion | Percentage,ratio | proportion | percentage,noun,,,5
+2623,拉致,らち,,Abduction | Kidnapping | Taking Captive,abduction | kidnapping | taking Captive,noun | verbal noun,,,9
+2625,答える,こたえる,答:こた | える,To Answer | To Reply | To Respond,answer | reply | respond,intransitive verb | ichidan verb,3000.0,,2
+2626,仏,ほとけ,仏:ほとけ,Buddha,buddha,noun,,,5
+2627,再度,さいど,再:さい | 度:ど,Again | A Second Time,again | a Second Time,noun | adverb,,,5
+2628,可愛い,かわいい,可:か | 愛:わい | い,Cute,cute,い adjective,,,5
+2629,観測,かんそく,観:かん | 測:そく,Observation,observation,noun | verbal noun,,,5
+2630,純粋,じゅんすい,,Pure | Genuine,pure | genuine,な adjective | の adjective,,,9
+2631,兄,あに,兄:あに,Older Brother | Big Brother | Elder Brother,older Brother | big Brother | elder Brother,noun,7000.0,,2
+2632,拍手,はくしゅ,,Applause | Clapping Hands,applause | clapping Hands,noun | verbal noun,,,9
+2633,生まれる,うまれる,生:う | まれる,To Be Born,be Born,intransitive verb | ichidan verb,1000.0,,1
+2635,赤ちゃん,あかちゃん,赤:あか | ちゃん,Baby,baby,noun,7000.0,,1
+2636,売る,うる,売:う | る,To Sell Something,sell Something,transitive verb | godan verb,1000.0,,2
+2641,鼻,はな,鼻:はな,Nose,nose,noun,7000.0,,3
+2643,覚悟,かくご,,Mental Readiness | Resolution | Determination,mental Readiness | resolution | determination,noun | verbal noun,,,9
+2644,寝る,ねる,,To Sleep | To Lie Down | To Go To Bed,sleep | lie Down | go To Bed,intransitive verb | ichidan verb,,,9
+2646,お腹,おなか,お | 腹:なか,Belly | Stomach | Abdomen,belly | stomach | abdomen,noun,,,6
+2650,駄目,だめ,,Not Good | Hopeless | Cannot | Not Allowed,not Good | hopeless | cannot | not Allowed,noun | な adjective,,,9
+2651,優しい,やさしい,優:やさ | しい,Gentle | Kind | Warm Hearted | Nice,gentle | kind | warm Hearted | nice,い adjective,,,6
+2652,経緯,けいい,,Details | Particulars | Whole Story | How It Started | Longitude And Latitude,details | particulars | whole Story | how It Started | longitude And Latitude,noun,,,9
+2655,鬼,おに,,Demon | Ogre,demon | ogre,noun,,,9
+2657,入り口,いりぐち,入:い | り | 口:ぐち,Entrance,entrance,noun,,,1
+2660,毎回,まいかい,毎:まい | 回:かい,Every Time | Each Time,every Time | each Time,noun,,,2
+2662,信号,しんごう,信:しん | 号:ごう,Traffic Light | Signal | Traffic Signal | Stoplight | Semaphore,traffic Light | signal | traffic Signal | stoplight | semaphore,noun | verbal noun,7000.0,9.0,4
+2663,返信,へんしん,返:へん | 信:しん,Reply | Answer,reply | answer,noun | verbal noun,,,4
+2665,借金,しゃっきん,借:しゃっ | 金:きん,Debt,debt,noun | verbal noun,,,4
+2666,選択肢,せんたくし,,Choices | Options | Alternatives,choices | options | alternatives,noun,,,9
+2668,過剰,かじょう,,Excess | Excessive | Over,excess | excessive | over,noun | な adjective,,,9
+2669,谷,たに,谷:たに,Valley,valley,noun,7000.0,,2
+2671,極端,きょくたん,,Extreme,extreme,noun | な adjective,,,9
+2674,社内,しゃない,社:しゃ | 内:ない,Within The Company | In House | Inside The Company,within The Company | in House | inside The Company,noun | の adjective,,,2
+2675,旦那,だんな,,Master | Husband | Male Patron,master | husband | male Patron,noun,,,9
+2676,起きる,おきる,起:お | きる,To Wake Up | To Get Up | To Occur,wake Up | get Up | occur,intransitive verb | ichidan verb,1000.0,,3
+2679,辞典,じてん,辞:じ | 典:てん,Dictionary | Lexicon,dictionary | lexicon,noun,,,4
+2680,正義,せいぎ,正:せい | 義:ぎ,Justice | Righteousness,justice | righteousness,noun,,,5
+2682,完璧,かんぺき,,Perfect | Flawless | Complete,perfect | flawless | complete,な adjective,,,9
+2684,審判,しんぱん,,Judgment | Referee | Umpire,judgment | referee | umpire,noun | verbal noun,,,9
+2689,阪神,はんしん,阪:はん | 神:しん,Hanshin,hanshin,proper noun,,,4
+2695,才能,さいのう,才:さい | 能:のう,Talent,talent,noun,7000.0,9.0,5
+2698,幸福,こうふく,幸:こう | 福:ふく,Happiness,happiness,noun | な adjective,7000.0,3.0,3
+2700,汚染,おせん,,Pollution,pollution,noun | verbal noun,,,9
+2701,体力,たいりょく,体:たい | 力:りょく,Physical Strength | Physical Power | Stamina | Endurance,physical Strength | physical Power | stamina | endurance,noun,,,2
+2703,邪魔,じゃま,,Hindrance | Intrusion,hindrance | intrusion,noun | verbal noun | な adjective,,,9
+2704,冷静,れいせい,冷:れい | 静:せい,Cool Headed | Calm | Composure,cool Headed | calm | composure,noun | な adjective,,,4
+2705,血液,けつえき,血:けつ | 液:えき,Blood,blood,noun,7000.0,9.0,5
+2706,地上,ちじょう,地:ち | 上:じょう,Above Ground | On The Ground | The Earth's Surface,above Ground | on The Ground | the Earth's Surface,noun | の adjective,,,2
+2708,比べる,くらべる,比:くら | べる,To Compare,compare,transitive verb | ichidan verb,,,5
+2709,通勤,つうきん,通:つう | 勤:きん,Commute | Commuting To Work,commute | commuting To Work,noun | verbal noun,,,6
+2714,人格,じんかく,人:じん | 格:かく,Character | Personality,character | personality,noun,,,5
+2717,独特,どくとく,独:どく | 特:とく,Unique | Peculiar,unique | peculiar,noun | な adjective | の adjective,,,5
+2718,意欲,いよく,意:い | 欲:よく,Will | Desire | Ambition,will | desire | ambition,noun,,,6
+2723,面積,めんせき,面:めん | 積:せき,Area,area,noun,,,4
+2725,熱心,ねっしん,熱:ねっ | 心:しん,Enthusiasm | Passion | Zeal,enthusiasm | passion | zeal,noun | な adjective,,,4
+2728,原子力,げんしりょく,原:げん | 子:し | 力:りょく,Nuclear Power | Nuclear Energy | Atomic Power | Atomic Energy,nuclear Power | nuclear Energy | atomic Power | atomic Energy,noun | の adjective,,,2
+2729,分離,ぶんり,,Separation | Segregation,separation | segregation,noun | verbal noun,,,9
+2732,日程,にってい,日:にっ | 程:てい,Schedule | Itinerary,schedule | itinerary,noun,,,5
+2733,最悪,さいあく,最:さい | 悪:あく,The Worst | Worst,the Worst | worst,noun | な adjective,7000.0,9.0,4
+2736,演技,えんぎ,演:えん | 技:ぎ,Acting | Performance,acting | performance,noun | verbal noun | の adjective,,,5
+2738,我,われ,我:われ,I | Me | Myself,i | me | myself,pronoun | の adjective,,,6
+2742,執筆,しっぴつ,,Writing | Professional Writing,writing | professional Writing,noun | verbal noun,7000.0,9.0,9
+2744,店員,てんいん,店:てん | 員:いん,Shop Staff | Store Staff | Store Employee | Shop Employee | Clerk | Shop Assistant,shop Staff | store Staff | store Employee | shop Employee | clerk | shop Assistant,noun | の adjective,7000.0,3.0,3
+2745,毎月,まいつき,毎:まい | 月:つき,Every Month | Monthly,every Month | monthly,noun,7000.0,2.0,2
+2746,男の子,おとこのこ,男:おとこ | の | 子:こ,Boy,boy,noun,,,1
+2750,悪化,あっか,悪:あっ | 化:か,Deterioration | Getting Worse,deterioration | getting Worse,noun | verbal noun,7000.0,3.0,3
+2751,両者,りょうしゃ,両:りょう | 者:しゃ,Both People,both People,noun,7000.0,3.0,3
+2753,拡張,かくちょう,拡:かく | 張:ちょう,Enlargement | Expansion | Extension,enlargement | expansion | extension,noun | verbal noun,,,6
+2758,幼稚園,ようちえん,,Kindergarten,kindergarten,noun,7000.0,9.0,9
+2759,目次,もくじ,目:もく | 次:じ,Table Of Contents,table Of Contents,noun,,,3
+2760,看板,かんばん,看:かん | 板:ばん,Signboard | Billboard | Store Sign,signboard | billboard | store Sign,noun,7000.0,9.0,6
+2761,仏教,ぶっきょう,仏:ぶっ | 教:きょう,Buddhism,buddhism,noun,,,5
+2762,引退,いんたい,引:いん | 退:たい,Retiring | Retirement | Withdrawing From Public Life,retiring | retirement | withdrawing From Public Life,noun | verbal noun,7000.0,9.0,6
+2765,姉,あね,姉:あね,Older Sister | Big Sister | Elder Sister,older Sister | big Sister | elder Sister,noun,7000.0,,2
+2768,近年,きんねん,近:きん | 年:ねん,Recent Years,recent Years,noun,,,2
+2770,幾つ,いくつ,,How Many | How Old,how Many | how Old,noun,,,9
+2772,珍しい,めずらしい,,Rare | Unusual | Curious,rare | unusual | curious,い adjective,,,9
+2775,果たして,はたして,果:は | たして,Really | As Was Expected | Just As I Thought | As Expected,really | as Was Expected | just As I Thought | as Expected,adverb,,,4
+2776,椅子,いす,,Chair,chair,noun,,,9
+2780,感心,かんしん,感:かん | 心:しん,Admiration | Being Impressed | Praiseworthy,admiration | being Impressed | praiseworthy,noun | verbal noun | な adjective,,,3
+2781,流れる,ながれる,流:なが | れる,To Stream | To Flow,stream | flow,intransitive verb | ichidan verb,3000.0,,3
+2783,連中,れんちゅう,連:れん | 中:ちゅう,The Gang | Guys | Bunch | Company,the Gang | guys | bunch | company,noun,,,4
+2789,魔法,まほう,,Magic | Witchcraft,magic | witchcraft,noun,,,9
+2791,網,あみ,,Net | Netting | Web,net | netting | web,noun,,,9
+2793,家具,かぐ,家:か | 具:ぐ,Furniture,furniture,noun,,,3
+2794,集まり,あつまり,集:あつ | まり,Gathering | Meeting | Assembly | Party | Collection | Get Together,gathering | meeting | assembly | party | collection | get Together,noun,15000.0,,3
+2801,車両,しゃりょう,車:しゃ | 両:りょう,Vehicle | Train Car,vehicle | train Car,noun,7000.0,3.0,3
+2803,当たる,あたる,当:あ | たる,To Be Right | To Be On Target | To Touch | To Hit,be Right | be On Target | touch | hit,intransitive verb | godan verb,3000.0,,2
+2806,不可欠,ふかけつ,不:ふ | 可:か | 欠:けつ,Indispensable | Essential,indispensable | essential,noun | な adjective,,,5
+2808,月曜日,げつようび,月:げつ | 曜:よう | 日:び,Monday,monday,noun,,,2
+2812,中学生,ちゅうがくせい,中:ちゅう | 学:がく | 生:せい,Middle School Student | Junior High School Student,middle School Student | junior High School Student,noun,,,1
+2813,筋肉,きんにく,筋:きん | 肉:にく,Muscle,muscle,noun | の adjective,7000.0,9.0,6
+2814,西洋,せいよう,西:せい | 洋:よう,The West | Western Countries | Western,the West | western Countries | western,noun | の adjective,7000.0,3.0,3
+2818,傷,きず,傷:きず,Wound | Damage | Flaw,wound | damage | flaw,noun,,,6
+2820,九州,きゅうしゅう,九:きゅう | 州:しゅう,Kyuushuu | Kyushu,kyuushuu | kyushu,proper noun,7000.0,3.0,3
+2822,同時,どうじ,同:どう | 時:じ,Same Time,same Time,noun | の adjective,,,2
+2824,思わず,おもわず,思:おも | わず,Unintentionally | Reflexively | Spontaneously | Involuntarily,unintentionally | reflexively | spontaneously | involuntarily,adverb,,,2
+2825,黒い,くろい,黒:くろ | い,Black,black,い adjective,7000.0,,2
+2827,衛生,えいせい,衛:えい | 生:せい,Hygiene,hygiene,noun | の adjective,,,5
+2829,中学校,ちゅうがっこう,中:ちゅう | 学:がっ | 校:こう,Middle School | Junior High School,middle School | junior High School,noun,,,1
+2830,大勢,おおぜい,大:おお | 勢:ぜい,Crowd | A Large Number,crowd | a Large Number,noun | の adjective,,,5
+2832,同僚,どうりょう,,Colleague | Coworker,colleague | coworker,noun,,,9
+2835,愛情,あいじょう,愛:あい | 情:じょう,Love | Affection,love | affection,noun | の adjective,,,5
+2837,余計,よけい,余:よ | 計:けい,Unneeded | More Than Needed | Too Much,unneeded | more Than Needed | too Much,adverb | noun | な adjective,,,5
+2841,生じる,しょうじる,生:しょう | じる,To Occur | To Arise | To Cause Something,occur | arise | cause Something,intransitive verb | transitive verb | ichidan verb,3000.0,,1
+2842,電源,でんげん,電:でん | 源:げん,Power Source | Outlet | Socket,power Source | outlet | socket,noun,,,6
+2845,署名,しょめい,署:しょ | 名:めい,Signature,signature,noun | verbal noun,,,6
+2849,金持ち,かねもち,金:かね | 持:も | ち,Rich Person | Rich | Wealthy,rich Person | rich | wealthy,noun,7000.0,3.0,3
+2850,弁当,べんとう,弁:べん | 当:とう,Bento | Box Lunch,bento | box Lunch,noun,,,5
+2851,興奮,こうふん,興:こう | 奮:ふん,Excitement | Stimulation,excitement | stimulation,noun | verbal noun,,,6
+2852,格好,かっこう,格:かっ | 好:こう,Shape | Form | Posture | Appearance,shape | form | posture | appearance,noun | の adjective,,,5
+2858,球,たま,球:たま,Sphere | Ball | Sports Ball,sphere | ball | sports Ball,noun,7000.0,,3
+2860,抑制,よくせい,,Control | Restraint,control | restraint,noun | の adjective | verbal noun,,,9
+2861,占い,うらない,,Fortune Telling,fortune Telling,noun,,,9
+2862,踊り,おどり,,Dance,dance,noun,,,9
+2863,該当,がいとう,,Correspond | Fulfilling | Applicable To | Qualifying As,correspond | fulfilling | applicable To | qualifying As,noun | verbal noun,,,9
+2867,衛星,えいせい,衛:えい | 星:せい,Satellite,satellite,noun | の adjective,,,5
+2870,証人,しょうにん,証:しょう | 人:にん,Witness,witness,noun,,,5
+2873,虫,むし,虫:むし,Bug | Insect | Creepy Crawly,bug | insect | creepy Crawly,noun,7000.0,,1
+2874,夏休み,なつやすみ,夏:なつ | 休:やす | み,Summer Vacation | Summer Break | Summer Holiday,summer Vacation | summer Break | summer Holiday,noun,7000.0,2.0,2
+2880,経由,けいゆ,経:けい | 由:ゆ,Via,via,noun | verbal noun,7000.0,9.0,5
+2881,透明,とうめい,,Transparent | Transparency,transparent | transparency,noun | な adjective | の adjective,,,9
+2886,熱い,あつい,熱:あつ | い,Hot Thing | Hot,hot Thing | hot,い adjective,,,4
+2887,一層,いっそう,一:いっ | 層:そう,Much More | All The More | Even More,much More | all The More | even More,adverb | の adjective,,,6
+2889,期限,きげん,期:き | 限:げん,Deadline | Term | Due Date,deadline | term | due Date,noun,,,5
+2890,新鮮,しんせん,,Fresh,fresh,な adjective,,,9
+2891,農民,のうみん,農:のう | 民:みん,Peasants | Farmers | Farming Class,peasants | farmers | farming Class,noun | の adjective,7000.0,9.0,4
+2893,輪,わ,輪:わ,Ring | Wheel | Loop | Circle,ring | wheel | loop | circle,noun,,,4
+2896,警告,けいこく,警:けい | 告:こく,Warning | Advice | Caution,warning | advice | caution,noun | verbal noun | の adjective,,,6
+2898,宿,やど,宿:やど,Lodging | Inn | Hotel | Lodge,lodging | inn | hotel | lodge,noun,7000.0,,3
+2899,地下鉄,ちかてつ,地:ち | 下:か | 鉄:てつ,Subway | The Underground | The Tube | The Metro,subway | the Underground | the Tube | the Metro,noun,7000.0,3.0,3
+2902,軽い,かるい,軽:かる | い,Lightweight | Light | Light Weight,lightweight | light | light Weight,い adjective,3000.0,,3
+2903,通訳,つうやく,通:つう | 訳:やく,Interpreting | Interpretation,interpreting | interpretation,noun | verbal noun,,,6
+2917,机,つくえ,机:つくえ,Desk,desk,noun,,,6
+2919,以後,いご,以:い | 後:ご,After This | From Now On | After | Since,after This | from Now On | after | since,noun,,,4
+2920,吸収,きゅうしゅう,吸:きゅう | 収:しゅう,Absorption,absorption,noun | verbal noun,,,6
+2922,柄,がら,,Pattern | Design,pattern | design,noun | suffix,,,9
+2924,収穫,しゅうかく,,Harvest | Crop,harvest | crop,noun | verbal noun,,,9
+2931,奇跡,きせき,,Miracle,miracle,noun | の adjective,,,9
+2933,一貫,いっかん,,One Piece Of Sushi | Consistency | Integration,one Piece Of Sushi | consistency | integration,noun | verbal noun,,,9
+2934,勝つ,かつ,勝:か | つ,To Win,win,intransitive verb | godan verb,3000.0,,3
+2935,俳優,はいゆう,俳:はい | 優:ゆう,Actor,actor,noun | の adjective,,,6
+2936,信じる,しんじる,信:しん | じる,To Believe | To Trust In,believe | trust In,transitive verb | ichidan verb,,,4
+2939,背中,せなか,背:せ | 中:なか,One's Back | Back,one's Back | back,noun,,,6
+2941,化粧,けしょう,,Makeup | Cosmetics,makeup | cosmetics,noun | verbal noun,,,9
+2942,皮,かわ,皮:かわ,Skin | Hide | Peel,skin | hide | peel,noun,7000.0,,3
+2951,毛,け,毛:け,Fur | Hair,fur | hair,noun,7000.0,,2
+2952,過ごす,すごす,過:す | ごす,To Pass Time | To Spend Time,pass Time | spend Time,transitive verb | godan verb,,,5
+2954,故,ゆえ,故:ゆえ,Reason | Circumstance | Cause,reason | circumstance | cause,noun,,,5
+2955,同盟,どうめい,同:どう | 盟:めい,Alliance,alliance,noun | verbal noun | の adjective,,,6
+2956,扉,とびら,,Door | Hinged Door,door | hinged Door,noun,,,9
+2957,玄関,げんかん,,Entranceway | Entry Hall | Foyer | Entryway,entranceway | entry Hall | foyer | entryway,noun | の adjective,,,9
+2959,兵士,へいし,兵:へい | 士:し,Soldier,soldier,noun,,,5
+2960,委託,いたく,,Consign | Entrust | Consignment,consign | entrust | consignment,noun | verbal noun,7000.0,9.0,9
+2962,閲覧,えつらん,,Browsing | Perusal | Reading,browsing | perusal | reading,noun | verbal noun,,,9
+2967,光景,こうけい,光:こう | 景:けい,Scene | Sight | Spectacle,scene | sight | spectacle,noun,,,4
+2969,入場,にゅうじょう,入:にゅう | 場:じょう,Entrance | Admission | Entering,entrance | admission | entering,noun | verbal noun,,,2
+2971,望む,のぞむ,望:のぞ | む,To Wish | To Desire | To Wish For,wish | desire | wish For,transitive verb | godan verb,,,4
+2974,国籍,こくせき,,Nationality | Citizenship,nationality | citizenship,noun,,,9
+2977,居る,いる,居:い | る,To Exist | To Be,exist | be,intransitive verb | ichidan verb,,,5
+2980,何人,なんにん,何:なん | 人:にん,How Many People,how Many People,noun | expression,7000.0,2.0,2
+2982,国境,こっきょう,国:こっ | 境:きょう,National Border,national Border,noun | の adjective,,,5
+2985,工学,こうがく,工:こう | 学:がく,Engineering,engineering,noun,,,2
+2990,双方,そうほう,,Both Parties | Both Sides | Mutual,both Parties | both Sides | mutual,noun | の adjective,,,9
+2996,現役,げんえき,現:げん | 役:えき,Actively Working | Active,actively Working | active,noun | の adjective,,,5
+2999,心臓,しんぞう,心:しん | 臓:ぞう,Heart,heart,noun,,,6
+3000,占める,しめる,,To Occupy | To Account For,occupy | account For,transitive verb | ichidan verb,,,9
+3154,草,くさ,草:くさ,Grass | Weed,grass,noun,,,1
+3205,寺,てら,寺:てら,Temple | Buddhist Temple,temple (Buddhist),noun,,,2
+3334,池,いけ,池:いけ,Pond,pond,noun,,,2
+3460,羽,はね,羽:はね,Feathers | Feather | Wing | Wings,feather; wing,noun,,,2
+3558,竹,たけ,竹:たけ,Bamboo,bamboo,noun,,,1
+3647,電池,でんち,電:でん | 池:ち,Battery,battery,noun,,,2
+3891,糸,いと,糸:いと,Thread,thread; string,noun,,,1
+3916,岩,いわ,岩:いわ,Boulder | Rock,rock; boulder,noun,,,2
+4425,黄色,きいろ,黄:き | 色:いろ,Yellow | Yellow Color | Color Yellow,yellow (color),noun | な adjective,,,2
+4546,矢,や,矢:や,Arrow,arrow,noun,,,2
+4827,刀,かたな,刀:かたな,Sword | Katana,sword; blade,noun,,,2
+6125,弓,ゆみ,弓:ゆみ,Bow,bow (archery),noun,,,2
+6289,貝,かい,貝:かい,Shell | Shellfish | Clam,shellfish; shell,noun,,,1
+6614,麦,むぎ,麦:むぎ,Wheat | Barley | Oats,wheat; barley,noun,,,2
+10259,汽車,きしゃ,汽:き | 車:しゃ,Steam Train | Steam Engine Train | Steam Engine,steam train,noun,,,2
+10843,鳴き声,なきごえ,鳴:な | き | 声:ごえ,Animal Cry | Animal Sound | Animal Noise | Chirp | Tweet | Roar | Bark | Meow,animal cry; sound,noun,,,2
+12711,鳴く,なく,鳴:な | く,To Make An Animal Sound | To Bark | To Chirp,to chirp; to cry (animals),intransitive verb | godan verb,,,2
+20459,戸口,とぐち,戸:と | 口:ぐち,Doorway,doorway; entrance,noun,,,2
