@@ -1,7 +1,9 @@
 /* sw.js */
 
-const CACHE_NAME = "kanji-snap-cache-v1.66";      // bump for app shell updates
+const CACHE_NAME = "kanji-snap-cache-v1.67";      // bump for app shell updates
 const RUNTIME_CACHE = "kanji-snap-runtime-v1"; // must match settings.js/game-quiz.js
+
+export const FILE_VERSION = "1.63";
 
 // Precache the core app shell + data needed for initial run/offline
 const PRECACHE_URLS = [
@@ -124,5 +126,6 @@ self.addEventListener("fetch", (event) => {
     }
   })());
 });
+
 
 
