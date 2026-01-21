@@ -33,7 +33,10 @@ function wireStartGameButtons(wordsReadyPromise) {
       await wordsReadyPromise;
     } catch (err) {
       console.error("Words dataset failed to load:", err);
-      alert("Could not load words dataset (words.v2.csv). Please refresh and try again.");
+      alert(
+        "Could not load words dataset (words.v2.csv).\n\n" +
+        (err?.message || String(err))
+      );
       return;
     }
 
@@ -95,8 +98,11 @@ async function initApp() {
   // Load settings into global state
   state.settings = loadSettings();
 
+  // ✅ Build an absolute URL to avoid any PWA scope/relative-path weirdness
+  const wordsUrl = new URL("./data/words.v2.csv", location.href).href;
+
   // Start loading words ASAP (but don't block initial UI paint)
-  const wordsReady = ensureWordsLoaded("./data/words.v2.csv");
+  const wordsReady = ensureWordsLoaded(wordsUrl);
 
   // Initialize core modules
   initSettingsUI?.();
