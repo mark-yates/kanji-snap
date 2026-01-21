@@ -25,6 +25,9 @@
           <button class="tab" id="tabDictionary" type="button">Dictionary</button>
           <button class="tab" id="tabKanji" type="button">Kanji</button>
           <button class="tab" id="tabGame" type="button" style="display:none;">Game</button>
+
+          <!-- ✅ NEW: Debug tab -->
+          <button class="tab" id="tabDebug" type="button">Debug</button>
         </nav>
       </header>
 
@@ -231,6 +234,34 @@
             <div class="historyHint">Tap a row to view details (no penalty).</div>
           </div>
           <div id="historyList"></div>
+        </div>
+      </section>
+
+      <!-- ✅ NEW: DEBUG -->
+      <section class="view" id="viewDebug" aria-labelledby="tabDebug">
+        <div class="row">
+          <div>
+            <div class="sectionTitle">Debug</div>
+            <div class="muted">Runtime info to help diagnose loading/caching issues.</div>
+          </div>
+          <button class="btn" id="debugRefreshBtn" type="button">Refresh</button>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Versions</div>
+          <div id="debugVersions" class="debugGrid"></div>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Totals</div>
+          <div id="debugTotals" class="debugGrid"></div>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Notes</div>
+          <div class="muted" id="debugNotes">
+            Images cached count reflects items in <code>kanji-snap-runtime-v1</code> under <code>/images/meaning/cartoon/</code>.
+          </div>
         </div>
       </section>
     </div>
