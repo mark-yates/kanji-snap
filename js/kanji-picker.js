@@ -3,6 +3,8 @@ import { ensureGradesLoaded } from "./data.js";
 import { setActiveTab } from "./ui.js";
 import { isKanjiEnabled, hasKanjiOverride, setKanjiOverride, clearKanjiOverride, saveSettings, getOverrideCount } from "./settings.js";
 
+export const FILE_VERSION = "1.63";
+
 let WIRED = false;
 
 function setStatus(text){
@@ -146,3 +148,4 @@ export function wireKanjiPickerUI(){
   // If user directly taps the Kanji tab, open as well
   // (tab is wired in app.js, but this ensures we still work if not)
 }
+
