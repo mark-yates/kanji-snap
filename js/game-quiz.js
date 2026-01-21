@@ -4,6 +4,7 @@ import { rebuildWordIndexForGrades, getEligibleCompoundWords } from "./words.js"
 import { getEnabledGrades, isCompoundEnabled } from "./settings.js";
 import { renderBracketColored, setActiveTab, showGameOverModal } from "./ui.js";
 
+export const FILE_VERSION = "1.63";
 const MAX_HISTORY = 8;
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
@@ -451,3 +452,4 @@ export async function startQuizGame(){
 export function wireGameUI(){
   document.getElementById("prompt")?.addEventListener("click", togglePeek);
 }
+
