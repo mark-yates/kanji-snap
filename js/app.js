@@ -1,3 +1,5 @@
+export const FILE_VERSION = "1.63";
+
 import { state } from "./state.js";
 import { loadSettings, initSettingsUI } from "./settings.js";
 import { startQuizGame, wireGameUI } from "./game-quiz.js";
@@ -75,7 +77,8 @@ function wireTabButtons() {
     ["btnHome","home"],["btnSettings","settings"],
     ["btnDictionary","dictionary"],["btnGame","game"],
     ["tabHome","home"],["tabSettings","settings"],
-    ["tabDictionary","dictionary"],["tabGame","game"]
+    ["tabDictionary","dictionary"],["tabGame","game"],
+    ["tabDebug","debug"],["btnDebug","debug"]
   ];
   for (const [id, tab] of map) {
     const el = document.getElementById(id);
@@ -98,10 +101,8 @@ async function initApp() {
   // Load settings into global state
   state.settings = loadSettings();
 
-  // ✅ Build an absolute URL to avoid any PWA scope/relative-path weirdness
-  const wordsUrl = new URL("./data/words.v2.csv", location.href).href;
-
   // Start loading words ASAP (but don't block initial UI paint)
+  const wordsUrl = new URL("./data/words.v2.csv", location.href).href;
   const wordsReady = ensureWordsLoaded(wordsUrl);
 
   // Initialize core modules
@@ -120,6 +121,14 @@ async function initApp() {
     picker.initKanjiPickerUI?.();
   } catch (e) {
     // console.warn("kanji-picker.js not initialized:", e);
+  }
+
+  // ✅ Debug module (always visible tab)
+  try {
+    const dbg = await import("./debug.js");
+    dbg.initDebugUI?.({ appVersion: FILE_VERSION });
+  } catch (e) {
+    // console.warn("debug.js not initialized:", e);
   }
 
   // Wire navigation + actions
