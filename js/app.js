@@ -2,6 +2,7 @@ import { state } from "./state.js";
 import { loadSettings, initSettingsUI } from "./settings.js";
 import { startQuizGame, wireGameUI } from "./game-quiz.js";
 import { setActiveTab } from "./ui.js";
+import { ensureWordsLoaded } from "./words.js";
 
 /* ---------------- Service Worker ---------------- */
 
@@ -24,13 +25,24 @@ async function registerServiceWorker() {
 
 /* ---------------- UI Wiring (robust) ---------------- */
 
-function wireStartGameButtons() {
+function wireStartGameButtons(wordsReadyPromise) {
+  async function startGameSafely(e) {
+    e?.preventDefault?.();
+
+    try {
+      await wordsReadyPromise;
+    } catch (err) {
+      console.error("Words dataset failed to load:", err);
+      alert("Could not load words dataset (words.v2.csv). Please refresh and try again.");
+      return;
+    }
+
+    startQuizGame();
+  }
+
   // Preferred data attribute
   document.querySelectorAll('[data-action="start-quiz"]').forEach((el) => {
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      startQuizGame();
-    });
+    el.addEventListener("click", startGameSafely);
   });
 
   // Common legacy IDs
@@ -41,10 +53,7 @@ function wireStartGameButtons() {
   for (const id of ids) {
     const el = document.getElementById(id);
     if (!el) continue;
-    el.addEventListener("click", (e) => {
-      e.preventDefault();
-      startQuizGame();
-    });
+    el.addEventListener("click", startGameSafely);
   }
 }
 
@@ -86,6 +95,9 @@ async function initApp() {
   // Load settings into global state
   state.settings = loadSettings();
 
+  // Start loading words ASAP (but don't block initial UI paint)
+  const wordsReady = ensureWordsLoaded("./data/words.v2.csv");
+
   // Initialize core modules
   initSettingsUI?.();
   wireGameUI?.();
@@ -106,7 +118,7 @@ async function initApp() {
 
   // Wire navigation + actions
   wireTabButtons();
-  wireStartGameButtons();
+  wireStartGameButtons(wordsReady);
   wireGlobalDebugTap();
 
   // Default tab
