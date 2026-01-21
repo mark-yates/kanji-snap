@@ -1,6 +1,8 @@
 import { state } from "./state.js";
 import { setActiveTab } from "./ui.js";
 
+export const FILE_VERSION = "1.63";
+
 /**
  * Self-contained dictionary UI:
  * - Creates its own DOM inside the dictionary tab container if needed
@@ -166,3 +168,4 @@ export function initDictionaryUI() {
   // Default back target
   if (!state._dictionaryBackTarget) state._dictionaryBackTarget = "home";
 }
+
