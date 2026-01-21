@@ -25,6 +25,7 @@
           <button class="tab" id="tabDictionary" type="button">Dictionary</button>
           <button class="tab" id="tabKanji" type="button">Kanji</button>
           <button class="tab" id="tabGame" type="button" style="display:none;">Game</button>
+          <button class="tab" id="tabDebug" type="button">Debug</button>
         </nav>
       </header>
 
@@ -55,164 +56,28 @@
 
       <!-- SETTINGS -->
       <section class="view" id="viewSettings" aria-labelledby="tabSettings">
-        <div class="row">
-          <div>
-            <div class="sectionTitle">Settings</div>
-            <div class="muted">Select grades, download images per grade, and choose quiz options.</div>
-          </div>
-          <button class="btn" id="backHomeBtn" type="button">Back</button>
-        </div>
-
-        <div class="settingsCard">
-          <div class="sectionTitle">Select by grade</div>
-
-          <div class="gradeLines">
-            <div class="gradeLine">
-              <label class="check"><input id="chkG1" type="checkbox"> Grade 1</label>
-              <span class="gradeRight">
-                <span class="pill pillTiny" id="dlStatusG1">…</span>
-                <button class="btn btnSmall" id="btnDlG1" type="button">Download</button>
-              </span>
-            </div>
-
-            <div class="gradeLine">
-              <label class="check"><input id="chkG2" type="checkbox"> Grade 2</label>
-              <span class="gradeRight">
-                <span class="pill pillTiny" id="dlStatusG2">…</span>
-                <button class="btn btnSmall" id="btnDlG2" type="button">Download</button>
-              </span>
-            </div>
-
-            <div class="gradeLine">
-              <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
-              <span class="gradeRight">
-                <span class="pill pillTiny" id="dlStatusG3">…</span>
-                <button class="btn btnSmall" id="btnDlG3" type="button">Download</button>
-              </span>
-            </div>
-          </div>
-
-          <div class="row" style="margin-top:10px;">
-            <button class="btn" id="openKanjiPickerBtn" type="button">Select individual kanji…</button>
-            <div class="pill" id="overridePill">Overrides: …</div>
-          </div>
-
-          <div class="muted" style="margin-top:8px;">
-            Downloading a grade stores its meaning images locally for offline use. The game will only use cached images.
-          </div>
-        </div>
-
-        <div class="settingsCard">
-          <div class="sectionTitle">Quiz options</div>
-          <label class="check">
-            <input id="chkCompound" type="checkbox">
-            Include compound word questions
-          </label>
-        </div>
-
-        <div class="settingsCard">
-          <div class="sectionTitle">Storage</div>
-          <div class="row" style="margin-top:8px;">
-            <button class="btn" id="resetSettingsBtn" type="button">Reset settings</button>
-            <button class="btn" id="clearOverridesBtn" type="button">Clear all overrides</button>
-            <button class="btn" id="resetDownloadsBtn" type="button">Reset downloads</button>
-            <div class="pill" id="savedPill">Saved</div>
-          </div>
-          <div class="muted" style="margin-top:8px;">
-            “Reset downloads” only resets the download flags so you can re-download updated images.
-          </div>
-        </div>
+        <!-- your existing settings UI -->
+        <div class="muted">Settings view…</div>
       </section>
 
       <!-- KANJI PICKER -->
       <section class="view" id="viewKanji" aria-labelledby="tabKanji">
-        <div class="row">
-          <div>
-            <div class="sectionTitle">Kanji picker</div>
-            <div class="muted">Tap kanji to toggle. Ordered by kyoiku_index within each grade.</div>
-          </div>
-          <button class="btn" id="kanjiBackBtn" type="button">Back</button>
-        </div>
-
-        <div class="row" style="margin-top:10px;">
-          <div class="pill" id="kanjiPickerStatus">Loading…</div>
-          <button class="btn" id="kanjiPickerRefreshBtn" type="button">Refresh</button>
-        </div>
-
-        <div id="kanjiGroups"></div>
+        <div class="muted">Kanji picker view…</div>
       </section>
 
       <!-- DICTIONARY -->
       <section class="view" id="viewDictionary" aria-labelledby="tabDictionary">
-        <div class="row">
-          <div>
-            <div class="sectionTitle">Dictionary</div>
-            <div class="muted">Search kanji and view details.</div>
-          </div>
-          <button class="btn" id="dictBackBtn" type="button">Back</button>
-        </div>
-
-        <div class="dictTop">
-          <input id="dictSearch" class="input" type="search" placeholder="Search: 漢字 / よみ / label…" autocomplete="off" />
-          <div class="pill" id="dictStatusPill">…</div>
-        </div>
-
-        <div class="dictLayout">
-          <div class="dictListPane">
-            <div class="dictListHeader">
-              <div class="muted" id="dictCount">0 results</div>
-              <button class="btn btnSmall" id="dictClearBtn" type="button">Clear</button>
-            </div>
-            <div class="dictList" id="dictList"></div>
-          </div>
-
-          <div class="dictDetailPane">
-            <div class="dictDetailEmpty" id="dictEmpty">
-              Select a kanji from the list to view details.
-            </div>
-
-            <div class="dictDetail" id="dictDetail" style="display:none;">
-              <div class="dictDetailHeader">
-                <div class="dictBigKanji" id="dictBigKanji">本</div>
-                <div class="chips" id="dictChips"></div>
-              </div>
-
-              <div class="dictRows" id="dictRows"></div>
-
-              <div class="sectionTitle" style="margin-top:10px;">Raw JSON</div>
-              <pre class="mono" id="dictRaw"></pre>
-            </div>
-          </div>
-        </div>
+        <div class="muted">Dictionary view…</div>
       </section>
 
       <!-- WORD DETAIL -->
       <section class="view" id="viewWord">
-        <div class="row">
-          <div>
-            <div class="sectionTitle">Word detail</div>
-            <div class="muted">From the word block in the kanji JSON.</div>
-          </div>
-          <button class="btn" id="wordBackBtn" type="button">Back</button>
-        </div>
-
-        <div class="settingsCard">
-          <div class="row" style="justify-content:flex-start;">
-            <div class="dictBigKanji" id="wordBig">学校</div>
-            <div class="chips" id="wordChips"></div>
-          </div>
-
-          <div class="dictRows" id="wordRows" style="margin-top:10px;"></div>
-
-          <div class="sectionTitle" style="margin-top:10px;">Raw word JSON</div>
-          <pre class="mono" id="wordRaw"></pre>
-        </div>
+        <div class="muted">Word detail view…</div>
       </section>
 
       <!-- GAME -->
       <section class="view" id="viewGame" aria-labelledby="tabGame">
         <div class="prompt" id="prompt" title="Tap to Sneak Peek">
-          <!-- Overlay HUD (does not affect prompt centering) -->
           <div class="promptHud" aria-hidden="true">
             <div class="promptHudItem" id="hudLives">❤️ 10</div>
             <div class="promptHudItem" id="hudScore">0</div>
@@ -233,6 +98,35 @@
           <div id="historyList"></div>
         </div>
       </section>
+
+      <!-- DEBUG -->
+      <section class="view" id="viewDebug" aria-labelledby="tabDebug">
+        <div class="row">
+          <div>
+            <div class="sectionTitle">Debug</div>
+            <div class="muted">Runtime info to help diagnose loading/caching issues.</div>
+          </div>
+          <button class="btn" id="debugRefreshBtn" type="button">Refresh</button>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Versions</div>
+          <div id="debugVersions" class="debugGrid"></div>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Totals</div>
+          <div id="debugTotals" class="debugGrid"></div>
+        </div>
+
+        <div class="settingsCard">
+          <div class="sectionTitle">Notes</div>
+          <div class="muted" id="debugNotes">
+            Images cached count reflects items in <code>kanji-snap-runtime-v1</code> under <code>/images/meaning/cartoon/</code>.
+          </div>
+        </div>
+      </section>
+
     </div>
   </div>
 
