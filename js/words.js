@@ -11,6 +11,8 @@
  *   - getEligibleCompoundWords(pool, opts)
  */
 
+export const FILE_VERSION = "1.63";
+
 let _loaded = false;
 let _loadingPromise = null;
 
@@ -421,3 +423,4 @@ function parseCsv(text) {
 
   return rows;
 }
+
