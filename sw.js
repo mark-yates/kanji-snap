@@ -1,6 +1,6 @@
 /* sw.js */
 
-const CACHE_NAME = "kanji-snap-cache-v1.v62";      // bump for app shell updates
+const CACHE_NAME = "kanji-snap-cache-v1.63";      // bump for app shell updates
 const RUNTIME_CACHE = "kanji-snap-runtime-v1"; // must match settings.js/game-quiz.js
 
 // Precache the core app shell + data needed for initial run/offline
@@ -11,7 +11,6 @@ const PRECACHE_URLS = [
   "./manifest.webmanifest",
   "./sw.js",
 
-  // JS entry + modules (include what your app imports)
   "./js/app.js",
   "./js/state.js",
   "./js/ui.js",
@@ -20,23 +19,19 @@ const PRECACHE_URLS = [
   "./js/game-quiz.js",
   "./js/words.js",
 
-  // Optional modules (safe to include if present; if not present, remove)
   "./js/dictionary.js",
   "./js/kanji-picker.js",
 
-  // Grade data (adjust list if your repo differs)
   "./data/grade-1.json",
   "./data/grade-2.json",
   "./data/grade-3.json",
 
-  // ✅ NEW words dataset
+  // Words dataset
   "./data/words.v2.csv",
 ];
 
 self.addEventListener("message", (event) => {
-  if (event?.data?.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+  if (event?.data?.type === "SKIP_WAITING") self.skipWaiting();
 });
 
 self.addEventListener("install", (event) => {
@@ -59,28 +54,63 @@ self.addEventListener("activate", (event) => {
   })());
 });
 
+function isMeaningImagePath(pathname) {
+  // Match your meaning image location
+  return pathname.includes("/images/meaning/cartoon/") && pathname.endsWith(".webp");
+}
+
 self.addEventListener("fetch", (event) => {
   const req = event.request;
-
   if (req.method !== "GET") return;
 
   const url = new URL(req.url);
-
-  // Only handle same-origin (keeps behavior predictable)
   if (url.origin !== self.location.origin) return;
 
   event.respondWith((async () => {
-    // Cache-first for app shell and previously fetched resources
+    // ✅ Special handling: when downloading meaning images (often with ?dl=1),
+    // store them in runtime cache under the *pathname only* so the game can find them.
+    const isMeaning = isMeaningImagePath(url.pathname);
+    const isDownload = url.searchParams.has("dl");
+
+    if (isMeaning && isDownload) {
+      try {
+        const res = await fetch(req);
+        if (res && res.ok) {
+          const cache = await caches.open(RUNTIME_CACHE);
+          // Normalize key: store under pathname (no query string)
+          await cache.put(url.pathname, res.clone());
+        }
+        return res;
+      } catch (err) {
+        // If offline and not cached, fall back to cache
+        const cache = await caches.open(RUNTIME_CACHE);
+        const cached = await cache.match(url.pathname);
+        if (cached) return cached;
+        throw err;
+      }
+    }
+
+    // For meaning images generally, also try runtime cache by pathname first
+    if (isMeaning) {
+      const cache = await caches.open(RUNTIME_CACHE);
+      const hit = await cache.match(url.pathname);
+      if (hit) return hit;
+
+      // If not in runtime cache, fall back to normal cache/network behavior
+      // (Game won't fetch them, but other views might.)
+    }
+
+    // Default: cache-first (app shell + previously fetched)
     const cached = await caches.match(req);
     if (cached) return cached;
 
     try {
       const res = await fetch(req);
 
-      // Cache successful same-origin GETs into runtime cache
+      // Cache successful same-origin GETs into runtime cache using the *request* as key
       if (res && res.ok) {
         const cache = await caches.open(RUNTIME_CACHE);
-        cache.put(req, res.clone());
+        await cache.put(req, res.clone());
       }
 
       return res;
