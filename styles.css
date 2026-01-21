@@ -1,25 +1,377 @@
-/* ---------------- Debug styles ---------------- */
+@font-face{
+  font-family:"KanjiFont";
+  src:url("./fonts/my-font.ttf") format("truetype");
+  font-display:swap;
+}
+
+:root{
+  --bg:#0b1220;
+  --border:rgba(233,238,252,.14);
+  --text:#e9eefc;
+  --muted:#a8b3cf;
+  --paper:#ffffff;
+  --ink:#000000;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(1200px 700px at 20% 10%, rgba(96,165,250,.18), transparent 55%),
+    radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.12), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans";
+  display:flex;
+  justify-content:center;
+  padding:16px;
+}
+
+.wrap{width:min(900px,100%)}
+
+.card{
+  background: linear-gradient(180deg, rgba(17,26,46,.95), rgba(17,26,46,.78));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
+}
+
+/* ---------------- Header / Tabs ---------------- */
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.title{font-weight:900}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:6px;
+  background:rgba(11,18,32,.35);
+}
+
+.tab{
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.tab.active{
+  background:rgba(233,238,252,.07);
+  color:var(--text);
+  border:1px solid var(--border);
+}
+
+/* ---------------- Views ---------------- */
+
+.view{display:none}
+.view.active{display:block}
+
+/* ---------------- Common UI ---------------- */
+
+.row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:1px solid var(--border);
+  background:rgba(233,238,252,.04);
+  color:var(--text);
+  padding:10px 12px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:900;
+}
+
+.btnSmall{
+  padding:8px 10px;
+  border-radius:10px;
+  font-weight:900;
+}
+
+.pill{
+  border:1px solid var(--border);
+  border-radius:999px;
+  padding:8px 10px;
+  background:rgba(11,18,32,.35);
+  color:var(--muted);
+  font-size:12.5px;
+}
+
+.sectionTitle{
+  font-weight:900;
+  margin:10px 0 6px;
+}
+
+.muted{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.35;
+}
+
+.settingsCard{
+  margin-top:12px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:12px;
+  background:rgba(11,18,32,.25);
+}
+
+/* ---------------- Game ---------------- */
+
+.prompt{
+  background:var(--paper);
+  border-radius:6px;
+  min-height:170px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  isolation:isolate;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Overlay HUD (lives / score) */
+.promptHud{
+  position:absolute;
+  top:8px;
+  left:8px;
+  right:8px;
+  z-index:5;
+  pointer-events:none;
+}
+
+#hudLives{
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+#hudScore{
+  position:absolute;
+  top:0;
+  right:0;
+}
+
+/* Printed-on-tile look */
+.promptHudItem{
+  font-size:14px;
+  line-height:1;
+  color:var(--ink);
+  background:transparent;
+  border:none;
+  padding:0;
+  white-space:nowrap;
+}
+
+/* Centered prompt content */
+.promptInner{
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.kanjiText{
+  font-family:"KanjiFont", sans-serif;
+  font-size:96px;
+  color:var(--ink);
+}
+
+.kanaText{
+  font-family:"KanjiFont", sans-serif;
+  font-size:56px;
+  color:var(--ink);
+}
+
+/* ---------------- Answer tiles ---------------- */
+
+.choices{
+  margin-top:4px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4px;
+}
+
+button.choice{
+  border:0;
+  background:var(--paper);
+  border-radius:4px;
+  aspect-ratio: 1 / 1;   /* square tiles */
+  padding:0;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  isolation:isolate;
+  position:relative;
+  overflow:hidden;
+  outline:none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.choiceKanji{
+  font-family:"KanjiFont", sans-serif;
+  font-size:72px;
+  color:var(--ink);
+  position:relative;
+  z-index:1;
+}
+
+.meaningImg{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.meaningFallback{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px;
+  background:rgba(0,0,0,.03);
+}
+
+.fallbackRich{
+  font-size:22px;
+  font-weight:900;
+  line-height:1.15;
+  text-align:center;
+  word-break:break-word;
+}
+
+button.choice::after,
+.prompt::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  opacity:0;
+  z-index:2;
+  pointer-events:none;
+}
+
+button.choice > *,
+.promptInner{
+  position:relative;
+  z-index:1;
+}
+
+button.choice.selected::after{ background:rgba(59,130,246,.45); opacity:1; }
+button.choice.correct::after,
+.prompt.correct::after{ background:rgba(34,197,94,.5); opacity:1; }
+button.choice.wrong::after,
+.prompt.wrong::after{ background:rgba(239,68,68,.5); opacity:1; }
+
+/* ---------------- History ---------------- */
+
+.history{
+  margin-top:12px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:10px;
+  background:rgba(11,18,32,.20);
+}
+
+.historyHeader{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+
+.historyTitle{font-weight:900}
+.historyHint{color:var(--muted); font-size:12.5px}
+
+.historyRow{
+  width:100%;
+  text-align:left;
+  border:1px solid var(--border);
+  background:rgba(233,238,252,.04);
+  color:var(--text);
+  border-radius:12px;
+  padding:10px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:8px;
+}
+
+.historyRow:last-child{ margin-bottom:0; }
+
+/* ---------------- Debug ---------------- */
 
 .debugGrid{
   display:grid;
-  grid-template-columns: 160px 1fr;
+  grid-template-columns:160px 1fr;
   gap:10px;
   margin-top:10px;
 }
 
 .debugKey{
-  color: var(--muted);
-  font-weight: 800;
+  color:var(--muted);
+  font-weight:800;
 }
 
 .debugVal{
-  color: var(--text);
-  font-weight: 700;
-  word-break: break-word;
+  color:var(--text);
+  font-weight:700;
+  word-break:break-word;
 }
 
-@media (max-width: 420px){
+@media (max-width:420px){
   .debugGrid{
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
+}
+
+/* ---------------- Modal ---------------- */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:50;
+}
+
+.overlay.show{display:flex}
+
+.modal{
+  background:linear-gradient(180deg, rgba(17,26,46,.98), rgba(17,26,46,.92));
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+  width:min(520px,100%);
 }
