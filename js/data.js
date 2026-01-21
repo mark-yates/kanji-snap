@@ -1,5 +1,7 @@
 import { state } from "./state.js";
 
+export const FILE_VERSION = "1.63";
+
 export const GRADE_FILES = {
   1: "./data/grade-1.json",
   2: "./data/grade-2.json",
@@ -78,3 +80,4 @@ export function getKanjiForGradeSorted(grade){
   });
   return items;
 }
+
