@@ -1,5 +1,7 @@
 import { state, constants } from "./state.js";
 
+export const FILE_VERSION = "1.63";
+
 export function registerServiceWorker(){
   if(!("serviceWorker" in navigator)) return;
   window.addEventListener("load", () => {
@@ -103,3 +105,4 @@ export function addKV(container, key, value){
   row.appendChild(v);
   container.appendChild(row);
 }
+
