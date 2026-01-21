@@ -1,92 +1,138 @@
-/* sw.js */
+import { state } from "./state.js";
+import { loadSettings, initSettingsUI } from "./settings.js";
+import { startQuizGame, wireGameUI } from "./game-quiz.js";
+import { setActiveTab } from "./ui.js";
+import { ensureWordsLoaded } from "./words.js";
 
-const CACHE_NAME = "kanji-snap-cache-v1.60";          // bump when deploying changes
-const RUNTIME_CACHE = "kanji-snap-runtime-v1";     // runtime cache (images, etc.)
+/* ---------------- Service Worker ---------------- */
 
-// App shell + data we want available offline immediately
-const PRECACHE_URLS = [
-  "./",
-  "./index.html",
-  "./styles.css",
-  "./manifest.webmanifest",
+async function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
 
-  "./js/app.js",
+  try {
+    const swUrl = new URL("./sw.js", location.href);
+    const reg = await navigator.serviceWorker.register(swUrl.href);
 
-  // Your JS modules (add/remove as needed — leaving these minimal is fine)
-  "./js/game-quiz.js",
-  "./js/settings.js",
-  "./js/words.js",
+    // If a newer SW is waiting, activate it immediately.
+    if (reg.waiting) reg.waiting.postMessage({ type: "SKIP_WAITING" });
 
-  // Grade data (adjust if your repo uses different filenames)
-  "./data/grade-1.json",
-  "./data/grade-2.json",
-  "./data/grade-3.json",
-  "./data/grade-4.json",
-  "./data/grade-5.json",
-  "./data/grade-6.json",
+    await navigator.serviceWorker.ready;
+    // console.log("SW ready");
+  } catch (err) {
+    console.error("SW registration failed:", err);
+  }
+}
 
-  // ✅ NEW: words dataset
-  "./data/words.v2.csv",
-];
+/* ---------------- UI Wiring (robust) ---------------- */
 
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    (async () => {
-      const cache = await caches.open(CACHE_NAME);
-      await cache.addAll(PRECACHE_URLS);
-      self.skipWaiting();
-    })()
-  );
-});
+function wireStartGameButtons(wordsReadyPromise) {
+  async function startGameSafely(e) {
+    e?.preventDefault?.();
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    (async () => {
-      const keys = await caches.keys();
-      await Promise.all(
-        keys
-          .filter((k) => k !== CACHE_NAME && k !== RUNTIME_CACHE)
-          .map((k) => caches.delete(k))
-      );
-      self.clients.claim();
-    })()
-  );
-});
+    try {
+      await wordsReadyPromise;
+    } catch (err) {
+      console.error("Words dataset failed to load:", err);
+      alert("Could not load words dataset (words.v2.csv). Please refresh and try again.");
+      return;
+    }
 
-self.addEventListener("fetch", (event) => {
-  const req = event.request;
+    startQuizGame();
+  }
 
-  // Only handle GET
-  if (req.method !== "GET") return;
+  // Preferred data attribute
+  document.querySelectorAll('[data-action="start-quiz"]').forEach((el) => {
+    el.addEventListener("click", startGameSafely);
+  });
 
-  const url = new URL(req.url);
+  // Common legacy IDs
+  const ids = [
+    "btnPlay","btnStart","btnStartGame","startBtn","startGameBtn",
+    "playBtn","playGameBtn","startQuizBtn","btnStartQuiz"
+  ];
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    el.addEventListener("click", startGameSafely);
+  }
+}
 
-  // Only cache same-origin requests (keeps things predictable)
-  if (url.origin !== self.location.origin) return;
+function wireTabButtons() {
+  // Preferred data attribute
+  document.querySelectorAll("[data-tab]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      const tab = el.getAttribute("data-tab");
+      if (tab) setActiveTab(tab);
+    });
+  });
 
-  event.respondWith(
-    (async () => {
-      // Cache-first for app shell + data
-      const cached = await caches.match(req);
-      if (cached) return cached;
+  // Legacy IDs
+  const map = [
+    ["btnHome","home"],["btnSettings","settings"],
+    ["btnDictionary","dictionary"],["btnGame","game"],
+    ["tabHome","home"],["tabSettings","settings"],
+    ["tabDictionary","dictionary"],["tabGame","game"]
+  ];
+  for (const [id, tab] of map) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      setActiveTab(tab);
+    });
+  }
+}
 
-      try {
-        const res = await fetch(req);
+function wireGlobalDebugTap() {
+  const err = document.getElementById("appErrorBox");
+  err?.addEventListener("click", () => (err.style.display = "none"));
+}
 
-        // Cache successful same-origin GETs
-        if (res && res.ok) {
-          const cache = await caches.open(RUNTIME_CACHE);
-          cache.put(req, res.clone());
-        }
-        return res;
-      } catch (err) {
-        // If offline and not cached, last resort: try returning index for navigations
-        if (req.mode === "navigate") {
-          const fallback = await caches.match("./index.html");
-          if (fallback) return fallback;
-        }
-        throw err;
-      }
-    })()
-  );
-});
+/* ---------------- App Init ---------------- */
+
+async function initApp() {
+  // Load settings into global state
+  state.settings = loadSettings();
+
+  // Start loading words ASAP (but don't block initial UI paint)
+  const wordsReady = ensureWordsLoaded("./data/words.v2.csv");
+
+  // Initialize core modules
+  initSettingsUI?.();
+  wireGameUI?.();
+
+  // Optional modules (don’t crash if the export name differs / file missing)
+  try {
+    const dict = await import("./dictionary.js");
+    dict.initDictionaryUI?.();
+  } catch (e) {
+    // console.warn("dictionary.js not initialized:", e);
+  }
+  try {
+    const picker = await import("./kanji-picker.js");
+    picker.initKanjiPickerUI?.();
+  } catch (e) {
+    // console.warn("kanji-picker.js not initialized:", e);
+  }
+
+  // Wire navigation + actions
+  wireTabButtons();
+  wireStartGameButtons(wordsReady);
+  wireGlobalDebugTap();
+
+  // Default tab
+  setActiveTab("home");
+}
+
+/* ---------------- Boot ---------------- */
+
+(async () => {
+  try {
+    await registerServiceWorker();
+    await initApp();
+  } catch (e) {
+    console.error("App init failed:", e);
+    alert(`App init failed:\n${e?.message || e}`);
+  }
+})();
