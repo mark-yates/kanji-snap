@@ -27,7 +27,7 @@
           <button class="tab" id="tabGame" type="button" style="display:none;">Game</button>
 
           <!-- ✅ NEW: Debug tab -->
-          <button class="tab" id="tabDebug" type="button">Debug</button>
+          <button class="tab" id="tabDebug" data-tab="debug" type="button">Debug</button>
         </nav>
       </header>
 
@@ -238,7 +238,7 @@
       </section>
 
       <!-- ✅ NEW: DEBUG -->
-      <section class="view" id="viewDebug" aria-labelledby="tabDebug">
+      <section class="view" id="viewDebug" data-view="debug" aria-labelledby="tabDebug">
         <div class="row">
           <div>
             <div class="sectionTitle">Debug</div>
@@ -281,3 +281,4 @@
   <script type="module" src="./js/app.js"></script>
 </body>
 </html>
+
