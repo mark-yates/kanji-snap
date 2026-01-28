@@ -1,108 +1,76 @@
-import { state, constants } from "./state.js";
-
-export const FILE_VERSION = "1.63";
-
-export function registerServiceWorker(){
-  if(!("serviceWorker" in navigator)) return;
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch(() => {});
-  });
-}
-
-export function setActiveTab(which){
-  const tabHome = document.getElementById("tabHome");
-  const tabSettings = document.getElementById("tabSettings");
-  const tabDictionary = document.getElementById("tabDictionary");
-  const tabKanji = document.getElementById("tabKanji");
-  const tabGame = document.getElementById("tabGame");
-
-  const viewHome = document.getElementById("viewHome");
-  const viewSettings = document.getElementById("viewSettings");
-  const viewDictionary = document.getElementById("viewDictionary");
-  const viewKanji = document.getElementById("viewKanji");
-  const viewGame = document.getElementById("viewGame");
-  const viewWord = document.getElementById("viewWord");
-
-  tabHome?.classList.toggle("active", which === "home");
-  tabSettings?.classList.toggle("active", which === "settings");
-  tabDictionary?.classList.toggle("active", which === "dictionary");
-  tabKanji?.classList.toggle("active", which === "kanji");
-  tabGame?.classList.toggle("active", which === "game");
-
-  viewHome?.classList.toggle("active", which === "home");
-  viewSettings?.classList.toggle("active", which === "settings");
-  viewDictionary?.classList.toggle("active", which === "dictionary");
-  viewKanji?.classList.toggle("active", which === "kanji");
-  viewGame?.classList.toggle("active", which === "game");
-  viewWord?.classList.toggle("active", which === "word");
-
-  // Keep Game tab visible while a game is active
-  if(tabGame){
-    tabGame.style.display = state.gameActive ? "" : "none";
-  }
-}
-
-export function showGameOverModal(finalScore){
-  const overlay = document.getElementById("overlay");
-  const gameOverText = document.getElementById("gameOverText");
-  if(gameOverText) gameOverText.textContent = `Final score: ${finalScore}`;
-  overlay?.classList.add("show");
-}
-
-export function hideGameOverModal(){
-  document.getElementById("overlay")?.classList.remove("show");
-}
-
-export function meaningImgUrlForKanji(kanjiChar){
-  return constants.MEANING_IMG_DIR + encodeURIComponent(kanjiChar) + ".png";
-}
+export const FILE_VERSION = "1.68";
 
 /**
- * Bracket coloring rule:
- * - If no '[' anywhere -> render everything black
- * - If brackets exist -> inside [...] black, outside 50% grey
+ * ui.js
+ * Central tab/view switching.
+ *
+ * Supported tabs:
+ * home, settings, dictionary, kanji, game, word, debug
  */
-export function renderBracketColored(container, s){
-  container.innerHTML = "";
-  const str = String(s ?? "");
 
-  if(!str.includes("[")){
-    const span = document.createElement("span");
-    span.className = "fg-strong";
-    span.textContent = str;
-    container.appendChild(span);
+const KNOWN_TABS = ["home", "settings", "dictionary", "kanji", "game", "word", "debug"];
+
+function cap(s) {
+  if (!s) return s;
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function getViewForTab(tab) {
+  // Prefer explicit data-view mapping
+  const byData = document.querySelector(`.view[data-view="${tab}"]`);
+  if (byData) return byData;
+
+  // Otherwise fall back to id convention: viewHome, viewSettings, ...
+  return document.getElementById(`view${cap(tab)}`);
+}
+
+function getTabButtonsForTab(tab) {
+  // Prefer explicit data-tab mapping
+  const btns = Array.from(document.querySelectorAll(`.tabs [data-tab="${tab}"]`));
+  if (btns.length) return btns;
+
+  // Otherwise fall back to id convention: tabHome, tabSettings, ...
+  const byId = document.getElementById(`tab${cap(tab)}`);
+  return byId ? [byId] : [];
+}
+
+export function setActiveTab(tab) {
+  // Normalize
+  tab = (tab || "").toString().trim().toLowerCase();
+
+  // If unknown, fall back to home (prevents blank screen)
+  if (!KNOWN_TABS.includes(tab)) {
+    console.warn(`setActiveTab: unknown tab "${tab}", falling back to "home"`);
+    tab = "home";
+  }
+
+  // Hide all views
+  document.querySelectorAll(".view").forEach((v) => {
+    v.classList.remove("active");
+    v.style.display = "none";
+  });
+
+  // Deactivate all tab buttons
+  document.querySelectorAll(".tabs .tab").forEach((b) => b.classList.remove("active"));
+
+  // Activate the requested view
+  const view = getViewForTab(tab);
+  if (!view) {
+    console.warn(`setActiveTab: missing view for tab "${tab}", falling back to "home"`);
+    const homeView = getViewForTab("home");
+    if (homeView) {
+      homeView.classList.add("active");
+      homeView.style.display = "block";
+    }
+    const homeBtns = getTabButtonsForTab("home");
+    homeBtns.forEach((b) => b.classList.add("active"));
     return;
   }
 
-  const tokens = str.match(/\[[^\]]*\]|[^\[]+/g) || [str];
-  for(const t of tokens){
-    if(t.startsWith("[") && t.endsWith("]")){
-      const span = document.createElement("span");
-      span.className = "fg-strong";
-      span.textContent = t.slice(1, -1);
-      container.appendChild(span);
-    } else {
-      const span = document.createElement("span");
-      span.className = "fg-dim";
-      span.textContent = t;
-      container.appendChild(span);
-    }
-  }
-}
+  view.classList.add("active");
+  view.style.display = "block";
 
-export function el(tag, className, text){
-  const node = document.createElement(tag);
-  if(className) node.className = className;
-  if(text !== undefined) node.textContent = text;
-  return node;
+  // Activate corresponding tab button(s)
+  const btns = getTabButtonsForTab(tab);
+  btns.forEach((b) => b.classList.add("active"));
 }
-
-export function addKV(container, key, value){
-  const row = el("div", "rowKV");
-  row.appendChild(el("div", "k", key));
-  const v = el("div", "v");
-  v.textContent = value;
-  row.appendChild(v);
-  container.appendChild(row);
-}
-
