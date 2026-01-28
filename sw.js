@@ -1,6 +1,6 @@
 /* sw.js */
 
-const CACHE_NAME = "kanji-snap-cache-v1.68";      // bump for app shell updates
+const CACHE_NAME = "kanji-snap-cache-v1.69";      // bump for app shell updates
 const RUNTIME_CACHE = "kanji-snap-runtime-v1"; // must match settings.js/game-quiz.js
 
 
@@ -125,6 +125,7 @@ self.addEventListener("fetch", (event) => {
     }
   })());
 });
+
 
 
 
