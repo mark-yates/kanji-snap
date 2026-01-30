@@ -108,3 +108,11 @@ export function renderBracketColored(container, s){
     }
   }
 }
+
+
+export function showGameOverModal(finalScore){
+  const overlay = document.getElementById("overlay");
+  const gameOverText = document.getElementById("gameOverText");
+  if(gameOverText) gameOverText.textContent = `Final score: ${finalScore}`;
+  overlay?.classList.add("show");
+}
