@@ -131,6 +131,14 @@ async function initApp() {
     // console.warn("debug.js not initialized:", e);
   }
 
+  // ✅ Demo module (drag & drop prototype)
+  try {
+    const demo = await import("./demo.js");
+    demo.initDemoUI?.();
+  } catch (e) {
+    // console.warn("demo.js not initialized:", e);
+  }
+
   // Wire navigation + actions
   wireTabButtons();
   wireStartGameButtons(wordsReady);

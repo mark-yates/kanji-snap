@@ -8,7 +8,7 @@ export const FILE_VERSION = "1.68";
  * home, settings, dictionary, kanji, game, word, debug
  */
 
-const KNOWN_TABS = ["home", "settings", "dictionary", "kanji", "game", "word", "debug"];
+const KNOWN_TABS = ["home", "settings", "dictionary", "kanji", "game", "word", "demo", "debug"];
 
 function cap(s) {
   if (!s) return s;
@@ -73,46 +73,4 @@ export function setActiveTab(tab) {
   // Activate corresponding tab button(s)
   const btns = getTabButtonsForTab(tab);
   btns.forEach((b) => b.classList.add("active"));
-}
-
-
-/**
- * Bracket coloring rule:
- * - If no '[' anywhere -> render everything black
- * - If brackets exist -> inside [...] black, outside 50% grey
- */
-export function renderBracketColored(container, s){
-  container.innerHTML = "";
-  const str = String(s ?? "");
-
-  if(!str.includes("[")){
-    const span = document.createElement("span");
-    span.className = "fg-strong";
-    span.textContent = str;
-    container.appendChild(span);
-    return;
-  }
-
-  const tokens = str.match(/\[[^\]]*\]|[^\[]+/g) || [str];
-  for(const t of tokens){
-    if(t.startsWith("[") && t.endsWith("]")){
-      const span = document.createElement("span");
-      span.className = "fg-strong";
-      span.textContent = t.slice(1, -1);
-      container.appendChild(span);
-    } else {
-      const span = document.createElement("span");
-      span.className = "fg-dim";
-      span.textContent = t;
-      container.appendChild(span);
-    }
-  }
-}
-
-
-export function showGameOverModal(finalScore){
-  const overlay = document.getElementById("overlay");
-  const gameOverText = document.getElementById("gameOverText");
-  if(gameOverText) gameOverText.textContent = `Final score: ${finalScore}`;
-  overlay?.classList.add("show");
 }
