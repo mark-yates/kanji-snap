@@ -206,6 +206,23 @@ body{
   color:var(--ink);
 }
 
+/* ---------------- Drag & Drop demo ---------------- */
+
+.dd-zone.hover{ color:rgba(59,130,246,1); }
+.dd-zone.filled{ font-weight:900; }
+
+.dd-drag{
+  position:fixed;
+  left:0;
+  top:0;
+  transform:translate(-50%,-50%);
+  z-index:9999;
+  pointer-events:none;
+  font-family:"KanjiFont", sans-serif;
+  font-size:72px;
+  color:var(--ink);
+}
+
 /* ---------------- Answer tiles ---------------- */
 
 .choices{
