@@ -1,6 +1,6 @@
 /* sw.js */
 
-const CACHE_NAME = "kanji-snap-cache-v1.72";      // bump for app shell updates
+const CACHE_NAME = "kanji-snap-cache-v1.73";      // bump for app shell updates
 const RUNTIME_CACHE = "kanji-snap-runtime-v1"; // must match settings.js/game-quiz.js
 
 
@@ -22,6 +22,7 @@ const PRECACHE_URLS = [
 
   "./js/dictionary.js",
   "./js/kanji-picker.js",
+  "./js/demo.js",
 
   "./data/grade-1.json",
   "./data/grade-2.json",
@@ -125,8 +126,6 @@ self.addEventListener("fetch", (event) => {
     }
   })());
 });
-
-
 
 
 
