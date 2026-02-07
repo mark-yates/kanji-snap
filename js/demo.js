@@ -7,6 +7,8 @@ export const FILE_VERSION = "1.00";
  * Segments format example: "女:おんな|の|子:こ"
  */
 
+const DRAG_OFFSET_Y = Math.max(40, Math.min(80, Math.round(window.innerHeight * 0.06)));
+
 function parseSegments(segmentsStr) {
   const rawTokens = (segmentsStr || "").split("|").filter((t) => t.length > 0);
 
