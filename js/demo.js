@@ -83,6 +83,16 @@ export function initDemoUI() {
   }
 
   /** Drag state */
+
+function getDragPoint() {
+  const r = dragEl.getBoundingClientRect();
+  return {
+    x: r.left + r.width / 2,
+    y: r.top + r.height / 2
+  };
+}
+
+  
   const drag = {
     active: false,
     pointerId: null,
@@ -161,18 +171,27 @@ export function initDemoUI() {
     }
   }
 
-  function moveDrag(e) {
-    if (!drag.active || drag.pointerId !== e.pointerId) return;
-    e.preventDefault();
+function moveDrag(e) {
+  if (!drag.active || drag.pointerId !== e.pointerId) return;
+  e.preventDefault();
 
-    if (drag.dragEl) {
-      drag.dragEl.style.left = `${e.clientX}px`;
-      drag.dragEl.style.top = `${e.clientY}px`;
-    }
-
-    const zoneId = hitTestZone(e.clientX, e.clientY);
-    setHover(zoneId);
+  if (drag.dragEl) {
+    drag.dragEl.style.left = `${e.clientX}px`;
+    drag.dragEl.style.top = `${e.clientY}px`;
   }
+
+  // 🔽 Use the dragged glyph position, not the finger
+  if (drag.dragEl) {
+    const r = drag.dragEl.getBoundingClientRect();
+    const x = r.left + r.width / 2;
+    const y = r.top + r.height / 2;
+    const zoneId = hitTestZone(x, y);
+    setHover(zoneId);
+  } else {
+    setHover(null);
+  }
+}
+
 
   function flashWrong() {
     promptEl.classList.remove("correct");
@@ -200,38 +219,50 @@ export function initDemoUI() {
     }
   }
 
-  function endDrag(e) {
-    if (!drag.active || drag.pointerId !== e.pointerId) return;
-    e.preventDefault();
+function endDrag(e) {
+  if (!drag.active || drag.pointerId !== e.pointerId) return;
+  e.preventDefault();
 
-    window.removeEventListener("pointermove", moveDrag);
-    window.removeEventListener("pointerup", endDrag);
-    window.removeEventListener("pointercancel", endDrag);
+  window.removeEventListener("pointermove", moveDrag);
+  window.removeEventListener("pointerup", endDrag);
+  window.removeEventListener("pointercancel", endDrag);
 
-    const zoneId = drag.hoveredZoneId;
+  // Decide drop target based on the dragged glyph's rendered position
+  let zoneId = null;
+  if (drag.dragEl) {
+    const r = drag.dragEl.getBoundingClientRect();
+    const x = r.left + r.width / 2;
+    const y = r.top + r.height / 2;
+    zoneId = hitTestZone(x, y);
+  }
 
-    // Drop logic
-    if (zoneId != null) {
-      const z = zones.get(zoneId);
-      if (z && !z.filled) {
-        if (drag.kanji === z.kanji) {
-          placeCorrect(zoneId);
-        } else {
-          flashWrong();
-        }
+  // Drop logic
+  if (zoneId != null) {
+    const z = zones.get(zoneId);
+    if (z && !z.filled) {
+      if (drag.kanji === z.kanji) {
+        placeCorrect(zoneId);
+      } else {
+        flashWrong();
       }
     }
-
-    // Cleanup
-    clearHover();
-
-    drag.dragEl?.remove();
-    drag.dragEl = null;
-    drag.active = false;
-    drag.pointerId = null;
-    drag.kanji = "";
-    drag.originBtn = null;
+    // If zoneId is a filled zone, treat it like "outside" (snap back / no effect)
+  } else {
+    // Dropped outside any zone: snap-back behavior is implicit by doing nothing
+    // (You remove dragEl and the original tile stays in place.)
   }
+
+  // Cleanup
+  clearHover();
+
+  drag.dragEl?.remove();
+  drag.dragEl = null;
+  drag.active = false;
+  drag.pointerId = null;
+  drag.kanji = "";
+  drag.originBtn = null;
+}
+
 
   function wireChoices() {
     for (const btn of choicesEl.querySelectorAll("button.choice")) {
