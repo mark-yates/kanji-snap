@@ -74,3 +74,37 @@ export function setActiveTab(tab) {
   const btns = getTabButtonsForTab(tab);
   btns.forEach((b) => b.classList.add("active"));
 }
+
+/**
+ * Bracket coloring rule:
+ * - If no '[' anywhere -> render everything black
+ * - If brackets exist -> inside [...] black, outside 50% grey
+ */
+export function renderBracketColored(container, s){
+  container.innerHTML = "";
+  const str = String(s ?? "");
+
+  if(!str.includes("[")){
+    const span = document.createElement("span");
+    span.className = "fg-strong";
+    span.textContent = str;
+    container.appendChild(span);
+    return;
+  }
+
+  const tokens = str.match(/\[[^\]]*\]|[^\[]+/g) || [str];
+  for(const t of tokens){
+    if(t.startsWith("[") && t.endsWith("]")){
+      const span = document.createElement("span");
+      span.className = "fg-strong";
+      span.textContent = t.slice(1, -1);
+      container.appendChild(span);
+    } else {
+      const span = document.createElement("span");
+      span.className = "fg-dim";
+      span.textContent = t;
+      container.appendChild(span);
+    }
+  }
+}
+
