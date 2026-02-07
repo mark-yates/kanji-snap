@@ -1,6 +1,6 @@
 /* sw.js */
 
-const CACHE_NAME = "kanji-snap-cache-v1.73.2";      // bump for app shell updates
+const CACHE_NAME = "kanji-snap-cache-v1.73.3";      // bump for app shell updates
 const RUNTIME_CACHE = "kanji-snap-runtime-v1"; // must match settings.js/game-quiz.js
 
 
@@ -39,10 +39,21 @@ self.addEventListener("message", (event) => {
 self.addEventListener("install", (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
-    await cache.addAll(PRECACHE_URLS);
+
+    await Promise.all(
+      PRECACHE_URLS.map(async (url) => {
+        try {
+          await cache.add(url);
+        } catch (err) {
+          console.warn("[SW] Precache failed:", url, err);
+        }
+      })
+    );
+
     self.skipWaiting();
   })());
 });
+
 
 self.addEventListener("activate", (event) => {
   event.waitUntil((async () => {
