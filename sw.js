@@ -1,6 +1,6 @@
 /* sw.js */
 
-const CACHE_NAME = "kanji-snap-cache-v1.73.1";      // bump for app shell updates
+const CACHE_NAME = "kanji-snap-cache-v1.73.2";      // bump for app shell updates
 const RUNTIME_CACHE = "kanji-snap-runtime-v1"; // must match settings.js/game-quiz.js
 
 
