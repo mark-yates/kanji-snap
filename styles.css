@@ -211,17 +211,26 @@ body{
 .dd-zone.hover{ color:rgba(59,130,246,1); }
 .dd-zone.filled{ font-weight:900; }
 
-.dd-drag{
-  position:fixed;
-  left:0;
-  top:0;
-  transform:translate(-50%,-50%);
-  z-index:9999;
-  pointer-events:none;
-  font-family:"KanjiFont", sans-serif;
-  font-size:72px;
-  color:var(--ink);
+.dd-drag {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  /* Keep the glyph anchored to the pointer,
+     but lift it above the finger */
+  transform: translate(-50%, calc(-50% - 56px));
+
+  z-index: 9999;
+  pointer-events: none;
+
+  font-family: "KanjiFont", sans-serif;
+  font-size: 72px;
+  color: var(--ink);
+
+  /* Optional but nice: smoother motion */
+  will-change: transform;
 }
+
 
 /* ---------------- Answer tiles ---------------- */
 
