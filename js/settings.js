@@ -1,7 +1,7 @@
 import { state } from "./state.js";
 import { ensureGradesLoaded } from "./data.js";
 
-export const FILE_VERSION = "1.63";
+export const FILE_VERSION = "1.64";
 
 const SETTINGS_KEY = "kanjiSnap.settings.v13";
 
@@ -14,7 +14,10 @@ const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 export const DEFAULT_SETTINGS = {
   enabledGrades: { 1: true, 2: false, 3: false, 4: false, 5: false, 6: false },
   kanjiOverrides: {},
-  compoundEnabled: true
+  compoundEnabled: true,
+
+  // ✅ NEW: Drag word questions (drag-and-drop kanji onto segmented kana)
+  dragWordEnabled: false
 };
 
 export function loadSettings() {
@@ -30,7 +33,10 @@ export function loadSettings() {
     }
 
     if (!obj.kanjiOverrides || typeof obj.kanjiOverrides !== "object") obj.kanjiOverrides = {};
-    if (typeof obj.compoundEnabled !== "boolean") obj.compoundEnabled = true;
+    if (typeof obj.compoundEnabled !== "boolean") obj.compoundEnabled = DEFAULT_SETTINGS.compoundEnabled;
+
+    // ✅ NEW
+    if (typeof obj.dragWordEnabled !== "boolean") obj.dragWordEnabled = DEFAULT_SETTINGS.dragWordEnabled;
 
     return obj;
   } catch {
@@ -59,6 +65,11 @@ export function getOverrideCount() {
 
 export function isCompoundEnabled() {
   return !!state.settings.compoundEnabled;
+}
+
+// ✅ NEW
+export function isDragWordEnabled() {
+  return !!state.settings.dragWordEnabled;
 }
 
 export function hasKanjiOverride(kanjiId) {
@@ -196,6 +207,9 @@ export function initSettingsUI(onSettingsChanged) {
   const chkG3 = document.getElementById("chkG3");
   const chkCompound = document.getElementById("chkCompound");
 
+  // ✅ NEW (safe if missing in HTML for now)
+  const chkDragWord = document.getElementById("chkDragWord");
+
   const resetBtn = document.getElementById("resetSettingsBtn");
   const clearOverridesBtn = document.getElementById("clearOverridesBtn");
   const resetDownloadsBtn = document.getElementById("resetDownloadsBtn");
@@ -211,6 +225,9 @@ export function initSettingsUI(onSettingsChanged) {
     if (chkG2) chkG2.checked = !!state.settings.enabledGrades[2];
     if (chkG3) chkG3.checked = !!state.settings.enabledGrades[3];
     if (chkCompound) chkCompound.checked = !!state.settings.compoundEnabled;
+
+    // ✅ NEW
+    if (chkDragWord) chkDragWord.checked = !!state.settings.dragWordEnabled;
 
     updateOverridePill();
     refreshDownloadUI();
@@ -233,6 +250,12 @@ export function initSettingsUI(onSettingsChanged) {
 
   chkCompound?.addEventListener("change", () => {
     state.settings.compoundEnabled = chkCompound.checked;
+    saveSettings(); sync(); onSettingsChanged?.();
+  });
+
+  // ✅ NEW
+  chkDragWord?.addEventListener("change", () => {
+    state.settings.dragWordEnabled = chkDragWord.checked;
     saveSettings(); sync(); onSettingsChanged?.();
   });
 
@@ -287,4 +310,3 @@ export function initSettingsUI(onSettingsChanged) {
 
   sync();
 }
-
