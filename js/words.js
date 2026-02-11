@@ -9,9 +9,12 @@
  * This module ALSO preserves the legacy API used by the quiz:
  *   - rebuildWordIndexForGrades(enabledGrades)
  *   - getEligibleCompoundWords(pool, opts)
+ *
+ * And adds:
+ *   - getEligibleDragWords(pool, opts)
  */
 
-export const FILE_VERSION = "1.63";
+export const FILE_VERSION = "1.64";
 
 let _loaded = false;
 let _loadingPromise = null;
@@ -26,6 +29,10 @@ let _index = {
 let _enabledGrades = null; // number[] | null
 let _eligibleCacheKey = "";
 let _eligibleCache = [];
+
+// Separate cache for drag-word eligibility
+let _eligibleDragCacheKey = "";
+let _eligibleDragCache = [];
 
 // Adjust this path if you store the CSV elsewhere.
 const DEFAULT_WORDS_CSV_URL = "./data/words.v2.csv";
@@ -138,8 +145,13 @@ export function setWordsCsvUrl(url) {
   _wordsAll = [];
   _index = { byGrade: new Map(), byKanji: new Map(), byWord: new Map() };
   _enabledGrades = null;
+
   _eligibleCacheKey = "";
   _eligibleCache = [];
+
+  _eligibleDragCacheKey = "";
+  _eligibleDragCache = [];
+
   // Note: caller must pass url to ensureWordsLoaded(url) after this.
   // We keep DEFAULT_WORDS_CSV_URL constant.
 }
@@ -174,6 +186,8 @@ export function rebuildWordIndexForGrades(enabledGrades) {
   _enabledGrades = Array.isArray(enabledGrades) ? enabledGrades.slice() : null;
   _eligibleCacheKey = "";
   _eligibleCache = [];
+  _eligibleDragCacheKey = "";
+  _eligibleDragCache = [];
 }
 
 /**
@@ -249,12 +263,104 @@ export function getEligibleCompoundWords(pool, opts = {}) {
         frequency_band: w.frequency_band,
         age_band: w.age_band,
         grade: w.grade,
-      }
+      },
     });
   }
 
   _eligibleCacheKey = key;
   _eligibleCache = eligible;
+  return eligible;
+}
+
+/**
+ * Returns eligible words for the "drag word questions".
+ *
+ * Defaults:
+ * - minKanji: 1
+ * - maxKanji: 3
+ * - requireSegments: true (because drag questions need tokenization)
+ *
+ * Returned objects include:
+ * - segments: WordSegment[] (parsed from reading_segments)
+ *   NOTE: kana-only segments have kanji === "" (these should become *incorrect* drop-zones)
+ *
+ * @param {Array<any>} pool - enabled kanji pool (objects with .id or .kanji, or strings)
+ * @param {Object} [opts]
+ * @param {number} [opts.minKanji=1]
+ * @param {number} [opts.maxKanji=3]
+ * @param {boolean} [opts.requireSegments=true]
+ * @returns {Array<{kanji:string,kana:string,kanjiChars:string[],segments:WordSegment[],meaning:string,meta:any}>}
+ */
+export function getEligibleDragWords(pool, opts = {}) {
+  const minKanji = typeof opts.minKanji === "number" ? opts.minKanji : 1;
+  const maxKanji = typeof opts.maxKanji === "number" ? opts.maxKanji : 3;
+  const requireSegments = ("requireSegments" in opts) ? !!opts.requireSegments : true;
+
+  const allowed = new Set();
+  for (const item of (pool || [])) {
+    if (typeof item === "string") allowed.add(item);
+    else if (item && typeof item.id === "string") allowed.add(item.id);
+    else if (item && typeof item.kanji === "string") allowed.add(item.kanji);
+  }
+
+  const allowedKey = [...allowed].sort().join("");
+  const gradesKey = Array.isArray(_enabledGrades) ? _enabledGrades.slice().sort((a,b)=>a-b).join(",") : "";
+  const key = `drag::${allowedKey}::${gradesKey}::${minKanji}-${maxKanji}-${requireSegments}`;
+
+  if (key === _eligibleDragCacheKey) return _eligibleDragCache;
+
+  const enabledGradesSet = Array.isArray(_enabledGrades) ? new Set(_enabledGrades) : null;
+
+  const eligible = [];
+  for (const w of _wordsAll) {
+    const n = w.kanjiChars.length;
+    if (n < minKanji || n > maxKanji) continue;
+
+    // For drag questions we also require there be at least 1 actual kanji segment
+    // (avoid weird entries where kanjiChars might be empty)
+    if (n <= 0) continue;
+
+    if (enabledGradesSet && w.grade != null && !enabledGradesSet.has(w.grade)) {
+      continue;
+    }
+
+    if (requireSegments) {
+      if (!w.segments || w.segments.length === 0) continue;
+      // Must contain at least one kanji-bearing segment
+      const hasAnyKanjiSeg = w.segments.some(s => (s.kanji || "").trim().length > 0);
+      if (!hasAnyKanjiSeg) continue;
+    }
+
+    let ok = true;
+    for (const k of w.kanjiChars) {
+      if (!allowed.has(k)) { ok = false; break; }
+    }
+    if (!ok) continue;
+
+    eligible.push({
+      kanji: w.word,
+      kana: w.reading,
+      kanjiChars: w.kanjiChars.slice(),
+      segments: (w.segments || []).map(s => ({ kanji: s.kanji, reading: s.reading })),
+      meaning: w.meaning,
+      meta: {
+        word: w.word,
+        reading: w.reading,
+        reading_segments: w.reading_segments,
+        meaning: w.meaning,
+        meaning_en: w.meaning_en,
+        meaning_en_custom: w.meaning_en_custom,
+        part: w.part,
+        frequency: w.frequency,
+        frequency_band: w.frequency_band,
+        age_band: w.age_band,
+        grade: w.grade,
+      },
+    });
+  }
+
+  _eligibleDragCacheKey = key;
+  _eligibleDragCache = eligible;
   return eligible;
 }
 
@@ -423,4 +529,3 @@ function parseCsv(text) {
 
   return rows;
 }
-
