@@ -11,6 +11,7 @@
   --muted:#a8b3cf;
   --paper:#ffffff;
   --ink:#000000;
+  --accent: rgba(59,130,246,1);
 }
 
 *{box-sizing:border-box}
