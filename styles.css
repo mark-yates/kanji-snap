@@ -150,6 +150,12 @@ body{
   overflow:hidden;
 }
 
+/* Drag question idle state:
+   Entire prompt text is blue when no drag is active */
+.prompt.drag-idle.dd-zone {
+  color: var(--accent);
+}
+
 /* Overlay HUD (lives / score) */
 .promptHud{
   position:absolute;
