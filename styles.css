@@ -152,7 +152,7 @@ body{
 
 /* Drag question idle state:
    Entire prompt text is blue when no drag is active */
-.prompt.drag-idle.dd-zone {
+.prompt.drag-idle .dd-zone {
   color: var(--accent);
 }
 
