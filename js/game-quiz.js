@@ -417,6 +417,9 @@ function beginDrag(btn, kanji, e) {
   if (state.locked) return;
 
   drag.active = true;
+// Leaving idle state while dragging
+document.getElementById("prompt")?.classList.remove("drag-idle");
+  
   drag.pointerId = e.pointerId;
   drag.kanji = kanji;
   drag.originBtn = btn;
@@ -563,6 +566,11 @@ function endDrag(e) {
   drag.pointerId = null;
   drag.kanji = "";
   drag.originBtn = null;
+
+  // If question still active (not answered), restore idle blue
+if (!state.locked && state.currentQuestion?.type === "dragword") {
+  document.getElementById("prompt")?.classList.add("drag-idle");
+}
 }
 
 /* ---------- Question generation ---------- */
@@ -669,10 +677,13 @@ async function newQuestion() {
     setPromptKana(state.currentQuestion.kana);
     renderChoicesKanjiClick(state.currentQuestion.answers);
   } else {
-    // dragword
-    setPromptDragZones(state.currentQuestion);
-    renderChoicesKanjiDrag(state.currentQuestion.answers);
-  }
+  // dragword
+  setPromptDragZones(state.currentQuestion);
+  renderChoicesKanjiDrag(state.currentQuestion.answers);
+
+  // 🟦 Idle visual cue
+  document.getElementById("prompt")?.classList.add("drag-idle");
+}
 
   updateHUD();
   renderHistory();
@@ -812,3 +823,4 @@ export async function startQuizGame() {
 export function wireGameUI() {
   document.getElementById("prompt")?.addEventListener("click", togglePeek);
 }
+
