@@ -12,7 +12,7 @@ import {
 } from "./settings.js";
 import { renderBracketColored, setActiveTab, showGameOverModal } from "./ui.js";
 
-export const FILE_VERSION = "1.70";
+export const FILE_VERSION = "1.71";
 
 const MAX_HISTORY = 8;
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
@@ -823,4 +823,5 @@ export async function startQuizGame() {
 export function wireGameUI() {
   document.getElementById("prompt")?.addEventListener("click", togglePeek);
 }
+
 
