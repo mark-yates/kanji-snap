@@ -238,7 +238,30 @@ body{
   will-change: transform;
 }
 
+/* Demo 2x3 grid layout */
+.demoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  height: 360px; /* temporary fixed height for testing */
+}
 
+/* Prompt occupies full left column (3 rows) */
+.demoGrid #demoPrompt {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+
+/* Choices occupy right column */
+.demoGrid #demoChoices {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
 /* ---------------- Answer tiles ---------------- */
 
 .choices{
