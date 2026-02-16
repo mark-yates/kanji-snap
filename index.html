@@ -70,18 +70,29 @@
           <button class="btn" data-tab="home" type="button">Back</button>
         </div>
 
-        <div class="prompt" id="demoPrompt" style="margin-top:10px;">
-          <div class="promptInner">
-            <div class="kanaText" id="demoPromptText"></div>
-          </div>
-        </div>
+<div id="demoGrid" class="demoGrid" style="margin-top:10px;">
 
-        <div class="choices" id="demoChoices" style="margin-top:4px;">
-          <button class="choice" id="demoChoice0" type="button"><span class="choiceKanji" id="demoChoice0Text">女</span></button>
-          <button class="choice" id="demoChoice1" type="button"><span class="choiceKanji" id="demoChoice1Text">子</span></button>
-          <button class="choice" id="demoChoice2" type="button"><span class="choiceKanji" id="demoChoice2Text">男</span></button>
-          <button class="choice" id="demoChoice3" type="button"><span class="choiceKanji" id="demoChoice3Text">母</span></button>
-        </div>
+  <!-- Prompt tile -->
+  <div class="prompt" id="demoPrompt">
+    <div class="promptInner">
+      <div class="kanaText" id="demoPromptText"></div>
+    </div>
+  </div>
+
+  <!-- Choices container -->
+  <div class="choices" id="demoChoices">
+    <button class="choice" id="demoChoice0" type="button">
+      <span class="choiceKanji" id="demoChoice0Text">女</span>
+    </button>
+    <button class="choice" id="demoChoice1" type="button">
+      <span class="choiceKanji" id="demoChoice1Text">子</span>
+    </button>
+    <button class="choice" id="demoChoice2" type="button">
+      <span class="choiceKanji" id="demoChoice2Text">男</span>
+    </button>
+  </div>
+
+</div>
 
         <div class="row" style="margin-top:10px; justify-content:flex-end;">
           <button class="btn" id="demoResetBtn" type="button">Reset</button>
