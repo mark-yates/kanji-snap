@@ -266,19 +266,22 @@
 
       <!-- GAME -->
       <section class="view" id="viewGame" aria-labelledby="tabGame">
-        <div class="prompt" id="prompt" title="Tap to Sneak Peek">
-          <!-- Overlay HUD (does not affect prompt centering) -->
-          <div class="promptHud" aria-hidden="true">
-            <div class="promptHudItem" id="hudLives">❤️ 10</div>
-            <div class="promptHudItem" id="hudScore">0</div>
+        <!-- ✅ New: shared 2x3 board wrapper (used for dragword layouts) -->
+        <div id="qaGrid" class="qaGrid">
+          <div class="prompt" id="prompt" title="Tap to Sneak Peek">
+            <!-- Overlay HUD (does not affect prompt centering) -->
+            <div class="promptHud" aria-hidden="true">
+              <div class="promptHudItem" id="hudLives">❤️ 10</div>
+              <div class="promptHudItem" id="hudScore">0</div>
+            </div>
+
+            <div class="promptInner" id="promptInner">
+              <div class="kanjiText">？</div>
+            </div>
           </div>
 
-          <div class="promptInner" id="promptInner">
-            <div class="kanjiText">？</div>
-          </div>
+          <div class="choices" id="choices"></div>
         </div>
-
-        <div class="choices" id="choices"></div>
 
         <div class="history">
           <div class="historyHeader">
