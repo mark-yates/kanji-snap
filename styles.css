@@ -462,3 +462,22 @@ button.choice.wrong::after,
   height: 100%;
 }
 
+/* =========================
+   Demo: vertical Japanese writing
+   ========================= */
+
+.demoGrid #demoPrompt .kanaText{
+  writing-mode: vertical-rl;     /* top→bottom, columns right→left */
+  text-orientation: upright;     /* keep kana/kanji upright */
+  
+  display: block;
+  height: 100%;
+  
+  column-fill: auto;             /* allow multiple vertical columns */
+  column-gap: 12px;              /* spacing between columns */
+  
+  line-height: 1.2;              /* tighten vertical spacing slightly */
+  letter-spacing: 0.05em;        /* subtle breathing room */
+}
+
+
