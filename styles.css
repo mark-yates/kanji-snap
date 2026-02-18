@@ -431,3 +431,17 @@ button.choice.wrong::after,
   padding:16px;
   width:min(520px,100%);
 }
+
+
+/* --- Demo override: force the right-side choices to be 1 column x 3 rows --- */
+.demoGrid #demoChoices.choices{
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: row;
+  gap: 10px;
+}
+
+.demoGrid #demoChoices.choices > .choice{
+  width: 100%;
+  height: 100%;
+}
