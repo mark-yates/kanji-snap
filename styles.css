@@ -115,6 +115,7 @@ body{
   background:rgba(11,18,32,.35);
   color:var(--muted);
   font-size:12.5p
+}
 
 .sectionTitle{
   font-weight:900;
