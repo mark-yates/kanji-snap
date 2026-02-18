@@ -414,7 +414,7 @@ button.choice.wrong::after,
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
   grid-auto-flow: row;
-  gap: 10px;
+  gap: 4px;
 }
 
 
@@ -427,7 +427,7 @@ button.choice.wrong::after,
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
-  gap: 10px;
+  gap: 4px;
 
   width: 100%;
   max-width: 520px;        /* optional; keeps it reasonable on wide screens */
@@ -450,7 +450,7 @@ button.choice.wrong::after,
   grid-template-columns: 1fr;          /* ✅ single column */
   grid-template-rows: repeat(3, 1fr);  /* ✅ three stacked rows */
   grid-auto-flow: row;
-  gap: 10px;
+  gap: 4px;
 
   padding: 0;   /* ✅ remove perceived extra inset on right */
   margin: 0;
