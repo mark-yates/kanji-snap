@@ -499,3 +499,29 @@ button.choice.wrong::after,
   letter-spacing: 0.05em;
 }
 
+/* Demo: fix vertical centering (don't stretch kanaText to full height) */
+.demoGrid #demoPrompt .kanaText{
+  /* vertical Japanese */
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  /* ✅ key changes */
+  display: inline-block;
+  height: auto;              /* overrides height:100% */
+  inline-size: 100%;         /* in vertical writing, inline-size maps to available vertical space */
+
+  /* keep multi-column support */
+  column-fill: auto;
+  column-gap: 12px;
+
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+/* Ensure promptInner is a centering box */
+.demoGrid #demoPrompt .promptInner{
+  display:flex;
+  align-items:center;        /* vertical centering */
+  justify-content:center;    /* horizontal centering */
+  height:100%;
+}
