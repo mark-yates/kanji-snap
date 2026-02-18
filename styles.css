@@ -525,3 +525,31 @@ button.choice.wrong::after,
   justify-content:center;    /* horizontal centering */
   height:100%;
 }
+
+/* Demo: TRUE vertical centering for vertical writing */
+.demoGrid #demoPrompt{
+  display:flex;
+  align-items:center;      /* vertical centering */
+  justify-content:center;  /* horizontal centering */
+}
+
+.demoGrid #demoPrompt .promptInner{
+  height:auto;             /* override global height:100% */
+  width:auto;              /* shrink-wrap */
+  display:block;           /* avoid inner flex stretching */
+}
+
+.demoGrid #demoPrompt .kanaText{
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  display:inline-block;
+  height:auto;             /* ✅ override height:100% */
+  width:auto;
+
+  column-fill:auto;
+  column-gap:12px;
+
+  line-height:1.2;
+  letter-spacing:0.05em;
+}
