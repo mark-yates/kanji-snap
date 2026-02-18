@@ -480,4 +480,22 @@ button.choice.wrong::after,
   letter-spacing: 0.05em;        /* subtle breathing room */
 }
 
+/* Center vertical text inside demo prompt */
+.demoGrid #demoPrompt .promptInner{
+  display: flex;
+  justify-content: center;  /* horizontal centering (within tile) */
+  align-items: center;      /* vertical centering */
+  height: 100%;
+}
+
+.demoGrid #demoPrompt .kanaText{
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  column-fill: auto;
+  column-gap: 12px;
+
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
 
