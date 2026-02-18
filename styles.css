@@ -114,8 +114,7 @@ body{
   padding:8px 10px;
   background:rgba(11,18,32,.35);
   color:var(--muted);
-  font-size:12.5px;
-}
+  font-size:12.5p
 
 .sectionTitle{
   font-weight:900;
@@ -259,6 +258,7 @@ body{
   grid-row: 1 / span 3;
 
   display: grid;
+  grid-template-columns: 1fr; 
   grid-template-rows: repeat(3, 1fr);
   gap: 10px;
 }
