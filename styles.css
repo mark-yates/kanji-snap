@@ -6,11 +6,16 @@
 
 :root{
   --bg:#0b1220;
+
+  /* Use valid alpha values (0..1) */
   --border:rgba(233,238,252,.14);
+
   --text:#e9eefc;
   --muted:#a8b3cf;
+
   --paper:#ffffff;
   --ink:#000000;
+
   --accent: rgba(59,130,246,1);
 }
 
@@ -176,47 +181,33 @@ body{
   background:rgba(11,18,32,.25);
 }
 
-/* ---------------- Game ---------------- */
+/* ============================================================
+   GAME: Prompt + Choices
+============================================================ */
 
-/* Board wrapper (prompt + choices)
-   Default is the classic stacked layout; dragword mode toggles grid layouts via JS. */
+/* Default wrapper (non-drag) */
 .qaGrid{
   display:block;
 }
 
-/* Dragword 2x3 board (square cells) */
+/* Dragword: 2x3 board of square cells */
 .qaGrid.drag-board{
   display:grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(3, 1fr);
   gap: 4px;
+
   width: 100%;
   aspect-ratio: 2 / 3;
 }
 
-/* In board mode, allow the prompt tile to shrink to its grid cell */
-.qaGrid.drag-board #prompt{
-  min-height: 0;
-}
-
-/* In board mode, remove the usual top margin on choices */
-.qaGrid.drag-board #choices{
-  margin-top: 0;
-}
-
-/* In board mode, let tiles fill their cells (we rely on the board grid for squareness) */
-.qaGrid.drag-board button.choice{
-  width: 100%;
-  height: 100%;
-  aspect-ratio: unset;
-}
-
 /* Horizontal drag layout:
-   prompt spans the top row; choices fill the remaining 2x2 cells */
+   prompt spans top row; choices fill remaining 2x2 cells */
 .qaGrid.drag-h #prompt{
   grid-column: 1 / span 2;
   grid-row: 1;
 }
+
 .qaGrid.drag-h #choices{
   grid-column: 1 / span 2;
   grid-row: 2 / span 2;
@@ -225,14 +216,17 @@ body{
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 4px;
+
+  margin-top: 0;
 }
 
 /* Vertical drag layout:
-   prompt fills left column; choices are 3 tiles down the right column */
+   prompt fills left column (3 rows); choices are 3 tiles down right column */
 .qaGrid.drag-v #prompt{
   grid-column: 1;
   grid-row: 1 / span 3;
 }
+
 .qaGrid.drag-v #choices{
   grid-column: 2;
   grid-row: 1 / span 3;
@@ -241,28 +235,18 @@ body{
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
   gap: 4px;
+
+  margin-top: 0;
 }
 
-/* Vertical Japanese prompt rendering (traditional):
-   top→bottom; columns right→left, with multi-column flow for future sentence prompts */
-.qaGrid.drag-v .kanaText{
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-
-  column-fill: auto;
-  column-gap: 12px;
-
-  line-height: 1.2;
-  letter-spacing: 0.05em;
+/* In board mode, let tiles fill their cell (board owns the squareness) */
+.qaGrid.drag-board button.choice{
+  width:100%;
+  height:100%;
+  aspect-ratio: unset;
 }
 
-/* Ensure vertical prompt content can be centered (shrink-wrap the inner box) */
-.qaGrid.drag-v #prompt .promptInner{
-  width: auto;
-  height: auto;
-  display: block;
-}
-
+/* Prompt tile */
 .prompt{
   background:var(--paper);
   border-radius:6px;
@@ -276,13 +260,7 @@ body{
   overflow:hidden;
 }
 
-/* Drag question idle state:
-   Entire prompt text is blue when no drag is active */
-.prompt.drag-idle .dd-zone {
-  color: var(--accent);
-}
-
-/* Overlay HUD (lives / score) */
+/* Printed-on-tile HUD (lives / score) */
 .promptHud{
   position:absolute;
   top:8px;
@@ -304,7 +282,6 @@ body{
   right:0;
 }
 
-/* Printed-on-tile look */
 .promptHudItem{
   font-size:14px;
   line-height:1;
@@ -315,7 +292,7 @@ body{
   white-space:nowrap;
 }
 
-/* Centered prompt content */
+/* Prompt content */
 .promptInner{
   position:relative;
   z-index:1;
@@ -338,32 +315,40 @@ body{
   color:var(--ink);
 }
 
-/* ---------------- Drag & Drop demo ---------------- */
-
-.dd-zone.hover{ color:rgba(59,130,246,1); }
-.dd-zone.filled{ font-weight:900; }
-
-.dd-drag {
-  position: fixed;
-  left: 0;
-  top: 0;
-
-  /* Keep the glyph anchored to the pointer,
-     but lift it above the finger */
-  transform: translate(-50%, calc(-50% - 56px));
-
-  z-index: 9999;
-  pointer-events: none;
-
-  font-family: "KanjiFont", sans-serif;
-  font-size: 72px;
-  color: var(--ink);
-
-  /* Optional but nice: smoother motion */
-  will-change: transform;
+/* Drag question idle cue: all segments blue until dragging begins */
+.prompt.drag-idle .dd-zone{
+  color: var(--accent);
 }
 
-/* ---------------- Answer tiles ---------------- */
+/* Dragword vertical prompt: traditional Japanese vertical flow */
+.qaGrid.drag-v .kanaText{
+  writing-mode: vertical-rl;     /* top→bottom; columns right→left */
+  text-orientation: upright;     /* keep kana/kanji upright */
+
+  column-fill: auto;             /* allow multi-column in future */
+  column-gap: 12px;
+
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+/* True centering for vertical drag prompt:
+   We center the prompt box itself and let inner shrink-wrap. */
+.qaGrid.drag-v #prompt{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.qaGrid.drag-v #prompt .promptInner{
+  width:auto;
+  height:auto;
+  display:block;
+}
+
+/* ============================================================
+   GAME: Answer tiles
+============================================================ */
 
 .choices{
   margin-top:4px;
@@ -376,7 +361,7 @@ button.choice{
   border:0;
   background:var(--paper);
   border-radius:4px;
-  aspect-ratio: 1 / 1;   /* square tiles */
+  aspect-ratio: 1 / 1;   /* square tiles for non-board layouts */
   padding:0;
   cursor:pointer;
   display:flex;
@@ -422,6 +407,7 @@ button.choice{
   word-break:break-word;
 }
 
+/* Overlay tint */
 button.choice::after,
 .prompt::after{
   content:"";
@@ -433,19 +419,40 @@ button.choice::after,
   pointer-events:none;
 }
 
-button.choice > *,
-.promptInner{
-  position:relative;
-  z-index:1;
-}
-
 button.choice.selected::after{ background:rgba(59,130,246,.45); opacity:1; }
 button.choice.correct::after,
 .prompt.correct::after{ background:rgba(34,197,94,.5); opacity:1; }
 button.choice.wrong::after,
 .prompt.wrong::after{ background:rgba(239,68,68,.5); opacity:1; }
 
-/* ---------------- History ---------------- */
+/* ============================================================
+   Drag & Drop shared styles (Demo + Game)
+============================================================ */
+
+.dd-zone.hover{ color: rgba(59,130,246,1); }
+.dd-zone.filled{ font-weight:900; }
+
+.dd-drag{
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  /* Keep glyph visible above finger */
+  transform: translate(-50%, calc(-50% - 56px));
+
+  z-index: 9999;
+  pointer-events: none;
+
+  font-family: "KanjiFont", sans-serif;
+  font-size: 72px;
+  color: var(--ink);
+
+  will-change: transform;
+}
+
+/* ============================================================
+   History
+============================================================ */
 
 .history{
   margin-top:12px;
@@ -520,7 +527,9 @@ button.choice.wrong::after,
 
 .historyRow:last-child{ margin-bottom:0; }
 
-/* ---------------- Dictionary ---------------- */
+/* ============================================================
+   Dictionary
+============================================================ */
 
 .dictTop{
   display:flex;
@@ -674,11 +683,11 @@ button.choice.wrong::after,
   color:rgba(233,238,252,.92);
 }
 
-/* ---------------- Kanji picker ---------------- */
+/* ============================================================
+   Kanji picker
+============================================================ */
 
-#kanjiGroups{
-  margin-top:10px;
-}
+#kanjiGroups{ margin-top:10px; }
 
 .kanjiGroup{
   margin-top:12px;
@@ -721,7 +730,9 @@ button.choice.wrong::after,
   border-color:rgba(59,130,246,.55);
 }
 
-/* ---------------- Debug ---------------- */
+/* ============================================================
+   Debug
+============================================================ */
 
 .debugGrid{
   display:grid;
@@ -742,12 +753,12 @@ button.choice.wrong::after,
 }
 
 @media (max-width:420px){
-  .debugGrid{
-    grid-template-columns:1fr;
-  }
+  .debugGrid{ grid-template-columns:1fr; }
 }
 
-/* ---------------- Modal ---------------- */
+/* ============================================================
+   Modal
+============================================================ */
 
 .overlay{
   position:fixed;
@@ -769,19 +780,11 @@ button.choice.wrong::after,
   width:min(520px,100%);
 }
 
-/* --- Demo override: force the right-side choices to be 1 column x 3 rows --- */
-.demoGrid #demoChoices.choices{
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  grid-auto-flow: row;
-  gap: 4px;
-}
+/* ============================================================
+   DEMO ONLY: 2x3 square grid + vertical writing
+============================================================ */
 
-/* =========================
-   Demo: fixed 2x3 square grid
-   ========================= */
-
-/* 2 columns x 3 rows of square cells => overall aspect ratio 2:3 */
+/* Demo: 2 columns x 3 rows of square cells => overall aspect ratio 2:3 */
 .demoGrid{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -789,121 +792,55 @@ button.choice.wrong::after,
   gap: 4px;
 
   width: 100%;
-  max-width: 520px;        /* optional; keeps it reasonable on wide screens */
-  aspect-ratio: 2 / 3;     /* ✅ makes each cell square */
-  margin: 10px auto 0;     /* center the grid */
+  max-width: 520px;
+  aspect-ratio: 2 / 3;
+  margin: 10px auto 0;
 }
 
 /* Prompt occupies full left column (3 rows) */
 .demoGrid #demoPrompt{
   grid-column: 1;
   grid-row: 1 / span 3;
+
+  /* true centering */
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-/* Demo override: force right-side choices to be 1 column x 3 rows */
+/* Ensure inner shrink-wraps for vertical centering */
+.demoGrid #demoPrompt .promptInner{
+  width:auto;
+  height:auto;
+  display:block;
+}
+
+/* Demo: choices are 1 column x 3 rows on the right */
 .demoGrid #demoChoices.choices{
   grid-column: 2;
   grid-row: 1 / span 3;
 
   display: grid;
-  grid-template-columns: 1fr;          /* ✅ single column */
-  grid-template-rows: repeat(3, 1fr);  /* ✅ three stacked rows */
-  grid-auto-flow: row;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
   gap: 4px;
 
-  padding: 0;   /* ✅ remove perceived extra inset on right */
+  padding: 0;
   margin: 0;
 }
 
-/* Ensure each choice fills its square cell */
 .demoGrid #demoChoices.choices > .choice{
   width: 100%;
   height: 100%;
 }
 
-/* =========================
-   Demo: vertical Japanese writing
-   ========================= */
-
-.demoGrid #demoPrompt .kanaText{
-  writing-mode: vertical-rl;     /* top→bottom, columns right→left */
-  text-orientation: upright;     /* keep kana/kanji upright */
-
-  display: block;
-  height: 100%;
-
-  column-fill: auto;             /* allow multiple vertical columns */
-  column-gap: 12px;              /* spacing between columns */
-
-  line-height: 1.2;              /* tighten vertical spacing slightly */
-  letter-spacing: 0.05em;        /* subtle breathing room */
-}
-
-/* Center vertical text inside demo prompt */
-.demoGrid #demoPrompt .promptInner{
-  display: flex;
-  justify-content: center;  /* horizontal centering (within tile) */
-  align-items: center;      /* vertical centering */
-  height: 100%;
-}
-
-.demoGrid #demoPrompt .kanaText{
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-
-  column-fill: auto;
-  column-gap: 12px;
-
-  line-height: 1.2;
-  letter-spacing: 0.05em;
-}
-
-/* Demo: fix vertical centering (don't stretch kanaText to full height) */
-.demoGrid #demoPrompt .kanaText{
-  /* vertical Japanese */
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-
-  /* ✅ key changes */
-  display: inline-block;
-  height: auto;              /* overrides height:100% */
-  inline-size: 100%;         /* in vertical writing, inline-size maps to available vertical space */
-
-  /* keep multi-column support */
-  column-fill: auto;
-  column-gap: 12px;
-
-  line-height: 1.2;
-  letter-spacing: 0.05em;
-}
-
-/* Ensure promptInner is a centering box */
-.demoGrid #demoPrompt .promptInner{
-  display:flex;
-  align-items:center;        /* vertical centering */
-  justify-content:center;    /* horizontal centering */
-  height:100%;
-}
-
-/* Demo: TRUE vertical centering for vertical writing */
-.demoGrid #demoPrompt{
-  display:flex;
-  align-items:center;      /* vertical centering */
-  justify-content:center;  /* horizontal centering */
-}
-
-.demoGrid #demoPrompt .promptInner{
-  height:auto;             /* override global height:100% */
-  width:auto;              /* shrink-wrap */
-  display:block;           /* avoid inner flex stretching */
-}
-
+/* Demo: traditional vertical Japanese writing (top→bottom, cols right→left) */
 .demoGrid #demoPrompt .kanaText{
   writing-mode: vertical-rl;
   text-orientation: upright;
 
   display:inline-block;
-  height:auto;             /* ✅ override height:100% */
+  height:auto;
   width:auto;
 
   column-fill:auto;
