@@ -12,7 +12,7 @@ import {
 } from "./settings.js";
 import { renderBracketColored, setActiveTab, showGameOverModal } from "./ui.js";
 
-export const FILE_VERSION = "1.81";
+export const FILE_VERSION = "1.90";
 
 const MAX_HISTORY = 8;
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
@@ -23,9 +23,12 @@ const DRAGWORD_PROBABILITY = 0.35;
 // 50/50 split for drag layouts
 const DRAG_LAYOUT_VERTICAL_PROBABILITY = 0.5;
 
-/* ---------- utils ---------- */
+/* ============================================================
+   Utilities
+============================================================ */
 
 function rand(n) { return Math.floor(Math.random() * n); }
+
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = rand(i + 1);
@@ -39,15 +42,23 @@ function meaningImagePath(kanjiChar) {
   return new URL(`./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp`, location.href).pathname;
 }
 
+function qid(id) {
+  return /** @type {HTMLElement|null} */ (document.getElementById(id));
+}
+
+/* ============================================================
+   HUD / Game end
+============================================================ */
+
 function updateHUD() {
-  const livesEl = document.getElementById("hudLives");
-  const scoreEl = document.getElementById("hudScore");
+  const livesEl = qid("hudLives");
+  const scoreEl = qid("hudScore");
   if (livesEl) livesEl.textContent = `❤️ ${Math.max(0, state.lives)}`;
   if (scoreEl) scoreEl.textContent = `${state.score}`;
 }
 
 function endGame() {
-  cancelActiveDrag();
+  teardownDragWord(); // safe no-op if not active
   state.locked = true;
   state.peekMode = false;
   state.gameActive = false;
@@ -55,21 +66,24 @@ function endGame() {
   showGameOverModal(state.score);
 }
 
+/* ============================================================
+   Layout + Prompt helpers
+============================================================ */
+
 function clearPromptClasses() {
-  document.getElementById("prompt")?.classList.remove("correct", "wrong", "drag-idle");
+  qid("prompt")?.classList.remove("correct", "wrong", "drag-idle");
 }
 
 function clearBoardLayoutClasses() {
-  const qa = document.getElementById("qaGrid");
+  const qa = qid("qaGrid");
   if (!qa) return;
   qa.classList.remove("drag-board", "drag-h", "drag-v");
 }
 
-function applyBoardLayoutForQuestion(q) {
-  const qa = document.getElementById("qaGrid");
+function setBoardLayoutForQuestion(q) {
+  const qa = qid("qaGrid");
   if (!qa) return;
 
-  // Always reset
   qa.classList.remove("drag-board", "drag-h", "drag-v");
 
   if (q?.type === "dragword") {
@@ -79,7 +93,7 @@ function applyBoardLayoutForQuestion(q) {
 }
 
 function setPromptKanji(text) {
-  const inner = document.getElementById("promptInner");
+  const inner = qid("promptInner");
   if (!inner) return;
   inner.innerHTML = "";
   const div = document.createElement("div");
@@ -89,7 +103,7 @@ function setPromptKanji(text) {
 }
 
 function setPromptKana(text) {
-  const inner = document.getElementById("promptInner");
+  const inner = qid("promptInner");
   if (!inner) return;
   inner.innerHTML = "";
   const div = document.createElement("div");
@@ -98,7 +112,9 @@ function setPromptKana(text) {
   inner.appendChild(div);
 }
 
-/* ---------- History ---------- */
+/* ============================================================
+   History
+============================================================ */
 
 function ensureHistory() {
   if (!Array.isArray(state.history)) state.history = [];
@@ -112,7 +128,7 @@ function addHistoryEntry(entry) {
 }
 
 function renderHistory() {
-  const host = document.getElementById("historyList");
+  const host = qid("historyList");
   if (!host) return;
   host.innerHTML = "";
 
@@ -154,7 +170,9 @@ function renderHistory() {
   }
 }
 
-/* ---------- Meaning tiles: CACHE ONLY ---------- */
+/* ============================================================
+   Meaning tiles: CACHE ONLY
+============================================================ */
 
 function renderFallback(btn, fallbackText) {
   btn.innerHTML = "";
@@ -205,7 +223,7 @@ async function setMeaningFromCache(btn, kanjiChar, fallbackText) {
 }
 
 function renderChoicesMeaning(options) {
-  const choicesEl = document.getElementById("choices");
+  const choicesEl = qid("choices");
   if (!choicesEl) return;
   choicesEl.innerHTML = "";
   choicesEl.style.display = "grid";
@@ -225,10 +243,12 @@ function renderChoicesMeaning(options) {
   });
 }
 
-/* ---------- Kanji tiles (compound click mode) ---------- */
+/* ============================================================
+   Compound: click kanji choices
+============================================================ */
 
 function renderChoicesKanjiClick(kanjiOptions) {
-  const choicesEl = document.getElementById("choices");
+  const choicesEl = qid("choices");
   if (!choicesEl) return;
   choicesEl.innerHTML = "";
   choicesEl.style.display = "grid";
@@ -250,10 +270,12 @@ function renderChoicesKanjiClick(kanjiOptions) {
   });
 }
 
-/* ---------- Peek tiles ---------- */
+/* ============================================================
+   Peek
+============================================================ */
 
 function renderPeekSingle(record) {
-  const choicesEl = document.getElementById("choices");
+  const choicesEl = qid("choices");
   if (!choicesEl) return;
   choicesEl.innerHTML = "";
   choicesEl.style.display = "block";
@@ -276,7 +298,7 @@ function renderPeekSingle(record) {
 }
 
 function renderPeekCompound(q) {
-  const choicesEl = document.getElementById("choices");
+  const choicesEl = qid("choices");
   if (!choicesEl) return;
   choicesEl.innerHTML = "";
   choicesEl.style.display = "block";
@@ -298,7 +320,9 @@ function renderPeekCompound(q) {
   choicesEl.appendChild(tile);
 }
 
-/* ---------- Drag word rendering + mechanics ---------- */
+/* ============================================================
+   DragWord Engine (refactored into a module-like section)
+============================================================ */
 
 const drag = {
   active: false,
@@ -307,13 +331,11 @@ const drag = {
   originBtn: /** @type {HTMLButtonElement|null} */ (null),
   dragEl: /** @type {HTMLElement|null} */ (null),
   hoveredZoneId: /** @type {number|null} */ (null),
-
-  // Per-question zone registry:
   zones: /** @type {Map<number, {id:number, expectKanji:string, el:HTMLSpanElement, filled:boolean}>} */ (new Map()),
 };
 
-function cancelActiveDrag() {
-  if (!drag.active) return;
+function teardownDragWord() {
+  // Remove listeners if any
   try {
     window.removeEventListener("pointermove", moveDrag);
     window.removeEventListener("pointerup", endDrag);
@@ -328,11 +350,11 @@ function cancelActiveDrag() {
   drag.kanji = "";
   drag.originBtn = null;
   drag.dragEl = null;
+  drag.hoveredZoneId = null;
+  drag.zones = new Map();
 
-  // if we abort a drag mid-question, restore idle cue
-  if (!state.locked && state.currentQuestion?.type === "dragword") {
-    document.getElementById("prompt")?.classList.add("drag-idle");
-  }
+  // Also clear idle cue safely
+  qid("prompt")?.classList.remove("drag-idle");
 }
 
 function clearHover() {
@@ -367,35 +389,25 @@ function hitTestZone(clientX, clientY) {
 }
 
 function allKanjiZonesFilled() {
-  // Only zones with expectKanji != "" are required
   for (const z of drag.zones.values()) {
     if (z.expectKanji && !z.filled) return false;
   }
   return true;
 }
 
-function setPromptDragZones(q) {
-  const inner = document.getElementById("promptInner");
+function buildDragZones(q) {
+  const inner = qid("promptInner");
   if (!inner) return;
 
   inner.innerHTML = "";
+
   const line = document.createElement("div");
   line.className = "kanaText";
   line.style.display = "inline-block";
-
-  // Horizontal: keep all in one line.
-  // Vertical: allow wrapping/columns (future sentence support).
-  if (q.layout === "h") {
-    line.style.whiteSpace = "nowrap";
-  } else {
-    line.style.whiteSpace = "normal";
-  }
+  line.style.whiteSpace = (q.layout === "h") ? "nowrap" : "normal";
 
   drag.zones = new Map();
 
-  // Render all segments as dd-zone:
-  // - kanji-bearing segments: expectKanji = kanji
-  // - kana-only segments: expectKanji = "" (incorrect drop-zone)
   q.segments.forEach((seg, idx) => {
     const span = document.createElement("span");
     span.className = "dd-zone";
@@ -415,8 +427,8 @@ function setPromptDragZones(q) {
   inner.appendChild(line);
 }
 
-function renderChoicesKanjiDrag(kanjiOptions) {
-  const choicesEl = document.getElementById("choices");
+function renderDragAnswerTiles(kanjiOptions) {
+  const choicesEl = qid("choices");
   if (!choicesEl) return;
   choicesEl.innerHTML = "";
   choicesEl.style.display = "grid";
@@ -428,7 +440,6 @@ function renderChoicesKanjiDrag(kanjiOptions) {
     btn.dataset.kind = "dragword";
     btn.dataset.kanji = k;
 
-    // Better touch behavior while dragging
     btn.style.touchAction = "none";
 
     const div = document.createElement("div");
@@ -442,24 +453,34 @@ function renderChoicesKanjiDrag(kanjiOptions) {
       beginDrag(btn, k, e);
     });
 
-    // Don’t click-answer in drag mode
     btn.addEventListener("click", (e) => e.preventDefault());
 
     choicesEl.appendChild(btn);
   });
 }
 
+function setDragIdle(isIdle) {
+  const promptEl = qid("prompt");
+  if (!promptEl) return;
+  if (isIdle) promptEl.classList.add("drag-idle");
+  else promptEl.classList.remove("drag-idle");
+}
+
+function renderDragWordQuestion(q) {
+  buildDragZones(q);
+  renderDragAnswerTiles(q.answers);
+  setDragIdle(true);
+}
+
 function beginDrag(btn, kanji, e) {
   if (state.locked) return;
 
   drag.active = true;
-
-  // Leaving idle state while dragging
-  document.getElementById("prompt")?.classList.remove("drag-idle");
-
   drag.pointerId = e.pointerId;
   drag.kanji = kanji;
   drag.originBtn = btn;
+
+  setDragIdle(false);
 
   const ghost = document.createElement("div");
   ghost.className = "dd-drag";
@@ -485,7 +506,6 @@ function moveDrag(e) {
     drag.dragEl.style.top = `${e.clientY}px`;
   }
 
-  // Hit test using glyph center (not finger)
   if (drag.dragEl) {
     const r = drag.dragEl.getBoundingClientRect();
     const x = r.left + r.width / 2;
@@ -496,10 +516,20 @@ function moveDrag(e) {
   }
 }
 
+function placeCorrect(zoneId) {
+  const z = drag.zones.get(zoneId);
+  if (!z || z.filled) return;
+
+  z.filled = true;
+  z.el.classList.remove("hover");
+  z.el.classList.add("filled");
+  z.el.textContent = z.expectKanji;
+}
+
 function flashWrongAndAdvance(displayText, wordMeta) {
   state.locked = true;
 
-  const promptEl = document.getElementById("prompt");
+  const promptEl = qid("prompt");
   promptEl?.classList.remove("correct");
   promptEl?.classList.add("wrong");
   drag.originBtn?.classList.add("wrong");
@@ -520,7 +550,7 @@ function flashWrongAndAdvance(displayText, wordMeta) {
 function markCorrectAndAdvance(displayText, wordMeta) {
   state.locked = true;
 
-  const promptEl = document.getElementById("prompt");
+  const promptEl = qid("prompt");
   promptEl?.classList.remove("wrong");
   promptEl?.classList.add("correct");
 
@@ -537,16 +567,6 @@ function markCorrectAndAdvance(displayText, wordMeta) {
   setTimeout(() => state.lives <= 0 ? endGame() : newQuestion(), constants.PAUSE_AFTER_ANSWER_MS);
 }
 
-function placeCorrect(zoneId) {
-  const z = drag.zones.get(zoneId);
-  if (!z || z.filled) return;
-
-  z.filled = true;
-  z.el.classList.remove("hover");
-  z.el.classList.add("filled");
-  z.el.textContent = z.expectKanji;
-}
-
 function endDrag(e) {
   if (!drag.active || drag.pointerId !== e.pointerId) return;
   e.preventDefault();
@@ -557,7 +577,6 @@ function endDrag(e) {
 
   const q = state.currentQuestion;
 
-  // Decide drop target based on glyph position
   let zoneId = null;
   if (drag.dragEl) {
     const r = drag.dragEl.getBoundingClientRect();
@@ -566,7 +585,6 @@ function endDrag(e) {
     zoneId = hitTestZone(x, y);
   }
 
-  // Default: snap-back if outside any zone
   if (zoneId != null && q && q.type === "dragword" && !state.locked) {
     const z = drag.zones.get(zoneId);
 
@@ -574,16 +592,13 @@ function endDrag(e) {
       const expect = z.expectKanji || "";
 
       if (!expect) {
-        // kana-only segment => incorrect drop-zone
         flashWrongAndAdvance(q.kana, q.meta || { word: q.kanji, reading: q.kana });
       } else if (drag.kanji === expect) {
         placeCorrect(zoneId);
-
         if (allKanjiZonesFilled()) {
           markCorrectAndAdvance(q.kana, q.meta || { word: q.kanji, reading: q.kana });
         }
       } else {
-        // wrong kanji on a kanji-zone => immediate fail
         flashWrongAndAdvance(q.kana, q.meta || { word: q.kanji, reading: q.kana });
       }
     }
@@ -598,13 +613,14 @@ function endDrag(e) {
   drag.kanji = "";
   drag.originBtn = null;
 
-  // If question still active (not answered), restore idle blue
   if (!state.locked && state.currentQuestion?.type === "dragword") {
-    document.getElementById("prompt")?.classList.add("drag-idle");
+    setDragIdle(true);
   }
 }
 
-/* ---------- Question generation ---------- */
+/* ============================================================
+   Question generation
+============================================================ */
 
 function buildSingleQuestion() {
   const record = state.pool[rand(state.pool.length)];
@@ -628,14 +644,12 @@ function buildCompoundQuestion(eligibleWords) {
   shuffle(poolOthers);
   const wrongs = poolOthers.slice(0, 2);
 
-  const answers = shuffle([k1, k2, ...wrongs]);
-
   return {
     type: "compound",
     kana: w.kana,
     kanji: w.kanji,
     kanjiChars: w.kanjiChars,
-    answers,
+    answers: shuffle([k1, k2, ...wrongs]),
     meta: w.meta || null
   };
 }
@@ -643,10 +657,7 @@ function buildCompoundQuestion(eligibleWords) {
 function buildDragWordQuestion(eligibleWords) {
   const w = eligibleWords[rand(eligibleWords.length)];
 
-  // 50/50: choose layout
   const layout = (Math.random() < DRAG_LAYOUT_VERTICAL_PROBABILITY) ? "v" : "h";
-
-  // Vertical uses 3 tiles; horizontal uses 4 tiles
   const targetCount = (layout === "v") ? 3 : 4;
 
   const correct = Array.from(new Set(w.kanjiChars));
@@ -656,8 +667,6 @@ function buildDragWordQuestion(eligibleWords) {
   shuffle(poolOthers);
   const wrongs = poolOthers.slice(0, needWrong);
 
-  const answers = shuffle([...correct, ...wrongs]);
-
   return {
     type: "dragword",
     layout,
@@ -665,7 +674,7 @@ function buildDragWordQuestion(eligibleWords) {
     kanji: w.kanji,
     kanjiChars: w.kanjiChars,
     segments: w.segments || [],
-    answers,
+    answers: shuffle([...correct, ...wrongs]),
     meta: w.meta || null
   };
 }
@@ -691,10 +700,12 @@ async function pickNextQuestion() {
   return buildSingleQuestion();
 }
 
-/* ---------- Lifecycle ---------- */
+/* ============================================================
+   Lifecycle
+============================================================ */
 
 async function newQuestion() {
-  cancelActiveDrag();
+  teardownDragWord();
 
   if (state.lives <= 0) { endGame(); return; }
 
@@ -702,36 +713,36 @@ async function newQuestion() {
   state.peekMode = false;
   state.peekChargedThisQuestion = false;
   state.compoundPicks = [];
+
   clearPromptClasses();
   clearBoardLayoutClasses();
 
   state.currentQuestion = await pickNextQuestion();
+  setBoardLayoutForQuestion(state.currentQuestion);
 
-  // Apply board layout classes (dragword only)
-  applyBoardLayoutForQuestion(state.currentQuestion);
+  const q = state.currentQuestion;
 
-  if (state.currentQuestion.type === "single") {
-    setPromptKanji(state.currentQuestion.record.id);
-    renderChoicesMeaning(state.currentQuestion.options);
-  } else if (state.currentQuestion.type === "compound") {
-    setPromptKana(state.currentQuestion.kana);
-    renderChoicesKanjiClick(state.currentQuestion.answers);
+  if (q.type === "single") {
+    setPromptKanji(q.record.id);
+    renderChoicesMeaning(q.options);
+  } else if (q.type === "compound") {
+    setPromptKana(q.kana);
+    renderChoicesKanjiClick(q.answers);
   } else {
-    // dragword
-    setPromptDragZones(state.currentQuestion);
-    renderChoicesKanjiDrag(state.currentQuestion.answers);
-
-    // 🟦 Idle visual cue
-    document.getElementById("prompt")?.classList.add("drag-idle");
+    renderDragWordQuestion(q);
   }
 
   updateHUD();
   renderHistory();
 }
 
+/* ============================================================
+   Non-drag question answer handling
+============================================================ */
+
 function handleSingleAnswer(btn) {
   state.locked = true;
-  const promptEl = document.getElementById("prompt");
+  const promptEl = qid("prompt");
   const buttons = Array.from(document.querySelectorAll("button.choice"));
   buttons.forEach(b => b.disabled = true);
 
@@ -766,7 +777,7 @@ function evaluateCompoundSecondPick() {
     b.disabled = true;
   });
 
-  const promptEl = document.getElementById("prompt");
+  const promptEl = qid("prompt");
   const ok = q.kanjiChars.every(k => picked.has(k));
   if (ok) {
     state.score += 1;
@@ -805,6 +816,10 @@ function onChoiceClick(btn) {
   // dragword doesn’t use click
 }
 
+/* ============================================================
+   Peek
+============================================================ */
+
 function togglePeek() {
   if (state.locked || !state.currentQuestion) return;
 
@@ -830,7 +845,9 @@ function togglePeek() {
   updateHUD();
 }
 
-/* ---------- Public ---------- */
+/* ============================================================
+   Public
+============================================================ */
 
 export async function startQuizGame() {
   const enabledGrades = getEnabledGrades();
@@ -861,5 +878,5 @@ export async function startQuizGame() {
 }
 
 export function wireGameUI() {
-  document.getElementById("prompt")?.addEventListener("click", togglePeek);
+  qid("prompt")?.addEventListener("click", togglePeek);
 }
