@@ -1,24 +1,23 @@
 import { state } from "./state.js";
 import { ensureGradesLoaded } from "./data.js";
 
-export const FILE_VERSION = "1.64";
+export const FILE_VERSION = "1.66";
 
-const SETTINGS_KEY = "kanjiSnap.settings.v13";
-
-// Versioned flags for this specific image set/path
-const DL_KEY = "kanjiSnap.downloadedGrades.imagesMeaningCartoonWebp.v2";
-
-// Must match sw.js
+const SETTINGS_KEY = "kanji_snap_settings_v2";
+const DL_KEY = "kanji_snap_downloaded_grades_v1";
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
-export const DEFAULT_SETTINGS = {
-  enabledGrades: { 1: true, 2: false, 3: false, 4: false, 5: false, 6: false },
-  kanjiOverrides: {},
-  compoundEnabled: true,
+/* ---------------- Defaults ---------------- */
 
-  // ✅ NEW: Drag word questions (drag-and-drop kanji onto segmented kana)
-  dragWordEnabled: false
+const DEFAULT_SETTINGS = {
+  enabledGrades: { 1: true, 2: true, 3: true },
+  kanjiOverrides: {},
+
+  compoundEnabled: true,
+  dragWordEnabled: true,
 };
+
+/* ---------------- Load/Save ---------------- */
 
 export function loadSettings() {
   try {
@@ -26,16 +25,12 @@ export function loadSettings() {
     if (!raw) return structuredClone(DEFAULT_SETTINGS);
 
     const obj = JSON.parse(raw);
+    if (!obj || typeof obj !== "object") return structuredClone(DEFAULT_SETTINGS);
 
-    obj.enabledGrades = obj.enabledGrades || structuredClone(DEFAULT_SETTINGS.enabledGrades);
-    for (const g of Object.keys(DEFAULT_SETTINGS.enabledGrades)) {
-      if (typeof obj.enabledGrades[g] !== "boolean") obj.enabledGrades[g] = DEFAULT_SETTINGS.enabledGrades[g];
-    }
-
-    if (!obj.kanjiOverrides || typeof obj.kanjiOverrides !== "object") obj.kanjiOverrides = {};
+    // Backfill defaults
+    if (!obj.enabledGrades) obj.enabledGrades = structuredClone(DEFAULT_SETTINGS.enabledGrades);
+    if (!obj.kanjiOverrides) obj.kanjiOverrides = {};
     if (typeof obj.compoundEnabled !== "boolean") obj.compoundEnabled = DEFAULT_SETTINGS.compoundEnabled;
-
-    // ✅ NEW
     if (typeof obj.dragWordEnabled !== "boolean") obj.dragWordEnabled = DEFAULT_SETTINGS.dragWordEnabled;
 
     return obj;
@@ -67,7 +62,6 @@ export function isCompoundEnabled() {
   return !!state.settings.compoundEnabled;
 }
 
-// ✅ NEW
 export function isDragWordEnabled() {
   return !!state.settings.dragWordEnabled;
 }
@@ -137,6 +131,7 @@ function meaningUrlForDownload(kanjiChar) {
 async function cacheGradeImages(grade, { onProgress } = {}) {
   await ensureGradesLoaded([grade]);
 
+  // ✅ FIX: correctly iterate kanji entries (not an iterator wrapped in an array)
   const chars = [...state.kanjiById.values()]
     .filter((k) => k.grade === grade)
     .map((k) => k.id);
@@ -201,97 +196,83 @@ function refreshDownloadUI() {
   }
 }
 
+/* ---------------- UI wiring ---------------- */
+
 export function initSettingsUI(onSettingsChanged) {
   const chkG1 = document.getElementById("chkG1");
   const chkG2 = document.getElementById("chkG2");
   const chkG3 = document.getElementById("chkG3");
   const chkCompound = document.getElementById("chkCompound");
+  const chkDragWords = document.getElementById("chkDragWords");
+  const btnClearOverrides = document.getElementById("btnClearOverrides");
+  const btnResetDownloads = document.getElementById("btnResetDownloads");
 
-  // ✅ NEW (safe if missing in HTML for now)
-  const chkDragWord = document.getElementById("chkDragWord");
-
-  const resetBtn = document.getElementById("resetSettingsBtn");
-  const clearOverridesBtn = document.getElementById("clearOverridesBtn");
-  const resetDownloadsBtn = document.getElementById("resetDownloadsBtn");
-  const openPickerBtn = document.getElementById("openKanjiPickerBtn");
-
-  function updateOverridePill() {
-    const pill = document.getElementById("overridePill");
-    if (pill) pill.textContent = `Overrides: ${getOverrideCount()}`;
-  }
-
-  function sync() {
+  function syncFromState() {
     if (chkG1) chkG1.checked = !!state.settings.enabledGrades[1];
     if (chkG2) chkG2.checked = !!state.settings.enabledGrades[2];
     if (chkG3) chkG3.checked = !!state.settings.enabledGrades[3];
+
     if (chkCompound) chkCompound.checked = !!state.settings.compoundEnabled;
+    if (chkDragWords) chkDragWords.checked = !!state.settings.dragWordEnabled;
 
-    // ✅ NEW
-    if (chkDragWord) chkDragWord.checked = !!state.settings.dragWordEnabled;
+    const ov = document.getElementById("overrideCount");
+    if (ov) ov.textContent = String(getOverrideCount());
 
-    updateOverridePill();
     refreshDownloadUI();
   }
 
+  function commit() {
+    saveSettings();
+    onSettingsChanged?.();
+    syncFromState();
+  }
+
   chkG1?.addEventListener("change", () => {
-    state.settings.enabledGrades[1] = chkG1.checked;
-    saveSettings(); sync(); onSettingsChanged?.();
+    state.settings.enabledGrades[1] = !!chkG1.checked;
+    commit();
   });
-
   chkG2?.addEventListener("change", () => {
-    state.settings.enabledGrades[2] = chkG2.checked;
-    saveSettings(); sync(); onSettingsChanged?.();
+    state.settings.enabledGrades[2] = !!chkG2.checked;
+    commit();
   });
-
   chkG3?.addEventListener("change", () => {
-    state.settings.enabledGrades[3] = chkG3.checked;
-    saveSettings(); sync(); onSettingsChanged?.();
+    state.settings.enabledGrades[3] = !!chkG3.checked;
+    commit();
   });
 
   chkCompound?.addEventListener("change", () => {
-    state.settings.compoundEnabled = chkCompound.checked;
-    saveSettings(); sync(); onSettingsChanged?.();
+    state.settings.compoundEnabled = !!chkCompound.checked;
+    commit();
   });
 
-  // ✅ NEW
-  chkDragWord?.addEventListener("change", () => {
-    state.settings.dragWordEnabled = chkDragWord.checked;
-    saveSettings(); sync(); onSettingsChanged?.();
+  chkDragWords?.addEventListener("change", () => {
+    state.settings.dragWordEnabled = !!chkDragWords.checked;
+    commit();
   });
 
-  resetBtn?.addEventListener("click", () => {
-    state.settings = structuredClone(DEFAULT_SETTINGS);
-    saveSettings(); sync(); onSettingsChanged?.();
-  });
-
-  clearOverridesBtn?.addEventListener("click", () => {
+  btnClearOverrides?.addEventListener("click", () => {
     clearAllOverrides();
-    saveSettings(); sync(); onSettingsChanged?.();
+    commit();
   });
 
-  resetDownloadsBtn?.addEventListener("click", () => {
+  btnResetDownloads?.addEventListener("click", () => {
     resetDownloadedGrades();
     refreshDownloadUI();
-    const savedPill = document.getElementById("savedPill");
-    if (savedPill) {
-      savedPill.textContent = "Downloads reset ✓";
-      setTimeout(() => (savedPill.textContent = "Saved"), 900);
-    }
   });
 
-  openPickerBtn?.addEventListener("click", () => window.__openKanjiPicker?.());
-
+  // Download buttons
   for (const g of [1, 2, 3]) {
-    document.getElementById(`btnDlG${g}`)?.addEventListener("click", async () => {
-      const btn = document.getElementById(`btnDlG${g}`);
-      if (btn) btn.disabled = true;
+    const btn = document.getElementById(`btnDlG${g}`);
+    if (!btn) continue;
 
-      setDlStatus(g, "Starting…");
+    btn.addEventListener("click", async () => {
+      btn.disabled = true;
+      setDlStatus(g, "Downloading…");
 
       try {
         const result = await cacheGradeImages(g, {
           onProgress: ({ done, total, ok, fail }) => {
-            setDlStatus(g, `Downloading ${done}/${total} (ok:${ok} fail:${fail})`);
+            setDlStatus(g, `Downloading… ${done}/${total} (ok ${ok}, fail ${fail})`);
           }
         });
 
@@ -299,14 +280,16 @@ export function initSettingsUI(onSettingsChanged) {
         set.add(g);
         saveDownloadedGrades(set);
 
-        setDlStatus(g, `Downloaded (ok:${result.ok} fail:${result.fail})`);
+        setDlStatus(g, `Downloaded (${result.ok}/${result.total})`);
         setDlButtonVisible(g, false);
-      } catch {
-        setDlStatus(g, "ERROR");
-        if (btn) btn.disabled = false;
+      } catch (err) {
+        console.error(err);
+        setDlStatus(g, "Failed (see console)");
+        btn.disabled = false;
       }
     });
   }
 
-  sync();
+  // Initial render
+  syncFromState();
 }
