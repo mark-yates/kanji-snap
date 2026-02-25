@@ -57,48 +57,6 @@
         </div>
       </section>
 
-      <!-- DEMO (Drag & Drop prototype) -->
-      <section class="view" id="viewDemo" data-view="demo" aria-labelledby="tabDemo">
-        <div class="row">
-          <div>
-            <div class="sectionTitle">Demo: Drag & drop</div>
-            <div class="muted">
-              Drag the kanji tiles onto the correct part of the hiragana word. Hovering over a target zone turns it blue.
-              Dropping on the wrong zone turns the tile red. Dropping outside any zone snaps back.
-            </div>
-          </div>
-          <button class="btn" data-tab="home" type="button">Back</button>
-        </div>
-
-<div id="demoGrid" class="demoGrid" style="margin-top:10px;">
-
-  <!-- Prompt tile -->
-  <div class="prompt" id="demoPrompt">
-    <div class="promptInner">
-      <div class="kanaText" id="demoPromptText"></div>
-    </div>
-  </div>
-
-  <!-- Choices container -->
-  <div class="choices" id="demoChoices">
-    <button class="choice" id="demoChoice0" type="button">
-      <span class="choiceKanji" id="demoChoice0Text">女</span>
-    </button>
-    <button class="choice" id="demoChoice1" type="button">
-      <span class="choiceKanji" id="demoChoice1Text">子</span>
-    </button>
-    <button class="choice" id="demoChoice2" type="button">
-      <span class="choiceKanji" id="demoChoice2Text">男</span>
-    </button>
-  </div>
-
-</div>
-
-        <div class="row" style="margin-top:10px; justify-content:flex-end;">
-          <button class="btn" id="demoResetBtn" type="button">Reset</button>
-        </div>
-      </section>
-
       <!-- SETTINGS -->
       <section class="view" id="viewSettings" aria-labelledby="tabSettings">
         <div class="row">
@@ -111,90 +69,38 @@
 
         <div class="settingsCard">
           <div class="sectionTitle">Grades</div>
+          <div class="muted">Choose which grades are active.</div>
+          <div id="gradeList"></div>
+        </div>
 
-          <div class="gradeLine">
-            <label class="check"><input id="chkG1" type="checkbox"> Grade 1</label>
-            <span class="gradeRight">
-              <span class="pill pillTiny" id="dlStatusG1">…</span>
-              <button class="btn btnSmall" id="btnDlG1" type="button">Download</button>
-            </span>
-          </div>
+        <div class="settingsCard">
+          <div class="sectionTitle">Images</div>
+          <div class="muted">Download or clear cached meaning images for the active grades.</div>
 
-          <div class="gradeLine">
-            <label class="check"><input id="chkG2" type="checkbox"> Grade 2</label>
-            <span class="gradeRight">
-              <span class="pill pillTiny" id="dlStatusG2">…</span>
-              <button class="btn btnSmall" id="btnDlG2" type="button">Download</button>
-            </span>
-          </div>
-
-          <div class="gradeLine">
-            <label class="check"><input id="chkG3" type="checkbox"> Grade 3</label>
-            <span class="gradeRight">
-              <span class="pill pillTiny" id="dlStatusG3">…</span>
-              <button class="btn btnSmall" id="btnDlG3" type="button">Download</button>
-            </span>
+          <div class="row" style="margin-top:10px;">
+            <button class="btn" id="downloadImagesBtn" type="button">Download images</button>
+            <button class="btn" id="clearImagesBtn" type="button">Clear images</button>
           </div>
 
           <div class="row" style="margin-top:10px;">
-            <button class="btn" id="openKanjiPickerBtn" type="button">Select individual kanji…</button>
-            <div class="pill" id="overridePill">Overrides: …</div>
-          </div>
-
-          <div class="muted" style="margin-top:8px;">
-            Downloading a grade stores its meaning images locally for offline use. The game will only use cached images.
+            <div class="pill" id="imagesStatusPill">Cached: …</div>
           </div>
         </div>
 
         <div class="settingsCard">
-          <div class="sectionTitle">Quiz options</div>
+          <div class="sectionTitle">Quiz types</div>
+          <div class="muted">Enable additional question styles.</div>
 
           <label class="check">
-            <input id="chkCompound" type="checkbox">
-            Include compound word questions
+            <input type="checkbox" id="compoundEnabled">
+            Compound questions (hiragana word → tap 2 kanji)
           </label>
 
-          <!-- ✅ NEW -->
-          <label class="check" style="margin-top:8px;">
-            <input id="chkDragWord" type="checkbox">
-            Include drag word questions
+          <label class="check">
+            <input type="checkbox" id="dragWordEnabled">
+            Drag word questions (hiragana → drag kanji into zones)
           </label>
-
-          <div class="muted" style="margin-top:8px;">
-            Drag word questions use words with 1–3 kanji and a valid segmentation. You drag kanji tiles onto the correct hiragana zone.
-          </div>
         </div>
-
-        <div class="settingsCard">
-          <div class="sectionTitle">Storage</div>
-          <div class="row" style="margin-top:8px;">
-            <button class="btn" id="resetSettingsBtn" type="button">Reset settings</button>
-            <button class="btn" id="clearOverridesBtn" type="button">Clear all overrides</button>
-            <button class="btn" id="resetDownloadsBtn" type="button">Reset downloads</button>
-            <div class="pill" id="savedPill">Saved</div>
-          </div>
-          <div class="muted" style="margin-top:8px;">
-            “Reset downloads” only resets the download flags so you can re-download updated images.
-          </div>
-        </div>
-      </section>
-
-      <!-- KANJI PICKER -->
-      <section class="view" id="viewKanji" aria-labelledby="tabKanji">
-        <div class="row">
-          <div>
-            <div class="sectionTitle">Kanji picker</div>
-            <div class="muted">Tap kanji to toggle. Ordered by kyoiku_index within each grade.</div>
-          </div>
-          <button class="btn" id="kanjiBackBtn" type="button">Back</button>
-        </div>
-
-        <div class="row" style="margin-top:10px;">
-          <div class="pill" id="kanjiPickerStatus">Loading…</div>
-          <button class="btn" id="kanjiPickerRefreshBtn" type="button">Refresh</button>
-        </div>
-
-        <div id="kanjiGroups"></div>
       </section>
 
       <!-- DICTIONARY -->
@@ -204,72 +110,117 @@
             <div class="sectionTitle">Dictionary</div>
             <div class="muted">Search kanji and view details.</div>
           </div>
-          <button class="btn" id="dictBackBtn" type="button">Back</button>
+          <button class="btn" data-tab="home" type="button">Back</button>
         </div>
 
         <div class="dictTop">
-          <input id="dictSearch" class="input" type="search" placeholder="Search: 漢字 / よみ / label…" autocomplete="off" />
-          <div class="pill" id="dictStatusPill">…</div>
+          <input class="input" id="dictSearchInput" type="text" placeholder="Search by kanji, meaning, reading…" />
+          <button class="btn" id="dictSearchBtn" type="button">Search</button>
         </div>
 
         <div class="dictLayout">
           <div class="dictListPane">
             <div class="dictListHeader">
-              <div class="muted" id="dictCount">0 results</div>
-              <button class="btn btnSmall" id="dictClearBtn" type="button">Clear</button>
+              <div class="sectionTitle" style="margin:0;">Results</div>
+              <div class="pill pillTiny" id="dictCountPill">0</div>
             </div>
-            <div class="dictList" id="dictList"></div>
+            <div id="dictList" class="dictList"></div>
           </div>
 
           <div class="dictDetailPane">
-            <div class="dictDetailEmpty" id="dictEmpty">
-              Select a kanji from the list to view details.
-            </div>
+            <div id="dictDetailEmpty" class="dictDetailEmpty">Select a result to see details.</div>
 
-            <div class="dictDetail" id="dictDetail" style="display:none;">
+            <div id="dictDetail" style="display:none;">
               <div class="dictDetailHeader">
-                <div class="dictBigKanji" id="dictBigKanji">本</div>
-                <div class="chips" id="dictChips"></div>
+                <div class="dictBigKanji" id="dictBigKanji">?</div>
+                <div>
+                  <div class="chips" id="dictChips"></div>
+                </div>
               </div>
 
-              <div class="dictRows" id="dictRows"></div>
+              <div class="dictRows" style="margin-top:12px;">
+                <div class="dictKey">Meaning</div>
+                <div class="dictVal" id="dictMeaning"></div>
 
-              <div class="sectionTitle" style="margin-top:10px;">Raw JSON</div>
-              <pre class="mono" id="dictRaw"></pre>
+                <div class="dictKey">On</div>
+                <div class="dictVal" id="dictOn"></div>
+
+                <div class="dictKey">Kun</div>
+                <div class="dictVal" id="dictKun"></div>
+
+                <div class="dictKey">Grade</div>
+                <div class="dictVal" id="dictGrade"></div>
+              </div>
+
+              <div class="sectionTitle" style="margin-top:14px;">Words</div>
+              <div id="dictWords"></div>
+
+              <div class="sectionTitle" style="margin-top:10px;">Raw word JSON</div>
+              <pre class="mono" id="wordRaw"></pre>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WORD DETAIL -->
-      <section class="view" id="viewWord">
+      <!-- KANJI -->
+      <section class="view" id="viewKanji" aria-labelledby="tabKanji">
         <div class="row">
           <div>
-            <div class="sectionTitle">Word detail</div>
-            <div class="muted">From the word block in the kanji JSON.</div>
+            <div class="sectionTitle">Pick kanji</div>
+            <div class="muted">Toggle which kanji are active in the pool.</div>
           </div>
-          <button class="btn" id="wordBackBtn" type="button">Back</button>
+          <button class="btn" data-tab="home" type="button">Back</button>
         </div>
 
-        <div class="settingsCard">
-          <div class="row" style="justify-content:flex-start;">
-            <div class="dictBigKanji" id="wordBig">学校</div>
-            <div class="chips" id="wordChips"></div>
+        <div id="kanjiGroups"></div>
+      </section>
+
+      <!-- DEMO: Sentence layout prototype (static for now) -->
+      <section class="view" id="viewDemo" data-view="demo" aria-labelledby="tabDemo">
+        <div class="row">
+          <div>
+            <div class="sectionTitle">Demo: Sentence layout</div>
+            <div class="muted">
+              Static layout prototype for future sentence drag-and-drop questions.
+              Bottom is a large prompt tile; top is a 2×4 answer grid.
+            </div>
+          </div>
+          <button class="btn" data-tab="home" type="button">Back</button>
+        </div>
+
+        <!-- ✅ Sentence board layout: rows 1-2 answers, row 3 prompt -->
+        <div id="demoGrid" class="demoGrid demoSentenceBoard" style="margin-top:10px;">
+
+          <!-- Answers container -->
+          <div class="choices" id="demoChoices">
+            <button class="choice" id="demoChoice0" type="button"><span class="choiceKanji" id="demoChoice0Text">?</span></button>
+            <button class="choice" id="demoChoice1" type="button"><span class="choiceKanji" id="demoChoice1Text">?</span></button>
+            <button class="choice" id="demoChoice2" type="button"><span class="choiceKanji" id="demoChoice2Text">?</span></button>
+            <button class="choice" id="demoChoice3" type="button"><span class="choiceKanji" id="demoChoice3Text">?</span></button>
+            <button class="choice" id="demoChoice4" type="button"><span class="choiceKanji" id="demoChoice4Text">?</span></button>
+            <button class="choice" id="demoChoice5" type="button"><span class="choiceKanji" id="demoChoice5Text">?</span></button>
+            <button class="choice" id="demoChoice6" type="button"><span class="choiceKanji" id="demoChoice6Text">?</span></button>
+            <button class="choice" id="demoChoice7" type="button"><span class="choiceKanji" id="demoChoice7Text">?</span></button>
           </div>
 
-          <div class="dictRows" id="wordRows" style="margin-top:10px;"></div>
+          <!-- Prompt tile -->
+          <div class="prompt" id="demoPrompt">
+            <div class="promptInner">
+              <div class="kanaText" id="demoPromptText"></div>
+            </div>
+          </div>
+        </div>
 
-          <div class="sectionTitle" style="margin-top:10px;">Raw word JSON</div>
-          <pre class="mono" id="wordRaw"></pre>
+        <div class="row" style="margin-top:10px; justify-content:flex-end;">
+          <button class="btn" id="demoResetBtn" type="button">Reset</button>
         </div>
       </section>
 
       <!-- GAME -->
       <section class="view" id="viewGame" aria-labelledby="tabGame">
-        <!-- ✅ New: shared 2x3 board wrapper (used for dragword layouts) -->
+        <!-- ✅ shared 2x3 board wrapper (used for dragword layouts) -->
         <div id="qaGrid" class="qaGrid">
           <div class="prompt" id="prompt" title="Tap to Sneak Peek">
-            <!-- Overlay HUD (does not affect prompt centering) -->
             <div class="promptHud" aria-hidden="true">
               <div class="promptHudItem" id="hudLives">❤️ 10</div>
               <div class="promptHudItem" id="hudScore">0</div>
