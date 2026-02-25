@@ -12,7 +12,7 @@ import {
 } from "./settings.js";
 import { renderBracketColored, setActiveTab, showGameOverModal } from "./ui.js";
 
-export const FILE_VERSION = "1.90";
+export const FILE_VERSION = "1.91";
 
 const MAX_HISTORY = 8;
 const RUNTIME_CACHE = "kanji-snap-runtime-v1";
@@ -321,7 +321,7 @@ function renderPeekCompound(q) {
 }
 
 /* ============================================================
-   DragWord Engine (refactored into a module-like section)
+   DragWord Engine (module-like)
 ============================================================ */
 
 const drag = {
@@ -335,7 +335,6 @@ const drag = {
 };
 
 function teardownDragWord() {
-  // Remove listeners if any
   try {
     window.removeEventListener("pointermove", moveDrag);
     window.removeEventListener("pointerup", endDrag);
@@ -353,7 +352,6 @@ function teardownDragWord() {
   drag.hoveredZoneId = null;
   drag.zones = new Map();
 
-  // Also clear idle cue safely
   qid("prompt")?.classList.remove("drag-idle");
 }
 
@@ -484,6 +482,12 @@ function beginDrag(btn, kanji, e) {
 
   const ghost = document.createElement("div");
   ghost.className = "dd-drag";
+
+  // ✅ NEW: extra class for vertical drag questions so CSS can offset left
+  if (state.currentQuestion?.type === "dragword" && state.currentQuestion.layout === "v") {
+    ghost.classList.add("dd-drag-v");
+  }
+
   ghost.textContent = kanji;
   document.body.appendChild(ghost);
   drag.dragEl = ghost;
