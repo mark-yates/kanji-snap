@@ -900,3 +900,26 @@ button.choice.wrong::after,
 .demoGrid.demoSentenceBoard #demoChoices .choiceKanji{
   font-size: 60px !important;
 }
+
+.demoGrid.demoSentenceBoard #demoPrompt .kanaText{
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  /* Use more columns before growing taller */
+  column-fill: auto;
+  column-gap: 12px;
+
+  /* Encourage more, narrower columns */
+  column-width: 1.1em;   /* try 1.0em–1.3em */
+  column-count: 5;       /* target 4–6 columns */
+
+  /* Make it fit better */
+  font-size: clamp(22px, 4.2vw, 40px);
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+
+  /* Hard stop: do not leak outside prompt tile */
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
