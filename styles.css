@@ -332,8 +332,7 @@ body{
   letter-spacing: 0.05em;
 }
 
-/* True centering for vertical drag prompt:
-   We center the prompt box itself and let inner shrink-wrap. */
+/* True centering for vertical drag prompt */
 .qaGrid.drag-v #prompt{
   display:flex;
   align-items:center;
@@ -437,7 +436,7 @@ button.choice.wrong::after,
   left: 0;
   top: 0;
 
-  /* Keep glyph visible above finger */
+  /* Default: keep glyph visible above finger */
   transform: translate(-50%, calc(-50% - 56px));
 
   z-index: 9999;
@@ -448,6 +447,11 @@ button.choice.wrong::after,
   color: var(--ink);
 
   will-change: transform;
+}
+
+/* ✅ NEW: vertical drag questions also shift the ghost left */
+.dd-drag.dd-drag-v{
+  transform: translate(calc(-50% - 36px), calc(-50% - 56px));
 }
 
 /* ============================================================
@@ -784,7 +788,6 @@ button.choice.wrong::after,
    DEMO ONLY: 2x3 square grid + vertical writing
 ============================================================ */
 
-/* Demo: 2 columns x 3 rows of square cells => overall aspect ratio 2:3 */
 .demoGrid{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -802,7 +805,6 @@ button.choice.wrong::after,
   grid-column: 1;
   grid-row: 1 / span 3;
 
-  /* true centering */
   display:flex;
   align-items:center;
   justify-content:center;
