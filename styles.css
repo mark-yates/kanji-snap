@@ -851,3 +851,52 @@ button.choice.wrong::after,
   line-height:1.2;
   letter-spacing:0.05em;
 }
+
+/* ===== FORCE Demo Sentence Board layout (override any older demo rules) ===== */
+
+.demoGrid.demoSentenceBoard{
+  display:grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: 1fr 1fr 2fr !important; /* row3 is double height */
+  gap: 4px !important;
+  width: 100% !important;
+  max-width: 520px !important;
+  aspect-ratio: 2 / 3 !important;
+  margin: 10px auto 0 !important;
+}
+
+/* Answers occupy top two rows across both columns */
+.demoGrid.demoSentenceBoard #demoChoices{
+  grid-column: 1 / span 2 !important;
+  grid-row: 1 / span 2 !important;
+
+  display:grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  grid-template-rows: repeat(2, 1fr) !important;
+  gap: 4px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Prompt occupies bottom row across both columns */
+.demoGrid.demoSentenceBoard #demoPrompt{
+  grid-column: 1 / span 2 !important;
+  grid-row: 3 !important;
+
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+
+/* Make sure demo tiles fill their cells (no aspect-ratio forcing weirdness) */
+.demoGrid.demoSentenceBoard #demoChoices > .choice{
+  width:100% !important;
+  height:100% !important;
+  aspect-ratio: unset !important;
+}
+
+/* Slightly smaller glyph for small tiles */
+.demoGrid.demoSentenceBoard #demoChoices .choiceKanji{
+  font-size: 60px !important;
+}
