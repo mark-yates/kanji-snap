@@ -1,300 +1,107 @@
-export const FILE_VERSION = "1.01";
+export const FILE_VERSION = "1.70";
 
 /**
  * demo.js
- * Simple prototype for Drag & Drop mechanics using the word 女の子.
+ * Demo tab: Static sentence layout prototype (no drag/drop yet).
  *
- * Segments format example: "女:おんな|の|子:こ"
+ * Layout goal:
+ * - Top 2 rows (spanning width): 2x4 answer tiles (8 tiles)
+ * - Bottom row (spanning width): one large square prompt tile
  *
- * Change in 1.01:
- * - ALL segments (including kana-only) are rendered as visible drop-zones.
- * - Kana-only zones will highlight on hover, but any drop onto them is treated as WRONG.
- * - Hover + drop hit-testing is based on the dragged glyph position (not the finger).
+ * The CSS + HTML already set the board to the correct shape.
  */
-
-// NOTE: You no longer need DRAG_OFFSET_Y because the lift is handled in CSS (.dd-drag transform).
-// Keeping this file free of JS offsets makes glyph-based hit-testing exact.
-function parseSegments(segmentsStr) {
-  const rawTokens = (segmentsStr || "").split("|").filter((t) => t.length > 0);
-
-  /**
-   * Returns tokens where every token becomes a "zone" with:
-   * - displayText: what is shown in the prompt initially (hiragana / kana)
-   * - expectedKanji: kanji that must be dropped here, OR null for kana-only zones (always wrong if dropped on)
-   */
-  /** @type {Array<{type:'zone', id:number, displayText:string, expectedKanji:string|null}>} */
-  const tokens = [];
-
-  let nextId = 0;
-  for (const raw of rawTokens) {
-    const i = raw.indexOf(":");
-    if (i !== -1) {
-      const kanji = raw.slice(0, i);
-      const reading = raw.slice(i + 1);
-      tokens.push({ type: "zone", id: nextId++, displayText: reading, expectedKanji: kanji });
-    } else {
-      // kana-only segment becomes a zone with no expected kanji
-      tokens.push({ type: "zone", id: nextId++, displayText: raw, expectedKanji: null });
-    }
-  }
-
-  return tokens;
-}
 
 function q(id) {
   return /** @type {HTMLElement|null} */ (document.getElementById(id));
 }
 
-export function initDemoUI() {
-  const promptEl = q("demoPrompt");
+const TEST_SENTENCE =
+  "ある日、じいさまは\n" +
+  "山へ　しばかりに、\n" +
+  "ばあさまは　川へ\n" +
+  "せんたくに　いきました";
+
+const SENTENCE_KANJI = ["日", "山", "川"];
+
+/**
+ * Fallback grade-1-ish kanji list (only used if the app pool isn't available yet).
+ * (Doesn't need to be complete; just needs enough variety for filler.)
+ */
+const FALLBACK_G1 = [
+  "一","二","三","四","五","六","七","八","九","十",
+  "上","下","左","右","中","大","小","月","火","水","木","金","土",
+  "人","子","女","男","山","川","田","口","目","耳","手","足",
+  "日","年","早","白","本","立","休","先","生","学","校",
+  "国","円","千","万","百","正","気","空","天","雨"
+];
+
+function uniq(arr) {
+  return Array.from(new Set(arr));
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/**
+ * Try to pull grade 1 kanji from the current app pool, if available.
+ * Falls back to a local list if state/pool not available.
+ */
+function getGrade1Candidates() {
+  // "state" is in a module; we won't hard-import it here to keep demo robust.
+  // But in many builds, state is on window. We'll use it if present.
+  const pool = /** @type {any} */ (window).state?.pool;
+
+  // If pool exists, it contains entries like {id, grade, ...}
+  if (Array.isArray(pool) && pool.length) {
+    const g1 = pool.filter((k) => k && k.grade === 1 && typeof k.id === "string").map((k) => k.id);
+    if (g1.length >= 8) return uniq(g1);
+  }
+
+  return uniq(FALLBACK_G1);
+}
+
+function buildAnswerTiles() {
+  const candidates = getGrade1Candidates().filter((k) => !SENTENCE_KANJI.includes(k));
+  shuffle(candidates);
+
+  const neededFill = Math.max(0, 8 - SENTENCE_KANJI.length);
+  const fill = candidates.slice(0, neededFill);
+
+  const tiles = shuffle([...SENTENCE_KANJI, ...fill]).slice(0, 8);
+  return tiles;
+}
+
+function renderStatic() {
   const promptTextEl = q("demoPromptText");
-  const choicesEl = q("demoChoices");
+  if (promptTextEl) {
+    promptTextEl.textContent = TEST_SENTENCE;
+  }
+
+  const tiles = buildAnswerTiles();
+
+  for (let i = 0; i < 8; i++) {
+    const el = q(`demoChoice${i}Text`);
+    if (el) el.textContent = tiles[i] || "？";
+  }
+}
+
+export function initDemoUI() {
   const resetBtn = q("demoResetBtn");
 
-  if (!promptEl || !promptTextEl || !choicesEl) return;
+  // Make sure prompt has the usual tile classes (same as game prompt)
+  const prompt = q("demoPrompt");
+  prompt?.classList.remove("correct", "wrong");
 
-  // Hard-coded test word: 女の子
-  const segments = "女:おんな|の|子:こ";
-
-  /**
-   * Zone model:
-   * - expectedKanji: string|null
-   *   - string => correct tile is that kanji
-   *   - null   => kana-only zone; dropping anything is WRONG
-   */
-  /** @type {Map<number, {id:number, expectedKanji:string|null, el:HTMLSpanElement, filled:boolean, originalText:string}>} */
-  let zones = new Map();
-
-  function render() {
-    // Clear prompt feedback
-    promptEl.classList.remove("correct", "wrong");
-    promptTextEl.textContent = "";
-    zones = new Map();
-
-    // Reset choice overlays
-    for (const btn of choicesEl.querySelectorAll("button.choice")) {
-      btn.classList.remove("correct", "wrong", "selected");
-      btn.style.touchAction = "none";
-    }
-
-    // Render tokens (ALL become zones now)
-    const tokens = parseSegments(segments);
-
-    for (const t of tokens) {
-      const span = document.createElement("span");
-      span.className = "dd-zone";
-      span.dataset.zoneId = String(t.id);
-      span.dataset.expectedKanji = t.expectedKanji ?? ""; // empty means kana-only
-      span.textContent = t.displayText;
-      promptTextEl.appendChild(span);
-
-      zones.set(t.id, {
-        id: t.id,
-        expectedKanji: t.expectedKanji,
-        el: span,
-        filled: false,
-        originalText: t.displayText,
-      });
-    }
-  }
-
-  /** Drag state */
-  const drag = {
-    active: false,
-    pointerId: null,
-    kanji: "",
-    originBtn: /** @type {HTMLButtonElement|null} */ (null),
-    dragEl: /** @type {HTMLElement|null} */ (null),
-    hoveredZoneId: /** @type {number|null} */ (null),
-  };
-
-  function clearHover() {
-    if (drag.hoveredZoneId == null) return;
-    const z = zones.get(drag.hoveredZoneId);
-    z?.el.classList.remove("hover");
-    drag.hoveredZoneId = null;
-  }
-
-  function setHover(zoneId) {
-    if (drag.hoveredZoneId === zoneId) return;
-    clearHover();
-    if (zoneId == null) return;
-
-    const z = zones.get(zoneId);
-    if (!z || z.filled) return;
-
-    z.el.classList.add("hover");
-    drag.hoveredZoneId = zoneId;
-  }
-
-  /** @returns {number|null} */
-  function hitTestZone(clientX, clientY) {
-    let el = document.elementFromPoint(clientX, clientY);
-    while (el && el !== document.body) {
-      if (el instanceof HTMLSpanElement && el.classList.contains("dd-zone")) {
-        const id = Number(el.dataset.zoneId);
-        return Number.isFinite(id) ? id : null;
-      }
-      el = el.parentElement;
-    }
-    return null;
-  }
-
-  function allFilled() {
-    // Only "real" kanji zones count towards completion (expectedKanji != null)
-    for (const z of zones.values()) {
-      if (z.expectedKanji != null && !z.filled) return false;
-    }
-    return true;
-  }
-
-  function beginDrag(btn, kanji, e) {
-    // If finished, don't start new drags (keeps the demo simple).
-    if (promptEl.classList.contains("correct")) return;
-
-    drag.active = true;
-    drag.pointerId = e.pointerId;
-    drag.kanji = kanji;
-    drag.originBtn = btn;
-
-    // Floating glyph
-    const ghost = document.createElement("div");
-    ghost.className = "dd-drag";
-    ghost.textContent = kanji;
-    document.body.appendChild(ghost);
-    drag.dragEl = ghost;
-
-    // Initial position
-    moveDrag(e);
-
-    window.addEventListener("pointermove", moveDrag, { passive: false });
-    window.addEventListener("pointerup", endDrag, { passive: false });
-    window.addEventListener("pointercancel", endDrag, { passive: false });
-
-    try {
-      btn.setPointerCapture(e.pointerId);
-    } catch {
-      // ignore
-    }
-  }
-
-  function moveDrag(e) {
-    if (!drag.active || drag.pointerId !== e.pointerId) return;
-    e.preventDefault();
-
-    if (drag.dragEl) {
-      drag.dragEl.style.left = `${e.clientX}px`;
-      drag.dragEl.style.top = `${e.clientY}px`;
-    }
-
-    // Use the dragged glyph position (rendered), not the finger
-    if (drag.dragEl) {
-      const r = drag.dragEl.getBoundingClientRect();
-      const x = r.left + r.width / 2;
-      const y = r.top + r.height / 2;
-      const zoneId = hitTestZone(x, y);
-      setHover(zoneId);
-    } else {
-      setHover(null);
-    }
-  }
-
-  function flashWrong() {
-    promptEl.classList.remove("correct");
-    promptEl.classList.add("wrong");
-    drag.originBtn?.classList.add("wrong");
-
-    window.setTimeout(() => {
-      promptEl.classList.remove("wrong");
-      drag.originBtn?.classList.remove("wrong");
-    }, 650);
-  }
-
-  function placeCorrect(zoneId) {
-    const z = zones.get(zoneId);
-    if (!z || z.filled) return;
-
-    // Only kanji zones can ever be correct
-    if (z.expectedKanji == null) return;
-
-    z.filled = true;
-    z.el.classList.remove("hover");
-    z.el.classList.add("filled");
-    z.el.textContent = z.expectedKanji;
-
-    if (allFilled()) {
-      promptEl.classList.remove("wrong");
-      promptEl.classList.add("correct");
-    }
-  }
-
-  function endDrag(e) {
-    if (!drag.active || drag.pointerId !== e.pointerId) return;
-    e.preventDefault();
-
-    window.removeEventListener("pointermove", moveDrag);
-    window.removeEventListener("pointerup", endDrag);
-    window.removeEventListener("pointercancel", endDrag);
-
-    // Decide drop target based on the dragged glyph's rendered position
-    let zoneId = null;
-    if (drag.dragEl) {
-      const r = drag.dragEl.getBoundingClientRect();
-      const x = r.left + r.width / 2;
-      const y = r.top + r.height / 2;
-      zoneId = hitTestZone(x, y);
-    }
-
-    // Drop logic
-    if (zoneId != null) {
-      const z = zones.get(zoneId);
-
-      if (z && !z.filled) {
-        // Kana-only zones: ANY drop here is wrong
-        if (z.expectedKanji == null) {
-          flashWrong();
-        } else {
-          // Kanji zone: correct only if matching expected kanji
-          if (drag.kanji === z.expectedKanji) {
-            placeCorrect(zoneId);
-          } else {
-            flashWrong();
-          }
-        }
-      }
-      // If zone is filled, treat like outside: snap-back (no-op)
-    }
-    // else dropped outside any zone: snap-back (no-op)
-
-    // Cleanup
-    clearHover();
-
-    drag.dragEl?.remove();
-    drag.dragEl = null;
-    drag.active = false;
-    drag.pointerId = null;
-    drag.kanji = "";
-    drag.originBtn = null;
-  }
-
-  function wireChoices() {
-    for (const btn of choicesEl.querySelectorAll("button.choice")) {
-      const kanji = btn.querySelector(".choiceKanji")?.textContent?.trim();
-      if (!kanji) continue;
-
-      btn.addEventListener("pointerdown", (e) => {
-        // Left mouse or touch/pen
-        if (e.button != null && e.button !== 0) return;
-        beginDrag(/** @type {HTMLButtonElement} */ (btn), kanji, e);
-      });
-    }
-  }
+  renderStatic();
 
   resetBtn?.addEventListener("click", () => {
-    render();
+    renderStatic();
   });
 
-  // Init
-  render();
-  wireChoices();
+  // No drag/click behavior yet—this is layout-only.
 }
