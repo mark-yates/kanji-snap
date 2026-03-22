@@ -1,7 +1,7 @@
 import { state } from "./state.js";
 import { ensureGradesLoaded } from "./data.js";
 
-export const FILE_VERSION = "1.66";
+export const FILE_VERSION = "1.70";
 
 const SETTINGS_KEY = "kanji_snap_settings_v2";
 const DL_KEY = "kanji_snap_downloaded_grades_v1";
@@ -9,7 +9,7 @@ const RUNTIME_CACHE = "kanji-snap-runtime-v1";
 
 /* ---------------- Defaults ---------------- */
 
-const DEFAULT_SETTINGS = {
+export const DEFAULT_SETTINGS = {
   enabledGrades: { 1: true, 2: true, 3: true },
   kanjiOverrides: {},
 
@@ -27,11 +27,25 @@ export function loadSettings() {
     const obj = JSON.parse(raw);
     if (!obj || typeof obj !== "object") return structuredClone(DEFAULT_SETTINGS);
 
-    // Backfill defaults
-    if (!obj.enabledGrades) obj.enabledGrades = structuredClone(DEFAULT_SETTINGS.enabledGrades);
-    if (!obj.kanjiOverrides) obj.kanjiOverrides = {};
-    if (typeof obj.compoundEnabled !== "boolean") obj.compoundEnabled = DEFAULT_SETTINGS.compoundEnabled;
-    if (typeof obj.dragWordEnabled !== "boolean") obj.dragWordEnabled = DEFAULT_SETTINGS.dragWordEnabled;
+    if (!obj.enabledGrades || typeof obj.enabledGrades !== "object") {
+      obj.enabledGrades = structuredClone(DEFAULT_SETTINGS.enabledGrades);
+    }
+    if (!obj.kanjiOverrides || typeof obj.kanjiOverrides !== "object") {
+      obj.kanjiOverrides = {};
+    }
+    if (typeof obj.compoundEnabled !== "boolean") {
+      obj.compoundEnabled = DEFAULT_SETTINGS.compoundEnabled;
+    }
+    if (typeof obj.dragWordEnabled !== "boolean") {
+      obj.dragWordEnabled = DEFAULT_SETTINGS.dragWordEnabled;
+    }
+
+    // backfill missing grade flags
+    for (const g of Object.keys(DEFAULT_SETTINGS.enabledGrades)) {
+      if (typeof obj.enabledGrades[g] !== "boolean") {
+        obj.enabledGrades[g] = DEFAULT_SETTINGS.enabledGrades[g];
+      }
+    }
 
     return obj;
   } catch {
@@ -41,11 +55,6 @@ export function loadSettings() {
 
 export function saveSettings() {
   localStorage.setItem(SETTINGS_KEY, JSON.stringify(state.settings));
-  const savedPill = document.getElementById("savedPill");
-  if (savedPill) {
-    savedPill.textContent = "Saved ✓";
-    setTimeout(() => (savedPill.textContent = "Saved"), 900);
-  }
 }
 
 export function getEnabledGrades() {
@@ -117,10 +126,8 @@ export function isGradeDownloaded(grade) {
 /* ---------------- Download logic ---------------- */
 
 /**
- * IMPORTANT:
- * - Images are hosted under: ./images/meaning/cartoon/<KANJI>.webp
- * - We add ?dl=1 so sw.js can allow network + cache the canonical (no-query) URL
- * - We build an absolute URL using location.href so it works on GitHub Pages subpaths.
+ * Images are hosted under: ./images/meaning/cartoon/<KANJI>.webp
+ * We add ?dl=1 so sw.js can cache the canonical (no-query) URL into RUNTIME_CACHE.
  */
 function meaningUrlForDownload(kanjiChar) {
   const u = new URL(`./images/meaning/cartoon/${encodeURIComponent(kanjiChar)}.webp`, location.href);
@@ -131,14 +138,12 @@ function meaningUrlForDownload(kanjiChar) {
 async function cacheGradeImages(grade, { onProgress } = {}) {
   await ensureGradesLoaded([grade]);
 
-  // ✅ FIX: correctly iterate kanji entries (not an iterator wrapped in an array)
   const chars = [...state.kanjiById.values()]
     .filter((k) => k.grade === grade)
     .map((k) => k.id);
 
   const urls = chars.map(meaningUrlForDownload);
 
-  // Ensure cache exists (SW writes into this during dl=1 fetches)
   await caches.open(RUNTIME_CACHE);
 
   let done = 0;
@@ -170,126 +175,220 @@ async function cacheGradeImages(grade, { onProgress } = {}) {
   return { total: urls.length, ok, fail };
 }
 
-function setDlStatus(grade, text) {
-  const el = document.getElementById(`dlStatusG${grade}`);
-  if (el) el.textContent = text;
+async function countCachedMeaningImages() {
+  if (!("caches" in window)) return null;
+
+  try {
+    const cache = await caches.open(RUNTIME_CACHE);
+    const keys = await cache.keys();
+    return keys.filter((req) => {
+      const u = new URL(req.url);
+      return u.pathname.includes("/images/meaning/cartoon/") && u.pathname.endsWith(".webp");
+    }).length;
+  } catch {
+    return null;
+  }
 }
 
-function setDlButtonVisible(grade, visible) {
-  const btn = document.getElementById(`btnDlG${grade}`);
-  if (btn) btn.style.display = visible ? "" : "none";
+async function clearRuntimeMeaningImages() {
+  if (!("caches" in window)) return;
+
+  const cache = await caches.open(RUNTIME_CACHE);
+  const keys = await cache.keys();
+
+  await Promise.all(
+    keys.map(async (req) => {
+      try {
+        const u = new URL(req.url);
+        if (u.pathname.includes("/images/meaning/cartoon/") && u.pathname.endsWith(".webp")) {
+          await cache.delete(req);
+        }
+      } catch {
+        // ignore malformed cache entries
+      }
+    })
+  );
 }
 
-function refreshDownloadUI() {
-  const set = loadDownloadedGrades();
+/* ---------------- Settings UI ---------------- */
+
+function renderGradeControls(host, onChange) {
+  if (!host) return;
+  host.innerHTML = "";
 
   for (const g of [1, 2, 3]) {
-    const btn = document.getElementById(`btnDlG${g}`);
-    if (set.has(g)) {
-      setDlStatus(g, "Downloaded");
-      setDlButtonVisible(g, false);
-    } else {
-      setDlStatus(g, "Not downloaded");
-      setDlButtonVisible(g, true);
-      if (btn) btn.disabled = false;
-    }
+    const row = document.createElement("div");
+    row.className = "gradeLine";
+
+    const label = document.createElement("label");
+    label.className = "check";
+    label.style.marginTop = "0";
+
+    const chk = document.createElement("input");
+    chk.type = "checkbox";
+    chk.id = `gradeEnabled${g}`;
+    chk.checked = !!state.settings.enabledGrades[g];
+
+    chk.addEventListener("change", () => {
+      state.settings.enabledGrades[g] = !!chk.checked;
+      saveSettings();
+      onChange?.();
+    });
+
+    label.appendChild(chk);
+    label.appendChild(document.createTextNode(` Grade ${g}`));
+
+    const right = document.createElement("span");
+    right.className = "gradeRight";
+
+    const pill = document.createElement("span");
+    pill.className = "pill pillTiny";
+    pill.textContent = isGradeDownloaded(g) ? "Downloaded" : "Not downloaded";
+
+    right.appendChild(pill);
+
+    row.appendChild(label);
+    row.appendChild(right);
+    host.appendChild(row);
   }
 }
 
-/* ---------------- UI wiring ---------------- */
+async function refreshImagesStatusPill() {
+  const pill = document.getElementById("imagesStatusPill");
+  if (!pill) return;
 
-export function initSettingsUI(onSettingsChanged) {
-  const chkG1 = document.getElementById("chkG1");
-  const chkG2 = document.getElementById("chkG2");
-  const chkG3 = document.getElementById("chkG3");
-  const chkCompound = document.getElementById("chkCompound");
-  const chkDragWords = document.getElementById("chkDragWords");
-  const btnClearOverrides = document.getElementById("btnClearOverrides");
-  const btnResetDownloads = document.getElementById("btnResetDownloads");
+  const count = await countCachedMeaningImages();
+  const downloaded = [...loadDownloadedGrades()].sort((a, b) => a - b);
 
-  function syncFromState() {
-    if (chkG1) chkG1.checked = !!state.settings.enabledGrades[1];
-    if (chkG2) chkG2.checked = !!state.settings.enabledGrades[2];
-    if (chkG3) chkG3.checked = !!state.settings.enabledGrades[3];
-
-    if (chkCompound) chkCompound.checked = !!state.settings.compoundEnabled;
-    if (chkDragWords) chkDragWords.checked = !!state.settings.dragWordEnabled;
-
-    const ov = document.getElementById("overrideCount");
-    if (ov) ov.textContent = String(getOverrideCount());
-
-    refreshDownloadUI();
+  if (count == null) {
+    pill.textContent = "Cached: N/A";
+    return;
   }
+
+  const gradesText = downloaded.length ? ` • Grades: ${downloaded.join(", ")}` : "";
+  pill.textContent = `Cached: ${count} images${gradesText}`;
+}
+
+/**
+ * Current HTML structure:
+ * - #gradeList
+ * - #downloadImagesBtn
+ * - #clearImagesBtn
+ * - #imagesStatusPill
+ * - #compoundEnabled
+ * - #dragWordEnabled
+ */
+export function initSettingsUI(onSettingsChanged) {
+  const gradeList = document.getElementById("gradeList");
+
+  const downloadImagesBtn = document.getElementById("downloadImagesBtn");
+  const clearImagesBtn = document.getElementById("clearImagesBtn");
+  const imagesStatusPill = document.getElementById("imagesStatusPill");
+
+  const compoundEnabled = document.getElementById("compoundEnabled");
+  const dragWordEnabled = document.getElementById("dragWordEnabled");
 
   function commit() {
     saveSettings();
+    renderGradeControls(gradeList, commit);
+    refreshImagesStatusPill();
     onSettingsChanged?.();
-    syncFromState();
   }
 
-  chkG1?.addEventListener("change", () => {
-    state.settings.enabledGrades[1] = !!chkG1.checked;
-    commit();
-  });
-  chkG2?.addEventListener("change", () => {
-    state.settings.enabledGrades[2] = !!chkG2.checked;
-    commit();
-  });
-  chkG3?.addEventListener("change", () => {
-    state.settings.enabledGrades[3] = !!chkG3.checked;
-    commit();
-  });
+  renderGradeControls(gradeList, commit);
 
-  chkCompound?.addEventListener("change", () => {
-    state.settings.compoundEnabled = !!chkCompound.checked;
-    commit();
-  });
+  if (compoundEnabled instanceof HTMLInputElement) {
+    compoundEnabled.checked = !!state.settings.compoundEnabled;
+    compoundEnabled.addEventListener("change", () => {
+      state.settings.compoundEnabled = !!compoundEnabled.checked;
+      commit();
+    });
+  }
 
-  chkDragWords?.addEventListener("change", () => {
-    state.settings.dragWordEnabled = !!chkDragWords.checked;
-    commit();
-  });
+  if (dragWordEnabled instanceof HTMLInputElement) {
+    dragWordEnabled.checked = !!state.settings.dragWordEnabled;
+    dragWordEnabled.addEventListener("change", () => {
+      state.settings.dragWordEnabled = !!dragWordEnabled.checked;
+      commit();
+    });
+  }
 
-  btnClearOverrides?.addEventListener("click", () => {
-    clearAllOverrides();
-    commit();
-  });
+  downloadImagesBtn?.addEventListener("click", async () => {
+    const grades = getEnabledGrades();
+    if (!grades.length) {
+      alert("Enable at least one grade first.");
+      return;
+    }
 
-  btnResetDownloads?.addEventListener("click", () => {
-    resetDownloadedGrades();
-    refreshDownloadUI();
-  });
+    const originalText = downloadImagesBtn.textContent || "Download images";
+    downloadImagesBtn.disabled = true;
+    if (clearImagesBtn) clearImagesBtn.disabled = true;
 
-  // Download buttons
-  for (const g of [1, 2, 3]) {
-    const btn = document.getElementById(`btnDlG${g}`);
-    if (!btn) continue;
+    try {
+      let grandTotal = 0;
+      let grandOk = 0;
+      let grandFail = 0;
 
-    btn.addEventListener("click", async () => {
-      btn.disabled = true;
-      setDlStatus(g, "Downloading…");
+      for (const g of grades) {
+        if (imagesStatusPill) {
+          imagesStatusPill.textContent = `Downloading Grade ${g}…`;
+        }
 
-      try {
         const result = await cacheGradeImages(g, {
           onProgress: ({ done, total, ok, fail }) => {
-            setDlStatus(g, `Downloading… ${done}/${total} (ok ${ok}, fail ${fail})`);
+            if (imagesStatusPill) {
+              imagesStatusPill.textContent = `Grade ${g}: ${done}/${total} (ok ${ok}, fail ${fail})`;
+            }
           }
         });
+
+        grandTotal += result.total;
+        grandOk += result.ok;
+        grandFail += result.fail;
 
         const set = loadDownloadedGrades();
         set.add(g);
         saveDownloadedGrades(set);
-
-        setDlStatus(g, `Downloaded (${result.ok}/${result.total})`);
-        setDlButtonVisible(g, false);
-      } catch (err) {
-        console.error(err);
-        setDlStatus(g, "Failed (see console)");
-        btn.disabled = false;
       }
-    });
-  }
 
-  // Initial render
-  syncFromState();
+      if (imagesStatusPill) {
+        imagesStatusPill.textContent = `Downloaded ${grandOk}/${grandTotal}` + (grandFail ? ` (fail ${grandFail})` : "");
+      }
+    } catch (err) {
+      console.error(err);
+      if (imagesStatusPill) {
+        imagesStatusPill.textContent = `Download failed: ${err?.message || err}`;
+      }
+    } finally {
+      downloadImagesBtn.disabled = false;
+      if (clearImagesBtn) clearImagesBtn.disabled = false;
+      downloadImagesBtn.textContent = originalText;
+      renderGradeControls(gradeList, commit);
+      refreshImagesStatusPill();
+    }
+  });
+
+  clearImagesBtn?.addEventListener("click", async () => {
+    clearImagesBtn.disabled = true;
+    if (downloadImagesBtn) downloadImagesBtn.disabled = true;
+
+    try {
+      await clearRuntimeMeaningImages();
+      resetDownloadedGrades();
+      if (imagesStatusPill) imagesStatusPill.textContent = "Cached: 0 images";
+    } catch (err) {
+      console.error(err);
+      if (imagesStatusPill) {
+        imagesStatusPill.textContent = `Clear failed: ${err?.message || err}`;
+      }
+    } finally {
+      clearImagesBtn.disabled = false;
+      if (downloadImagesBtn) downloadImagesBtn.disabled = false;
+      renderGradeControls(gradeList, commit);
+      refreshImagesStatusPill();
+    }
+  });
+
+  // Initial status
+  refreshImagesStatusPill();
 }
