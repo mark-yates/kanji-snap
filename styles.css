@@ -6,12 +6,17 @@
 
 :root{
   --bg:#0b1220;
+
+  /* Use valid alpha values (0..1) */
   --border:rgba(233,238,252,.14);
+
   --text:#e9eefc;
   --muted:#a8b3cf;
+
   --paper:#ffffff;
   --ink:#000000;
-  --accent:rgba(59,130,246,1);
+
+  --accent: rgba(59,130,246,1);
 }
 
 *{box-sizing:border-box}
@@ -33,7 +38,7 @@ body{
 .wrap{width:min(900px,100%)}
 
 .card{
-  background:linear-gradient(180deg, rgba(17,26,46,.95), rgba(17,26,46,.78));
+  background: linear-gradient(180deg, rgba(17,26,46,.95), rgba(17,26,46,.78));
   border:1px solid var(--border);
   border-radius:18px;
   padding:16px;
@@ -160,7 +165,7 @@ body{
   border-bottom:1px solid rgba(233,238,252,.08);
 }
 
-.gradeLine:last-child{border-bottom:none}
+.gradeLine:last-child{ border-bottom:none; }
 
 .gradeRight{
   display:flex;
@@ -180,57 +185,68 @@ body{
    GAME: Prompt + Choices
 ============================================================ */
 
+/* Default wrapper (non-drag) */
 .qaGrid{
   display:block;
 }
 
+/* Dragword: 2x3 board of square cells */
 .qaGrid.drag-board{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-template-rows:repeat(3,1fr);
-  gap:4px;
-  width:100%;
-  aspect-ratio:2 / 3;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
+
+  width: 100%;
+  aspect-ratio: 2 / 3;
 }
 
+/* Horizontal drag layout:
+   prompt spans top row; choices fill remaining 2x2 cells */
 .qaGrid.drag-h #prompt{
-  grid-column:1 / span 2;
-  grid-row:1;
+  grid-column: 1 / span 2;
+  grid-row: 1;
 }
 
 .qaGrid.drag-h #choices{
-  grid-column:1 / span 2;
-  grid-row:2 / span 2;
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 2;
+
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  grid-template-rows:repeat(2,1fr);
-  gap:4px;
-  margin-top:0;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 4px;
+
+  margin-top: 0;
 }
 
+/* Vertical drag layout:
+   prompt fills left column (3 rows); choices are 3 tiles down right column */
 .qaGrid.drag-v #prompt{
-  grid-column:1;
-  grid-row:1 / span 3;
+  grid-column: 1;
+  grid-row: 1 / span 3;
 }
 
 .qaGrid.drag-v #choices{
-  grid-column:2;
-  grid-row:1 / span 3;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+
   display:grid;
-  grid-template-columns:1fr;
-  grid-template-rows:repeat(3,1fr);
-  gap:4px;
-  margin-top:0;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
+
+  margin-top: 0;
 }
 
+/* In board mode, let tiles fill their cell (board owns the squareness) */
 .qaGrid.drag-board button.choice{
   width:100%;
   height:100%;
-  aspect-ratio:unset;
+  aspect-ratio: unset;
 }
 
 /* Prompt tile */
-
 .prompt{
   background:var(--paper);
   border-radius:6px;
@@ -244,6 +260,7 @@ body{
   overflow:hidden;
 }
 
+/* Printed-on-tile HUD (lives / score) */
 .promptHud{
   position:absolute;
   top:8px;
@@ -275,6 +292,7 @@ body{
   white-space:nowrap;
 }
 
+/* Prompt content */
 .promptInner{
   position:relative;
   z-index:1;
@@ -297,21 +315,24 @@ body{
   color:var(--ink);
 }
 
+/* Drag question idle cue: all segments blue until dragging begins */
 .prompt.drag-idle .dd-zone{
-  color:var(--accent);
+  color: var(--accent);
 }
 
-/* Vertical drag-word prompt */
-
+/* Dragword vertical prompt: traditional Japanese vertical flow */
 .qaGrid.drag-v .kanaText{
-  writing-mode:vertical-rl;
-  text-orientation:upright;
-  column-fill:auto;
-  column-gap:12px;
-  line-height:1.2;
-  letter-spacing:.05em;
+  writing-mode: vertical-rl;     /* top→bottom; columns right→left */
+  text-orientation: upright;     /* keep kana/kanji upright */
+
+  column-fill: auto;             /* allow multi-column in future */
+  column-gap: 12px;
+
+  line-height: 1.2;
+  letter-spacing: 0.05em;
 }
 
+/* True centering for vertical drag prompt */
 .qaGrid.drag-v #prompt{
   display:flex;
   align-items:center;
@@ -325,7 +346,7 @@ body{
 }
 
 /* ============================================================
-   Answer tiles
+   GAME: Answer tiles
 ============================================================ */
 
 .choices{
@@ -339,7 +360,7 @@ button.choice{
   border:0;
   background:var(--paper);
   border-radius:4px;
-  aspect-ratio:1 / 1;
+  aspect-ratio: 1 / 1;   /* square tiles for non-board layouts */
   padding:0;
   cursor:pointer;
   display:flex;
@@ -349,7 +370,7 @@ button.choice{
   position:relative;
   overflow:hidden;
   outline:none;
-  -webkit-tap-highlight-color:transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .choiceKanji{
@@ -386,7 +407,6 @@ button.choice{
 }
 
 /* Overlay tint */
-
 button.choice::after,
 .prompt::after{
   content:"";
@@ -398,45 +418,40 @@ button.choice::after,
   pointer-events:none;
 }
 
-button.choice.selected::after{
-  background:rgba(59,130,246,.45);
-  opacity:1;
-}
-
+button.choice.selected::after{ background:rgba(59,130,246,.45); opacity:1; }
 button.choice.correct::after,
-.prompt.correct::after{
-  background:rgba(34,197,94,.5);
-  opacity:1;
-}
-
+.prompt.correct::after{ background:rgba(34,197,94,.5); opacity:1; }
 button.choice.wrong::after,
-.prompt.wrong::after{
-  background:rgba(239,68,68,.5);
-  opacity:1;
-}
+.prompt.wrong::after{ background:rgba(239,68,68,.5); opacity:1; }
 
 /* ============================================================
-   Drag & Drop shared styles
+   Drag & Drop shared styles (Demo + Game)
 ============================================================ */
 
-.dd-zone.hover{color:rgba(59,130,246,1)}
-.dd-zone.filled{font-weight:900}
+.dd-zone.hover{ color: rgba(59,130,246,1); }
+.dd-zone.filled{ font-weight:900; }
 
 .dd-drag{
-  position:fixed;
-  left:0;
-  top:0;
-  transform:translate(-50%, calc(-50% - 56px));
-  z-index:9999;
-  pointer-events:none;
-  font-family:"KanjiFont", sans-serif;
-  font-size:72px;
-  color:var(--ink);
-  will-change:transform;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  /* Default: keep glyph visible above finger */
+  transform: translate(-50%, calc(-50% - 56px));
+
+  z-index: 9999;
+  pointer-events: none;
+
+  font-family: "KanjiFont", sans-serif;
+  font-size: 72px;
+  color: var(--ink);
+
+  will-change: transform;
 }
 
+/* ✅ NEW: vertical drag questions also shift the ghost left */
 .dd-drag.dd-drag-v{
-  transform:translate(calc(-50% - 36px), calc(-50% - 56px));
+  transform: translate(calc(-50% - 36px), calc(-50% - 56px));
 }
 
 /* ============================================================
@@ -503,15 +518,8 @@ button.choice.wrong::after,
   flex:0 0 auto;
 }
 
-.historyMark.ok{
-  background:rgba(34,197,94,.35);
-  color:#d7ffe6;
-}
-
-.historyMark.bad{
-  background:rgba(239,68,68,.35);
-  color:#ffd4d4;
-}
+.historyMark.ok{ background:rgba(34,197,94,.35); color:#d7ffe6; }
+.historyMark.bad{ background:rgba(239,68,68,.35); color:#ffd4d4; }
 
 .historyQ{
   font-weight:900;
@@ -521,7 +529,7 @@ button.choice.wrong::after,
   min-width:0;
 }
 
-.historyRow:last-child{margin-bottom:0}
+.historyRow:last-child{ margin-bottom:0; }
 
 /* ============================================================
    Dictionary
@@ -537,13 +545,13 @@ button.choice.wrong::after,
 
 .dictLayout{
   display:grid;
-  grid-template-columns:1.05fr 1.35fr;
+  grid-template-columns: 1.05fr 1.35fr;
   gap:12px;
   margin-top:12px;
 }
 
 @media (max-width:800px){
-  .dictLayout{grid-template-columns:1fr}
+  .dictLayout{ grid-template-columns:1fr; }
 }
 
 .dictListPane{
@@ -579,7 +587,7 @@ button.choice.wrong::after,
   margin-bottom:8px;
 }
 
-.dictRow:last-child{margin-bottom:0}
+.dictRow:last-child{ margin-bottom:0; }
 
 .dictRowTop{
   display:flex;
@@ -649,12 +657,12 @@ button.choice.wrong::after,
 .dictRows{
   margin-top:10px;
   display:grid;
-  grid-template-columns:140px 1fr;
+  grid-template-columns: 140px 1fr;
   gap:8px 10px;
 }
 
 @media (max-width:420px){
-  .dictRows{grid-template-columns:120px 1fr}
+  .dictRows{ grid-template-columns: 120px 1fr; }
 }
 
 .dictKey{
@@ -674,7 +682,7 @@ button.choice.wrong::after,
   border-radius:14px;
   padding:10px;
   overflow:auto;
-  font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
   font-size:12px;
   color:rgba(233,238,252,.92);
 }
@@ -683,7 +691,7 @@ button.choice.wrong::after,
    Kanji picker
 ============================================================ */
 
-#kanjiGroups{margin-top:10px}
+#kanjiGroups{ margin-top:10px; }
 
 .kanjiGroup{
   margin-top:12px;
@@ -700,15 +708,15 @@ button.choice.wrong::after,
 
 .kanjiGrid{
   display:grid;
-  grid-template-columns:repeat(8, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   gap:8px;
 }
 
 @media (max-width:520px){
-  .kanjiGrid{grid-template-columns:repeat(6, 1fr)}
+  .kanjiGrid{ grid-template-columns: repeat(6, 1fr); }
 }
 @media (max-width:420px){
-  .kanjiGrid{grid-template-columns:repeat(5, 1fr)}
+  .kanjiGrid{ grid-template-columns: repeat(5, 1fr); }
 }
 
 .kanjiBtn{
@@ -749,7 +757,7 @@ button.choice.wrong::after,
 }
 
 @media (max-width:420px){
-  .debugGrid{grid-template-columns:1fr}
+  .debugGrid{ grid-template-columns:1fr; }
 }
 
 /* ============================================================
@@ -777,104 +785,92 @@ button.choice.wrong::after,
 }
 
 /* ============================================================
-   DEMO: Sentence board
+   DEMO ONLY: sentence board
+   - top: 2x4 answer grid
+   - bottom: one large prompt tile
 ============================================================ */
 
-/*
-Row heights are 1 : 1 : 4 so the 8 answer tiles are square,
-and the bottom prompt tile is also square.
-*/
 .demoGrid.demoSentenceBoard{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  grid-template-rows:1fr 1fr 4fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 4fr;
   gap:4px;
+
   width:100%;
   max-width:520px;
   aspect-ratio:2 / 3;
   margin:10px auto 0;
 }
 
-/* Top: 2x4 answer grid */
+/* Answers occupy top two rows across both columns */
 .demoGrid.demoSentenceBoard #demoChoices{
   grid-column:1 / span 2;
   grid-row:1 / span 2;
+
   display:grid;
   grid-template-columns:repeat(4, 1fr);
   grid-template-rows:repeat(2, 1fr);
   gap:4px;
+
   margin:0;
   padding:0;
 }
 
+/* Prompt occupies bottom row across both columns */
+.demoGrid.demoSentenceBoard #demoPrompt{
+  grid-column:1 / span 2;
+  grid-row:3;
+
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Make sure demo tiles fill their cells */
 .demoGrid.demoSentenceBoard #demoChoices > .choice{
   width:100%;
   height:100%;
   aspect-ratio:unset;
 }
 
+/* Slightly smaller glyph for the 8 small answer tiles */
 .demoGrid.demoSentenceBoard #demoChoices .choiceKanji{
   font-size:60px;
 }
 
-/* Bottom: large prompt tile */
-.demoGrid.demoSentenceBoard #demoPrompt{
-  grid-column:1 / span 2;
-  grid-row:3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-/*
-Make the inner prompt box fill the tile.
-This gives the sentence text a real full-height container,
-which is essential for proper vertical columns.
-*/
+/* Center the prompt content without stretching it */
 .demoGrid.demoSentenceBoard #demoPrompt .promptInner{
-  width:100%;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
+  width:auto;
+  height:auto;
+  display:block;
 }
 
-/*
-Sentence prompt:
-- vertical text
-- one horizontal row of full-height columns
-- columns flow right -> left
-- ignore manual line breaks from the JS sentence string
-  because they were causing fragmented mini-columns
-*/
+/* Vertical sentence layout:
+   top→bottom, columns right→left.
+   Keep this simple: no forced column-count/column-width. */
 .demoGrid.demoSentenceBoard #demoPrompt .kanaText{
   writing-mode:vertical-rl;
   text-orientation:upright;
 
-  /* let the full tile height define column height */
-  display:block;
-  height:calc(100% - 20px);
-  max-height:calc(100% - 20px);
+  display:inline-block;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
 
-  /*
-    IMPORTANT:
-    Do not preserve the \n characters from the demo string.
-    Treat them like normal spaces so the browser creates
-    a single row of full-height columns.
-  */
-  white-space:normal;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
 
-  /* create additional columns across the width */
-  column-fill:auto;
-  column-gap:14px;
-  column-width:1.1em;
-
-  /* size */
   font-size:clamp(22px, 4.2vw, 40px);
   line-height:1.15;
-  letter-spacing:.03em;
+  letter-spacing:0.03em;
+
+  column-fill:auto;
+  column-gap:12px;
 
   padding:10px;
+  box-sizing:border-box;
   overflow:hidden;
 }
+
