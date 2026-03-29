@@ -838,6 +838,7 @@ button.choice.wrong::after,
 
 /* Demo: traditional vertical Japanese writing (top→bottom, cols right→left) */
 .demoGrid #demoPrompt .kanaText{
+  padding: 20px 10px 10px 10px;
   writing-mode: vertical-rl;
   text-orientation: upright;
 
@@ -848,7 +849,7 @@ button.choice.wrong::after,
   column-fill:auto;
   column-gap:12px;
 
-  line-height:1.2;
+  line-height: 1.8;
   letter-spacing:0.05em;
 }
 
@@ -902,6 +903,7 @@ button.choice.wrong::after,
 }
 
 .demoGrid.demoSentenceBoard #demoPrompt .kanaText{
+  padding: 20px 10px 10px 10px;
   writing-mode: vertical-rl;
   text-orientation: upright;
 
@@ -914,8 +916,8 @@ button.choice.wrong::after,
   column-count: 5;       /* target 4–6 columns */
 
   /* Make it fit better */
-  font-size: clamp(22px, 4.2vw, 40px);
-  line-height: 1.15;
+  font-size: 22px;
+  line-height: 1.8;
   letter-spacing: 0.03em;
 
   /* Hard stop: do not leak outside prompt tile */
@@ -946,14 +948,14 @@ button.choice.wrong::after,
   column-count: 5;
 
   /* Responsive sizing */
-  font-size: clamp(22px, 4.2vw, 40px);
-  line-height: 1.15;
+  font-size: 22px;
+  line-height: 1.8;
   letter-spacing: 0.03em;
 
   /* IMPORTANT: make it a real box inside the prompt */
   display: inline-block;
   height: 100%;
-  padding: 10px;
+  padding: 20px 10px 10px 10px;
   box-sizing: border-box;
 
   /* Prevent leaking */
