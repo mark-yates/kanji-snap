@@ -838,7 +838,6 @@ button.choice.wrong::after,
 
 /* Demo: traditional vertical Japanese writing (top→bottom, cols right→left) */
 .demoGrid #demoPrompt .kanaText{
-  padding: 20px 10px 10px 10px;
   writing-mode: vertical-rl;
   text-orientation: upright;
 
@@ -849,7 +848,7 @@ button.choice.wrong::after,
   column-fill:auto;
   column-gap:12px;
 
-  line-height: 1.8;
+  line-height:1.2;
   letter-spacing:0.05em;
 }
 
@@ -902,63 +901,34 @@ button.choice.wrong::after,
   font-size: 60px !important;
 }
 
-.demoGrid.demoSentenceBoard #demoPrompt .kanaText{
-  padding: 20px 10px 10px 10px;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
 
-  /* Use more columns before growing taller */
-  column-fill: auto;
-  column-gap: 12px;
 
-  /* Encourage more, narrower columns */
-  column-width: 1.1em;   /* try 1.0em–1.3em */
-  column-count: 5;       /* target 4–6 columns */
 
-  /* Make it fit better */
-  font-size: 22px;
-  line-height: 1.8;
-  letter-spacing: 0.03em;
-
-  /* Hard stop: do not leak outside prompt tile */
-  max-height: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-/* ===== Demo sentence: constrain prompt content properly (fix disappearing text) ===== */
+/* ===== Demo sentence: tuned prompt text ===== */
 
 .demoGrid.demoSentenceBoard #demoPrompt .promptInner{
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
-/* Keep the vertical multi-column behavior, but fit within the tile */
 .demoGrid.demoSentenceBoard #demoPrompt .kanaText{
   writing-mode: vertical-rl;
   text-orientation: upright;
 
-  /* Use more columns */
-  column-fill: auto;
-  column-gap: 12px;
-  column-width: 1.1em;
-  column-count: 5;
-
-  /* Responsive sizing */
-  font-size: 22px;
-  line-height: 1.8;
-  letter-spacing: 0.03em;
-
-  /* IMPORTANT: make it a real box inside the prompt */
   display: inline-block;
-  height: 100%;
-  padding: 20px 10px 10px 10px;
+  width: auto;
+  height: auto;
   box-sizing: border-box;
 
-  /* Prevent leaking */
-  overflow: hidden;
-}
+  column-fill: auto;
+  column-gap: 12px;
 
+  font-size: clamp(24px, 4.8vw, 42px);
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+
+  padding: 18px 10px 10px 10px;
+}
