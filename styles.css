@@ -924,11 +924,11 @@ button.choice.wrong::after,
   box-sizing: border-box;
 
   column-fill: auto;
-  column-gap: 30px;
+  column-gap: 6.0vw;
 
   font-size: clamp(24px, 6.0vw, 42px);
   line-height: 1.2;
   letter-spacing: 0.04em;
 
-  padding: 30px 10px 10px 30px;
+  padding: 100px 10px 10px 30px;
 }
