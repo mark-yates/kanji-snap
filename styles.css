@@ -924,9 +924,9 @@ button.choice.wrong::after,
   box-sizing: border-box;
 
   column-fill: auto;
-  column-gap: 10.0vw;
+  column-gap: 30px;
 
-  font-size: clamp(24px, 6.0vw, 42px);
+  font-size: clamp(30px, 6.0vw, 42px);
   line-height: 1.2;
   letter-spacing: 0.04em;
 
